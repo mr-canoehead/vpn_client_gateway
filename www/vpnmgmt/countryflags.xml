@@ -1,0 +1,43 @@
+<countryflags>
+        <country>
+                <name>United States</name>
+                <flagfile>US.png</flagfile>
+        </country>
+        <country>
+                <name>Canada</name>
+                <flagfile>CA.png</flagfile>
+        </country>
+        <country>
+                <name>United Kingdom</name>
+                <flagfile>GB.png</flagfile>
+        </country>
+        <country>
+                <name>Switzerland</name>
+                <flagfile>CH.png</flagfile>
+        </country>
+        <country>
+                <name>Netherlands</name>
+                <flagfile>NL.png</flagfile>
+        </country>
+        <country>
+                <name>Sweden</name>
+                <flagfile>SE.png</flagfile>
+        </country>
+        <country>
+                <name>France</name>
+                <flagfile>FR.png</flagfile>
+        </country>
+        <country>
+                <name>Germany</name>
+                <flagfile>DE.png</flagfile>
+        </country>
+        <country>
+                <name>Romania</name>
+                <flagfile>RO.png</flagfile>
+        </country>
+        <country>
+                <name>Hong Kong</name>
+                <flagfile>HK.png</flagfile>
+        </country>
+</countryflags>
+

@@ -1,0 +1,110 @@
+<vpnserverinfo>
+<basicvpnservers>
+        <servername>ca.privateinternetaccess.com</servername>
+        <servername>us-seattle.privateinternetaccess.com</servername>
+        <servername>uk-london.privateinternetaccess.com</servername>
+        <servername>sweden.privateinternetaccess.com</servername>
+        <servername>france.privateinternetaccess.com</servername>
+        <servername>germany.privateinternetaccess.com</servername>
+        <servername>swiss.privateinternetaccess.com</servername>
+        <servername>nl.privateinternetaccess.com</servername>
+        <servername>hk.privateinternetaccess.com</servername>
+</basicvpnservers>
+<vpnservers>
+	<vpnserver>
+		<servername>none</servername>
+		<countryname>Canada</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca.privateinternetaccess.com</servername>
+		<countryname>Canada</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca-toronto.privateinternetaccess.com</servername>
+		<countryname>Canada</countryname>
+		<regionname>Toronto</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-seattle.privateinternetaccess.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Seattle</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-midwest.privateinternetaccess.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Midwest</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-east.privateinternetaccess.com</servername>
+		<countryname>United States</countryname>
+		<regionname>East</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-west.privateinternetaccess.com</servername>
+		<countryname>United States</countryname>
+		<regionname>West</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-texas.privateinternetaccess.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Texas</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-california.privateinternetaccess.com</servername>
+		<countryname>United States</countryname>
+		<regionname>California</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-florida.privateinternetaccess.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Florida</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk-london.privateinternetaccess.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname>London</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk-southampton.privateinternetaccess.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname>Southampton</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>swiss.privateinternetaccess.com</servername>
+		<countryname>Switzerland</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl.privateinternetaccess.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sweden.privateinternetaccess.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>france.privateinternetaccess.com</servername>
+		<countryname>France</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>germany.privateinternetaccess.com</servername>
+		<countryname>Germany</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ro.privateinternetaccess.com</servername>
+		<countryname>Romania</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>hk.privateinternetaccess.com</servername>
+		<countryname>Hong Kong</countryname>
+		<regionname></regionname>
+	</vpnserver>
+</vpnservers>
+</vpnserverinfo>

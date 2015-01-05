@@ -116,7 +116,7 @@ function show_traceroute() {
 <div id="VPNChangeMessageOverlay" class="screenoverlay">
         <div id="VPNChangeMessage" class="vpnchangemessage">
                 <H2>VPN Changed<H2>
-                <P>Remember to restart Netflix!<P>
+                <P>Remember to restart media apps!<P>
         </div>
 </div>
 

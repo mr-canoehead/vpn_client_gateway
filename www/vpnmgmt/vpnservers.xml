@@ -34,22 +34,22 @@
 	<vpnserver>
 		<servername>us-midwest.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Midwest</regionname>
+		<regionname>Midwest (Chicago)</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-east.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>East</regionname>
+		<regionname>East (New Jersey)</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-west.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>West</regionname>
+		<regionname>West (Arizona)</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-texas.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Texas</regionname>
+		<regionname>Texas (Dallas)</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-california.privateinternetaccess.com</servername>
@@ -59,7 +59,7 @@
 	<vpnserver>
 		<servername>us-florida.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Florida</regionname>
+		<regionname>Florida (Tampa)</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>uk-london.privateinternetaccess.com</servername>
@@ -104,6 +104,21 @@
 	<vpnserver>
 		<servername>hk.privateinternetaccess.com</servername>
 		<countryname>Hong Kong</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>israel.privateinternetaccess.com</servername>
+		<countryname>Israel</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>aus.privateinternetaccess.com</servername>
+		<countryname>Australia</countryname>
+		<regionname></regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>japanm.privateinternetaccess.com</servername>
+		<countryname>Japan</countryname>
 		<regionname></regionname>
 	</vpnserver>
 </vpnservers>

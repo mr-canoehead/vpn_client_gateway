@@ -106,5 +106,20 @@
 		<countryname>Hong Kong</countryname>
 		<regionname></regionname>
 	</vpnserver>
+        <vpnserver>
+                <servername>israel.privateinternetaccess.com</servername>
+                <countryname>Israel</countryname>
+                <regionname></regionname>
+        </vpnserver>
+        <vpnserver>
+                <servername>aus.privateinternetaccess.com</servername>
+                <countryname>Australia</countryname>
+                <regionname></regionname>
+        </vpnserver>
+        <vpnserver>
+                <servername>japan.privateinternetaccess.com</servername>
+                <countryname>Japan</countryname>
+                <regionname></regionname>
+        </vpnserver>
 </vpnservers>
 </vpnserverinfo>

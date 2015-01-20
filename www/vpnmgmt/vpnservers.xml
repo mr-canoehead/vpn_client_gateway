@@ -34,22 +34,22 @@
 	<vpnserver>
 		<servername>us-midwest.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Midwest (Chicago)</regionname>
+		<regionname>Chicago</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-east.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>East (New Jersey)</regionname>
+		<regionname>New Jerse)</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-west.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>West (Arizona)</regionname>
+		<regionname>Arizona</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-texas.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Texas (Dallas)</regionname>
+		<regionname>Dallas</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-california.privateinternetaccess.com</servername>
@@ -59,7 +59,7 @@
 	<vpnserver>
 		<servername>us-florida.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Florida (Tampa)</regionname>
+		<regionname>Tampa</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>uk-london.privateinternetaccess.com</servername>
@@ -117,7 +117,7 @@
 		<regionname></regionname>
 	</vpnserver>
 	<vpnserver>
-		<servername>japanm.privateinternetaccess.com</servername>
+		<servername>japan.privateinternetaccess.com</servername>
 		<countryname>Japan</countryname>
 		<regionname></regionname>
 	</vpnserver>

@@ -39,17 +39,5 @@
                 <name>Hong Kong</name>
                 <flagfile>HK.png</flagfile>
         </country>
-        <country>
-                <name>Japan</name>
-                <flagfile>JP.png</flagfile>
-        </country>
-        <country>
-                <name>Australia</name>
-                <flagfile>AU.png</flagfile>
-        </country>
-        <country>
-                <name>Israel</name>
-                <flagfile>IL.png</flagfile>
-        </country>
 </countryflags>
 

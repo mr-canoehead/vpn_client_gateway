@@ -34,22 +34,38 @@
 	<vpnserver>
 		<servername>us-midwest.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
+<<<<<<< HEAD
 		<regionname>Chicago</regionname>
+=======
+		<regionname>Midwest</regionname>
+>>>>>>> parent of d338b61... wlan0 option, additional vpn servers
 	</vpnserver>
 	<vpnserver>
 		<servername>us-east.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
+<<<<<<< HEAD
 		<regionname>New Jersey</regionname>
+=======
+		<regionname>East</regionname>
+>>>>>>> parent of d338b61... wlan0 option, additional vpn servers
 	</vpnserver>
 	<vpnserver>
 		<servername>us-west.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
+<<<<<<< HEAD
 		<regionname>Arizona</regionname>
+=======
+		<regionname>West</regionname>
+>>>>>>> parent of d338b61... wlan0 option, additional vpn servers
 	</vpnserver>
 	<vpnserver>
 		<servername>us-texas.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
+<<<<<<< HEAD
 		<regionname>Dallas</regionname>
+=======
+		<regionname>Texas</regionname>
+>>>>>>> parent of d338b61... wlan0 option, additional vpn servers
 	</vpnserver>
 	<vpnserver>
 		<servername>us-california.privateinternetaccess.com</servername>
@@ -59,7 +75,11 @@
 	<vpnserver>
 		<servername>us-florida.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
+<<<<<<< HEAD
 		<regionname>Tampa</regionname>
+=======
+		<regionname>Florida</regionname>
+>>>>>>> parent of d338b61... wlan0 option, additional vpn servers
 	</vpnserver>
 	<vpnserver>
 		<servername>uk-london.privateinternetaccess.com</servername>
@@ -106,6 +126,7 @@
 		<countryname>Hong Kong</countryname>
 		<regionname></regionname>
 	</vpnserver>
+<<<<<<< HEAD
 	<vpnserver>
 		<servername>israel.privateinternetaccess.com</servername>
 		<countryname>Israel</countryname>
@@ -121,5 +142,7 @@
 		<countryname>Japan</countryname>
 		<regionname></regionname>
 	</vpnserver>
+=======
+>>>>>>> parent of d338b61... wlan0 option, additional vpn servers
 </vpnservers>
 </vpnserverinfo>

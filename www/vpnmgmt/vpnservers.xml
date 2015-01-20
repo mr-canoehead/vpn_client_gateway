@@ -39,7 +39,7 @@
 	<vpnserver>
 		<servername>us-east.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>New Jerse)</regionname>
+		<regionname>New Jersey</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-west.privateinternetaccess.com</servername>

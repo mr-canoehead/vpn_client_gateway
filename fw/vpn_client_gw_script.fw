@@ -2,9 +2,9 @@
 #
 #  This is automatically generated file. DO NOT MODIFY !
 #
-#  Firewall Builder  fwb_ipt v5.0.0.3568
+#  Firewall Builder  fwb_ipt v5.1.0.3599
 #
-#  Generated Thu Jan  1 16:36:56 2015 PST by chris
+#  Generated Tue Mar  3 16:19:12 2015 PST by chris
 #
 # files: * VPN\ Client\ Gateway.fw /etc/fw/VPN\ Client\ Gateway.fw
 #
@@ -37,7 +37,7 @@ LOGGER="/usr/bin/logger"
 
 log() {
     echo "$1"
-    command -v "$LOGGER" >/dev/null 2>&1 && $LOGGER -p info "$1"
+    which "$LOGGER" >/dev/null 2>&1 && $LOGGER -p info "$1"
 }
 
 getInterfaceVarName() {
@@ -113,14 +113,15 @@ diff_intf() {
 
 find_program() {
   PGM=$1
-  command -v $PGM >/dev/null 2>&1 || {
-    echo "$PGM not found"
+  which $PGM >/dev/null 2>&1 || {
+    echo "\"$PGM\" not found"
     exit 1
   }
 }
 check_tools() {
+  find_program which
   find_program $IPTABLES 
- find_program $MODPROBE 
+  find_program $MODPROBE 
   find_program $IP 
 }
 reset_iptables_v4() {
@@ -282,13 +283,7 @@ load_modules() {
 
 verify_interfaces() {
     :
-    echo "Verifying interfaces: eth0 tun0 lo"
-    for i in eth0 tun0 lo ; do
-        $IP link show "$i" > /dev/null 2>&1 || {
-            log "Interface $i does not exist"
-            exit 1
-        }
-    done
+    
 }
 
 prolog_commands() {
@@ -408,13 +403,21 @@ script_body() {
     $IPTABLES -A INPUT -i eth0  -p tcp -m tcp  -m multiport  --dports 9091,53,80,22  -m state --state NEW  -j ACCEPT
     $IPTABLES -A INPUT -i eth0  -p udp -m udp  --dport 53  -m state --state NEW  -j ACCEPT
     # 
-    # Rule 8 (tun0)
+    # Rule 8 (tun0,eth0,lo)
     # 
-    echo "Rule 8 (tun0)"
+    echo "Rule 8 (tun0,eth0,lo)"
     # 
+    $IPTABLES -A INPUT -i eth0   -m state --state NEW  -j ACCEPT
+    $IPTABLES -A INPUT -i lo   -m state --state NEW  -j ACCEPT
     $IPTABLES -A INPUT -i tun0   -m state --state NEW  -j ACCEPT
+    $IPTABLES -A FORWARD -i eth0   -m state --state NEW  -j ACCEPT
+    $IPTABLES -A FORWARD -i lo   -m state --state NEW  -j ACCEPT
     $IPTABLES -A FORWARD -i tun0   -m state --state NEW  -j ACCEPT
+    $IPTABLES -A OUTPUT -o eth0   -m state --state NEW  -j ACCEPT
+    $IPTABLES -A OUTPUT -o lo   -m state --state NEW  -j ACCEPT
     $IPTABLES -A OUTPUT -o tun0   -m state --state NEW  -j ACCEPT
+    $IPTABLES -A FORWARD -o eth0   -m state --state NEW  -j ACCEPT
+    $IPTABLES -A FORWARD -o lo   -m state --state NEW  -j ACCEPT
     $IPTABLES -A FORWARD -o tun0   -m state --state NEW  -j ACCEPT
 }
 
@@ -471,7 +474,7 @@ test -z "$cmd" && {
 
 case "$cmd" in
     start)
-        log "Activating firewall script generated Thu Jan  1 16:36:56 2015 by chris"
+        log "Activating firewall script generated Tue Mar  3 16:19:12 2015 by chris"
         check_tools
          prolog_commands 
         check_run_time_address_table_files

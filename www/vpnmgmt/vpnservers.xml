@@ -1,7 +1,7 @@
 <vpnserverinfo>
 <basicvpnservers>
-        <servername>ca.privateinternetaccess.com</servername>
-        <servername>us-seattle.privateinternetaccess.com</servername>
+        <servername>ca-toronto.privateinternetaccess.com</servername>
+        <servername>us-midwest.privateinternetaccess.com</servername>
         <servername>uk-london.privateinternetaccess.com</servername>
         <servername>sweden.privateinternetaccess.com</servername>
         <servername>france.privateinternetaccess.com</servername>
@@ -12,44 +12,39 @@
 </basicvpnservers>
 <vpnservers>
 	<vpnserver>
-		<servername>none</servername>
-		<countryname>Canada</countryname>
-		<regionname></regionname>
-	</vpnserver>
-	<vpnserver>
 		<servername>ca.privateinternetaccess.com</servername>
 		<countryname>Canada</countryname>
-		<regionname></regionname>
+		<regionname>Quebec</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>ca-toronto.privateinternetaccess.com</servername>
 		<countryname>Canada</countryname>
-		<regionname>Toronto</regionname>
+		<regionname>Toronto ON</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-seattle.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Seattle</regionname>
+		<regionname>Seattle WA</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-midwest.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Midwest</regionname>
+		<regionname>Chicago IL</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-east.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>East</regionname>
+		<regionname>New Jersey</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-west.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>West</regionname>
+		<regionname>Arizona</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-texas.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Texas</regionname>
+		<regionname>Dallas TX</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>us-california.privateinternetaccess.com</servername>
@@ -59,7 +54,7 @@
 	<vpnserver>
 		<servername>us-florida.privateinternetaccess.com</servername>
 		<countryname>United States</countryname>
-		<regionname>Florida</regionname>
+		<regionname>Tampa FL</regionname>
 	</vpnserver>
 	<vpnserver>
 		<servername>uk-london.privateinternetaccess.com</servername>

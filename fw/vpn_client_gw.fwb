@@ -51,9 +51,9 @@
             <PolicyInstallScript arguments="" command="" enabled="False"/>
           </Management>
           <HostOptions>
-            <Option name="snmp_contact"></Option>
-            <Option name="snmp_description"></Option>
-            <Option name="snmp_location"></Option>
+            <Option name="snmp_contact"/>
+            <Option name="snmp_description"/>
+            <Option name="snmp_location"/>
             <Option name="use_mac_addr">false</Option>
             <Option name="use_mac_addr_filter">False</Option>
           </HostOptions>
@@ -69,9 +69,9 @@
             <PolicyInstallScript arguments="" command="" enabled="False"/>
           </Management>
           <HostOptions>
-            <Option name="snmp_contact"></Option>
-            <Option name="snmp_description"></Option>
-            <Option name="snmp_location"></Option>
+            <Option name="snmp_contact"/>
+            <Option name="snmp_description"/>
+            <Option name="snmp_location"/>
             <Option name="use_mac_addr">false</Option>
             <Option name="use_mac_addr_filter">False</Option>
           </HostOptions>
@@ -92,6 +92,13 @@
         <NetworkIPv6 id="id2383X75851" name="link-local ipv6" comment="RFC4291   Link-local unicast net" ro="False" address="fe80::" netmask="10"/>
         <NetworkIPv6 id="id2685X75851" name="multicast ipv6" comment="RFC4291  ipv6 multicast addresses" ro="False" address="ff00::" netmask="8"/>
         <NetworkIPv6 id="id2986X75851" name="experimental ipv6" comment="RFC2928, RFC4773 &#10;&#10;&quot;The block of Sub-TLA IDs assigned to the IANA&#10;(i.e., 2001:0000::/29 - 2001:01F8::/29) is for&#10;assignment for testing and experimental usage to&#10;support activities such as the 6bone, and&#10;for new approaches like exchanges.&quot;  [RFC2928]&#10;&#10;" ro="False" address="2001::" netmask="23"/>
+        <Network id="id3289X12564" name="TEST-NET-2" comment="RFC 5735&#10;RFC 5737&#10;" ro="False" address="198.51.100.0" netmask="255.255.255.0"/>
+        <Network id="id3300X12564" name="TEST-NET-3" comment="RFC 5735&#10;RFC 5737" ro="False" address="203.0.113.0" netmask="255.255.255.0"/>
+        <Network id="id3311X12564" name="Benchmark tests network" comment="RFC 5735" ro="False" address="198.18.0.0" netmask="255.254.0.0"/>
+        <NetworkIPv6 id="id3326X12564" name="mapped-ipv4" comment="" ro="False" address="::ffff:0.0.0.0" netmask="96"/>
+        <NetworkIPv6 id="id3341X12564" name="translated-ipv4" comment="" ro="False" address="::ffff:0:0:0" netmask="96"/>
+        <NetworkIPv6 id="id3350X12564" name="Teredo" comment="" ro="False" address="2001::" netmask="32"/>
+        <NetworkIPv6 id="id3359X12564" name="unique-local" comment="" ro="False" address="fc00::" netmask="7"/>
       </ObjectGroup>
       <ObjectGroup id="stdid15" name="Address Ranges" comment="" ro="False">
         <AddressRange id="id3F6D115C" name="broadcast" comment="" ro="False" start_address="255.255.255.255" end_address="255.255.255.255"/>
@@ -100,17 +107,17 @@
     </ObjectGroup>
     <ServiceGroup id="stdid05" name="Services" comment="" ro="False">
       <CustomService id="stdid14_1" name="ESTABLISHED" comment="This service matches all packets which are part of network connections established through the firewall, or connections 'related' to those established through the firewall. Term 'established' refers to the state tracking mechanism which exists inside iptables and other stateful firewalls and does not mean any particular combination of packet header options. Packet is considered to correspond to the state 'ESTABLISHED' if it belongs to the network session, for which proper initiation has been seen by the firewall, so its stateful inspection module made appropriate record in the state table. Usually stateful firewalls keep track of network connections using not only tcp protocol, but also udp and sometimes even icmp protocols. 'RELATED' describes packet belonging to a separate network connection, related to the session firewall is keeping track of. One example is FTP command and FTP data sessions." ro="False" protocol="any" address_family="ipv4">
-        <CustomServiceCommand platform="Undefined"></CustomServiceCommand>
+        <CustomServiceCommand platform="Undefined"/>
         <CustomServiceCommand platform="iosacl">established</CustomServiceCommand>
-        <CustomServiceCommand platform="ipfilter"></CustomServiceCommand>
+        <CustomServiceCommand platform="ipfilter"/>
         <CustomServiceCommand platform="ipfw">established</CustomServiceCommand>
         <CustomServiceCommand platform="iptables">-m state --state ESTABLISHED,RELATED</CustomServiceCommand>
         <CustomServiceCommand platform="procurve_acl">established</CustomServiceCommand>
       </CustomService>
       <CustomService id="stdid14_2" name="ESTABLISHED ipv6" comment="This service matches all packets which are part of network connections established through the firewall, or connections 'related' to those established through the firewall. Term 'established' refers to the state tracking mechanism which exists inside iptables and other stateful firewalls and does not mean any particular combination of packet header options. Packet is considered to correspond to the state 'ESTABLISHED' if it belongs to the network session, for which proper initiation has been seen by the firewall, so its stateful inspection module made appropriate record in the state table. Usually stateful firewalls keep track of network connections using not only tcp protocol, but also udp and sometimes even icmp protocols. 'RELATED' describes packet belonging to a separate network connection, related to the session firewall is keeping track of. One example is FTP command and FTP data sessions." ro="False" protocol="any" address_family="ipv6">
-        <CustomServiceCommand platform="Undefined"></CustomServiceCommand>
+        <CustomServiceCommand platform="Undefined"/>
         <CustomServiceCommand platform="iosacl">established</CustomServiceCommand>
-        <CustomServiceCommand platform="ipfilter"></CustomServiceCommand>
+        <CustomServiceCommand platform="ipfilter"/>
         <CustomServiceCommand platform="ipfw">established</CustomServiceCommand>
         <CustomServiceCommand platform="iptables">-m state --state ESTABLISHED,RELATED</CustomServiceCommand>
         <CustomServiceCommand platform="procurve_acl">established</CustomServiceCommand>
@@ -365,54 +372,54 @@
       </ServiceGroup>
       <ServiceGroup id="stdid13" name="Custom" comment="" ro="False">
         <CustomService id="id3B64EEA8" name="rpc" comment="works in iptables and requires patch-o-matic.&#10;For more information look for patch-o-matic on http://www.netfilter.org/" ro="False" protocol="any" address_family="ipv4">
-          <CustomServiceCommand platform="Undefined"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipf"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfilter"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfw"></CustomServiceCommand>
+          <CustomServiceCommand platform="Undefined"/>
+          <CustomServiceCommand platform="ipf"/>
+          <CustomServiceCommand platform="ipfilter"/>
+          <CustomServiceCommand platform="ipfw"/>
           <CustomServiceCommand platform="iptables">-m record_rpc</CustomServiceCommand>
-          <CustomServiceCommand platform="pf"></CustomServiceCommand>
-          <CustomServiceCommand platform="pix"></CustomServiceCommand>
-          <CustomServiceCommand platform="unknown"></CustomServiceCommand>
+          <CustomServiceCommand platform="pf"/>
+          <CustomServiceCommand platform="pix"/>
+          <CustomServiceCommand platform="unknown"/>
         </CustomService>
         <CustomService id="id3B64EF4E" name="irc-conn" comment="IRC connection tracker, supports DCC.&#10;Works on iptables and requires patch-o-matic.&#10;For more information look for patch-o-matic on http://www.netfilter.org/&#10;" ro="False" protocol="any" address_family="ipv4">
-          <CustomServiceCommand platform="Undefined"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipf"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfilter"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfw"></CustomServiceCommand>
+          <CustomServiceCommand platform="Undefined"/>
+          <CustomServiceCommand platform="ipf"/>
+          <CustomServiceCommand platform="ipfilter"/>
+          <CustomServiceCommand platform="ipfw"/>
           <CustomServiceCommand platform="iptables">-m irc</CustomServiceCommand>
-          <CustomServiceCommand platform="pf"></CustomServiceCommand>
-          <CustomServiceCommand platform="pix"></CustomServiceCommand>
-          <CustomServiceCommand platform="unknown"></CustomServiceCommand>
+          <CustomServiceCommand platform="pf"/>
+          <CustomServiceCommand platform="pix"/>
+          <CustomServiceCommand platform="unknown"/>
         </CustomService>
         <CustomService id="id3B64EF50" name="psd" comment="Port scan detector, works only on iptables and  requires patch-o-matic &#10;For more information look for patch-o-matic on http://www.netfilter.org/" ro="False" protocol="any" address_family="ipv4">
-          <CustomServiceCommand platform="Undefined"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipf"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfilter"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfw"></CustomServiceCommand>
+          <CustomServiceCommand platform="Undefined"/>
+          <CustomServiceCommand platform="ipf"/>
+          <CustomServiceCommand platform="ipfilter"/>
+          <CustomServiceCommand platform="ipfw"/>
           <CustomServiceCommand platform="iptables">-m psd --psd-weight-threshold 5 --psd-delay-threshold 10000</CustomServiceCommand>
-          <CustomServiceCommand platform="pf"></CustomServiceCommand>
-          <CustomServiceCommand platform="pix"></CustomServiceCommand>
-          <CustomServiceCommand platform="unknown"></CustomServiceCommand>
+          <CustomServiceCommand platform="pf"/>
+          <CustomServiceCommand platform="pix"/>
+          <CustomServiceCommand platform="unknown"/>
         </CustomService>
         <CustomService id="id3B64EF52" name="string" comment="Matches a string in a whole packet, works in iptables and requires patch-o-matic.&#10;For more information look for patch-o-matic on http://www.netfilter.org/" ro="False" protocol="any" address_family="ipv4">
-          <CustomServiceCommand platform="Undefined"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipf"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfilter"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfw"></CustomServiceCommand>
+          <CustomServiceCommand platform="Undefined"/>
+          <CustomServiceCommand platform="ipf"/>
+          <CustomServiceCommand platform="ipfilter"/>
+          <CustomServiceCommand platform="ipfw"/>
           <CustomServiceCommand platform="iptables">-m string --string test_pattern</CustomServiceCommand>
-          <CustomServiceCommand platform="pf"></CustomServiceCommand>
-          <CustomServiceCommand platform="pix"></CustomServiceCommand>
-          <CustomServiceCommand platform="unknown"></CustomServiceCommand>
+          <CustomServiceCommand platform="pf"/>
+          <CustomServiceCommand platform="pix"/>
+          <CustomServiceCommand platform="unknown"/>
         </CustomService>
         <CustomService id="id3B64EF54" name="talk" comment="Talk protocol support. Works in iptables and requires patch-o-matic.&#10;For more information look for patch-o-matic on http://www.netfilter.org/" ro="False" protocol="any" address_family="ipv4">
-          <CustomServiceCommand platform="Undefined"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipf"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfilter"></CustomServiceCommand>
-          <CustomServiceCommand platform="ipfw"></CustomServiceCommand>
+          <CustomServiceCommand platform="Undefined"/>
+          <CustomServiceCommand platform="ipf"/>
+          <CustomServiceCommand platform="ipfilter"/>
+          <CustomServiceCommand platform="ipfw"/>
           <CustomServiceCommand platform="iptables">-m talk</CustomServiceCommand>
-          <CustomServiceCommand platform="pf"></CustomServiceCommand>
-          <CustomServiceCommand platform="pix"></CustomServiceCommand>
-          <CustomServiceCommand platform="unknown"></CustomServiceCommand>
+          <CustomServiceCommand platform="pf"/>
+          <CustomServiceCommand platform="pix"/>
+          <CustomServiceCommand platform="unknown"/>
         </CustomService>
       </ServiceGroup>
       <ServiceGroup id="stdid19" name="TagServices" comment="" ro="False"/>
@@ -457,9 +464,9 @@
       <ServiceGroup id="id1585X13175" name="TagServices" comment="" ro="False"/>
     </ServiceGroup>
     <ObjectGroup id="id1586X13175" name="Firewalls" comment="" ro="False">
-      <Firewall id="id1932X13175" host_OS="linux24" inactive="False" lastCompiled="1420159016" lastInstalled="1420159051" lastModified="1420159011" platform="iptables" version="" name="VPN Client Gateway" comment="" ro="False">
+      <Firewall id="id1932X13175" host_OS="linux24" inactive="False" lastCompiled="1425428256" lastInstalled="1425428288" lastModified="1425428243" platform="iptables" version="" name="VPN Client Gateway" comment="" ro="False">
         <NAT id="id1936X13175" name="NAT" comment="" ro="False" ipv4_rule_set="False" ipv6_rule_set="False" top_rule_set="True">
-          <NATRule id="id3985X13251" disabled="False" group="" position="0" action="Translate" comment="">
+          <NATRule id="id4505X16863" disabled="False" group="" position="0" action="Translate" comment="">
             <OSrc neg="False">
               <ObjectRef ref="sysid0"/>
             </OSrc>
@@ -671,6 +678,8 @@
             </Srv>
             <Itf neg="False">
               <ObjectRef ref="id1950X13175"/>
+              <ObjectRef ref="id1940X13175"/>
+              <ObjectRef ref="id2436X13251"/>
             </Itf>
             <When neg="False">
               <IntervalRef ref="sysid2"/>
@@ -703,23 +712,63 @@
           <PolicyInstallScript arguments="" command="" enabled="False"/>
         </Management>
         <FirewallOptions>
-          <Option name="accept_established">true</Option>
-          <Option name="accept_new_tcp_with_no_syn">true</Option>
-          <Option name="check_shading">true</Option>
-          <Option name="configure_interfaces">true</Option>
-          <Option name="firewall_is_part_of_any_and_networks">true</Option>
+          <Option name="accept_established">True</Option>
+          <Option name="accept_new_tcp_with_no_syn">True</Option>
+          <Option name="action_on_reject"/>
+          <Option name="activationCmd"/>
+          <Option name="add_mgmt_ssh_rule_when_stoped">False</Option>
+          <Option name="add_rules_for_ipv6_neighbor_discovery">False</Option>
+          <Option name="admUser"/>
+          <Option name="altAddress"/>
+          <Option name="bridging_fw">False</Option>
+          <Option name="check_shading">True</Option>
+          <Option name="clamp_mss_to_mtu">False</Option>
+          <Option name="clear_unknown_interfaces">False</Option>
+          <Option name="cmdline"/>
+          <Option name="compiler"/>
+          <Option name="configure_bonding_interfaces">False</Option>
+          <Option name="configure_bridge_interfaces">False</Option>
+          <Option name="configure_interfaces">False</Option>
+          <Option name="configure_vlan_interfaces">False</Option>
+          <Option name="debug">False</Option>
+          <Option name="drop_invalid">False</Option>
+          <Option name="epilog_script"/>
+          <Option name="firewall_dir"/>
+          <Option name="firewall_is_part_of_any_and_networks">True</Option>
           <Option name="flush_and_set_default_policy">True</Option>
+          <Option name="ignore_empty_groups">False</Option>
+          <Option name="ipv4_6_order">ipv4_first</Option>
+          <Option name="limit_suffix"/>
           <Option name="limit_value">0</Option>
           <Option name="linux24_ip_forward">1</Option>
-          <Option name="load_modules">true</Option>
-          <Option name="local_nat">false</Option>
+          <Option name="load_modules">True</Option>
+          <Option name="local_nat">False</Option>
+          <Option name="log_all">False</Option>
+          <Option name="log_invalid">False</Option>
+          <Option name="log_ip_opt">False</Option>
           <Option name="log_level">info</Option>
           <Option name="log_prefix">RULE %N -- %A </Option>
+          <Option name="log_tcp_opt">False</Option>
+          <Option name="log_tcp_seq">False</Option>
           <Option name="loopback_interface">lo</Option>
-          <Option name="manage_virtual_addr">true</Option>
+          <Option name="manage_virtual_addr">True</Option>
+          <Option name="mgmt_addr"/>
+          <Option name="mgmt_ssh">False</Option>
           <Option name="modules_dir">/lib/modules/`uname -r`/kernel/net/</Option>
+          <Option name="output_file"/>
+          <Option name="prolog_place">top</Option>
+          <Option name="prolog_script"/>
+          <Option name="scpArgs"/>
+          <Option name="script_name_on_firewall"/>
+          <Option name="sshArgs"/>
+          <Option name="ulog_cprange">0</Option>
           <Option name="ulog_nlgroup">1</Option>
-          <Option name="verify_interfaces">true</Option>
+          <Option name="ulog_qthreshold">1</Option>
+          <Option name="use_ULOG">False</Option>
+          <Option name="use_iptables_restore">False</Option>
+          <Option name="use_m_set">False</Option>
+          <Option name="use_numeric_log_levels">False</Option>
+          <Option name="verify_interfaces">False</Option>
         </FirewallOptions>
       </Firewall>
     </ObjectGroup>

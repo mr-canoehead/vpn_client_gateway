@@ -10,7 +10,7 @@
 }
 
 .screenoverlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -36,6 +36,22 @@
     text-align: center;
     z-index: 11; /* 1px higher than the overlay layer */
 }
+
+#ChangingVPNMessage {
+    width: 400px;
+    height: 150px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
 
 #IPInfoBox {
     width: 440px;
@@ -251,6 +267,79 @@
     margin-bottom: 20px;
 }
 
+#DisableVPNInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#DisableVPNInfoBoxTitle{
+    text-align:center;
+}
+
+#DisableVPNInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#DisableVPNButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+#EnableVPNInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#EnableVPNInfoBoxTitle{
+    text-align:center;
+}
+
+#EnableVPNInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#EnableVPNButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 #MainContainer{
 	width: 100%;
 	height:auto;
@@ -384,6 +473,12 @@ margin-bottom: 0;
 	padding-left: 10px;
 	margin-top:0;
 }
+
+#VPNDisabledWarningIcon{
+	content:url(images/Warning-icon-hi.png);
+	height: 10px;
+}
+
 #NewVPNSection H2{
 	padding-left:10px;
 	padding-top:10px;

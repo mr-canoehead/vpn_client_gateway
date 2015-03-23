@@ -3,8 +3,10 @@ The VPN Client Gateway forwards network traffic through a Virtual Private Networ
 
 To build your own VPN Client Gateway you will need a Raspberry Pi (or similar lightweight Linux computer) and a Private Internet Access account.
 
-The [Installation Guide](https://github.com/mr-canoehead/vpn_client_gateway/wiki/Installation-Guide) can be found in the project wiki.
-A detailed installation guide for setting up the VPN Client Gateway on a Raspberry Pi is included.
+The project files can be download from the [Releases page](https://github.com/mr-canoehead/vpn_client_gateway/releases).
+
+The [Installation Guide](https://github.com/mr-canoehead/vpn_client_gateway/wiki/Installation-Guide) can be found in the project wiki. A PDF version
+ of the guide is included with the project files.
 
 Here is a screenshot showing the management web page:
 

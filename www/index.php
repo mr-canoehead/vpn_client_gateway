@@ -123,7 +123,7 @@
 	function enable_vpn() {
 		$("#EnableVPNOverlay").hide();
 		show_changing_vpn_message();
-                $.get("vpnmgmt/*****enablevpn.php?vpnserver=enable",function(data){
+                $.get("vpnmgmt/enablevpn.php",function(data){
                 });
 		window.location.reload();
 	}

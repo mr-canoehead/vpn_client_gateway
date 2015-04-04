@@ -3,12 +3,12 @@
         <servername>ca-toronto.privateinternetaccess.com</servername>
         <servername>us-midwest.privateinternetaccess.com</servername>
         <servername>uk-london.privateinternetaccess.com</servername>
+	<servername>aus.privateinternetaccess.com</servername>
         <servername>sweden.privateinternetaccess.com</servername>
         <servername>france.privateinternetaccess.com</servername>
         <servername>germany.privateinternetaccess.com</servername>
         <servername>swiss.privateinternetaccess.com</servername>
         <servername>nl.privateinternetaccess.com</servername>
-        <servername>hk.privateinternetaccess.com</servername>
 </basicvpnservers>
 <vpnservers>
 	<vpnserver>

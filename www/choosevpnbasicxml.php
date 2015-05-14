@@ -18,7 +18,7 @@ foreach($vpnserverinfo->basicvpnservers->servername as $servername){
 	echo "<TD>" . "\n";
 	echo "<A HREF=\".?vpnserver=" . $servernamestr . "\" onclick=\"show_changing_vpn_message();\"><IMG width=40% SRC=\"images/flags/" . $flagfilestr . "\"/></A>" . "\n";
 	echo "<P>" . $countrynamestr;
-	if ($regionstr<>"") echo " (" . $regionstr . ")";
+	if ($regionstr<>"") echo "<br>(" . $regionstr . ")";
 	echo "</P>\n";
 	echo "</TD>" . "\n";
 	if (($counter % $columns == 0) and ($counter < $maxservers)) echo "</TR>\n<TR>\n";

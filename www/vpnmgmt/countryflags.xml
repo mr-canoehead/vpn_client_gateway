@@ -4,20 +4,24 @@
                 <flagfile>US.png</flagfile>
         </country>
         <country>
-                <name>Canada</name>
-                <flagfile>CA.png</flagfile>
-        </country>
-        <country>
                 <name>United Kingdom</name>
                 <flagfile>GB.png</flagfile>
         </country>
         <country>
-                <name>Switzerland</name>
-                <flagfile>CH.png</flagfile>
+                <name>Canada</name>
+                <flagfile>CA.png</flagfile>
+        </country>
+        <country>
+                <name>Australia</name>
+                <flagfile>AU.png</flagfile>
         </country>
         <country>
                 <name>Netherlands</name>
                 <flagfile>NL.png</flagfile>
+        </country>
+        <country>
+                <name>Switzerland</name>
+                <flagfile>CH.png</flagfile>
         </country>
         <country>
                 <name>Sweden</name>
@@ -32,24 +36,36 @@
                 <flagfile>DE.png</flagfile>
         </country>
         <country>
+                <name>Russia</name>
+                <flagfile>RU.png</flagfile>
+        </country>
+        <country>
                 <name>Romania</name>
                 <flagfile>RO.png</flagfile>
+        </country>
+        <country>
+                <name>Turkey</name>
+                <flagfile>TR.png</flagfile>
         </country>
         <country>
                 <name>Hong Kong</name>
                 <flagfile>HK.png</flagfile>
         </country>
         <country>
-                <name>Israel</name>
-                <flagfile>IL.png</flagfile>
-        </country>
-        <country>
-                <name>Australia</name>
-                <flagfile>AU.png</flagfile>
+                <name>Singapore</name>
+                <flagfile>SG.png</flagfile>
         </country>
         <country>
                 <name>Japan</name>
                 <flagfile>JP.png</flagfile>
+        </country>
+        <country>
+                <name>Israel</name>
+                <flagfile>IL.png</flagfile>
+        </country>
+	<country>
+                <name>Mexico</name>
+                <flagfile>MX.png</flagfile>
         </country>
 </countryflags>
 

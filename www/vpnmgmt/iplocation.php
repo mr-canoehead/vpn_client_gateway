@@ -3,6 +3,7 @@
         $ch = curl_init(); 
 // get our public IP address 
 	curl_setopt($ch, CURLOPT_URL, "bot.whatismyipaddress.com"); 
+	curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0"); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	$ipaddress = curl_exec($ch); 
 // ---

@@ -1,0 +1,426 @@
+<vpnserverinfo>
+<basicvpnservers>
+	<servername>atl-a01.wlvpn.com</servername>
+	<servername>atl-a02.wlvpn.com</servername>
+	<servername>atl-a03.wlvpn.com</servername>
+	<servername>chi-a01.wlvpn.com</servername>
+	<servername>chi-a02.wlvpn.com</servername>
+	<servername>chi-a03.wlvpn.com</servername>
+	<servername>chi-a04.wlvpn.com</servername>
+	<servername>dal-a01.wlvpn.com</servername>
+	<servername>dal-a02.wlvpn.com</servername>
+	<servername>iad-a01.wlvpn.com</servername>
+	<servername>iad-a02.wlvpn.com</servername>
+	<servername>iad-a03.wlvpn.com</servername>
+	<servername>lax-a01.wlvpn.com</servername>
+	<servername>lax-a02.wlvpn.com</servername>
+	<servername>lax-a03.wlvpn.com</servername>
+	<servername>mia-a01.wlvpn.com</servername>
+	<servername>mia-a02.wlvpn.com</servername>
+	<servername>mia-a03.wlvpn.com</servername>
+	<servername>mia-a04.wlvpn.com</servername>
+	<servername>nyc-a01.wlvpn.com</servername>
+	<servername>nyc-a02.wlvpn.com</servername>
+	<servername>nyc-a03.wlvpn.com</servername>
+	<servername>nyc-a04.wlvpn.com</servername>
+	<servername>phx-a01.wlvpn.com</servername>
+	<servername>phx-a02.wlvpn.com</servername>
+	<servername>phx-a03.wlvpn.com</servername>
+	<servername>sea-a01.wlvpn.com</servername>
+	<servername>sea-a02.wlvpn.com</servername>
+	<servername>sea-a03.wlvpn.com</servername>
+	<servername>sjc-a01.wlvpn.com</servername>
+	<servername>sjc-a02.wlvpn.com</servername>
+	<servername>sjc-a03.wlvpn.com</servername>
+	<servername>sjc-a04.wlvpn.com</servername>
+	<servername>lon-a01.wlvpn.com</servername>
+	<servername>lon-a02.wlvpn.com</servername>
+	<servername>sin-a01.wlvpn.com</servername>
+	<servername>sin-a02.wlvpn.com</servername>
+	<servername>sto-a01.wlvpn.com</servername>
+	<servername>sto-a02.wlvpn.com</servername>
+	<servername>sto-b01.wlvpn.com</servername>
+	<servername>waw-b01.wlvpn.com</servername>
+	<servername>ams-a01.wlvpn.com</servername>
+	<servername>ams-a02.wlvpn.com</servername>
+	<servername>ams-a03.wlvpn.com</servername>
+	<servername>ams-a04.wlvpn.com</servername>
+	<servername>ams-a05.wlvpn.com</servername>
+	<servername>ams-a06.wlvpn.com</servername>
+	<servername>ams-a07.wlvpn.com</servername>
+	<servername>ams-a08.wlvpn.com</servername>
+	<servername>ams-a09.wlvpn.com</servername>
+	<servername>ams-a10.wlvpn.com</servername>
+	<servername>sel-a01.wlvpn.com</servername>
+	<servername>sel-a02.wlvpn.com</servername>
+	<servername>nrt-a01.wlvpn.com</servername>
+	<servername>nrt-a02.wlvpn.com</servername>
+	<servername>bud-b01.wlvpn.com</servername>
+	<servername>par-a01.wlvpn.com</servername>
+	<servername>par-a02.wlvpn.com</servername>
+	<servername>par-b01.wlvpn.com</servername>
+	<servername>mad-a01.wlvpn.com</servername>
+	<servername>mad-a02.wlvpn.com</servername>
+	<servername>cph-b01.wlvpn.com</servername>
+	<servername>fra-a01.wlvpn.com</servername>
+	<servername>fra-a02.wlvpn.com</servername>
+	<servername>zur-b01.wlvpn.com</servername>
+	<servername>gru-a01.wlvpn.com</servername>
+	<servername>gru-a02.wlvpn.com</servername>
+	<servername>bru-b01.wlvpn.com</servername>
+	<servername>syd-a01.wlvpn.com</servername>
+	<servername>syd-a02.wlvpn.com</servername>
+</basicvpnservers>
+<vpnservers>
+	<vpnserver>
+		<servername>atl-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Atlanta</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>atl-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Atlanta</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>atl-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Atlanta</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>chi-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>ORD</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>chi-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>ORD</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>chi-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>ORD</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>chi-a04.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>ORD</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>dal-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Dallas</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>dal-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Dallas</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>iad-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Ashburn</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>iad-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Ashburn</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>iad-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Ashburn</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>lax-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Los Angeles</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>lax-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Los Angeles</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>lax-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Los Angeles</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mia-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Miami</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mia-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Miami</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mia-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Miami</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mia-a04.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Miami</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nyc-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>JFK</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nyc-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>JFK</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nyc-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>JFK</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nyc-a04.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>JFK</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>phx-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Phoenix</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>phx-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Phoenix</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>phx-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Phoenix</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sea-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Seattle</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sea-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Seattle</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sea-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Seattle</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sjc-a01.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>San Jose</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sjc-a02.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>San Jose</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sjc-a03.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>San Jose</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sjc-a04.wlvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname>San Jose</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>lon-a01.wlvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname>LHR</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>lon-a02.wlvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname>LHR</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sin-a01.wlvpn.com</servername>
+		<countryname>Singapore</countryname>
+		<regionname>Singapore</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sin-a02.wlvpn.com</servername>
+		<countryname>Singapore</countryname>
+		<regionname>Singapore</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sto-a01.wlvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname>ARN</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sto-a02.wlvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname>ARN</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sto-b01.wlvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname>ARN</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>waw-b01.wlvpn.com</servername>
+		<countryname>Poland</countryname>
+		<regionname>Warsaw</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a01.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a02.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a03.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a04.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a05.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a06.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a07.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a08.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a09.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ams-a10.wlvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sel-a01.wlvpn.com</servername>
+		<countryname>Korea</countryname>
+		<regionname>GMP</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sel-a02.wlvpn.com</servername>
+		<countryname>Korea</countryname>
+		<regionname>GMP</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nrt-a01.wlvpn.com</servername>
+		<countryname>Japan</countryname>
+		<regionname>Tokyo</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nrt-a02.wlvpn.com</servername>
+		<countryname>Japan</countryname>
+		<regionname>Tokyo</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>bud-b01.wlvpn.com</servername>
+		<countryname>Hungary</countryname>
+		<regionname>Budapest</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>par-a01.wlvpn.com</servername>
+		<countryname>France</countryname>
+		<regionname>CDG</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>par-a02.wlvpn.com</servername>
+		<countryname>France</countryname>
+		<regionname>CDG</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>par-b01.wlvpn.com</servername>
+		<countryname>France</countryname>
+		<regionname>CDG</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mad-a01.wlvpn.com</servername>
+		<countryname>Spain</countryname>
+		<regionname>Madrid</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mad-a02.wlvpn.com</servername>
+		<countryname>Spain</countryname>
+		<regionname>Madrid</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>cph-b01.wlvpn.com</servername>
+		<countryname>Denmark</countryname>
+		<regionname>Copenhagen</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>fra-a01.wlvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname>Frankfurt</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>fra-a02.wlvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname>Frankfurt</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>zur-b01.wlvpn.com</servername>
+		<countryname>Switzerland</countryname>
+		<regionname>ZRH</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>gru-a01.wlvpn.com</servername>
+		<countryname>Brazil</countryname>
+		<regionname>GRU</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>gru-a02.wlvpn.com</servername>
+		<countryname>Brazil</countryname>
+		<regionname>GRU</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>bru-b01.wlvpn.com</servername>
+		<countryname>Belgium</countryname>
+		<regionname>Brussels</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>syd-a01.wlvpn.com</servername>
+		<countryname>Australia</countryname>
+		<regionname>Sydney</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>syd-a02.wlvpn.com</servername>
+		<countryname>Australia</countryname>
+		<regionname>Sydney</regionname>
+	</vpnserver>
+</vpnservers>
+</vpnserverinfo>

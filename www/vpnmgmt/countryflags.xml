@@ -67,5 +67,33 @@
                 <name>Mexico</name>
                 <flagfile>MX.png</flagfile>
         </country>
+	<country>
+		<name>Korea</name>
+		<flagfile>KR.png</flagfile>
+	</country>
+	    <country>
+                <name>Hungary</name>
+                <flagfile>HU.png</flagfile>
+        </country>
+	 <country>
+                <name>Spain</name>
+                <flagfile>ES.png</flagfile>
+        </country>
+	<country>
+                <name>Denmark</name>
+                <flagfile>DK.png</flagfile>
+        </country>
+	<country>
+                <name>Brazil</name>
+                <flagfile>BR.png</flagfile>
+        </country>
+	<country>
+                <name>Belgium</name>
+                <flagfile>BE.png</flagfile>
+	</country>
+	<country>
+		<name>Poland</name>
+		<flagfile>PL.png</flagfile>
+	</country>
 </countryflags>
 

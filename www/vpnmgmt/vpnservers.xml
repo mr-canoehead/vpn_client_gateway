@@ -146,5 +146,10 @@
                 <countryname>Mexico</countryname>
                 <regionname></regionname>
         </vpnserver>
+        <vpnserver>
+                <servername>brazil.privateinternetaccess.com</servername>
+                <countryname>Brazil</countryname>
+                <regionname></regionname>
+        </vpnserver>
 </vpnservers>
 </vpnserverinfo>

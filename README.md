@@ -5,8 +5,7 @@ To build your own VPN Client Gateway you will need a Raspberry Pi (or similar li
 
 The project files can be download from the [Releases page](https://github.com/mr-canoehead/vpn_client_gateway/releases).
 
-The [Installation Guide](https://github.com/mr-canoehead/vpn_client_gateway/wiki/Installation-Guide) can be found in the project wiki. A PDF version
- of the guide is included with the project files.
+The [Installation Guide](https://github.com/mr-canoehead/vpn_client_gateway/wiki/Installation-Guide) can be found in the project wiki.
 
 Here is a screenshot showing the management web page:
 

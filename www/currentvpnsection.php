@@ -6,7 +6,7 @@ if(file_exists('/var/www/vpnmgmt/vpn.disabled')){
 else{
 	$file = file_get_contents('/etc/openvpn/server.conf');
         $matches = array();
-        $t = preg_match('/remote (.*?) 1194/s', $file, $matches);
+        $t = preg_match('/remote (.*?) \d+/s', $file, $matches);
         print_r($matches[1]);
         echo "</H2>";
 }
@@ -19,7 +19,7 @@ if(file_exists('/var/www/vpnmgmt/vpn.disabled')){
 else{
 	$file = file_get_contents('/etc/openvpn/server.conf');
 	$matches = array();
-	$t = preg_match('/remote (.*?) 1194/s', $file, $matches);
+	$t = preg_match('/remote (.*?) \d+/s', $file, $matches);
 	$servername=$matches[1];
 }
 $vpnserverinfo = simplexml_load_file('vpnmgmt/vpnservers.xml');

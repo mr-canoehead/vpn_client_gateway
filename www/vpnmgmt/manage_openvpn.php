@@ -20,8 +20,19 @@ if (isset($vpnserver)){
 			$result = shell_exec('sudo service openvpn stop');
 		}
 		// modify /etc/openvpn/server.conf with new server name
-		$vpnshellcmd= 'sed "s/remote .*/remote ' . $vpnserver . ' 1194/" < /etc/openvpn/server.conf.template > /etc/openvpn/server.conf';
-		$result = shell_exec($vpnshellcmd);
+                $configfile = file('/etc/openvpn/server.conf');
+                $serverconf = "";
+                foreach($configfile as $line_num => $line){
+                        $line_tokens = preg_split("/[\s]+/",$line);
+                        if ($line_tokens[0] === "remote"){
+                                $portnumber = $line_tokens[2];
+                                $serverconf .= "remote " . $vpnserver . " " . $portnumber . "\n";
+                        }
+                        else{
+                                $serverconf .= $line;
+                        }
+                }
+                file_put_contents("/etc/openvpn/server.conf", $serverconf);
 		// start openvpn service
 		$result = shell_exec('sudo service openvpn start');
 	}

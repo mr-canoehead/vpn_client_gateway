@@ -15,7 +15,7 @@ if (isset($vpnserver)){
 			include 'enablevpn.php';
 		}
 		$result = shell_exec('sudo service openvpn status');
-		if (strpos($result,'is running') !== false){
+		if ((strpos($result,'Active: active') !== false) or (strpos($result,'is running') !== false)){
 			// echo "Stopping VPN service...\n";
 			$result = shell_exec('sudo service openvpn stop');
 		}

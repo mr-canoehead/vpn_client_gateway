@@ -52,6 +52,11 @@
                 <regionname>San Jose CA</regionname>
         </vpnserver>
         <vpnserver>
+                <servername>us-newyorkcity.privateinternetaccess.com</servername>
+                <countryname>United States</countryname>
+                <regionname>New York NY</regionname>
+        </vpnserver>
+        <vpnserver>
                 <servername>uk-london.privateinternetaccess.com</servername>
                 <countryname>United Kingdom</countryname>
                 <regionname>London</regionname>
@@ -82,6 +87,11 @@
                 <regionname>Melbourne VIC</regionname>
         </vpnserver>
         <vpnserver>
+                <servername>nz.privateinternetaccess.com</servername>
+                <countryname>New Zealand</countryname>
+                <regionname></regionname>
+        </vpnserver>
+        <vpnserver>
                 <servername>nl.privateinternetaccess.com</servername>
                 <countryname>Netherlands</countryname>
                 <regionname></regionname>
@@ -106,6 +116,17 @@
                 <countryname>Germany</countryname>
                 <regionname></regionname>
         </vpnserver>
+        <vpnserver>
+                <servername>ireland.privateinternetaccess.com</servername>
+                <countryname>Ireland</countryname>
+                <regionname></regionname>
+        </vpnserver>
+        <vpnserver>
+                <servername>italy.privateinternetaccess.com</servername>
+                <countryname>Italy</countryname>
+                <regionname></regionname>
+        </vpnserver>
+
         <vpnserver>
                 <servername>russia.privateinternetaccess.com</servername>
                 <countryname>Russia</countryname>

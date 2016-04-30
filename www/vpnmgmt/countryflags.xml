@@ -11,6 +11,26 @@
                 <name>Canada</name>
                 <flagfile>CA.png</flagfile>
         </country>
+	<country>
+		<name>Austria</name>
+		<flagfile>AT.png</flagfile>
+	</country>
+	<country>
+		<name>France</name>
+		<flagfile>FR.png</flagfile>
+	</country>
+	<country>
+		<name>Spain</name>
+		<flagfile>ES.png</flagfile>
+	</country>
+	<country>
+                <name>Denmark</name>
+                <flagfile>DK.png</flagfile>
+        </country>
+	<country>
+                <name>Luxembourg</name>
+                <flagfile>LU.png</flagfile>
+        </country>
         <country>
                 <name>Australia</name>
                 <flagfile>AU.png</flagfile>
@@ -94,6 +114,18 @@
 	<country>
 		<name>Poland</name>
 		<flagfile>PL.png</flagfile>
+	</country>
+	<country>
+		<name>New Zealand</name>
+		<flagfile>NZ.png</flagfile>
+	</country>
+	<country>
+		<name>Italy</name>
+		<flagfile>IT.png</flagfile>
+	</country>
+	<country>
+		<name>Ireland</name>
+		<flagfile>IE.png</flagfile>
 	</country>
 </countryflags>
 

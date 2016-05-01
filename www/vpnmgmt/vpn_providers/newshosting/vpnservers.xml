@@ -841,7 +841,7 @@
             <regionname>New York 9</regionname>
     </vpnserver>
     <vpnserver>
-            <servername>nyc-a010.wlvpn.com</servername>
+            <servername>nyc-a10.wlvpn.com</servername>
             <countryname>United States</countryname>
             <regionname>New York 10</regionname>
     </vpnserver>

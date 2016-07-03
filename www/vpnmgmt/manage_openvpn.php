@@ -1,6 +1,10 @@
 <?php
 $vpnserver=$_GET["vpnserver"];
 //echo "VPN server: $vpnserver\n";
+	$hostname = explode(".", $vpnserver);
+	$subdomain = $hostname[0];
+	$domain = $hostname[1];
+	$tld = $hostname[2];
 if (isset($vpnserver)){
 	if ($vpnserver == "disable" || $vpnserver == "none"){
 		include 'disablevpn.php';
@@ -28,6 +32,12 @@ if (isset($vpnserver)){
                                 $portnumber = $line_tokens[2];
                                 $serverconf .= "remote " . $vpnserver . " " . $portnumber . "\n";
                         }
+			else if ($line_tokens[0] === "ca" && $domain === "nordvpn"){
+				$serverconf .= "ca " . $subdomain . "_" . $domain . "_" . $tld . "_ca.crt " . "\n";
+			}
+			else if ($line_tokens[0] === "tls-auth" && $domain === "nordvpn"){
+				$serverconf .= "tls-auth " . $subdomain . "_" . $domain . "_" . $tld . "_tls.key " . "\n";
+			}
                         else{
                                 $serverconf .= $line;
                         }

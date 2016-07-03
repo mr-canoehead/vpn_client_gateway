@@ -1,0 +1,102 @@
+<vpnserverinfo>
+<basicvpnservers>
+		<servername>us337.nordvpn.com</servername>
+		<servername>uk34.nordvpn.com</servername>
+		<servername>uk35.nordvpn.com</servername>
+		<servername>uk42.nordvpn.com</servername>
+		<servername>ca21.nordvpn.com</servername>
+		<servername>ca23.nordvpn.com</servername>
+		<servername>ca24.nordvpn.com</servername>
+		<servername>ca25.nordvpn.com</servername>
+		<servername>ca26.nordvpn.com</servername>
+		<servername>nl16.nordvpn.com</servername>
+		<servername>nl17.nordvpn.com</servername>
+		<servername>nl18.nordvpn.com</servername>
+		<servername>nl19.nordvpn.com</servername>
+		<servername>nl20.nordvpn.com</servername>
+		<servername>se7.nordvpn.com</servername>
+		<servername>no2.nordvpn.com</servername>
+</basicvpnservers>
+<vpnservers>
+	<vpnserver>
+		<servername>us337.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk34.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk35.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk42.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca21.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca23.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca24.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca25.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca26.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl16.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl17.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl18.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl19.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl20.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se7.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>no2.nordvpn.com</servername>
+		<countryname>Norway</countryname>
+		<regionname/>
+	</vpnserver>
+</vpnservers>
+</vpnserverinfo>

@@ -1,0 +1,2877 @@
+<vpnserverinfo>
+	<basicvpnservers>
+                <servername>us337.nordvpn.com</servername>
+                <servername>uk34.nordvpn.com</servername>
+                <servername>uk35.nordvpn.com</servername>
+                <servername>uk42.nordvpn.com</servername>
+                <servername>ca21.nordvpn.com</servername>
+                <servername>ca23.nordvpn.com</servername>
+                <servername>ca24.nordvpn.com</servername>
+                <servername>ca25.nordvpn.com</servername>
+                <servername>ca26.nordvpn.com</servername>
+                <servername>nl16.nordvpn.com</servername>
+                <servername>nl17.nordvpn.com</servername>
+                <servername>nl18.nordvpn.com</servername>
+                <servername>nl19.nordvpn.com</servername>
+                <servername>nl20.nordvpn.com</servername>
+                <servername>se7.nordvpn.com</servername>
+                <servername>no2.nordvpn.com</servername>
+	</basicvpnservers>
+<vpnservers>
+	<vpnserver>
+		<servername>at3.nordvpn.com</servername>
+		<countryname>Austria</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>at4.nordvpn.com</servername>
+		<countryname>Austria</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>at5.nordvpn.com</servername>
+		<countryname>Austria</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au1.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au10.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au11.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au12.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au13.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au14.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au2.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au3.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au6.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au8.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>au9.nordvpn.com</servername>
+		<countryname>Austrailia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>be1.nordvpn.com</servername>
+		<countryname>Belgium</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>bg1.nordvpn.com</servername>
+		<countryname>Bulgaria</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>br1.nordvpn.com</servername>
+		<countryname>Brazil</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>br2.nordvpn.com</servername>
+		<countryname>Brazil</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca12.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca13.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca14.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca15.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca16.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca17.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca18.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca19.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca20.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca21.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca23.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca24.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca25.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca26.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca27.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca28.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca29.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca30.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca31.nordvpn.com</servername>
+		<countryname>Canada</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ch3.nordvpn.com</servername>
+		<countryname>China</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ch4.nordvpn.com</servername>
+		<countryname>China</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ch5.nordvpn.com</servername>
+		<countryname>China</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>cr1.nordvpn.com</servername>
+		<countryname>Costa Rica</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>cz1.nordvpn.com</servername>
+		<countryname>Czech Republic</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>cz2.nordvpn.com</servername>
+		<countryname>Czech Republic</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de1.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de10.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de11.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de12.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de13.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de14.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de15.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de16.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de17.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de18.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de19.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de2.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de20.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de21.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de22.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de23.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de24.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de25.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de26.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de27.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de28.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de29.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de3.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de30.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de31.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de32.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de33.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de34.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de35.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de36.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de37.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de38.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de39.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de4.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de40.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de41.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de42.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de43.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de44.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de45.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de46.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de47.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de48.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de49.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de5.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de50.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de51.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de52.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de53.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de54.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de55.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de56.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de57.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de58.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de59.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de6.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de60.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de61.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de62.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de63.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de64.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de65.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de66.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de67.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de68.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de69.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de7.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de8.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>de9.nordvpn.com</servername>
+		<countryname>Germany</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>dk1.nordvpn.com</servername>
+		<countryname>Denmark</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ee1.nordvpn.com</servername>
+		<countryname>Estonia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>eg1.nordvpn.com</servername>
+		<countryname>Egypt</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>es2.nordvpn.com</servername>
+		<countryname>Spain</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>es3.nordvpn.com</servername>
+		<countryname>Spain</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>es4.nordvpn.com</servername>
+		<countryname>Spain</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>fi1.nordvpn.com</servername>
+		<countryname>Finland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>fr3.nordvpn.com</servername>
+		<countryname>France</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>fr6.nordvpn.com</servername>
+		<countryname>France</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>fr7.nordvpn.com</servername>
+		<countryname>France</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>fr8.nordvpn.com</servername>
+		<countryname>France</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>gr1.nordvpn.com</servername>
+		<countryname>Greece</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>hk5.nordvpn.com</servername>
+		<countryname>Hong Kong</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>hk6.nordvpn.com</servername>
+		<countryname>Hong Kong</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>hu1.nordvpn.com</servername>
+		<countryname>Hungary</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>hu2.nordvpn.com</servername>
+		<countryname>Hungary</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ie1.nordvpn.com</servername>
+		<countryname>Ireland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>il3.nordvpn.com</servername>
+		<countryname>Israel</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>in1.nordvpn.com</servername>
+		<countryname>India</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>is2.nordvpn.com</servername>
+		<countryname>Iceland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>it3.nordvpn.com</servername>
+		<countryname>Italy</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>it4.nordvpn.com</servername>
+		<countryname>Italy</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>it5.nordvpn.com</servername>
+		<countryname>Italy</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>it6.nordvpn.com</servername>
+		<countryname>Italy</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>it7.nordvpn.com</servername>
+		<countryname>Italy</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>jp3.nordvpn.com</servername>
+		<countryname>Japan</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>jp4.nordvpn.com</servername>
+		<countryname>Japan</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>jp5.nordvpn.com</servername>
+		<countryname>Japan</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>kr1.nordvpn.com</servername>
+		<countryname>Korea, Republic of</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>kr2.nordvpn.com</servername>
+		<countryname>Korea, Republic of</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>li1.nordvpn.com</servername>
+		<countryname>Liechtenstein</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>li2.nordvpn.com</servername>
+		<countryname>Liechtenstein</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>li3.nordvpn.com</servername>
+		<countryname>Liechtenstein</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lt1.nordvpn.com</servername>
+		<countryname>Lithuania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lt2.nordvpn.com</servername>
+		<countryname>Lithuania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lt3.nordvpn.com</servername>
+		<countryname>Lithuania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lt4.nordvpn.com</servername>
+		<countryname>Lithuania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lt5.nordvpn.com</servername>
+		<countryname>Lithuania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lt6.nordvpn.com</servername>
+		<countryname>Lithuania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lu1.nordvpn.com</servername>
+		<countryname>Luxembourg</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lu2.nordvpn.com</servername>
+		<countryname>Luxembourg</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lu3.nordvpn.com</servername>
+		<countryname>Luxembourg</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lu4.nordvpn.com</servername>
+		<countryname>Luxembourg</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lv-tor1.nordvpn.com</servername>
+		<countryname>Latvia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>lv2.nordvpn.com</servername>
+		<countryname>Latvia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>md1.nordvpn.com</servername>
+		<countryname>Moldova</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>mx2.nordvpn.com</servername>
+		<countryname>Moldova</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>my1.nordvpn.com</servername>
+		<countryname>Malaysia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl1.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl10.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl11.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl12.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl13.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl14.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl15.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl16.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl17.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl18.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl19.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl2.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl20.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl21.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl22.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl23.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl24.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl3.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl5.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl6.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl7.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl8.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl9.nordvpn.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>no1.nordvpn.com</servername>
+		<countryname>Norway</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>no2.nordvpn.com</servername>
+		<countryname>Norway</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nz1.nordvpn.com</servername>
+		<countryname>New Zealand</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nz3.nordvpn.com</servername>
+		<countryname>New Zealand</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>nz4.nordvpn.com</servername>
+		<countryname>New Zealand</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>pl3.nordvpn.com</servername>
+		<countryname>Poland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>pl5.nordvpn.com</servername>
+		<countryname>Poland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>pl6.nordvpn.com</servername>
+		<countryname>Poland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>pl7.nordvpn.com</servername>
+		<countryname>Poland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>pl8.nordvpn.com</servername>
+		<countryname>Poland</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>pt1.nordvpn.com</servername>
+		<countryname>Portugal</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ro2.nordvpn.com</servername>
+		<countryname>Romania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ro3.nordvpn.com</servername>
+		<countryname>Romania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ru3.nordvpn.com</servername>
+		<countryname>Russia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ru4.nordvpn.com</servername>
+		<countryname>Russia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se-tor1.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se1.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se2.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se4.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se5.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se6.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>se7.nordvpn.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>sg2.nordvpn.com</servername>
+		<countryname>Singapore</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>sg3.nordvpn.com</servername>
+		<countryname>Singapore</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>sg4.nordvpn.com</servername>
+		<countryname>Singapore</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>sk1.nordvpn.com</servername>
+		<countryname>Slovakia</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>strongswan.nordvpn.com</servername>
+		<countryname>Lithuania</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>tr1.nordvpn.com</servername>
+		<countryname>Turkey</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>tw1.nordvpn.com</servername>
+		<countryname>Taiwan</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ua1.nordvpn.com</servername>
+		<countryname>Ukraine</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>ua2.nordvpn.com</servername>
+		<countryname>Ukraine</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk15.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk16.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk17.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk18.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk19.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk2.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk20.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk21.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk22.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk23.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk24.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk25.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk26.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk27.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk28.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk29.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk30.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk31.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk32.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk33.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk34.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk35.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk36.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk37.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk38.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk39.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk40.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk41.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk42.nordvpn.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us10.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us100.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us101.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us102.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us103.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us104.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us105.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us106.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us107.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us108.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us109.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us11.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us110.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us111.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us112.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us113.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us114.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us115.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us116.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us117.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us118.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us119.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us12.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us120.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us121.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us122.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us123.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us124.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us125.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us126.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us127.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us128.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us129.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us13.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us130.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us131.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us132.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us133.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us134.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us135.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us136.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us137.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us138.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us139.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us140.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us141.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us142.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us143.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us144.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us145.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us146.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us147.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us148.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us149.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us15.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us150.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us151.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us152.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us153.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us154.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us155.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us156.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us157.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us158.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us159.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us16.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us160.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us161.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us162.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us163.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us164.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us165.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us166.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us167.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us168.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us169.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us17.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us170.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us171.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us172.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us173.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us174.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us175.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us176.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us177.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us178.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us179.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us180.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us181.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us182.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us183.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us184.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us185.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us186.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us187.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us188.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us189.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us190.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us191.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us192.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us193.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us194.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us195.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us196.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us197.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us198.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us199.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us2.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us20.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us200.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us201.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us202.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us203.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us204.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us205.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us206.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us207.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us208.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us209.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us21.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us210.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us211.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us212.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us213.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us214.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us215.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us216.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us217.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us218.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us219.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us220.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us221.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us222.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us223.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us224.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us225.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us226.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us227.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us228.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us229.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us23.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us230.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us231.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us232.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us233.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us234.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us235.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us236.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us237.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us238.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us239.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us24.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us240.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us241.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us242.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us243.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us244.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us245.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us246.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us247.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us248.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us249.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us25.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us250.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us251.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us252.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us253.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us254.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us255.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us256.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us257.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us258.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us259.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us26.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us260.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us261.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us262.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us263.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us264.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us265.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us266.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us267.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us268.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us269.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us27.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us270.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us271.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us272.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us273.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us274.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us275.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us276.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us277.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us278.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us279.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us28.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us280.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us281.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us282.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us283.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us284.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us285.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us286.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us287.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us288.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us289.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us29.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us290.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us291.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us292.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us293.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us294.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us295.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us296.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us297.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us298.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us299.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us3.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us30.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us300.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us301.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us302.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us303.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us304.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us305.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us306.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us307.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us308.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us309.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us31.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us310.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us311.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us312.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us313.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us314.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us317.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us318.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us319.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us32.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us320.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us321.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us322.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us323.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us324.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us325.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us326.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us327.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us328.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us329.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us33.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us330.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us331.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us332.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us333.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us334.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us335.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us336.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us337.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us34.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us35.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us36.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us37.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us38.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us39.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us4.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us40.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us41.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us42.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us43.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us44.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us45.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us46.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us47.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us48.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us49.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us50.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us51.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us52.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us53.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us54.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us55.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us56.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us57.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us58.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us59.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us60.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us61.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us62.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us63.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us64.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us65.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us66.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us67.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us68.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us69.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us70.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us71.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us72.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us73.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us74.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us75.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us76.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us77.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us78.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us79.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us80.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us81.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us82.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us83.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us84.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us85.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us86.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us87.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us88.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us89.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us9.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us90.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us91.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us92.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us93.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us94.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us95.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us96.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us97.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us98.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>us99.nordvpn.com</servername>
+		<countryname>United States</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>vn1.nordvpn.com</servername>
+		<countryname>Viet Nam</countryname>
+		<regionname/>
+	</vpnserver>
+	<vpnserver>
+		<servername>za1.nordvpn.com</servername>
+		<countryname>South Africa</countryname>
+		<regionname/>
+	</vpnserver>
+</vpnservers>
+</vpnserverinfo>

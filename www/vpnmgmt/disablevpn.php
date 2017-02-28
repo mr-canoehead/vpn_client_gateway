@@ -10,6 +10,9 @@ $result = shell_exec('sudo update-rc.d openvpn disable');
 $result = shell_exec('sudo iptables -t nat -F POSTROUTING');
 // add nat postrouting rule to allow forwarding via eth0
 $result = shell_exec('sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE');
+// disable killswitch (allow all outbound traffic over LAN)
+$result = shell_exec('sudo iptables -F killswitch');
+$result = shell_exec('sudo iptables -t filter -A killswitch -o eth0 -j ACCEPT');
 // save iptables
 $result = shell_exec("sudo su -c 'iptables-save > /etc/iptables/rules.v4'");
 ?>

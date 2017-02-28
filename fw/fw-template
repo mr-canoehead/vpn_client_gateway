@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# OpenVPN ports used by major providers:
+OPENVPN_UDP_PORTS="53,1194,1197,1198"
+
+# delete all existing rules
+iptables -Z
+iptables --flush
+iptables --delete-chain
+iptables -t nat -F
+
+# default drop policy:
+iptables --policy INPUT   DROP;
+iptables --policy OUTPUT  DROP;
+iptables --policy FORWARD DROP;
+
+# establish logging chain:
+iptables -N LOGGING
+iptables -N BADPKT_LOGGING
+
+# allow loopback:
+iptables -A INPUT -i lo -m comment --comment "loopback" -j ACCEPT
+iptables -A OUTPUT -o lo -m comment --comment "loopback" -j ACCEPT
+
+# local_network_rules (added by fw-config script):
+
+# allow incoming from lan, outgoing thru vpn:
+iptables -I INPUT -i eth0 -m comment --comment "In from LAN" -j ACCEPT
+iptables -I OUTPUT -o tun+ -m comment --comment "Out to VPN" -j ACCEPT
+
+# allow outbound services:
+iptables -A OUTPUT -o eth0 -p icmp -m comment --comment "icmp" -j ACCEPT
+iptables -A OUTPUT -o eth0 -p udp -m multiport --dports $OPENVPN_UDP_PORTS -m comment --comment "openvpn" -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp -m tcp --sport 22 -m comment --comment "ssh" -j ACCEPT
+iptables -A OUTPUT -o eth0 -p udp -m udp --dport 123 -m comment --comment "ntp" -j ACCEPT
+iptables -A OUTPUT -o eth0 -p udp -m udp --dport 53 -m comment --comment "dns" -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp -m tcp --dport 53 -m comment --comment "dns" -j ACCEPT
+iptables -A OUTPUT -p UDP --dport 67:68 -m comment --comment "dhcp" -j ACCEPT
+
+# allow vpn forwarding
+iptables -A FORWARD -i tun+ -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i eth0 -o tun+ -m comment --comment "LAN out to VPN" -j ACCEPT
+
+# nat the gateway
+iptables -t nat -A POSTROUTING -o tun+ -j MASQUERADE
+
+# TCP sessions must start with SYN, drop bad packets:
+iptables -A INPUT -p tcp ! --syn -m state --state NEW -j BADPKT_LOGGING
+iptables -A INPUT -m state --state INVALID -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags ALL NONE -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags ALL ALL -j BADPKT_LOGGING
+iptables -A INPUT -f -m comment --comment "Drop FRAGS" -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags ALL ACK,RST,SYN,FIN -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags SYN,FIN SYN,FIN -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j BADPKT_LOGGING
+
+# accept inbound vpn initiated traffic
+iptables -A INPUT -i tun+ -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# accept outbound lan initiated traffic
+iptables -A OUTPUT -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# accept all outbound lan traffic
+
+# add killswitch chain:
+iptables -N killswitch
+
+# add killswitch chain to OUTPUT chain:
+iptables -t filter -A OUTPUT -j killswitch
+iptables -t filter -A killswitch  -j RETURN
+
+# logging for dropped traffic
+iptables -A INPUT -m comment --comment "LOG and DROP" -j LOGGING
+iptables -A OUTPUT -m comment --comment "LOG and DROP" -j LOGGING
+
+# logging chain
+iptables -A LOGGING -m limit --limit 2/sec -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+iptables -A LOGGING -j DROP
+
+# logging badpackets chain
+iptables -A BADPKT_LOGGING -m limit --limit 2/sec -j LOG --log-prefix "IPTables- BADPACKETS: " --log-level 4
+iptables -A BADPKT_LOGGING -j DROP
+
+# save the firewall rules
+iptables-save > /etc/iptables/rules.v4

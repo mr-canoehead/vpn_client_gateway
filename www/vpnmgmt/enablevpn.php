@@ -8,6 +8,9 @@ $result = shell_exec('sudo update-rc.d openvpn enable');
 $result = shell_exec('sudo iptables -t nat -F POSTROUTING');
 // add nat postrouting rule for tun0
 $result = shell_exec('sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE');
+// enable killswitch (no outbound traffic if VPN is not connected)
+$result = shell_exec('sudo iptables -F killswitch');
+$result = shell_exec('sudo iptables -t filter -A killswitch -j RETURN');
 // save iptables
 $result = shell_exec("sudo su -c 'iptables-save > /etc/iptables/rules.v4'");
 ?>

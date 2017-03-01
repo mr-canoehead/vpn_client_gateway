@@ -1,6 +1,6 @@
 <H2>Current VPN server:
 <?php 
-if(file_exists('/var/www/vpnmgmt/vpn.disabled')){
+if(file_exists('vpnmgmt/vpn.disabled')){
 	echo " none. All traffic originates from your ISP.</H2>";
 }
 else{
@@ -13,7 +13,7 @@ else{
 ?>
 <div id="CurrentVPNFlag">
 <?php 
-if(file_exists('/var/www/vpnmgmt/vpn.disabled')){
+if(file_exists('vpnmgmt/vpn.disabled')){
 	$servername='none';
 }
 else{

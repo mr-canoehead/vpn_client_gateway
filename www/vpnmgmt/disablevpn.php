@@ -1,7 +1,7 @@
 <?php
 // echo "Disabling VPN service...";
 // create disabled marker file
-$result = shell_exec('touch /var/www/vpnmgmt/vpn.disabled');
+$result = shell_exec('touch vpnmgmt/vpn.disabled');
 // stop openvpn service
 $result = shell_exec('sudo service openvpn stop');
 // prevent openvpn from starting at boot

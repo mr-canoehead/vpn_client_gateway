@@ -1,7 +1,7 @@
 <?php
 // echo "Enabling VPN service...";
 // remove disabled marker file
-$result = unlink('/var/www/vpnmgmt/vpn.disabled');
+$result = unlink('vpnmgmt/vpn.disabled');
 // set openvpn service to start automatically on boot
 $result = shell_exec('sudo update-rc.d openvpn enable');
 // remove any existing nat postrouting rules

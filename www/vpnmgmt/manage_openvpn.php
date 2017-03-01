@@ -15,7 +15,7 @@ if (isset($vpnserver)){
 		$result = shell_exec('sudo service openvpn start');
 	}
 	else {
-		if (file_exists('/var/www/vpnmgmt/vpn.disabled')){
+		if (file_exists('vpnmgmt/vpn.disabled')){
 			include 'enablevpn.php';
 		}
 		$result = shell_exec('sudo service openvpn status');

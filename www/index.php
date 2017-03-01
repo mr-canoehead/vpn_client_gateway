@@ -29,7 +29,7 @@
 		$("#VPNSection").hide();
 		$("#Admin").show();
 		<?php
-		if(file_exists('/var/www/vpnmgmt/vpn.disabled')){
+		if(file_exists('vpnmgmt/vpn.disabled')){
                         echo "$(\"#EnableVPNMenuButton\").show();";
                         echo "$(\"#DisableVPNMenuButton\").hide();";
 		}

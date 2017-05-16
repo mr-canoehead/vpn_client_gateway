@@ -1,4 +1,5 @@
 <?php
+require_once('util.php');
 $vpnserver=$_GET["vpnserver"];
 //echo "VPN server: $vpnserver\n";
 	$hostname = explode(".", $vpnserver);
@@ -12,16 +13,16 @@ if (isset($vpnserver)){
 	else if ($vpnserver == "enable"){
 		include 'enablevpn.php';
 		// start openvpn service
-		$result = shell_exec('sudo service openvpn start');
+                $result = start_service('openvpn');
 	}
 	else {
 		if (file_exists('vpnmgmt/vpn.disabled')){
 			include 'enablevpn.php';
 		}
 		$result = shell_exec('sudo service openvpn status');
-		if ((strpos($result,'Active: active') !== false) or (strpos($result,'is running') !== false)){
+                if ((strpos($result,'Active: active') !== false) or (strpos($result,'is running') !== false) or (strpos($result,'started') !== false)){
 			// echo "Stopping VPN service...\n";
-			$result = shell_exec('sudo service openvpn stop');
+			$result = stop_service('openvpn');
 		}
 		// modify /etc/openvpn/server.conf with new server name
                 $configfile = file('/etc/openvpn/server.conf');
@@ -44,7 +45,9 @@ if (isset($vpnserver)){
                 }
                 file_put_contents("/etc/openvpn/server.conf", $serverconf);
 		// start openvpn service
-		$result = shell_exec('sudo service openvpn start');
+		$result = start_service('openvpn');
 	}
+	if (host_os_type() == "alpine")
+		$result = save_fs_changes();
 }
 ?>

@@ -1,4 +1,5 @@
 <?php
+require_once('util.php');
 echo "Rebooting server...";
-$result = shell_exec('sudo shutdown -r now');
+$result = reboot();
 ?>

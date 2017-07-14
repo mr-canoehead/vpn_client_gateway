@@ -303,10 +303,12 @@
 <?php
 $vpnserver=$_GET["vpnserver"];
 if (isset($vpnserver)){
-//Display modal overlay
-echo "$(\"#VPNChangeMessageOverlay\").show().delay(5000).fadeOut('fast');";
-//Upate URL to strip off parameters
-echo "window.history.pushState('','','/');";
+	//Display modal overlay
+	echo "$(\"#VPNChangeMessageOverlay\").show().delay(5000).fadeOut('fast');";
+        $full_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $base_url = strtok($full_url,'?');
+	//Upate URL to strip off parameters
+	echo "window.history.pushState('','','$base_url');";
 }
 ?>
 </script>

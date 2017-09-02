@@ -1,21 +1,16 @@
 <?php
 require_once('util.php');
-// echo "Enabling VPN service...";
 // remove disabled marker file
 $result = unlink('vpnmgmt/vpn.disabled');
 // set openvpn service to start automatically on boot
 $result = enable_service('openvpn');
-// remove any existing nat postrouting rules
-$result = shell_exec('sudo iptables -t nat -F POSTROUTING');
-// add nat postrouting rule for tun0
-$result = shell_exec('sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE');
-// add forwarding rules for VPN
+// remove any existing forwarding rules
 $result = shell_exec('sudo iptables -F FORWARD');
-$result = shell_exec('sudo iptables -A FORWARD -i tun+ -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT');
-$result = shell_exec('sudo iptables -A FORWARD -i eth0 -o tun+ -m comment --comment "LAN out to VPN" -j ACCEPT');
+// add rules for forwarding via VPN
+$result = shell_exec('sudo iptables -A FORWARD -j forward_rules_vpn');
 // enable killswitch (no outbound traffic if VPN is not connected)
 $result = shell_exec('sudo iptables -F killswitch');
-$result = shell_exec('sudo iptables -t filter -A killswitch -j RETURN');
+$result = shell_exec('sudo iptables -t filter -A killswitch -j killswitch_on');
 // save iptables
 $result = shell_exec("sudo su -c 'iptables-save > /etc/iptables/rules.v4'");
 ?>

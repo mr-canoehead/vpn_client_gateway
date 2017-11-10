@@ -1,4 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# This configuration script generates the firewall rules for the VPN Client Gateway.
+# The firewall rule template 'fw-template' must be located in the same directory as the script.
+
+# get path for this script
+working_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+template_script="fw-template"
+output_script="fw-script"
 
 function valid_ip_or_network()
 # adapted from a validation function written by Mitch Frazier (Linux Journal - June 26, 2008)
@@ -16,67 +25,141 @@ function valid_ip_or_network()
     return $stat
 }
 
-declare -a local_networks_and_computers
 window_title="VPN Client Gateway firewall configuration"
-whiptail --title "$window_title" --yesno --defaultno "Does your VPN Client Gateway server need access to other computers on your local network (e.g. for NFS shares etc.)? Choose 'No' if you're not sure." 9 62 3>&1 1>&2 2>&3
-confirm=$?
-if [ $confirm = 0 ]; then
-	local_access_required=true
-else
-	local_access_required=false
-fi
-if [ $local_access_required = true ]; then
-	valid_network=false
-	network="192.168.1.0/24"
-	prompt="Enter the local network using slash notation (e.g. $network)\nor the IP address of a specific computer (e.g. 192.168.1.7)"
-	more_networks=true
-		while [ $more_networks = true ]; do
-			error_message=""
+choice=""
+firewall_state="not_configured"
+while [ "$choice" != "Exit" ] && [ "$firewall_state" != "configured" ] && [ "$firewall_state" != "configured_manual" ]; do
+	choice=$(whiptail --title "$window_title" --menu "Choose an action:" 0 0 0 \
+        	"Configure" "Configure the firewall rules" \
+	        "Reset" "Clear all firewall rules" \
+		"Exit" "Exit the firewall configuration script" 3>&2 2>&1 1>&3) 
+	exitstatus=$?
+	if [ $exitstatus -ne 0 ]; then
+		printf "Firewall configuration cancelled.\n"
+		exit
+	fi
+	if [ "$choice" = "Reset" ]; then
+		whiptail --title "$window_title" --yesno "Warning:\nDo you want to remove all firewall rules?\nThe VPN Client Gateway will no longer forward traffic via the VPN tunnel.\nThis may affect other users on your network." --defaultno 0 0 3>&1 1>&2 2>&3
+		confirm=$?
+		if [ $confirm = 0 ]; then
+        		# delete all existing rules
+		        sudo iptables -Z
+		        sudo iptables --flush
+		        sudo iptables --delete-chain
+		        sudo iptables -t nat -F
+		        # default accept policy:
+		        sudo iptables --policy INPUT   ACCEPT;
+		        sudo iptables --policy OUTPUT  ACCEPT;
+	        	sudo iptables --policy FORWARD ACCEPT;
+		        # save the firewall rules
+		        sudo su -c 'iptables-save > /etc/iptables/rules.v4'
+			whiptail --title "$window_title" --msgbox $'Firewall rules have been reset.\nThe VPN Client Gateway will not forward any traffic until you configure the firewall.' 0 0 3>&1 1>&2 2>&3
+			firewall_state="reset"
+		fi
+	elif [ "$choice" = "Configure" ]; then
+		declare -a local_networks_and_computers
+
+		# get list of configured LAN interfaces
+		mapfile -t ipinfo < <(ip addr)
+		current_line_index=0
+		menu_options=()
+		for current_line in "${ipinfo[@]}"
+		do
+		        IFS=', ' read -r -a current_line_tokens <<< "$current_line"
+		        if [ "${current_line_tokens[0]}" = "link/ether" ]
+		        then
+		                IFS=':, ' read -r -a prev_line_tokens <<< "${ipinfo[$((current_line_index - 1))]}"
+		                IFS=':, ' read -r -a next_line_tokens <<< "${ipinfo[$((current_line_index + 1))]}"
+				if [ "${next_line_tokens[0]}" = "inet" ]
+				then
+		                	menu_options+=( ${prev_line_tokens[1]} "${current_line_tokens[1]} ${next_line_tokens[1]}" )
+				fi
+		        fi
+		        current_line_index=$((current_line_index + 1))
+		done
+
+		gateway_lan_interface=$(whiptail --title "$window_title" --nocancel --menu "Choose the gateway LAN interface:" 0 0 0 "${menu_options[@]}" 3>&1 1>&2 2>&3)
+		exitstatus=$?
+		if [ $exitstatus != 0 ]; then
+			printf "Configuration error\n"
+			exit
+		fi
+		whiptail --title "$window_title" --yesno --defaultno "Does your VPN Client Gateway server need access to other computers on your local network (e.g. for NFS shares etc.)? Choose 'No' if you're not sure." 9 62 3>&1 1>&2 2>&3
+		confirm=$?
+		if [ $confirm = 0 ]; then
+			local_access_required=true
+		else
+			local_access_required=false
+		fi
+		if [ $local_access_required = true ]; then
 			valid_network=false
-			while [ $valid_network = false ]; do
-		        	network=$(whiptail --title "$window_title" --inputbox "$error_message$prompt" --nocancel 9 72 "$network" 3>&1 1>&2 2>&3)
-				if valid_ip_or_network $network; then
-					valid_network=true
-			                whiptail --title "$window_title" --yesno "Adding the following local network / computer to the firewall rules:\n\n$network" --yes-button "Ok" --no-button "Modify" 10 62 "$network" 3>&1 1>&2 2>&3
-					confirm=$?
-					if [ $confirm = 1 ]; then
-						error_message=""
+			network="192.168.1.0/24"
+			prompt="Enter the local network using slash notation (e.g. $network)\nor the IP address of a specific computer (e.g. 192.168.1.7)"
+			more_networks=true
+			while [ $more_networks = true ]; do
+				error_message=""
+				valid_network=false
+				while [ $valid_network = false ]; do
+		        		network=$(whiptail --title "$window_title" --inputbox "$error_message$prompt" --nocancel 9 72 "$network" 3>&1 1>&2 2>&3)
+					if valid_ip_or_network $network; then
+						valid_network=true
+				                whiptail --title "$window_title" --yesno "Adding the following local network / computer to the firewall rules:\n\n$network" --yes-button "Ok" --no-button "Modify" 10 62 "$network" 3>&1 1>&2 2>&3
+						confirm=$?
+						if [ $confirm = 1 ]; then
+							error_message=""
+							valid_network=false
+						fi
+					else
+						error_message="Invalid IP address or local network format!\n"
 						valid_network=false
 					fi
+				done
+				local_networks_and_computers=(${local_networks_and_computers[@]} $network)
+				whiptail --title "$window_title" --yesno "Add more networks / computers?" --defaultno 9 40
+				confirm=$?
+				if [ $confirm = 1 ]; then
+					more_networks=false
 				else
-					error_message="Invalid IP address or local network format!\n"
-					valid_network=false
+					more_networks=true
 				fi
 			done
-			local_networks_and_computers=(${local_networks_and_computers[@]} $network)
-			whiptail --title "$window_title" --yesno "Add more networks / computers?" --defaultno 9 40
-			confirm=$?
-			if [ $confirm = 1 ]; then
-				more_networks=false
-			else
-				more_networks=true
-			fi
-		done
-fi
-# generate firewall script from template
-if [ ${#local_networks_and_computers[@]} -gt 0 ]; then
-	for i in "${local_networks_and_computers[@]}"; do
-		local_network_rules+="iptables -A OUTPUT -d $i -o eth0 -m comment --comment \"local lan\" -j ACCEPT\n"
-	done
-	sed -e "/local_network_rules/a\\$local_network_rules" fw-template > fw-script
-	#sed "s#.*<local_network>.*#$local_lan_iptables#g" fw-template > fw-script
-else
-	cp fw-template fw-script
-fi
-chmod u+x fw-script
-whiptail --title "$window_title" --msgbox "Firewall script has been created. Review the file, then press 'Q' to quit the file viewer." 9 62 3>&1 1>&2 2>&3
-less fw-script
-whiptail --title "$window_title" --yesno "Do you want to run the firewall script now?" 9 50 3>&1 1>&2 2>&3
-runscript=$?
-if [ $runscript = 0 ]; then
-	printf "Running firewall script..."
-	sudo ./fw-script
-	whiptail --title "$window_title" --msgbox "Firewall rules have been installed, the VPN Client Gateway will now forward traffic via the VPN tunnel. The 'killswitch' is now active; all internet access via the VPN Client Gateway will be blocked if the VPN connection drops." 13 60 3>&1 1>&2 2>&3
-else
-	printf "\nFirewall script has been created in the file 'fw-script'. Please review the file, then run as root to install the firewall rules:\n'sudo ./fw-script'\nThe VPN Client Gateway will not forward traffic until you run this script!\n"
-fi
+		fi
+		# generate firewall script from template
+		if [ ${#local_networks_and_computers[@]} -gt 0 ]; then
+			for i in "${local_networks_and_computers[@]}"; do
+				local_network_rules+="iptables -A OUTPUT -d $i -o \$GATEWAY_LAN_INTERFACE -m comment --comment \"local lan\" -j ACCEPT\n"
+			done
+			sed -e "s/<GATEWAY_LAN_INTERFACE>/$gateway_lan_interface/g" -e "/local_network_rules/a\\$local_network_rules" "$working_path/$template_script" > "$working_path/$output_script"
+		else
+			sed -e "s/<GATEWAY_LAN_INTERFACE>/$gateway_lan_interface/g" "$working_path/$template_script" > "$working_path/$output_script"
+		fi
+		chmod u+x "$working_path/$output_script"
+		whiptail --title "$window_title" --msgbox $'Firewall configuration script has been created.\nReview the file, then press \'Q\' to quit the file viewer.' 0 0 3>&1 1>&2 2>&3
+		less "$working_path/$output_script"
+		whiptail --title "$window_title" --yesno "Do you want to run the firewall configuration script now?\nThe script will remove any existing firewall rules. " 0 0 3>&1 1>&2 2>&3
+		runscript=$?
+		if [ $runscript = 0 ]; then
+			# run the firewall script
+			sudo "$working_path/$output_script"
+			whiptail --title "$window_title" --msgbox $'Firewall rules have been installed.\nThe VPN Client Gateway will now forward traffic via the VPN tunnel.\nThe \'kill switch\' is now active; all internet access via the VPN Client Gateway will be blocked if the VPN connection drops.' 0 0 3>&1 1>&2 2>&3
+			firewall_state="configured"
+		else
+			firewall_state="configured_manual"
+		fi
+	fi
+done
+case "$firewall_state" in
+	configured) config_message=$'The firewall has been configured.\nThe VPN Client Gateway will now forward traffic via the VPN tunnel.\nThe \'kill switch\' is now active; all internet access via the VPN Client Gateway will be blocked if the VPN connection drops.\nThe firewall rule script is '
+		    config_message="$config_message $working_path/$output_script"
+	;;
+	configured_manual) config_message=$'The firewall rules have been generated but have not been installed.\nThe VPN Client Gateway will not forward traffic until you install the firewall rules.\nTo install the firewall rules, review the firewall script'
+		           config_message="$config_message $working_path/$output_script"
+			   config_message=$config_message$'\nthen run it as root:'
+			   config_message="$config_message 'sudo $working_path/$output_script'"
+	;;
+	reset) config_message=$'The firewall rules have been reset.\nThe VPN Client Gateway will not forward traffic until you configure the firewall.'
+	;;
+	not_configured) config_message=$'The firewall has not been configured.\nThe VPN Client Gateway will not forward traffic until you configure the firewall.'
+	;;
+esac
+printf "%s\n" "$config_message"

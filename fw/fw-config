@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 # This configuration script generates the firewall rules for the VPN Client Gateway.
-# The firewall rule template 'fw-template' must be located in the same directory as the script.
+
+VPN_INTERFACE="tun+"
 
 # get path for this script
 working_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-template_script="fw-template"
 output_script="fw-script"
 
 function valid_ip_or_network()
@@ -23,6 +23,41 @@ function valid_ip_or_network()
         stat=$?
     fi
     return $stat
+}
+
+function contains()
+# check if array contains a value
+{
+    local n=$#
+    local value=${!n}
+    for ((i=1;i < $#;i++)) {
+        if [ "${!i}" == "${value}" ]; then
+            echo true
+            return 0
+        fi
+    }
+    echo false
+    return 1
+}
+
+function cidr2mask ()
+# converts CIDR prefix to netmask (written by VinzC on forums.gentoo.org)
+{
+   # Number of args to shift, 255..255, first non-255 byte, zeroes
+   set -- $(( 5 - ($1 / 8) )) 255 255 255 255 $(( (255 << (8 - ($1 % 8))) & 255 )) 0 0 0
+   [ $1 -gt 1 ] && shift $1 || shift
+   echo ${1-0}.${2-0}.${3-0}.${4-0}
+}
+
+function get_subnet_address ()
+# given an ip address in slash notation, returns the subnet address in slash notation.
+{
+        local ip_address=$1
+        IFS="./" read -r ip1 ip2 ip3 ip4 cidr_prefix<<< "$ip_address"
+        netmask=$(cidr2mask "$cidr_prefix")
+        IFS=. read -r m1 m2 m3 m4 <<< "$netmask"
+        printf "%d.%d.%d.%d%s\n" "$((ip1 & m1))" "$((ip2 & m2))" "$((ip3 & m3))" "$((ip4 & m4))" "/$cidr_prefix"
+        return 0
 }
 
 window_title="VPN Client Gateway firewall configuration"
@@ -58,11 +93,34 @@ while [ "$choice" != "Exit" ] && [ "$firewall_state" != "configured" ] && [ "$fi
 		fi
 	elif [ "$choice" = "Configure" ]; then
 		declare -a local_networks_and_computers
+		declare -a selected_lan_interfaces
+		declare -A lan_interface_info
+		declare -a lan_interface_choices
+		declare -A lan_interface_subnets
+
+		# get default route interface
+		mapfile -t default_route_info < <(route | grep default)
+		if [ -z "$default_route_info" ]; then
+			whiptail --title "$window_title" --yesno --yes-button "Exit" --no-button "Continue" 'No default route found, please configure your network interface(s) before running the firewall configuration script.' 0 0 3>&1 1>&2 2>&3
+        		confirm=$?
+			if [ $confirm = 0 ]; then
+				printf "No default route found, please configure your network interface(s) before running the firewall configuration script.\n"
+				exit
+			fi
+			default_route_interface="none"
+		else
+		        IFS=':, ' read -r -a default_route_info_tokens <<< "${default_route_info}"
+			default_route_interface=${default_route_info_tokens[7]}
+		fi
 
 		# get list of configured LAN interfaces
+
 		mapfile -t ipinfo < <(ip addr)
 		current_line_index=0
-		menu_options=()
+		selected_lan_interfaces=()
+		lan_interface_info=()
+		lan_interface_subnets=()
+
 		for current_line in "${ipinfo[@]}"
 		do
 		        IFS=', ' read -r -a current_line_tokens <<< "$current_line"
@@ -72,67 +130,283 @@ while [ "$choice" != "Exit" ] && [ "$firewall_state" != "configured" ] && [ "$fi
 		                IFS=':, ' read -r -a next_line_tokens <<< "${ipinfo[$((current_line_index + 1))]}"
 				if [ "${next_line_tokens[0]}" = "inet" ]
 				then
-		                	menu_options+=( ${prev_line_tokens[1]} "${current_line_tokens[1]} ${next_line_tokens[1]}" )
+					lan_interface_info[${prev_line_tokens[1]}]="${current_line_tokens[1]} ${next_line_tokens[1]}"
+					lan_interface_subnets[${prev_line_tokens[1]}]=$( get_subnet_address "${next_line_tokens[1]}" )
 				fi
 		        fi
 		        current_line_index=$((current_line_index + 1))
 		done
 
-		gateway_lan_interface=$(whiptail --title "$window_title" --nocancel --menu "Choose the gateway LAN interface:" 0 0 0 "${menu_options[@]}" 3>&1 1>&2 2>&3)
-		exitstatus=$?
-		if [ $exitstatus != 0 ]; then
-			printf "Configuration error\n"
+		if [ "${#lan_interface_info[@]}" -eq "0" ]
+		then
+			whiptail --title "$window_title" --msgbox "No default route found. Please configure your network interface(s) before running the firewall configuration script." 0 0 3>&1 1>&2 2>&3
 			exit
 		fi
-		whiptail --title "$window_title" --yesno --defaultno "Does your VPN Client Gateway server need access to other computers on your local network (e.g. for NFS shares etc.)? Choose 'No' if you're not sure." 9 62 3>&1 1>&2 2>&3
-		confirm=$?
-		if [ $confirm = 0 ]; then
-			local_access_required=true
+
+		if [ "${#lan_interface_info[@]}" -eq "1" ]
+		then
+			selected_lan_interfaces=("${!lan_interface_info[@]}")
 		else
-			local_access_required=false
-		fi
-		if [ $local_access_required = true ]; then
-			valid_network=false
-			network="192.168.1.0/24"
-			prompt="Enter the local network using slash notation (e.g. $network)\nor the IP address of a specific computer (e.g. 192.168.1.7)"
-			more_networks=true
-			while [ $more_networks = true ]; do
-				error_message=""
-				valid_network=false
-				while [ $valid_network = false ]; do
-		        		network=$(whiptail --title "$window_title" --inputbox "$error_message$prompt" --nocancel 9 72 "$network" 3>&1 1>&2 2>&3)
-					if valid_ip_or_network $network; then
-						valid_network=true
-				                whiptail --title "$window_title" --yesno "Adding the following local network / computer to the firewall rules:\n\n$network" --yes-button "Ok" --no-button "Modify" 10 62 "$network" 3>&1 1>&2 2>&3
-						confirm=$?
-						if [ $confirm = 1 ]; then
-							error_message=""
-							valid_network=false
-						fi
-					else
-						error_message="Invalid IP address or local network format!\n"
-						valid_network=false
+			selected_lan_confirmed=false
+			selected_lan_interface="none"
+			lan_interface_choices=()
+
+			for i in "${!lan_interface_info[@]}"; do
+			    lan_interface_choices+=($i "${lan_interface_info[$i]}")
+			done
+
+			while [ $selected_lan_interface != $default_route_interface ] && [ $selected_lan_confirmed = false ]; do
+				selected_lan_interface=$(whiptail --title "$window_title" --default-item "$default_route_interface" --nocancel --menu "Choose the primary LAN interface (the network interface that connects to the internet via your router):" 0 0 0 "${lan_interface_choices[@]}" 3>&1 1>&2 2>&3)
+				exitstatus=$?
+				if [ $exitstatus != 0 ]; then
+					printf "Configuration error\n"
+					exit
+				fi
+				if [ $selected_lan_interface != $default_route_interface ]; then
+					whiptail --title "$window_title" --yesno --defaultno "The selected interface ($selected_lan_interface) has no default route, and might not be the primary LAN interface. Proceed with the selected interface?" 0 0 3>&1 1>&2 2>&3
+	        			confirm=$?
+					if [ $confirm = 0 ]; then
+						selected_lan_confirmed=true
 					fi
-				done
-				local_networks_and_computers=(${local_networks_and_computers[@]} $network)
-				whiptail --title "$window_title" --yesno "Add more networks / computers?" --defaultno 9 40
-				confirm=$?
-				if [ $confirm = 1 ]; then
-					more_networks=false
+				fi
+			done
+
+			selected_lan_interfaces=($selected_lan_interface)
+			add_lan_interface=true
+
+			while [ "${#lan_interface_info[@]}" -gt "${#selected_lan_interfaces[@]}" ] && [ $add_lan_interface = true ]; do 
+				whiptail --title "$window_title" --yesno --defaultno "Do you want the VPN Client Gateway to forward traffic for other LAN interfaces?" 0 0 3>&1 1>&2 2>&3
+	      			confirm=$?
+				if [ $confirm = 0 ]; then
+			                lan_interface_choices=()
+			                for i in "${!lan_interface_info[@]}"; do
+					    if [ $(contains "${selected_lan_interfaces[@]}" "$i") == false ]; then
+						    lan_interface_choices+=($i "${lan_interface_info[$i]}")
+					    fi
+					done
+					selected_lan_interface=$(whiptail --title "$window_title" --default-item "eth0" --nocancel --menu "Choose additional LAN interface:" 0 0 0 "${lan_interface_choices[@]}" 3>&1 1>&2 2>&3)
+					exitstatus=$?
+					if [ $exitstatus != 0 ]; then
+						printf "Configuration error\n"
+						exit
+					else
+						selected_lan_interfaces+=($selected_lan_interface)
+					fi
 				else
-					more_networks=true
+					add_lan_interface=false
 				fi
 			done
 		fi
-		# generate firewall script from template
+
+		declare -A local_lan_access
+		local_lan_access=()
+		whiptail --title "$window_title" --yesno --defaultno "Do you want to allow local network access from the VPN Client Gateway server?\nThis allows the VPN Client Gateway server to access services on your network (e.g. NFS shares).\nChoose 'No' if you're not sure." 9 92 3>&1 1>&2 2>&3
+		confirm=$?
+		if [ $confirm = 0 ]; then
+			if [ "${#selected_lan_interfaces[@]}" -eq "1" ]; then
+				local_lan_access["${selected_lan_interfaces[0]}"]="${lan_interface_subnets[${selected_lan_interfaces[0]}]}"
+			else
+				lan_interface_choices=()
+		                for i in "${selected_lan_interfaces[@]}"; do
+					lan_interface_choices+=("$i" "${lan_interface_subnets[$i]}" "ON")
+				done
+				whiptail --title "$window_title" --checklist --separate-output --cancel-button "Skip" "Choose the networks that should allow local network access from the VPN Client Gateway server.\n(use the up/down + tab keys to navigate, spacebar to toggle on/off):" 0 0 "${#selected_lan_interfaces[@]}" "${lan_interface_choices[@]}" 2>choices
+				while read choice
+				do
+					local_lan_access[$choice]="${lan_interface_subnets[$choice]}"
+				done < choices
+			fi
+		else
+			local_access_required=false
+		fi
+
+		# Generate firewall script.
+
+		# read from heredoc
+		read -d '' firewall_script <<"EOF"
+#!/usr/bin/env bash
+
+working_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+script_name=`basename "$0"`
+if ! [ $(id -u) = 0 ]; then
+   printf "This script must be run as root, e.g.:\\n'sudo %s/%s'\\n" $working_path $script_name
+   exit 1
+fi
+
+printf "Configuring firewall rules...\\n"
+
+# OpenVPN ports used by major providers:
+OPENVPN_UDP_PORTS="53,1194,1197,1198"
+
+# delete all existing rules
+iptables -Z
+iptables --flush
+iptables --delete-chain
+iptables -t nat -F
+
+# default drop policy:
+iptables --policy INPUT   DROP;
+iptables --policy OUTPUT  DROP;
+iptables --policy FORWARD DROP;
+
+# establish logging chain:
+iptables -N LOGGING
+iptables -N BADPKT_LOGGING
+
+# allow loopback:
+iptables -A INPUT -i lo -m comment --comment "loopback" -j ACCEPT
+iptables -A OUTPUT -o lo -m comment --comment "loopback" -j ACCEPT
+
+# local network access rules:
+EOF
+		# add local network access rules
+		if [ "${#local_lan_access[@]}" -gt "0" ]; then
+			for i in "${!local_lan_access[@]}"; do
+				firewall_script+=$'\n'"iptables -A OUTPUT -d ${local_lan_access[$i]} -o $i -m comment --comment \"local lan access\" -j ACCEPT"
+			done
+		fi
+
+		# add any local network access rules
 		if [ ${#local_networks_and_computers[@]} -gt 0 ]; then
 			for i in "${local_networks_and_computers[@]}"; do
-				local_network_rules+="iptables -A OUTPUT -d $i -o \$GATEWAY_LAN_INTERFACE -m comment --comment \"local lan\" -j ACCEPT\n"
+				firewall_script+=$'\n'"iptables -A OUTPUT -d $i -o ${selected_lan_interfaces[0]} -m comment --comment \"local lan access\" -j ACCEPT"
 			done
-			sed -e "s/<GATEWAY_LAN_INTERFACE>/$gateway_lan_interface/g" -e "/local_network_rules/a\\$local_network_rules" "$working_path/$template_script" > "$working_path/$output_script"
-		else
-			sed -e "s/<GATEWAY_LAN_INTERFACE>/$gateway_lan_interface/g" "$working_path/$template_script" > "$working_path/$output_script"
 		fi
+
+		firewall_script+=$'\n'
+
+		# add incoming lan / oubound via VPN rules
+		firewall_script+=$'\n'"# allow incoming from lan, outgoing thru vpn:"
+		firewall_script+=$'\n'"iptables -I OUTPUT -o $VPN_INTERFACE -m comment --comment \"Out to VPN\" -j ACCEPT"
+
+		for i in ${selected_lan_interfaces[@]}
+		do
+			firewall_script+=$'\n'"iptables -I INPUT -i $i -m comment --comment \"In from $i\" -j ACCEPT"
+		done
+
+		firewall_script+=$'\n'
+
+		# add outbound services rules
+		firewall_script+=$'\n'"# allow outbound services:"
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p icmp -m comment --comment \"icmp\" -j ACCEPT"
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m multiport --dports \$OPENVPN_UDP_PORTS -m comment --comment \"openvpn\" -j ACCEPT"
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p tcp -m tcp --sport 22 -m comment --comment \"ssh\" -j ACCEPT"
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m udp --dport 123 -m comment --comment \"ntp\" -j ACCEPT"
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m udp --dport 53 -m comment --comment \"dns\" -j ACCEPT"
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p tcp -m tcp --dport 53 -m comment --comment \"dns\" -j ACCEPT"
+		firewall_script+=$'\n'"iptables -A OUTPUT -p UDP --dport 67:68 -m comment --comment \"dhcp\" -j ACCEPT"
+
+		firewall_script+=$'\n'
+
+		# add rule chain for forwarding via VPN
+		firewall_script+=$'\n'"# rule chain for forwarding via VPN:"
+		firewall_script+=$'\n'"iptables -N forward_rules_vpn"
+		for i in ${selected_lan_interfaces[@]}
+		do
+			firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $VPN_INTERFACE -o $i -m state --state RELATED,ESTABLISHED -j ACCEPT"
+			firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $i -o $VPN_INTERFACE -m comment --comment \"$i out to VPN\" -j ACCEPT"
+		done
+
+		firewall_script+=$'\n'
+
+		# add rule chain for forwarding via LAN
+		firewall_script+=$'\n'"# rule chain for forwarding via LAN"
+		firewall_script+=$'\n'"iptables -N forward_rules_lan"
+		firewall_script+=$'\n'"iptables -t filter -A forward_rules_lan -i ${selected_lan_interfaces[0]} -o ${selected_lan_interfaces[0]} -m comment --comment \"${selected_lan_interfaces[0]} forwarding\" -j ACCEPT"
+		for i in ${selected_lan_interfaces[@]:1}
+		do
+			firewall_script+=$'\n'"iptables -t filter -A forward_rules_lan -i $i -o ${selected_lan_interfaces[0]} -m comment --comment \"$i LAN forwarding\" -j ACCEPT"
+			firewall_script+=$'\n'"iptables -t filter -A forward_rules_lan -i ${selected_lan_interfaces[0]} -o $i -m comment --comment \"$i LAN forwarding\" -j ACCEPT"
+		done
+
+		firewall_script+=$'\n'
+
+		# turn on forwarding via VPN
+		firewall_script+=$'\n'"# turn on forwarding via VPN"
+		firewall_script+=$'\n'"iptables -A FORWARD -j forward_rules_vpn"
+
+		firewall_script+=$'\n'
+
+		# nat the gateway
+		firewall_script+=$'\n'"# nat the gateway"
+		firewall_script+=$'\n'"iptables -t nat -A POSTROUTING -o $VPN_INTERFACE -j MASQUERADE"
+		for i in ${selected_lan_interfaces[@]}
+		do
+			firewall_script+=$'\n'"iptables -t nat -A POSTROUTING -o $i -j MASQUERADE"
+		done
+
+		firewall_script+=$'\n'
+
+		# read from heredoc
+		read -d '' fw_temp <<"EOF"
+# TCP sessions must start with SYN, drop bad packets:
+iptables -A INPUT -p tcp ! --syn -m state --state NEW -j BADPKT_LOGGING
+iptables -A INPUT -m state --state INVALID -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags ALL NONE -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags ALL ALL -j BADPKT_LOGGING
+iptables -A INPUT -f -m comment --comment "Drop FRAGS" -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags ALL ACK,RST,SYN,FIN -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags SYN,FIN SYN,FIN -j BADPKT_LOGGING
+iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j BADPKT_LOGGING
+
+# accept inbound vpn initiated traffic
+EOF
+		firewall_script+=$'\n'"iptables -A INPUT -i $VPN_INTERFACE -m state --state ESTABLISHED,RELATED -j ACCEPT"
+
+		firewall_script+=$'\n'"$fw_temp"
+
+		firewall_script+=$'\n'
+
+		# add LAN initiated traffic rules
+		firewall_script+=$'\n'"# accept outbound lan initiated traffic"
+		for i in ${selected_lan_interfaces[@]}
+		do
+			firewall_script+=$'\n'"iptables -A OUTPUT -o $i -m state --state RELATED,ESTABLISHED -j ACCEPT"
+		done
+
+		firewall_script+=$'\n'
+
+		# add killswitch rule chains
+		firewall_script+=$'\n'"# killswitch rule chains"
+		firewall_script+=$'\n'"iptables -N killswitch_on"
+		firewall_script+=$'\n'"iptables -t filter -A killswitch_on -j RETURN"
+		firewall_script+=$'\n'"iptables -N killswitch_off"
+		for i in ${selected_lan_interfaces[@]}
+		do
+			firewall_script+=$'\n'"iptables -t filter -A killswitch_off -o $i -j ACCEPT"
+		done
+
+		firewall_script+=$'\n'
+
+		# read from heredoc
+		read -d '' fw_temp <<"EOF"
+# create killswitch rule chain, turn the killswitch on
+iptables -N killswitch
+iptables -t filter -A killswitch  -j killswitch_on
+
+# add killswitch chain to OUTPUT chain:
+iptables -t filter -A OUTPUT -j killswitch
+
+# logging for dropped traffic
+iptables -A INPUT -m comment --comment "LOG and DROP" -j LOGGING
+iptables -A OUTPUT -m comment --comment "LOG and DROP" -j LOGGING
+
+# logging chain
+iptables -A LOGGING -m limit --limit 2/sec -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+iptables -A LOGGING -j DROP
+
+# logging badpackets chain
+iptables -A BADPKT_LOGGING -m limit --limit 2/sec -j LOG --log-prefix "IPTables- BADPACKETS: " --log-level 4
+iptables -A BADPKT_LOGGING -j DROP
+
+# save the firewall rules
+iptables-save > /etc/iptables/rules.v4
+
+printf "Firewall rules have been configured.\\n"
+EOF
+		firewall_script+=$'\n'"$fw_temp"
+
+		printf "%s\n" "$firewall_script" > "$working_path/$output_script"
 		chmod u+x "$working_path/$output_script"
 		whiptail --title "$window_title" --msgbox $'Firewall configuration script has been created.\nReview the file, then press \'Q\' to quit the file viewer.' 0 0 3>&1 1>&2 2>&3
 		less "$working_path/$output_script"

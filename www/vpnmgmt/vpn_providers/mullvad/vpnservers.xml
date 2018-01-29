@@ -1,0 +1,303 @@
+<vpnserverinfo>
+	<basicvpnservers>
+		<servername>se-sto.mullvad.net</servername>
+		<servername>ca-bc.mullvad.net</servername>
+		<servername>us-ny.mullvad.net</servername>
+		<servername>de-ber.mullvad.net</servername>
+		<servername>fr.mullvad.net</servername>
+		<servername>fi.mullvad.net</servername>
+		<servername>hk.mullvad.net</servername>
+		<servername>md.mullvad.net</servername>
+		<servername>at.mullvad.net</servername>
+	</basicvpnservers>
+	<vpnservers>
+		<vpnserver>
+			<servername>at.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Austria</countryname>
+			<regionname>Vienna</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>au.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Australia</countryname>
+			<regionname>Melbourne</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>be.mullvad.net</servername>
+			<port>1302</port>
+			<countryname>Belgium</countryname>
+			<regionname>Brussels</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>bg.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Bulgaria</countryname>
+			<regionname>Sofia</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>ca-bc.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>Canada</countryname>
+			<regionname>Vancouver</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>ca.mullvad.net</servername>
+			<port>1301</port>
+			<countryname>Canada</countryname>
+			<regionname>British Columbia</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>ca-on.mullvad.net</servername>
+			<port>1301</port>
+			<countryname>Canada</countryname>
+			<regionname>Toronto</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>ch.mullvad.net</servername>
+			<port>1301</port>
+			<countryname>Switzerland</countryname>
+			<regionname>Zurich</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>cz.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>Czech Republic</countryname>
+			<regionname>Prague</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>de-ber.mullvad.net</servername>
+			<port>1197</port>
+			<countryname>Germany</countryname>
+			<regionname>Berlin</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>de.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>Germany</countryname>
+			<regionname>Berlin</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>de-fra.mullvad.net</servername>
+			<port>1197</port>
+			<countryname>Germany</countryname>
+			<regionname>Frankfurt</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>dk.mullvad.net</servername>
+			<port>1197</port>
+			<countryname>Denmark</countryname>
+			<regionname>Copenhagen</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>es.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Spain</countryname>
+			<regionname>Madrid</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>fi.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>Finland</countryname>
+			<regionname>Helsinki</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>fr.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>France</countryname>
+			<regionname>Paris</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>gb.mullvad.net</servername>
+			<port>1197</port>
+			<countryname>United Kingdom</countryname>
+			<regionname></regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>gb-lon.mullvad.net</servername>
+			<port>1302</port>
+			<countryname>United Kingdom</countryname>
+			<regionname>London</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>gb-mnc.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>United Kingdom</countryname>
+			<regionname>Manchester</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>hk.mullvad.net</servername>
+			<port>1302</port>
+			<countryname>Hong Kong</countryname>
+			<regionname></regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>hu.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Hungary</countryname>
+			<regionname>Budapest</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>il.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>Israel</countryname>
+			<regionname>Petach-Tikva</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>it.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>Italy</countryname>
+			<regionname>Milan</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>jp.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>Japan</countryname>
+			<regionname>Tokyo</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>md.mullvad.net</servername>
+			<port>1301</port>
+			<countryname>Moldova</countryname>
+			<regionname>Chisinau</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>nl.mullvad.net</servername>
+			<port>1302</port>
+			<countryname>Netherlands</countryname>
+			<regionname>Amsterdam</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>no.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>Norway</countryname>
+			<regionname>Oslo</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>pl.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Poland</countryname>
+			<regionname>Warsaw</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>pt.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Portugal</countryname>
+			<regionname>Lisbon</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>ro.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>Romania</countryname>
+			<regionname>Bucharest</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>se.mullvad.net</servername>
+			<port>1197</port>
+			<countryname>Sweden</countryname>
+			<regionname></regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>se-hel.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Sweden</countryname>
+			<regionname>Helsingborg</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>se-mma.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>Sweden</countryname>
+			<regionname>Malmö</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>se-sto.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>Sweden</countryname>
+			<regionname>Stockholm</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>sg.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>Singapore</countryname>
+			<regionname></regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-az.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>United States</countryname>
+			<regionname>Phoenix AZ</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-ca.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>United States</countryname>
+			<regionname>Los Angeles CA</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us.mullvad.net</servername>
+			<port>1301</port>
+			<countryname>United States</countryname>
+			<regionname></regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-dc.mullvad.net</servername>
+			<port>1196</port>
+			<countryname>United States</countryname>
+			<regionname>Washington DC</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-fl.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>United States</countryname>
+			<regionname>Miami FL</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-ga.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>United States</countryname>
+			<regionname>Atlanta GA</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-il.mullvad.net</servername>
+			<port>1301</port>
+			<countryname>United States</countryname>
+			<regionname>Chicago IL</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-nj.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>United States</countryname>
+			<regionname>Newark NJ</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-nv.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>United States</countryname>
+			<regionname>Las Vegas NV</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-ny.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>United States</countryname>
+			<regionname>New York NY</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-tx.mullvad.net</servername>
+			<port>1301</port>
+			<countryname>United States</countryname>
+			<regionname>Dallas TX</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-ut.mullvad.net</servername>
+			<port>1195</port>
+			<countryname>United States</countryname>
+			<regionname>Salt Lake City UT</regionname>
+		</vpnserver>
+		<vpnserver>
+			<servername>us-wa.mullvad.net</servername>
+			<port>1194</port>
+			<countryname>United States</countryname>
+			<regionname>Seattle WA</regionname>
+		</vpnserver>
+	</vpnservers>
+</vpnserverinfo>

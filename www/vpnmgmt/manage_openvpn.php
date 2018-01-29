@@ -1,6 +1,7 @@
 <?php
 require_once('util.php');
 $vpnserver=$_GET["vpnserver"];
+$port=$_GET["port"];
 //echo "VPN server: $vpnserver\n";
 	$hostname = explode(".", $vpnserver);
 	$subdomain = $hostname[0];
@@ -31,6 +32,9 @@ if (isset($vpnserver)){
                         $line_tokens = preg_split("/[\s]+/",$line);
                         if ($line_tokens[0] === "remote"){
                                 $portnumber = $line_tokens[2];
+				if(isset($port)){
+					$portnumber=$port;
+				}
                                 $serverconf .= "remote " . $vpnserver . " " . $portnumber . "\n";
                         }
 			else if ($line_tokens[0] === "ca" && $domain === "nordvpn"){

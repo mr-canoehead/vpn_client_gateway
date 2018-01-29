@@ -236,7 +236,7 @@ fi
 printf "Configuring firewall rules...\\n"
 
 # OpenVPN ports used by major providers:
-OPENVPN_UDP_PORTS="53,1194,1197,1198"
+OPENVPN_UDP_PORTS="53,1194,1195,1196,1197,1198,1301,1302"
 
 # delete all existing rules
 iptables -Z

@@ -60,6 +60,10 @@
                 <flagfile>HR.svg</flagfile>
         </country>
         <country>
+                <name>Czech Republic</name>
+                <flagfile>CZ.svg</flagfile>
+        </country>
+        <country>
                 <name>Egypt</name>
                 <flagfile>EG.svg</flagfile>
         </country>
@@ -67,7 +71,11 @@
                 <name>Estonia</name>
                 <flagfile>EE.svg</flagfile>
         </country>
-        <country>
+	<country>
+                <name>Finland</name>
+                <flagfile>FI.svg</flagfile>
+        </country>
+	<country>
                 <name>Georgia</name>
                 <flagfile>GE.svg</flagfile>
         </country>

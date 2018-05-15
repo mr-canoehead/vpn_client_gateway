@@ -309,6 +309,17 @@ EOF
 
 		firewall_script+=$'\n'
 
+
+                # add rule chain for port forwarding, this is a placeholder chain that does nothing until rules are added.
+                firewall_script+=$'\n'"# rule chain for port forwarding, this is a placeholder chain and does nothing until rules are added."
+                firewall_script+=$'\n'"iptables -N port_forwarding_vpn"
+                firewall_script+=$'\n'"iptables -t filter -A port_forwarding_vpn -j RETURN"
+
+                # add port forwarding rule chain to the vpn forwarding rule chain
+                firewall_script+=$'\n'"iptables -A forward_rules_vpn -j port_forwarding_vpn"
+
+                firewall_script+=$'\n'
+
 		# add rule chain for forwarding via LAN
 		firewall_script+=$'\n'"# rule chain for forwarding via LAN"
 		firewall_script+=$'\n'"iptables -N forward_rules_lan"

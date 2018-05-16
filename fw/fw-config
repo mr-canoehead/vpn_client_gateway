@@ -99,7 +99,7 @@ while [ "$choice" != "Exit" ] && [ "$firewall_state" != "configured" ] && [ "$fi
 		declare -A lan_interface_subnets
 
 		# get default route interface
-		mapfile -t default_route_info < <(route | grep default)
+		mapfile -t default_route_info < <(ip route | grep default)
 		if [ -z "$default_route_info" ]; then
 			whiptail --title "$window_title" --yesno --yes-button "Exit" --no-button "Continue" 'No default route found, please configure your network interface(s) before running the firewall configuration script.' 0 0 3>&1 1>&2 2>&3
         		confirm=$?
@@ -110,7 +110,7 @@ while [ "$choice" != "Exit" ] && [ "$firewall_state" != "configured" ] && [ "$fi
 			default_route_interface="none"
 		else
 		        IFS=':, ' read -r -a default_route_info_tokens <<< "${default_route_info}"
-			default_route_interface=${default_route_info_tokens[7]}
+			default_route_interface=${default_route_info_tokens[4]}
 		fi
 
 		# get list of configured LAN interfaces

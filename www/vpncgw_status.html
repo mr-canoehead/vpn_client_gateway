@@ -1,0 +1,30 @@
+<!-- a simple page that displays the contents of the status file (/tmp/vpncgw_status.json).
+     The status monitor script needs to be configured for this page to be useful.
+     Refer to the wiki for setup instructions:
+     https://github.com/mr-canoehead/vpn_client_gateway/wiki/VPN-Client-Gateway-status-monitor
+-->
+<head>
+<link rel="shortcut icon" type="/image/png" href="/images/favicon.ico"/>
+  <script type="text/javascript">
+    function refreshData(){
+      var display = document.getElementById("vpncgw_status");
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", "vpncgw_status.php");
+      xmlhttp.setRequestHeader("Content-Type", "text/pain;charset=UTF-8");
+      xmlhttp.send();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          display.innerHTML = this.responseText;
+        } else {
+          display.innerHTML = "Loading...";
+        };
+      }
+    }
+    window.onload = refreshData;
+    setInterval(refreshData,5000);
+  </script>
+</head>
+<h2>VPN Client Gateway status</h2>
+<body>
+	<div id="vpncgw_status"/>
+</body>

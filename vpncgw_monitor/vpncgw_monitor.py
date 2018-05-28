@@ -271,7 +271,7 @@ def main():
 								s.send(MANAGEMENT_IF_PASSWORD + "\n")
 							except IOError as e:
 								error = "mgt_if_sock_write"
-							time.sleep(0.2)
+							time.sleep(0.25)
 							try:
 								data = s.recv(BUFFER_SIZE)
 							except IOError as e:
@@ -290,6 +290,7 @@ def main():
 							s.send("state\n")
 						except IOError as e:
 							error = "mgt_if_sock_write"
+						time.sleep(0.25)
 						try:
 							state_string=s.recv(BUFFER_SIZE).splitlines()[0]
 						except IOError as e:
@@ -305,6 +306,7 @@ def main():
 							s.send("status\n")
 						except IOError as e:
 							error = "mgt_if_sock_write"
+						time.sleep(0.25)
 						try:
 							status_string=s.recv(BUFFER_SIZE)
 						except IOError as e:

@@ -22,6 +22,11 @@
         display:none;
 }
 
+.serverUrl {
+	margin-left: 1em;
+}
+
+
 #VPNChangeMessage {
     width: 400px;
     height: 150px;
@@ -67,9 +72,6 @@
     line-height: 50%;
     text-align: left;
     z-index: 11; /* 1px higher than the overlay layer */
-    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #IPInfoBoxTitle{
@@ -116,6 +118,11 @@
 	height: 20px;
 }
 
+.showLoadingIcon {
+    background-image: url('images/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
 #TracerouteInfoBox {
     width: 800px;
     height: 400px;
@@ -130,9 +137,6 @@
     line-height: 50%;
     text-align: left;
     z-index: 11; /* 1px higher than the overlay layer */
-    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: center;
 }
 #SyslogInfoBox {
     width: 100%;
@@ -199,10 +203,6 @@
     line-height: 50%;
     text-align: left;
     z-index: 11; /* 1px higher than the overlay layer */
-/*    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-*/
 
 }
 
@@ -240,11 +240,6 @@
     line-height: 50%;
     text-align: left;
     z-index: 11; /* 1px higher than the overlay layer */
-/*    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-*/
-
 }
 
 #RebootInfoBoxTitle{

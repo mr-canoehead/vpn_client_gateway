@@ -1,0 +1,607 @@
+<!doctype html>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="index.css" />
+<script type="text/javascript">
+
+	function sleep (time) {
+		return new Promise((resolve) => setTimeout(resolve, time));
+	}
+
+	function show_element(ele) {
+		if (ele instanceof Array)
+			for (i = 0; i < ele.length; i++) 
+				document.getElementById(ele[i]).style.display = "block";
+			
+		else 
+			document.getElementById(ele).style.display = "block";
+	}
+
+	function hide_element(ele) {
+		if (ele instanceof Array)
+			for (i = 0; i < ele.length; i++)
+				document.getElementById(ele[i]).style.display = "none";
+			
+		else 
+			document.getElementById(ele).style.display = "none";
+	}
+
+	function show_tools(){
+		show_element("Tools");
+		hide_element(["VPNSection","Admin"]);
+	}
+
+	function show_admin(){
+		show_element("Admin");
+		hide_element(["Tools","VPNSection"]);
+	}
+
+	function show_changing_vpn_message(){
+		show_element("ChangingVPNMessageOverlay");
+		sleep(2000).then(() => {
+			hide_element("ChangingVPNMessageOverlay");
+		})
+	}
+
+	function show_vpn_change_message(){
+		show_element("VPNChangeMessageOverlay");
+		sleep(2000).then(() => {
+			hide_element("VPNChangeMessageOverlay");
+		})
+	}
+
+	function vpncgw_request(request_data, callback_function) {
+		var url = "vpnmgmt/manage_openvpn.php?data=" + encodeURIComponent(JSON.stringify(request_data));
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", url,true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function() {
+			if (callback_function instanceof Function){
+				if (xhr.readyState === 4 && xhr.status == 200){
+					callback_function(xhr.responseText);
+				}
+			}
+		}
+		xhr.send(null);
+	}
+
+ 	function populateCurrentServer(data) {
+		serverinfo = data;
+		headingtext = "Current VPN server:";
+		if (serverinfo["enabled"] == false){
+			headingtext += " none. All traffic originates from your ISP.";
+			hide_element(["CurrentVPNFlag","DisableVPNMenuButton"]);
+			show_element("EnableVPNMenuButton");
+		}
+		else{
+			headingtext += " " + serverinfo["servername"];
+			show_element(["CurrentVPNFlag","DisableVPNMenuButton"]);
+			hide_element("EnableVPNMenuButton");
+			document.getElementById("ServerLocation").innerHTML = serverinfo["country"] + "<br>" + serverinfo["region"];
+			document.getElementById("CurrentVPNFlagImage").src = "images/flags/" + serverinfo["flagurl"];
+		}
+		document.getElementById("CurrentVPNServerHeading").innerHTML = headingtext;
+	}
+
+	function get_current_vpn_server() {
+		vpncgw_request({"request":"getcurrentserver"},vpncgw_response_handler);
+	}
+
+	function change_vpn_server(vpnserver,port) {
+		show_changing_vpn_message();
+		request_data = {"request":"changeserver","servername": vpnserver,"port": port};
+		vpncgw_request(request_data, vpncgw_response_handler);
+		sleep(2000).then(() => {
+			show_vpn_change_message();
+		})
+		return false;
+	}
+
+	function populateIPGeolocation(data) {
+		var ipInfoBoxTableContainer = document.getElementById("IPInfoBoxTableContainer");
+		ipInfoBoxTableContainer.classList.remove("showLoadingIcon");
+		ipInfoBoxTableContainer.innerHTML = data;
+	}
+
+	function show_iplocationinfo() {
+		show_element("IPInfoOverlay");
+		var ipInfoBoxTableContainer = document.getElementById("IPInfoBoxTableContainer");
+		ipInfoBoxTableContainer.innerHTML = "";
+		ipInfoBoxTableContainer.classList.add("showLoadingIcon");
+		vpncgw_request({"request":"getiplocation"},vpncgw_response_handler);
+        }
+
+        function hide_iplocationinfo(){
+                hide_element("IPInfoOverlay");
+        }
+
+	function populateTraceroute(data) {
+		var tracerouteInfoContainer = document.getElementById("TracerouteInfoContainer");
+		tracerouteInfoContainer.classList.remove("showLoadingIcon");
+		tracerouteInfoContainer.innerHTML = data;
+	}
+
+	function show_traceroute() {
+		show_element("TracerouteOverlay");
+		var tracerouteInfoContainer = document.getElementById("TracerouteInfoContainer");
+		tracerouteInfoContainer.classList.add("showLoadingIcon");
+		tracerouteInfoContainer.innerHTML = "";
+		vpncgw_request({"request":"traceroute"},vpncgw_response_handler);
+	}
+
+        function hide_traceroute(){
+		hide_element("TracerouteOverlay");
+        }
+	function show_shutdown(){
+		show_element("ShutdownOverlay");
+	}
+	function hide_shutdown(){
+		hide_element("ShutdownOverlay");
+	}
+
+        function shutdown() {
+                hide_element("ShutdownButtonTable");
+		document.getElementById("ShutdownInfoContainer").innerHTML = "<P>Shutting down. Unplug after 60 seconds.<P>";
+		vpncgw_request({"request":"shutdown"});
+        }
+
+	function show_enable_vpn(){
+		show_element("EnableVPNOverlay");
+	}
+
+	function hide_enable_vpn(){
+		hide_element("EnableVPNOverlay");
+	}
+
+	function show_disable_vpn(){
+		show_element("DisableVPNOverlay");
+	}
+	function hide_disable_vpn(){
+		hide_element("DisableVPNOverlay");
+	}
+	function show_reboot(){
+                show_element("RebootOverlay");
+        }
+        function hide_reboot(){
+                hide_element("RebootOverlay");
+        }
+        function reboot() {
+		hide_element("RebootButtonTable");
+		vpncgw_request({"request":"reboot"});
+		var counter=90;
+		var id;
+		id = setInterval(function() {
+    		counter--;
+    		if(counter < 0) {
+        		clearInterval(id);
+			hide_element("RebootOverlay");
+			show_basic();
+    		}
+		else {
+			document.getElementById("RebootInfoContainer").innerHTML = "<P>Rebooting. Page will reload in " + counter.toString() + " seconds.<P>";
+    		}
+		}, 1000);
+        }
+
+	function enable_vpn() {
+		show_element("EnableVPNOverlay");
+		show_changing_vpn_message();
+		vpncgw_request({"request":"enablevpn"}, vpncgw_response_handler);
+		sleep(2000).then(() => {
+			show_vpn_change_message();
+		})
+		show_basic();
+	}
+
+	function disable_vpn() {
+		hide_element("DisableVPNOverlay");
+		show_changing_vpn_message();
+		vpncgw_request({"request":"disablevpn"}, vpncgw_response_handler);
+		sleep(2000).then(() => {
+			show_basic();
+			get_current_vpn_server();
+		})
+		sleep(2000).then(() => {
+			show_vpn_change_message();
+		})
+	}
+
+	function server_click(s,p) {
+	// callback function used for 'click' events
+	  return function() {
+	    change_vpn_server(s,p);
+	  }
+	}
+
+
+	function populateBasicServers(serverlist) {
+		var ChooseVPNBasic = document.getElementById("ChooseVPNBasic");
+		ChooseVPNBasic.innerHTML = "";
+		var servers = serverlist;
+		var numservers = servers.length;
+		var numcolumns = 3;
+		var numrows = Math.ceil(numservers/numcolumns);
+		var currentserver = 0;
+		var serverTable = document.createElement("TABLE");
+		serverTable.setAttribute("class","ChoicesTable");
+		var tbody = document.createElement("tbody");
+		serverTable.setAttribute("id", "basicvpnservers");
+		for (row = 1; row <= numrows; row++){
+			var tr = document.createElement("TR");
+			for (column = 1; column <= numcolumns; column++) {
+				var cell = document.createElement("TD");
+				if (currentserver < numservers) {
+					var server = servers[currentserver];
+					var servername = server["servername"];
+					var serverport = server["port"];
+					var flag = document.createElement("INPUT");
+					flag.setAttribute("type","image");
+					flag.setAttribute("src",server["flagurl"]);
+					flag.setAttribute("height","60%");
+					flag.addEventListener("click", server_click(servername,serverport), false);
+					var country_info = document.createElement('p');
+					country_info.innerHTML = servers[currentserver]["country"] + "<br>" + servers[currentserver]["region"];
+					cell.appendChild(flag);
+					cell.appendChild(country_info);
+					currentserver++;
+				}
+			        tr.appendChild(cell);
+				tbody.appendChild(tr);
+			}
+		}
+		serverTable.appendChild(tbody);
+		ChooseVPNBasic.appendChild(serverTable);
+	}
+
+	function get_basic_vpn_servers() {
+		vpncgw_request({"request":"getserverlist","servergroup":"basic"},vpncgw_response_handler);
+	}
+
+	function populateAdvancedServers(serverlist) {
+		var ChooseVPNAdvanced = document.getElementById("ChooseVPNAdvanced");
+		ChooseVPNAdvanced.innerHTML = "";
+		var servers = serverlist;
+		var numservers = servers.length;
+		var currentserver = 0;
+		lastCountry="";
+		for (row = 1; row < numservers; row++){
+			var server = servers[currentserver];
+			var country = server["country"];
+			var region = server["region"];
+			if (country != lastCountry) {
+				lastCountry = country;
+				var heading = document.createElement("h3");
+				heading.innerHTML = country;
+				ChooseVPNAdvanced.appendChild(heading);
+			}
+			var url = document.createElement("a");
+			url.setAttribute("class","serverUrl");
+			url.setAttribute("href","javascript:void(0);");
+			url.addEventListener("click", server_click(server["servername"], server["port"]), false);
+			url.innerHTML = server["servername"];
+			ChooseVPNAdvanced.appendChild(url);
+			if (region != "") {
+				var r = document.createTextNode(" (" + region + ")");
+				ChooseVPNAdvanced.appendChild(r);
+			}
+			linebreak = document.createElement("br");
+			ChooseVPNAdvanced.appendChild(linebreak);
+			currentserver++;
+
+		}
+	}
+
+	function get_advanced_vpn_servers() {
+		vpncgw_request({"request":"getserverlist","servergroup":"advanced"},vpncgw_response_handler);
+	}
+
+	function populateSyslog(data) {
+		var syslogInfoContainer = document.getElementById("SyslogInfoContainer");
+		syslogInfoContainer.classList.remove("showLoadingIcon");
+		syslogInfoContainer.innerHTML = data;
+	}
+
+        function show_syslog() {
+		document.getElementById("SyslogOverlay").style.display = "block";
+		var syslogInfoContainer = document.getElementById("SyslogInfoContainer");
+		syslogInfoContainer.innerHTML = "";
+		syslogInfoContainer.classList.add("showLoadingIcon");
+		vpncgw_request({"request":"getsyslog"},vpncgw_response_handler);
+        }
+
+        function hide_syslog() {
+		hide_element("SyslogOverlay");
+        }
+
+        function show_basic() {
+		get_current_vpn_server();
+		get_basic_vpn_servers();
+		show_element(["VPNSection","ChooseVPNBasic"]);
+		hide_element(["Admin","Tools","ChooseVPNAdvanced"]);  
+        }
+
+        function show_advanced() {
+		get_advanced_vpn_servers();
+		show_element(["VPNSection","ChooseVPNAdvanced"]);
+		hide_element(["Admin","Tools","ChooseVPNBasic"]);
+        }
+
+	function vpncgw_response_handler(data) {
+		var json_data = JSON.parse(data);
+		var request_data = json_data["request_data"];
+		var request_action = request_data["request"];
+		var response_data = json_data["response_data"];
+		switch(request_action) {
+			case "getserverlist":
+				if (request_data["servergroup"] == "basic")
+					populateBasicServers(response_data);
+				else
+					populateAdvancedServers(response_data);
+				break;
+			case "getcurrentserver":
+				populateCurrentServer(response_data);
+				break;
+			case "changeserver":
+				populateCurrentServer(response_data);
+				break;
+			case "disablevpn":
+				populateCurrentServer(response_data);
+				break;
+			case "enablevpn":
+				populateCurrentServer(response_data);
+				break;
+			case "getiplocation":
+				populateIPGeolocation(response_data);
+				break;
+			case "traceroute":
+				populateTraceroute(response_data);
+				break;
+			case "getsyslog":
+				populateSyslog(response_data);
+				break;
+			case "ajaxtest": 
+				ajaxtestcallback(response_data);
+				break;
+		}
+	}
+
+	function ajaxtestcallback(data) {
+		console.log(data);
+	}
+
+	function ajaxtest() {
+		var params = {'request': 'ajaxtest'};
+		console.log(params);
+		vpncgw_request(params, vpncgw_response_handler);
+		return false;
+	}
+
+</script>
+
+<HEAD>
+	<!--
+	<button onclick="javascript: return ajaxtest();">ajax test</button>
+	-->
+	<TITLE>VPN Client Gateway Management</TITLE>
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+</HEAD>
+
+<div id="VPNChangeMessageOverlay" class="screenoverlay">
+        <div id="VPNChangeMessage" class="vpnchangemessage">
+                <H2>VPN Changed<H2>
+                <P>Remember to restart media apps!<P>
+        </div>
+</div>
+
+<div id="ChangingVPNMessageOverlay" class="screenoverlay">
+        <div id="ChangingVPNMessage" class="changingvpnmessage">
+                <H2>Changing VPN<H2>
+                <P>This may take a few moments...<P>
+        </div>
+</div>
+
+<div id="IPInfoOverlay" class="screenoverlay">
+        <div id="IPInfoBox">
+                <div id="IPInfoBoxTitle">
+                        <H2>IP Geolocation<H2>
+                </div>
+                <div id="IPInfoBoxTableContainer">
+                </div>
+                <div id="ButtonContainer">
+                        <button id="IPInfoCloseButton" onclick="hide_iplocationinfo();">Close</button>
+                </div>
+        </div>
+</div>
+
+<div id="TracerouteOverlay" class="screenoverlay">
+        <div id="TracerouteInfoBox">
+                <div id="TracerouteInfoBoxTitle">
+                        <H2>Traceroute<H2>
+                </div>
+                <div id="TracerouteInfoContainer" class="showLoadingIcon">
+                </div>
+		<div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <button id="TracerouteInfoCloseButton" onclick="hide_traceroute();">Close</button>
+                </div>
+        </div>
+</div>
+
+<div id="SyslogOverlay" class="screenoverlay">
+        <div id="SyslogInfoBox">
+                <div id="SyslogInfoBoxTitle">
+                        <H2>syslog<H2>
+                </div>
+                <div id="SyslogInfoContainer">
+                </div>
+                <div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <button id="SyslogInfoCloseButton" onclick="hide_syslog();">Close</button>
+                </div>
+        </div>
+</div>
+
+<div id="DisableVPNOverlay" class="screenoverlay">
+        <div id="DisableVPNInfoBox">
+                <div id="DisableVPNInfoBoxTitle">
+                        <H2>Disable VPN<H2>
+                </div>
+                <div id="DisableVPNInfoContainer">
+			<P>Disabling VPN service. Network traffic will be forwarded via your normal ISP internet connection.<P>
+                </div>
+		<div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <table id="DisableVPNButtonTable">
+			<tr>
+				<td><button id="DisableVPNCancelButton" onclick="hide_disable_vpn();">Cancel</button></td>
+				<td></td>
+                        	<td><button id="DisableVPNContinueButton" onclick="disable_vpn();">Continue</button></td>
+			</tr>
+			</table>
+                </div>
+        </div>
+</div>
+
+<div id="EnableVPNOverlay" class="screenoverlay">
+        <div id="EnableVPNInfoBox">
+                <div id="EnableVPNInfoBoxTitle">
+                        <H2>Enable VPN<H2>
+                </div>
+                <div id="EnableVPNInfoContainer">
+			<P>Enabling VPN service. Network traffic will be forwarded via your VPN connection.<P>
+                </div>
+		<div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <table id="EnableVPNButtonTable">
+			<tr>
+				<td><button id="EnableVPNCancelButton" onclick="hide_enable_vpn();">Cancel</button></td>
+				<td></td>
+                        	<td><button id="EnableVPNContinueButton" onclick="enable_vpn();">Continue</button></td>
+			</tr>
+			</table>
+                </div>
+        </div>
+</div>
+
+<div id="ShutdownOverlay" class="screenoverlay">
+        <div id="ShutdownInfoBox">
+                <div id="ShutdownInfoBoxTitle">
+                        <H2>Shut Down VPN Client Gateway<H2>
+                </div>
+                <div id="ShutdownInfoContainer">
+			<P>Warning: after shutting down the VPN Client Gateway server, it must be powered back on manually.<P>
+                </div>
+		<div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <table id="ShutdownButtonTable">
+			<tr>
+				<td><button id="ShutdownCancelButton" onclick="hide_shutdown();">Cancel</button></td>
+				<td></td>
+                        	<td><button id="ShutdownContinueButton" onclick="shutdown();">Continue</button></td>
+			</tr>
+			</table>
+                </div>
+        </div>
+</div>
+
+<div id="RebootOverlay" class="screenoverlay">
+        <div id="RebootInfoBox">
+                <div id="RebootInfoBoxTitle">
+                        <H2>Reboot VPN Client Gateway<H2>
+                </div>
+                <div id="RebootInfoContainer">
+                        <P>Rebooting will take approximately 90 seconds. All sessions will be terminated.<P>
+                </div>
+                <div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <table id="RebootButtonTable">
+                        <tr>
+                                <td><button id="RebootCancelButton" onclick="hide_reboot();">Cancel</button></td>
+                                <td></td>
+                                <td><button id="RebootContinueButton" onclick="reboot();">Continue</button></td>
+                        </tr>
+                        </table>
+                </div>
+        </div>
+</div>
+
+<BODY ID="body" LANG="en-CA" DIR="LTR" onload="get_basic_vpn_servers();get_current_vpn_server();">
+
+<div class="header">
+<H1>VPN Client Gateway Management</H1>
+</div>
+<div id="MainContainer">
+	<div id="NavigationMenu" class="buttonmenu">
+		<ul>
+		<li><a href="javascript:void(0);" onclick="show_basic();">Basic</a></li>
+		<div class="menubuttonspacer"></div>
+		<li><a href="javascript:void(0);" onclick="show_advanced();">Advanced</a></li>
+		<div class="menubuttonspacer"></div>
+		<li><a href="javascript:void(0);" onclick="show_tools();">Tools</a></li>
+		<div class="menubuttonspacer"></div>
+		<li><a href="javascript:void(0);" onclick="show_admin();">Admin</a></li>
+		</ul>
+	</div>
+	<div id="PageContainer">
+		<div id="VPNSection">
+		<div id="CurrentVPNSection">
+			<h2 id="CurrentVPNServerHeading">Current VPN server:</h2>
+			<div id="CurrentVPNFlag">
+				<table id="CurrentVPNFlagTable">
+					<tbody>
+						<tr>
+							<td><img id="CurrentVPNFlagImage" width=40% src="images/flags/CA.svg">
+								<p id="ServerLocation">Canada <br> Montreal, QC</p>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="VPNChooser">
+		<H2>Choose new VPN server:</H2>
+			<div id="ChooseVPNBasic">
+			</div>
+			<div id="ChooseVPNAdvanced">
+			</div>
+		</div>
+		</div>
+		<div id="Tools">
+			<div id="ToolsMenu" class="buttonmenu">
+			<ul>
+			<li><a href="javascript:void(0);" onclick="show_iplocationinfo();">Get IP address geolocation</a></li>
+			<div class="menubuttonspacer"></div>
+			<li><a href="javascript:void(0);" onclick="show_traceroute();">Run traceroute</a></li>
+			<div class="menubuttonspacer"></div>
+			<li><a href="javascript:void(0);" onclick="show_syslog();">View syslog</a></li>
+			</ul>
+			</div>
+		</div>
+		<div id="Admin">
+			<div id="AdminMenu" class="buttonmenu">
+			<ul>
+                        <div id="EnableVPNMenuButton">
+                                <li><a href="javascript:void(0);" onclick="return show_enable_vpn();">Enable VPN</a></li>
+                                <div class="menubuttonspacer"></div>
+                        </div>
+                        <div id="DisableVPNMenuButton">
+                                <li><a href="javascript:void(0);" onclick="return show_disable_vpn();">Disable VPN</a></li>
+                                <div class="menubuttonspacer"></div>
+                        </div>
+			<li><a href="javascript:void(0);" onclick="show_reboot();">Reboot</a></li>
+			<div class="menubuttonspacer"></div>
+			<li><a href="javascript:void(0);" onclick="show_shutdown();">Shut down</a></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<FOOTER>
+<img id="OpenVPNLogo" class="openvpnlogo" src="images/openvpn_logo_powered_by.png" alt="OpenVPN logo"/>
+</FOOTER>
+</body>
+</html>

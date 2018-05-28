@@ -6,22 +6,32 @@
 <head>
 <link rel="shortcut icon" type="/image/png" href="/images/favicon.ico"/>
   <script type="text/javascript">
-    function refreshData(){
-      var display = document.getElementById("vpncgw_status");
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.open("GET", "vpncgw_status.php");
-      xmlhttp.setRequestHeader("Content-Type", "text/pain;charset=UTF-8");
-      xmlhttp.send();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-          display.innerHTML = this.responseText;
-        } else {
-          display.innerHTML = "Loading...";
-        };
-      }
-    }
-    window.onload = refreshData;
-    setInterval(refreshData,5000);
+	function vpncgw_request(request_data, callback_function) {
+                var url = "vpnmgmt/manage_openvpn.php?data=" + encodeURIComponent(JSON.stringify(request_data));
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url,true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.onreadystatechange = function() {
+                        if (callback_function instanceof Function){
+                                if (xhr.readyState === 4 && xhr.status == 200){
+                                        callback_function(xhr.responseText);
+                                }
+                        }
+                }
+                xhr.send(null);
+        }
+
+	function updateStatusHTML(data) {
+		json_data = JSON.parse(data);
+		document.getElementById("vpncgw_status").innerHTML = json_data["response_data"];
+	}
+
+	function getStatus(){
+		vpncgw_request({"request":"getvpncgwstatus"},updateStatusHTML);
+	}
+
+	window.onload = getStatus();
+	setInterval(getStatus,5000);
   </script>
 </head>
 <h2>VPN Client Gateway status</h2>

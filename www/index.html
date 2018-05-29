@@ -74,11 +74,31 @@
 			show_element("EnableVPNMenuButton");
 		}
 		else{
+			var currentVPNFlag = document.getElementById("CurrentVPNFlag");
+			currentVPNFlag.innerHTML = "";
+			var currentVPNFlagTable = document.createElement("TABLE");
+			currentVPNFlagTable.setAttribute("id","CurrentVPNFlagTable");
+			var tb = document.createElement("tbody");
+			var tr = document.createElement("TR");
+			var td = document.createElement("TD");
+			var img = document.createElement("img");
+			img.setAttribute("id","CurrentVPNFlagImage");
+			img.setAttribute("width","40%");
+			img.setAttribute("src","images/flags/" + serverinfo["flagurl"]);
+			var location = document.createElement("p");
+			location.setAttribute("id","ServerLocation");
+			location.innerHTML = serverinfo["country"] + "<br>" + serverinfo["region"];
+			td.appendChild(img);
+			td.appendChild(location);
+			tr.appendChild(td);
+			tr.appendChild(document.createElement("td"));
+			tr.appendChild(document.createElement("td"));
+			tb.appendChild(tr);
+			currentVPNFlagTable.appendChild(tb);
+			currentVPNFlag.appendChild(currentVPNFlagTable);
 			headingtext += " " + serverinfo["servername"];
 			show_element(["CurrentVPNFlag","DisableVPNMenuButton"]);
 			hide_element("EnableVPNMenuButton");
-			document.getElementById("ServerLocation").innerHTML = serverinfo["country"] + "<br>" + serverinfo["region"];
-			document.getElementById("CurrentVPNFlagImage").src = "images/flags/" + serverinfo["flagurl"];
 		}
 		document.getElementById("CurrentVPNServerHeading").innerHTML = headingtext;
 	}
@@ -184,7 +204,7 @@
         }
 
 	function enable_vpn() {
-		show_element("EnableVPNOverlay");
+		hide_element("EnableVPNOverlay");
 		show_changing_vpn_message();
 		vpncgw_request({"request":"enablevpn"}, vpncgw_response_handler);
 		sleep(2000).then(() => {
@@ -547,19 +567,6 @@
 		<div id="CurrentVPNSection">
 			<h2 id="CurrentVPNServerHeading">Current VPN server:</h2>
 			<div id="CurrentVPNFlag">
-				<table id="CurrentVPNFlagTable">
-					<tbody>
-						<tr>
-							<td><img id="CurrentVPNFlagImage" width=40% src="images/flags/CA.svg">
-								<p id="ServerLocation">Canada <br> Montreal, QC</p>
-							</td>
-							<td>
-							</td>
-							<td>
-							</td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</div>
 		<div id="VPNChooser">

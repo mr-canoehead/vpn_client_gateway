@@ -87,7 +87,7 @@
 			img.setAttribute("src","images/flags/" + serverinfo["flagurl"]);
 			var location = document.createElement("p");
 			location.setAttribute("id","ServerLocation");
-			location.innerHTML = serverinfo["country"] + "<br>" + serverinfo["region"];
+			location.innerHTML = serverinfo["country"] + "<br>" + serverinfo["method"] + "<br>" + serverinfo["region"];
 			td.appendChild(img);
 			td.appendChild(location);
 			tr.appendChild(td);
@@ -107,9 +107,9 @@
 		vpncgw_request({"request":"getcurrentserver"},vpncgw_response_handler);
 	}
 
-	function change_vpn_server(vpnserver,port) {
+	function change_vpn_server(vpnserver,port,method) {
 		show_changing_vpn_message();
-		request_data = {"request":"changeserver","servername": vpnserver,"port": port};
+		request_data = {"request":"changeserver","servername": vpnserver,"port": port,"method": method};
 		vpncgw_request(request_data, vpncgw_response_handler);
 		sleep(2000).then(() => {
 			show_vpn_change_message();
@@ -226,10 +226,10 @@
 		})
 	}
 
-	function server_click(s,p) {
+	function server_click(s,p,m) {
 	// callback function used for 'click' events
 	  return function() {
-	    change_vpn_server(s,p);
+	    change_vpn_server(s,p,m);
 	  }
 	}
 
@@ -254,13 +254,14 @@
 					var server = servers[currentserver];
 					var servername = server["servername"];
 					var serverport = server["port"];
+					var method = server["method"];
 					var flag = document.createElement("INPUT");
 					flag.setAttribute("type","image");
 					flag.setAttribute("src",server["flagurl"]);
 					flag.setAttribute("height","60%");
-					flag.addEventListener("click", server_click(servername,serverport), false);
+					flag.addEventListener("click", server_click(servername,serverport,method), false);
 					var country_info = document.createElement('p');
-					country_info.innerHTML = servers[currentserver]["country"] + "<br>" + servers[currentserver]["region"];
+					country_info.innerHTML = servers[currentserver]["country"] + "<br>" + servers[currentserver]["method"] + "<br>" + servers[currentserver]["region"];
 					cell.appendChild(flag);
 					cell.appendChild(country_info);
 					currentserver++;
@@ -288,6 +289,7 @@
 			var server = servers[currentserver];
 			var country = server["country"];
 			var region = server["region"];
+			var method = server["method"];
 			if (country != lastCountry) {
 				lastCountry = country;
 				var heading = document.createElement("h3");
@@ -297,9 +299,13 @@
 			var url = document.createElement("a");
 			url.setAttribute("class","serverUrl");
 			url.setAttribute("href","javascript:void(0);");
-			url.addEventListener("click", server_click(server["servername"], server["port"]), false);
+			url.addEventListener("click", server_click(server["servername"], server["port"], server["method"]), false);
 			url.innerHTML = server["servername"];
 			ChooseVPNAdvanced.appendChild(url);
+			if (method != "") {
+				var r = document.createTextNode(" - " + method + " ");
+				ChooseVPNAdvanced.appendChild(r);
+			}
 			if (region != "") {
 				var r = document.createTextNode(" (" + region + ")");
 				ChooseVPNAdvanced.appendChild(r);

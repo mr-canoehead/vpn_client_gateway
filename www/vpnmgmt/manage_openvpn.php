@@ -6,26 +6,49 @@ function get_current_vpn_server() {
 			$enabled = False;
 		else
 			$enabled = True;
-		$configfile = file('/etc/openvpn/server.conf');
-                $serverconf = "";
-                foreach($configfile as $line_num => $line){
-                        $line_tokens = preg_split("/[\s]+/",$line);
-                        if ($line_tokens[0] === "remote"){
-				$servername = $line_tokens[1];
-                                $portnumber = $line_tokens[2];
-                        }
-                }
+		if (file_exists('vpn.method.openvpn'))
+		{
+			$configfile = file('/etc/openvpn/server.conf');
+                	$serverconf = "";
+                	foreach($configfile as $line_num => $line){
+                       		$line_tokens = preg_split("/[\s]+/",$line);
+                       		if ($line_tokens[0] === "remote"){
+					$servername = $line_tokens[1];
+                               	 	$portnumber = $line_tokens[2];
+					$method = "openvpn";
+                        	}
+                	}
+		}
+		else if (file_exists('vpn.method.pptp'))
+		{
+			$configfile = file('/etc/ppp/peers/server.conf');
+                	$serverconf = "";
+                	foreach($configfile as $line_num => $line){
+                       		$line_tokens = preg_split("/[\s]+/",$line);
+                        	if ($line_tokens[0] === "pty" && $line_tokens[1] === "\"pptp"){
+					$servername = $line_tokens[2];
+					$portnumber = '0';
+					$method = "pptp";
+                        	}
+                	}
+		}
+		else
+		{
+			$servername = 'unknown';
+			$portnumber = 'unknown';
+		}
                 $vpnserverinfo = simplexml_load_file('vpnservers.xml');
 		$countryinfo = simplexml_load_file('countryflags.xml');
 
-		$xpathquery = '//vpnserver[servername="' . $servername . '"]';
+		$xpathquery = '//vpnserver[servername="' . $servername . '" and method="' . $method . '"]';
 		$serverinfo = $vpnserverinfo->xpath($xpathquery);
 		$countryname = (string) $serverinfo[0]->countryname;
+		$method = (string) $serverinfo[0]->method;
 		$regionname = (string) $serverinfo[0]->regionname;
                 $xpathquery = '//country[name="' . $countryname . '"]';
                 $country = $countryinfo->xpath($xpathquery);
                 $flagurl = (string) $country[0]->flagfile;
-		$currentserver = array("servername" => $servername, "port" => $portnumber,"enabled" => $enabled, "country" => $countryname, "region" => $regionname, "flagurl" => $flagurl);
+		$currentserver = array("servername" => $servername, "port" => $portnumber,"enabled" => $enabled, "country" => $countryname, "method" => $method, "region" => $regionname, "flagurl" => $flagurl);
 		return $currentserver;
 }
 
@@ -33,10 +56,12 @@ function get_current_vpn_server() {
 function disablevpn() {
 	// create disabled marker file
 	$result = shell_exec('touch vpn.disabled');
-	// stop openvpn service
+	// stop vpn service
 	$result = stop_service('openvpn');
-	// prevent openvpn from starting at boot
+	$result = stop_service('pptp');
+	// prevent vpn from starting at boot
 	$result = disable_service('openvpn');
+	$result = disable_service('pptp');
 	// remove any existing forwarding rules
 	$result = shell_exec('sudo iptables -F FORWARD');
 	// add forwarding rule for lan traffic
@@ -48,11 +73,13 @@ function disablevpn() {
 	$result = shell_exec("sudo su -c 'iptables-save > /etc/iptables/rules.v4'");
 }
 
+
 function enablevpn() {
 	// remove disabled marker file
 	$result = unlink('vpn.disabled');
-	// set openvpn service to start automatically on boot
-	$result = enable_service('openvpn');
+	// set vpn services to start automatically on boot
+	if (file_exists('vpn.method.openvpn'))	$result = enable_service('openvpn');
+	if (file_exists('vpn.method.pptp'))	$result = enable_service('pptp');
 	// remove any existing forwarding rules
 	$result = shell_exec('sudo iptables -F FORWARD');
 	// add rules for forwarding via VPN
@@ -62,6 +89,13 @@ function enablevpn() {
 	$result = shell_exec('sudo iptables -t filter -A killswitch -j killswitch_on');
 	// save iptables
 	$result = shell_exec("sudo su -c 'iptables-save > /etc/iptables/rules.v4'");
+}
+
+function setvpnmethodfile($method) {
+	if (file_exists('vpn.method.openvpn'))	$result = unlink('vpn.method.openvpn');
+	if (file_exists('vpn.method.pptp'))	$result = unlink('vpn.method.pptp');
+
+	$result = shell_exec('touch vpn.method.' . $method);
 }
 
 $return_data = "";
@@ -78,7 +112,9 @@ switch($request_action) {
 		if (file_exists('vpn.disabled')){
 			enablevpn();
 			// start openvpn service
-	                $result = start_service('openvpn');
+			if (file_exists('vpn.method.openvpn'))	$result = start_service('openvpn');
+			// start pptp service
+			if (file_exists('vpn.method.pptp'))	$result = start_service('pptp');
 		}
 		$return_data = get_current_vpn_server();
 		break;
@@ -92,7 +128,8 @@ switch($request_action) {
 			break;
 		}
 		$port=$request_data["port"];
-		if (($vpnserver === "") or ($port === ""))
+		$method=$request_data["method"];
+		if (($vpnserver === "") or ($port === "") or ($method === ""))
 			break;
 		//echo "VPN server: $vpnserver\n";
 		$hostname = explode(".", $vpnserver);
@@ -103,35 +140,73 @@ switch($request_action) {
                 if ((strpos($result,'Active: active') !== false) or (strpos($result,'is running') !== false) or (strpos($result,'started') !== false)){
 			// echo "Stopping VPN service...\n";
 			$result = stop_service('openvpn');
+	                $result = disable_service('openvpn');
+		}
+		$result = shell_exec('sudo service pptp status');
+                if ((strpos($result,'Active: active') !== false) or (strpos($result,'is running') !== false) or (strpos($result,'started') !== false)){
+			// echo "Stopping VPN service...\n";
+			$result = stop_service('pptp');
+	                $result = disable_service('pptp');
 		}
 		if (file_exists('vpn.disabled')){
 			enablevpn();
 		}
 		// modify /etc/openvpn/server.conf with new server name
-		$configfile = file('/etc/openvpn/server.conf');
-                $serverconf = "";
-                foreach($configfile as $line_num => $line){
-                        $line_tokens = preg_split("/[\s]+/",$line);
-                        if ($line_tokens[0] === "remote"){
-                                $portnumber = $line_tokens[2];
-				if(isset($port) and (strcmp($port,"0") != 0)){
-					$portnumber=$port;
+		if ( $method === "openvpn" )
+		{
+			setvpnmethodfile($method);
+
+			$configfile = file('/etc/openvpn/server.conf');
+                	$serverconf = "";
+               		foreach($configfile as $line_num => $line){
+                        	$line_tokens = preg_split("/[\s]+/",$line);
+                        	if ($line_tokens[0] === "remote"){
+                                	$portnumber = $line_tokens[2];
+					if(isset($port) and (strcmp($port,"0") != 0)){
+						$portnumber=$port;
+					}
+                               		$serverconf .= "remote " . $vpnserver . " " . $portnumber . "\n";
+                        	}
+				else if ($line_tokens[0] === "ca" && $domain === "nordvpn"){
+					$serverconf .= "ca " . $subdomain . "_" . $domain . "_" . $tld . "_ca.crt " . "\n";
 				}
-                                $serverconf .= "remote " . $vpnserver . " " . $portnumber . "\n";
-                        }
-			else if ($line_tokens[0] === "ca" && $domain === "nordvpn"){
-				$serverconf .= "ca " . $subdomain . "_" . $domain . "_" . $tld . "_ca.crt " . "\n";
-			}
-			else if ($line_tokens[0] === "tls-auth" && $domain === "nordvpn"){
-				$serverconf .= "tls-auth " . $subdomain . "_" . $domain . "_" . $tld . "_tls.key " . "\n";
-			}
-                        else{
-                                $serverconf .= $line;
-                        }
-                }
-                file_put_contents("/etc/openvpn/server.conf", $serverconf);
-		// start openvpn service
-		$result = start_service('openvpn');
+				else if ($line_tokens[0] === "tls-auth" && $domain === "nordvpn"){
+					$serverconf .= "tls-auth " . $subdomain . "_" . $domain . "_" . $tld . "_tls.key " . "\n";
+				}
+                        	else{
+                                	$serverconf .= $line;
+				}
+                	}
+                	file_put_contents("/etc/openvpn/server.conf", $serverconf);
+			// start openvpn service
+			$result = enable_service('openvpn');
+			$result = start_service('openvpn');
+		}
+		if ( $method === "pptp" )
+		{
+			setvpnmethodfile($method);
+
+			$configfile = file('/etc/ppp/peers/server.conf');
+                	$serverconf = "";
+               		foreach($configfile as $line_num => $line){
+				$line_tokens = preg_split("/[\s]+/",$line);
+				//error_log( print_r( $line_tokens, true ) );
+                        	if ($line_tokens[0] === "pty" && $line_tokens[1] === "\"pptp"){
+                               		$serverconf .= $line_tokens[0] . " " . $line_tokens[1] . " " . $vpnserver;
+					for ( $i = 3; $i < count($line_tokens); $i ++) {
+						$serverconf .= " " . $line_tokens[$i];
+					}
+					$serverconf .= "\n";
+				}
+				else{
+                                	$serverconf .= $line;
+				}
+                	}
+                	file_put_contents("/etc/ppp/peers/server.conf", $serverconf);
+			// start pptp service
+			$result = enable_service('pptp');
+			$result = start_service('pptp');
+		}
 		$return_data = get_current_vpn_server();
 		break;
 	case "getcurrentserver":
@@ -185,12 +260,13 @@ switch($request_action) {
         	                $xpathquery = '//vpnserver[servername="' . $servername . '"]';
 	                        $serverinfo = $vpnserverinfo->xpath($xpathquery);
 	                        $countrynamestr = $serverinfo[0]->countryname;
+	                        $methodstr = $serverinfo[0]->method;
 	                        $portstr = $serverinfo[0]->port;
 	                        $xpathquery = '//country[name="' . $countrynamestr . '"]';
 	                        $regionstr = $serverinfo[0]->regionname;
 	                        $country = $countryinfo->xpath($xpathquery);
 	                        $flagfilestr= (string) $country[0]->flagfile;
-	                        $serverlist[] = array("servername" => (string) $servername, "port" => (int) $portstr, "country" => (string) $countrynamestr, "region" => (string) $regionstr, "flagurl" => "images/flags/" . (string) $flagfilestr);
+	                        $serverlist[] = array("servername" => (string) $servername, "port" => (int) $portstr, "country" => (string) $countrynamestr, "method" => (string) $methodstr, "region" => (string) $regionstr, "flagurl" => "images/flags/" . (string) $flagfilestr);
 	                }
 		}
 		else {
@@ -198,12 +274,13 @@ switch($request_action) {
 	                foreach($servers as $vpnserver){
 				$servername = (string) $vpnserver-> servername;
 	                        $countrynamestr = (string) $vpnserver-> countryname;
+				$methodstr = (string) $vpnserver->method;
 	                        $port = (int) $vpnserver->port;
 	                        $xpathquery = '//country[name="' . $countrynamestr . '"]';
 	                        $regionstr = (string) $vpnserver->regionname;
 	                        $country = $countryinfo->xpath($xpathquery);
 		                $flagfilestr = (string) $country[0]->flagfile;
-	                        $serverlist[] = array("servername" => $servername, "port" => $port, "country" => $countrynamestr, "region" => $regionstr, "flagurl" => "images/flags/" . $flagfilestr);
+	                        $serverlist[] = array("servername" => $servername, "port" => $port, "country" => $countrynamestr, "method" => $methodstr, "region" => $regionstr, "flagurl" => "images/flags/" . $flagfilestr);
 			}
 		}
 		$return_data = $serverlist;

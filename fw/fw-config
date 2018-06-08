@@ -2,7 +2,7 @@
 
 # This configuration script generates the firewall rules for the VPN Client Gateway.
 
-VPN_INTERFACE="tun+"
+OPENVPN_INTERFACE="tun+"
 
 # get path for this script
 working_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -220,6 +220,14 @@ while [ "$choice" != "Exit" ] && [ "$firewall_state" != "configured" ] && [ "$fi
 			local_access_required=false
 		fi
 
+		whiptail --title "$window_title" --yesno --defaultno "Do you want to enable pptp?" 0 0 3>&1 1>&2 2>&3
+		confirm=$?
+		if [ $confirm = 0 ]; then
+			PPTP_INTERFACE="ppp+"
+		else
+			PPTP_INTERFACE=""
+		fi
+
 		# Generate firewall script.
 
 		# read from heredoc
@@ -277,7 +285,10 @@ EOF
 
 		# add incoming lan / oubound via VPN rules
 		firewall_script+=$'\n'"# allow incoming from lan, outgoing thru vpn:"
-		firewall_script+=$'\n'"iptables -I OUTPUT -o $VPN_INTERFACE -m comment --comment \"Out to VPN\" -j ACCEPT"
+		firewall_script+=$'\n'"iptables -I OUTPUT -o $OPENVPN_INTERFACE -m comment --comment \"Out to VPN\" -j ACCEPT"
+		if [ ! -z "$PPTP_INTERFACE" ];then
+			firewall_script+=$'\n'"iptables -I OUTPUT -o $PPTP_INTERFACE -m comment --comment \"Out to VPN\" -j ACCEPT"
+		fi
 
 		for i in ${selected_lan_interfaces[@]}
 		do
@@ -290,6 +301,10 @@ EOF
 		firewall_script+=$'\n'"# allow outbound services:"
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p icmp -m comment --comment \"icmp\" -j ACCEPT"
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m multiport --dports \$OPENVPN_UDP_PORTS -m comment --comment \"openvpn\" -j ACCEPT"
+		if [ ! -z "$PPTP_INTERFACE" ];then
+			firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p tcp -m tcp --dport 1723 -m comment --comment \"pptp\" -j ACCEPT"
+			firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p 47 -m comment --comment \"pptp\" -j ACCEPT"
+		fi
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p tcp -m tcp --sport 22 -m comment --comment \"ssh\" -j ACCEPT"
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m udp --dport 123 -m comment --comment \"ntp\" -j ACCEPT"
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m udp --dport 53 -m comment --comment \"dns\" -j ACCEPT"
@@ -303,8 +318,14 @@ EOF
 		firewall_script+=$'\n'"iptables -N forward_rules_vpn"
 		for i in ${selected_lan_interfaces[@]}
 		do
-			firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $VPN_INTERFACE -o $i -m state --state RELATED,ESTABLISHED -j ACCEPT"
-			firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $i -o $VPN_INTERFACE -m comment --comment \"$i out to VPN\" -j ACCEPT"
+			firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $OPENVPN_INTERFACE -o $i -m state --state RELATED,ESTABLISHED -j ACCEPT"
+			if [ ! -z "$PPTP_INTERFACE" ];then
+				firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $PPTP_INTERFACE -o $i -m state --state RELATED,ESTABLISHED -j ACCEPT"
+			fi
+			firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $i -o $OPENVPN_INTERFACE -m comment --comment \"$i out to VPN\" -j ACCEPT"
+			if [ ! -z "$PPTP_INTERFACE" ];then
+				firewall_script+=$'\n'"iptables -t filter -A forward_rules_vpn -i $i -o $PPTP_INTERFACE -m comment --comment \"$i out to VPN\" -j ACCEPT"
+			fi
 		done
 
 		firewall_script+=$'\n'
@@ -340,7 +361,10 @@ EOF
 
 		# nat the gateway
 		firewall_script+=$'\n'"# nat the gateway"
-		firewall_script+=$'\n'"iptables -t nat -A POSTROUTING -o $VPN_INTERFACE -j MASQUERADE"
+		firewall_script+=$'\n'"iptables -t nat -A POSTROUTING -o $OPENVPN_INTERFACE -j MASQUERADE"
+		if [ ! -z "$PPTP_INTERFACE" ];then
+			firewall_script+=$'\n'"iptables -t nat -A POSTROUTING -o $PPTP_INTERFACE -j MASQUERADE"
+		fi
 		for i in ${selected_lan_interfaces[@]}
 		do
 			firewall_script+=$'\n'"iptables -t nat -A POSTROUTING -o $i -j MASQUERADE"
@@ -362,7 +386,10 @@ iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j BADPKT_LOGGING
 
 # accept inbound vpn initiated traffic
 EOF
-		firewall_script+=$'\n'"iptables -A INPUT -i $VPN_INTERFACE -m state --state ESTABLISHED,RELATED -j ACCEPT"
+		firewall_script+=$'\n'"iptables -A INPUT -i $OPENVPN_INTERFACE -m state --state ESTABLISHED,RELATED -j ACCEPT"
+		if [ ! -z "$PPTP_INTERFACE" ];then
+			firewall_script+=$'\n'"iptables -A INPUT -i $PPTP_INTERFACE -m state --state ESTABLISHED,RELATED -j ACCEPT"
+		fi
 
 		firewall_script+=$'\n'"$fw_temp"
 

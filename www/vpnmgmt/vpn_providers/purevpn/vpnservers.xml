@@ -9,450 +9,546 @@
         <servername>de1-ovpn-udp.purevpn.net</servername>
         <servername>ch1-ovpn-udp.purevpn.net</servername>
         <servername>nl1-ovpn-udp.purevpn.net</servername>
+	<servername>abcgo.pointtoserver.com</servername>
 </basicvpnservers>
 <vpnservers>
     <vpnserver>
+	<servername>abcgo.pointtoserver.com</servername>
+	<countryname>United States</countryname>
+	<method>pptp</method>
+	<regionname>US Netflix</regionname>
+    </vpnserver>
+    <vpnserver>
         <servername>al1-ovpn-udp.purevpn.net</servername>
         <countryname>Albania</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ar1-ovpn-udp.purevpn.net</servername>
         <countryname>Argentina</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>aw1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Aruba</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>au1-ovpn-udp.purevpn.net</servername>
         <countryname>Australia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>bs1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Bahamas</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>bh1-ovpn-udp.purevpn.net</servername>
         <countryname>Bahrain</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>be1-ovpn-udp.purevpn.net</servername>
         <countryname>Belgium</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>bz1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Belize</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ba1-ovpn-udp.purevpn.net</servername>
         <countryname>Bosnia and Herzegovina</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>bn1-ovpn-udp.purevpn.net</servername>
         <countryname>Brunei</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-bg1-ovpn-udp.purevpn.net</servername>
         <countryname>Bulgaria</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>caq1-ovpn-udp.purevpn.net</servername>
         <countryname>Canada</countryname>
+	<method>openvpn</method>
         <regionname>Quebec</regionname>
     </vpnserver>
     <vpnserver>
         <servername>cl1-ovpn-udp.purevpn.net</servername>
         <countryname>Chile</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>cn1-ovpn-udp.purevpn.net</servername>
         <countryname>China</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>co1-ovpn-udp.purevpn.net</servername>
         <countryname>Colombia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>cr1-ovpn-udp.purevpn.net</servername>
         <countryname>Costa Rica</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>hr1-ovpn-udp.purevpn.net</servername>
         <countryname>Croatia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>dk1-ovpn-udp.purevpn.net</servername>
         <countryname>Denmark</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-eg1-ovpn-udp.purevpn.net</servername>
         <countryname>Egypt</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ee1-ovpn-udp.purevpn.net</servername>
         <countryname>Estonia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vleu-fr1-ovpn-udp.purevpn.net</servername>
         <countryname>France</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ge1-ovpn-udp.purevpn.net</servername>
         <countryname>Georgia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>de1-ovpn-udp.purevpn.net</servername>
         <countryname>Germany</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>gh1-ovpn-udp.purevpn.net</servername>
         <countryname>Ghana</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>gr1-ovpn-udp.purevpn.net</servername>
         <countryname>Greece</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>hk1-ovpn-udp.purevpn.net</servername>
         <countryname>Hong Kong</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>hu1-ovpn-udp.purevpn.net</servername>
         <countryname>Hungary</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>is1-ovpn-udp.purevpn.net</servername>
         <countryname>Iceland</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>in1-ovpn-udp.purevpn.net</servername>
         <countryname>India</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ie1-ovpn-udp.purevpn.net</servername>
         <countryname>Ireland</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>im1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Isle of Man</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>it1-ovpn-udp.purevpn.net</servername>
         <countryname>Italy</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>jp1-ovpn-udp.purevpn.net</servername>
         <countryname>Japan</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-jo1-ovpn-udp.purevpn.net</servername>
         <countryname>Jordan</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ke1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Kenya</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>kr1-ovpn-udp.purevpn.net</servername>
         <countryname>Korea</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-kw1-ovpn-udp.purevpn.net</servername>
         <countryname>Kuwait</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>lv1-ovpn-udp.purevpn.net</servername>
         <countryname>Latvia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>lb1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Lebanon</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>lt1-ovpn-udp.purevpn.net</servername>
         <countryname>Lithuania</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>lu1-ovpn-udp.purevpn.net</servername>
         <countryname>Luxembourg</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>mt1-ovpn-udp.purevpn.net</servername>
         <countryname>Malta</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>mx1-ovpn-udp.purevpn.net</servername>
         <countryname>Mexico</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>md1-ovpn-udp.purevpn.net</servername>
         <countryname>Moldova</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>mn1-ovpn-udp.purevpn.net</servername>
         <countryname>Mongolia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>me1-ovpn-udp.purevpn.net</servername>
         <countryname>Montenegro</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>nl1-ovpn-udp.purevpn.net</servername>
         <countryname>Netherlands</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>nz1-ovpn-udp.purevpn.net</servername>
         <countryname>New Zealand</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ng1-ovpn-udp.purevpn.net</servername>
         <countryname>Nigeria</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>no1-ovpn-udp.purevpn.net</servername>
         <countryname>Norway</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>om1-ovpn-udp.purevpn.net</servername>
         <countryname>Oman</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-pa1-ovpn-udp.purevpn.net</servername>
         <countryname>Panama</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>pe1-ovpn-udp.purevpn.net</servername>
         <countryname>Peru</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlap-ph1-ovpn-udp.purevpn.net</servername>
         <countryname>Philippines</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>pl1-ovpn-udp.purevpn.net</servername>
         <countryname>Poland</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>qa1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Qatar</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ro1-ovpn-udp.purevpn.net</servername>
         <countryname>Romania</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-ru1-ovpn-udp.purevpn.net</servername>
         <countryname>Russia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>sa1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Saudi Arabia</countryname>
+	<method>openvpn</method>
     </vpnserver>
     <vpnserver>
         <servername>rs1-ovpn-udp.purevpn.net</servername>
         <countryname>Serbia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>sg1-ovpn-udp.purevpn.ne</servername>
         <countryname>Singapore</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>sk1-ovpn-udp.purevpn.net</servername>
         <countryname>Slovakia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>si1-ovpn-udp.purevpn.net</servername>
         <countryname>Slovenia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>es1-ovpn-udp.purevpn.net</servername>
         <countryname>Spain</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-se1-ovpn-udp.purevpn.net</servername>
         <countryname>Sweden</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ch1-ovpn-udp.purevpn.net</servername>
         <countryname>Switzerland</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>sy1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Syria</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>tw1-ovpn-udp.purevpn.net</servername>
         <countryname>Taiwan</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>th1-ovpn-udp.purevpn.net</servername>
         <countryname>Thailand</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlus-tr1-ovpn-udp.purevpn.net</servername>
         <countryname>Turkey</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ae1-ovpn-udp.purevpn.net</servername>
         <countryname>UAE</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ukg1-ovpn-udp.purevpn.net</servername>
         <countryname>United Kingdom</countryname>
+	<method>openvpn</method>
         <regionname>Gosport</regionname>
     </vpnserver>
     <vpnserver>
         <servername>vlbr-ukl1-ovpn-udp.purevpn.net</servername>
         <countryname>United Kingdom</countryname>
+	<method>openvpn</method>
         <regionname>London - 1</regionname>
     </vpnserver>
     <vpnserver>
         <servername>vlsa-ukl1-ovpn-udp.purevpn.net</servername>
         <countryname>United Kingdom</countryname>
+	<method>openvpn</method>
         <regionname>London - 2</regionname>
     </vpnserver>
     <vpnserver>
         <servername>ukm1-ovpn-udp.purevpn.net</servername>
         <countryname>United Kingdom</countryname>
+	<method>openvpn</method>
         <regionname>Maidenhead</regionname>
     </vpnserver>
     <vpnserver>
         <servername>ua1-ovpn-udp.purevpn.net</servername>
         <countryname>Ukraine</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>usfl1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>Florida</regionname>
     </vpnserver>
     <vpnserver>
         <servername>usga1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>Georgia</regionname>
     </vpnserver>
     <vpnserver>
         <servername>usil1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>Chicago</regionname>
     </vpnserver>
     <vpnserver>
         <servername>usla1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>Los Angeles</regionname>
     </vpnserver>
     <vpnserver>
         <servername>usny1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>New York</regionname>
     </vpnserver>
     <vpnserver>
         <servername>usphx1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>Phoenix</regionname>
     </vpnserver>
     <vpnserver>
         <servername>vlsa-ussf1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>San Francisco</regionname>
     </vpnserver>
     <vpnserver>
         <servername>vlbr-usvc1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>Virginia</regionname>
     </vpnserver>
     <vpnserver>
         <servername>ussa1-ovpn-udp.purevpn.net</servername>
         <countryname>United States</countryname>
+	<method>openvpn</method>
         <regionname>Washington</regionname>
     </vpnserver>
     <vpnserver>
         <servername>ve1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Venezuela</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>vlap-vn1-ovpn-udp.purevpn.net</servername>
         <countryname>Vietnam</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>ym1-ovpn-udp.pointtoserver.com</servername>
         <countryname>Yemen</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
     <vpnserver>
         <servername>za1-ovpn-udp.purevpn.net</servername>
         <countryname>Zambia</countryname>
+	<method>openvpn</method>
         <regionname/>
     </vpnserver>
 </vpnservers>

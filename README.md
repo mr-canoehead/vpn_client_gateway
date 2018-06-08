@@ -36,4 +36,4 @@ however vpn providers like purevpn require pptp to be used instead of openvpn fo
 
 * When executing fw-config to configure the firewall, ensure to say yes to enabling pptp
 
-* To setup a server to use pptp, set <method>pptp</method> in your vpnservers.xml
+* To setup a server to use pptp, set `<method>pptp</method>` in your vpnservers.xml

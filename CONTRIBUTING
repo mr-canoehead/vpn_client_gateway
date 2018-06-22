@@ -1,0 +1,9 @@
+Please note that this project is currently frozen. Pull requests created after 8-June-2018 will not be considered for merging*.
+
+The project is undergoing a significant development effort that includes:
+- rewriting the server functions as a Python Flask application
+- adding near real-time VPN status monitoring to the Management web page
+- implementing Websockets for status update / server change notifications
+- switching web servers from lighttpd to nginx
+
+* Pull requests to fix Severity 1 issues will be considered. A Severity 1 issue is one that affects critical functionality or critical data, and does not have a workaround. Examples of a Severity 1 issue are: unsuccessful installation, complete failure of a major feature.

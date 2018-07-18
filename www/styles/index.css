@@ -1,0 +1,917 @@
+#CurrentVPNFlagImage {
+	height: 60px;
+}
+
+#basicServersTable {
+	display: flex;
+	flex-direction: column;
+/*	flex-grow: 100;
+*/
+	box-sizing: border-box;
+	/*border-style: solid;
+        border-width: thin;
+	*/
+}
+.basicServersTableRow {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 100;
+	justify-content: space-between;
+	box-sizing: border-box;
+	/*border-style: solid;
+        border-width: thin;
+	*/
+	margin-left:50px;
+	margin-right:50px;
+	margin-bottom: 10px;
+}
+.basicServersTableLastRow {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 100;
+	justify-content: space-between;
+	box-sizing: border-box;
+	/*border-style: solid;
+        border-width: thin;
+	*/
+	margin-left:50px;
+	margin-right:50px;
+}
+.basicServersTableCell {
+	box-sizing: border-box;
+	width: 150px;
+	/*border-style: solid;
+        border-width: thin;
+	*/
+	text-align:center;
+	font-family:Arial;
+	font-size:18px;
+}
+.basicServersFlag {
+	height:60px;
+}
+
+html {
+	height:100%;
+	min-width:500px;
+}
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+	min-width:500px;
+}   
+.sectionHeading {
+	font-family:Arial;
+	font-weight:bold;
+	font-size: 22px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+.sectionSpacer {
+	height: 5px;
+}
+
+#spacerDiv{
+	float:left;
+	width:5px;
+}
+
+#GatewayStatusSection {
+	min-width: 600px;
+	box-sizing: border-box;
+	background-color: #E6E6E6;
+	padding-bottom:10px;
+	margin-top: 5px;
+}
+#GatewayStatusOverlay {
+	height:100px;
+	margin-left:10px;
+	margin-right:10px;
+	z-index:999;
+	background-image: url('/images/status_icons/loading.gif');
+	background-repeat:  no-repeat;
+	background-position: center;
+	background-color: #E6E6E6;
+	border-radius: 10px;
+	opacity:1;
+}
+
+#GatewayStatusSection H2{
+/*	padding-top:10px;
+	padding-left: 10px;
+*/
+  /*      border-width: thin;
+        border-color: black;
+	border-style: solid;
+*/
+
+}
+
+.StatusTable {
+	height:100px;
+/*        border-width: thin;
+        border-color: black;
+	border-style: solid;
+*/
+	background-color: #E6E6E6;
+	margin-top:-100px;
+	z-index:1;
+	opacity:0;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.blink {
+    animation: blink 1s;
+    animation-iteration-count: infinite;
+}
+
+.warnIcon{
+  height: 20px;
+  background: url('/images/status_icons/warn20.png');
+  background-repeat:no-repeat;
+ /* animation: blink 1s;
+  animation-iteration-count:infinite;
+*/
+  text-indent: -9999px;
+}
+
+.okIcon{
+  height: 20px;
+  background: url('/images/status_icons/ok20.png');
+  background-repeat:no-repeat;
+  text-indent: -9999px;
+}
+
+.disabledIcon{
+  height: 20px;
+  background: url('/images/status_icons/disabled20.png');
+  background-repeat:no-repeat;
+  text-indent: -9999px;
+}
+
+.loadingIcon{
+  height: 20px;
+  background: url('/images/status_icons/loading20.gif');
+  background-repeat:no-repeat;
+  text-indent: -9999px;
+}
+
+.clearDiv{
+	clear:both;
+}
+
+.statusCol1{
+	float:left;
+/*	border-style:solid;
+	border-width:thin;
+*/
+	width:24px;
+}
+.statusCol2{
+	float:left;
+/*	border-style:solid;
+	border-width:thin;
+*/
+	width:120px;
+	font-family:"Arial";
+	font-size:18px;
+	margin-left:5px;
+}
+.statusCol3{
+	float:left;
+/*	border-style:solid;
+	border-width:thin;
+*/
+	width:130px;
+	text-align:right;
+	font-family:"Arial";
+	font-size:18px;
+}
+
+.statusCol4{
+	float:left;
+/*	border-style:solid;
+	border-width:thin;
+*/
+	width:130px;
+	font-family:"Arial";
+	font-size:18px;
+	margin-left:40px;
+}
+.statusCol5{
+	float:left;
+/*	border-style:solid;
+	border-width:thin;
+*/
+	width:40px;
+	text-align:right;
+	font-family:"Arial";
+	font-size:18px;
+}
+.statusCol6{
+	float:left;
+/*	border-style:solid;
+	border-width:thin;
+*/
+	width:20px;
+	font-family:"Arial";
+	font-size:18px;
+	display:none;
+}
+
+.StatusTableRow{
+	height:25px;
+	max-height:25px;
+	padding-left:0px;
+/*	border-style:solid;
+	border-width:thin;
+*/
+	margin-left:80px;
+}
+
+.header{
+	background-color: #E6E6E6;
+	min-width:600px;
+	height: 50px;
+	color:black;
+	text-align:center;
+	vertical-align: middle;
+	z-index: 1;
+}
+
+.screenoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 2s linear;
+        display:none;
+}
+
+.opaqueoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+    opacity: 1;
+    display:none;
+}
+
+.serverUrl {
+	margin-left: 1em;
+}
+
+#tracerouteData {
+	line-height: normal;
+}
+
+#syslogData {
+	line-height: normal;
+}
+
+#AJAXMessage {
+    width: 400px;
+    height: 150px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#VPNChangeMessage {
+    width: 400px;
+    height: 150px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#ChangingVPNMessage {
+    width: 400px;
+    height: 150px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+
+#IPInfoBox {
+    width: 440px;
+    height: 335px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -220px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#IPInfoBoxTitle{
+    text-align:center;
+}
+
+#ButtonContainer {
+        text-align: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 40px;
+	width: 100%;
+}
+#IPInfoBoxTableContainer {
+        width: 90%;
+        text-align: left;
+        height: 200px;
+        margin-left: 5%;
+	margin-top:50px;
+}
+
+#IPLocationTable {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+}
+#IPLocationTable tr {
+}
+#IPLocationTable td{
+        padding-left: 10px;
+        font-family:"Arial";
+        width: 50%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+}
+#IPLocationTable tr:nth-child(even) {
+        background: #E6E6E6
+}
+#IPLocationTable tr:nth-child(odd) {
+        background: #FFF
+}
+
+#ButtonSpacer {
+        height: 20px;
+}
+.ButtonSpacer{
+	height: 20px;
+}
+
+.showLoadingIcon {
+    background-image: url('/images/status_icons/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#TracerouteInfoBox {
+    width: 800px;
+    height: 400px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#SyslogInfoBox {
+    width: 90%;
+    height: 90%;
+    line-height: normal;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+
+#TracerouteInfoBoxTitle{
+    text-align:center;
+}
+
+#SyslogInfoBoxTitle{
+    text-align:center;
+}
+
+#TracerouteInfoContainer {
+        width: 90%;
+        text-align: left;
+        height: 300px;
+        margin-left: 5%;
+	overflow:auto;
+}
+
+
+#SyslogInfoContainer {
+        width: 90%;
+        text-align: left;
+        height: 85%;
+        margin-left: 5%;
+	margin-bottom:0;
+	overflow:auto;
+}
+
+#SyslogText{
+	font-family:"Courier";
+	line-height:100%;
+}
+
+#TracerouteText{
+	font-family:"Courier";
+	line-height:100%;
+}
+
+#ShutdownInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+
+}
+
+#ShutdownInfoBoxTitle{
+    text-align:center;
+}
+
+#ShutdownInfoContainer {
+        width: 90%;
+	line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+	overflow:auto;
+}
+
+#ShutdownButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+	margin-bottom: 20px;
+}
+
+#RebootInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#RebootInfoBoxTitle{
+    text-align:center;
+}
+
+#RebootInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#RebootButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#DisableVPNInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#DisableVPNInfoBoxTitle{
+    text-align:center;
+}
+
+#DisableVPNInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#DisableVPNButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+#EnableVPNInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#EnableVPNInfoBoxTitle{
+    text-align:center;
+}
+
+#EnableVPNInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#EnableVPNButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#MainContainer{
+	display: flex;
+	flex-direction: row;
+	box-sizing: border-box;
+	/*border-style:solid;
+	border-width:thin;
+	*/
+	height:calc(100% - 110px);
+	width: 100%;
+	/*height:auto;
+	*/
+	overflow:hidden;
+	margin-top:5px;
+}
+
+
+#PageContainer{
+	display: flex;
+	flex-direction: column;
+	flex-grow: 100;
+	overflow: auto;
+	box-sizing: border-box;
+	/*border-style:solid;
+	border-width:thin;
+	*/
+	margin-left: 5px;
+}
+
+#NavigationMenu{
+	box-sizing: border-box;
+	/*border-style:solid;
+	border-width:thin;
+	*/
+	flex-grow:100;
+	min-width:110px;
+	max-width:110px;
+	background-color: #E6E6E6;
+}
+
+#VPNSection {
+	display: flex;
+	flex-direction:column;
+	flex-grow:100;
+	box-sizing: border-box;
+	/* border-style:solid;
+	border-width:thin;
+	*/
+}
+
+.menubuttonspacer {
+	height:20px;
+}
+.menubutton {
+	width: 100%;
+	vertical-align: middle;
+	padding-left: 10px;
+	font-family: "Arial";
+	background-color: #CCCCCC;
+}
+
+.buttonmenu ul {
+margin: 0;
+padding: 0;
+width:100%;
+float:left;
+height: 100%;
+list-style-type: none;
+}
+
+.buttonmenu ul li a {
+text-decoration: none;
+color: white;
+padding: 10.5px 11px;
+margin-left: 5px;
+margin-right: 5px;
+margin-top: 5px;
+background-color: #4C4C4C;
+font-family:"Arial";
+display:block;
+}
+
+.buttonmenu ul li a:visited {
+color: white;
+}
+ 
+.buttonmenu ul li a:hover, #NavigationMenu ul li .current {
+color: white;
+border-style:solid;
+border-color:white;
+border-width:2px;
+}
+
+h1 {
+	position:relative;
+	padding-top:5px;
+	padding-left:5px;
+	margin-top: 0px;
+	vertical-align: middle;
+	font-family: "Arial";
+	z-index:2;
+}
+
+
+
+h2 {
+	font-family: "Arial";
+}
+p {
+	font-family: "Arial";
+	font-size: 20px;
+}
+h3 {
+	font-family: "Arial";
+}
+
+#CurrentVPNSection {
+	box-sizing: border-box;
+	/*border-style: solid;
+        border-width: thin;
+	*/
+	background-color: #E6E6E6;
+	
+}
+
+#CurrentVPNSection h3 {
+	/*padding-left: 50px;
+	*/
+}
+
+#CurrentVPNFlag table{
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+}
+
+#CurrentVPNFlag td{
+        border-style: none;
+        vertical-align:top;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+}
+
+#CurrentVPNFlag p{
+margin-top: 0;
+margin-bottom: 10;
+}
+
+#CurrentVPNFlag a{
+margin-top: 0;
+margin-bottom: 0;
+}
+
+#CurrentVPNSection H2{
+	/*padding-top:10px;
+	padding-left: 10px;
+	margin-top:0;
+	*/
+}
+
+#VPNDisabledWarningIcon{
+	content:url(/images/status_icons/Warning-icon-hi.png);
+	height: 10px;
+}
+
+#NewVPNSection H2{
+	/*
+	padding-left:10px;
+	padding-top:10px;
+	margin-top:0;
+ 	border-style: solid;
+	border-width: 1px;
+	border-color: red;
+	*/
+}
+
+#VPNChooser {
+	display: flex;
+	flex-direction: column;
+	flex-grow:100;
+	margin-top: 5px;
+	box-sizing: border-box;
+	/* border-style: solid;
+	border-width: thin;
+	*/
+	padding-bottom:5px;
+	background-color: #E6E6E6;
+
+}
+
+#VPNChooser h2 {
+	/*padding-left:10px;
+	padding-top:10px;
+	*/
+}
+
+#VPNChooser h3 {
+	padding-left: 5px;
+}
+
+#
+
+.ChoicesTable{
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+}
+.ChoicesTable td{
+	vertical-align:top;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-width: 0;
+	height: 100px;
+	padding: 0;
+}
+
+.ChoicesTable p{
+	margin-top: 0;
+	margin-bottom: 10;
+}
+
+.ChoicesTable a{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#ChooseVPNAdvanced{
+	padding-left: 10px;
+	display:none;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+#ChooseVPNAdvanced p{
+	padding-left: 70px;
+}
+
+#Tools{
+	display:none;
+	height:100vh;
+	background-color: #E6E6E6;
+}
+
+#Tools h2{
+	padding-left:10px;
+	padding-top:10px;
+	margin-top:0;
+}
+
+
+#ToolsMenu{
+	height: 100%;
+	width:98%;
+	margin-left:1%;
+	padding-top:10px;
+}
+
+#AdminMenu{
+	height: 100%;
+	width:98%;
+	margin-left:1%;
+	padding-top:10px;
+}
+
+#Admin{
+	display:none;
+	height:100vh;
+	background-color: #E6E6E6;
+}
+
+#Admin h2{
+	padding-left:10px;
+	padding-top:10px;
+	margin-top:0;
+
+}
+
+footer{
+	margin-top: 5px;
+	position:relative;
+	height:50px;
+	background-color: #E6E6E6;
+	color:black;
+	text-align:center;
+	vertical-align: middle;
+	padding:0px;
+	z-index: 1;
+}
+
+#OpenVPNLogo {
+        position:relative;
+        float: right;
+        width: 181px;
+        height: 47px;
+        z-index: 99;
+}
+

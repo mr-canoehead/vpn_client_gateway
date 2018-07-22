@@ -59,18 +59,19 @@ def get_current_server():
         serverconf = ""
         for line in configfile:
 		line_tokens = str.split(line)
-		if line_tokens[0] == 'remote':
-                	servername = line_tokens[1]
-                        portnumber = line_tokens[2]
-			tree = ET.parse('vpnservers.xml')
-			for elem in tree.findall('./vpnservers/vpnserver'):
-			        if elem.find('servername').text == servername:
-			                countryname = elem.find('countryname').text
-					regionname = elem.find('regionname').text
-			tree = ET.parse('countryflags.xml')
-			for elem in tree.findall('./country'):
-				if elem.find('name').text == countryname:
-					flagfile = elem.find('flagfile').text
+                if len(line_tokens) > 0:
+			if line_tokens[0] == 'remote':
+        	        	servername = line_tokens[1]
+	                        portnumber = line_tokens[2]
+				tree = ET.parse('vpnservers.xml')
+				for elem in tree.findall('./vpnservers/vpnserver'):
+				        if elem.find('servername').text == servername:
+				                countryname = elem.find('countryname').text
+						regionname = elem.find('regionname').text
+				tree = ET.parse('countryflags.xml')
+				for elem in tree.findall('./country'):
+					if elem.find('name').text == countryname:
+						flagfile = elem.find('flagfile').text
         currentserver = {'servername':servername,'serverport':portnumber,'countryname':countryname,'regionname':regionname,'flagfile':flagfile,'enabled':enabled}
 	return currentserver
 

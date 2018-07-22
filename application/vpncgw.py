@@ -124,6 +124,15 @@ def change_server():
 		if (newserver is None) or (newport is None):
 			return_data = {'error':'server and port required'}
 		else:
+			# get ca certificate & tls-auth key filename elements for the new server
+			tree = ET.parse('vpnservers.xml')
+			server = tree.find(".//vpnserver[servername='" + newserver + "']")
+		        if server is None:
+		                return_data = {'error':'server not found'}
+				return return_data
+		        else:
+		                cacertfile = server.find(".//cacertfile")
+		                tlsauthkeyfile = server.find(".//tlsauthkeyfile")
 			syslog.syslog('changing...')
 			### NORDVPN CODE NEEDS UPDATING
 	                # $hostname = explode(".", $vpnserver);
@@ -153,6 +162,10 @@ def change_server():
 					else:
 						portnumber = newport
 	                                serverconf += 'remote ' + newserver + ' ' + portnumber + '\n'
+				elif line_tokens[0] == 'ca' and cacertfile is not None:
+					serverconf += 'ca ' + cacertfile.text + '\n'
+				elif line_tokens[0] == 'tls-auth' and tlsauthkeyfile is not None:
+					serverconf += 'tls-auth ' + tlsauthkeyfile.text + '\n'
 				### NORDVPN CODE, NEEDS UPDATING
 	                        # else if ($line_tokens[0] === "ca" && $domain === "nordvpn"){
         	                #         $serverconf .= "ca " . $subdomain . "_" . $domain . "_" . $tld . "_ca.crt " . "\n";

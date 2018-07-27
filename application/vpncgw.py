@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_socketio import SocketIO
 import subprocess
 import urllib2
-import xml.etree.ElementTree as ET
+from lxml import etree
 import util
 import os
 import signal
@@ -20,9 +20,77 @@ IP_ADDR_GEO_SERVICE_URL = 'http://www.geoplugin.net/json.gp'
 EXTERNAL_IP_ADDR_SERVICE_URL = 'http://bot.whatismyipaddress.com'
 VPN_DISABLED_MARKER_FILE = APP_PATH + 'vpn.disabled'
 MONITOR_DISABLED_MARKER_FILE = APP_PATH + 'no.monitor'
+VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
+COUNTRYFLAGSXML_FILE = APP_PATH + 'countryflags.xml'
+
 
 application = Flask(__name__)
 socketio = SocketIO(application)
+
+class XMLFileData:
+# data structure for storing an XML tree, it automatically re-parses
+# the source XML file if that file is modified. Re-parsing occurs during
+# the next query (xpath, find, findall).
+
+	def load(self,filepath):
+		self.xml_ok = True
+		try:
+			self.xmltree = etree.parse(filepath)
+		except etree.XMLSyntaxError as err:
+			self.xml_ok = False
+			self.xml_parse_error = err
+			errormsg = "Error parsing " + VPNSERVERSXML_FILE + " :" + str(self.xml_parse_error)
+			syslog.syslog(errormsg)
+		self.filepath = filepath
+		self.filedatetime = os.path.getmtime(filepath)
+
+	def stale(self):
+		if self.filedatetime != os.path.getmtime(self.filepath):
+			stale = True
+		else:
+			stale = False
+		return stale
+
+	def query(self,query_func,querystr,arg2 = None):
+		if self.stale():
+			self.reload()
+		if self.xmltree is None:
+			result = None
+		else:
+			if arg2 == None:
+				result = query_func(querystr)
+			else:
+				result = query_func(querystr,arg2)
+		return result
+
+	def xpath(self,querystr,arg2 = None):
+		return self.query(self.xmltree.xpath,querystr,arg2)
+
+	def find(self,querystr,arg2 = None):
+		return self.query(self.xmltree.find,querystr,arg2)
+
+	def findall(self,querystr,arg2 = None):
+		return self.query(self.xmltree.findall,querystr,arg2)
+
+	def reload(self):
+		if self.filepath is not None:
+			self.load(self.filepath)
+
+	def __init__(self,filepath = None):
+		if filepath is not None:
+			self.load(filepath)
+		else:
+			self.filepath = None
+			self.xmltree = None
+			self.filedatetime = None
+			self.xml_ok = None
+			self.xml_parse_error = None
+
+
+# load vpnserver and countryflag data
+vpnservers_data = XMLFileData(VPNSERVERSXML_FILE)
+countryflags_data = XMLFileData(COUNTRYFLAGSXML_FILE)
+
 
 def shell_exec(cmd):
 	output = subprocess.check_output(cmd.split())
@@ -49,6 +117,47 @@ def statusUpdater(sio):
 				pass
 		time.sleep(5)
 
+def get_server_details(servername):
+# finds vpnserver element in vpnservers.xml, returns dictionary containing details.
+        vpnserver_details = {}
+        servers = vpnservers_data.xpath(".//vpnserver[servername='" + servername + "']")
+        if len(servers) > 0:
+                countryname_elem = servers[0].find('countryname')
+                regionname_elem = servers[0].find('regionname')
+                serverport_elem = servers[0].find('serverport')
+                cacertfile_elem = servers[0].find('cacertfile')
+                tlsauthkeyfile_elem = servers[0].find('tlsauthkeyfile')
+
+                if countryname_elem is not None:
+                        vpnserver_details['countryname'] = countryname_elem.text
+                else:
+                        vpnserver_details['countryname'] = None
+                if regionname_elem is not None:
+                        vpnserver_details['regionname'] = regionname_elem.text
+                else:
+                        vpnserver_details['regionname'] = None
+                if serverport_elem is not None:
+                        vpnserver_details['serverport'] = serverport_elem.text
+                else:
+                        vpnserver_details['serverport'] = None
+                if cacertfile_elem is not None:
+                        vpnserver_details['cacertfile'] = cacertfile_elem.text
+                else:
+                        vpnserver_details['cacertfile'] = None
+                if tlsauthkeyfile_elem is not None:
+                        vpnserver_details['tlsauthkeyfile'] = tlsauthkeyfile_elem.text
+                else:
+                        vpnserver_details['tlsauthkeyfile'] = None
+        return vpnserver_details
+
+def get_country_flagfile(countryname):
+	flagfile = None
+	countrydetails = countryflags_data.xpath(".//country[name='" + countryname + "']")
+	if len(countrydetails) > 0:
+		flagfile = countrydetails[0].find('flagfile').text
+	return flagfile
+
+
 def get_current_server():
 	if os.path.isfile(VPN_DISABLED_MARKER_FILE):
 		enabled = False
@@ -63,16 +172,15 @@ def get_current_server():
 			if line_tokens[0] == 'remote':
         	        	servername = line_tokens[1]
 	                        portnumber = line_tokens[2]
-				tree = ET.parse('vpnservers.xml')
-				for elem in tree.findall('./vpnservers/vpnserver'):
-				        if elem.find('servername').text == servername:
-				                countryname = elem.find('countryname').text
-						regionname = elem.find('regionname').text
-				tree = ET.parse('countryflags.xml')
-				for elem in tree.findall('./country'):
-					if elem.find('name').text == countryname:
-						flagfile = elem.find('flagfile').text
-        currentserver = {'servername':servername,'serverport':portnumber,'countryname':countryname,'regionname':regionname,'flagfile':flagfile,'enabled':enabled}
+				server_details = get_server_details(servername)
+				if server_details is not None:
+					countryname = server_details['countryname']
+					regionname = server_details['regionname']
+					if countryname is not None:
+						flagfile = get_country_flagfile(countryname)
+					else:
+						flagfile = None
+        currentserver = {'servername':servername,'serverport':portnumber,'countryname':server_details['countryname'],'regionname':server_details['regionname'],'cacertfile':server_details['cacertfile'],'tlsauthkeyfile':server_details['tlsauthkeyfile'],'flagfile':flagfile,'enabled':enabled}
 	return currentserver
 
 def enable_vpn(startservice = True):
@@ -125,21 +233,15 @@ def change_server():
 			return_data = {'error':'server and port required'}
 		else:
 			# get ca certificate & tls-auth key filename elements for the new server
-			tree = ET.parse('vpnservers.xml')
-			server = tree.find(".//vpnserver[servername='" + newserver + "']")
-		        if server is None:
+			server = vpnservers_data.find(".//vpnserver[servername='" + newserver + "']")
+			server_details = get_server_details(newserver)
+		        if server_details is None:
 		                return_data = {'error':'server not found'}
 				return return_data
 		        else:
-		                cacertfile = server.find(".//cacertfile")
-		                tlsauthkeyfile = server.find(".//tlsauthkeyfile")
+		                cacertfile = server_details['cacertfile']
+		                tlsauthkeyfile = server_details['tlsauthkeyfile']
 			syslog.syslog('changing...')
-			### NORDVPN CODE NEEDS UPDATING
-	                # $hostname = explode(".", $vpnserver);
-        	        # $subdomain = $hostname[0];
-                	# $domain = $hostname[1];
-	                # $tld = $hostname[2];
-			###
         	        result = shell_exec('sudo service openvpn status')
 			if ('Active: active' in result) or ('is running' in result) or ('started' in result):
 	                        # echo "Stopping VPN service...\n"
@@ -163,17 +265,9 @@ def change_server():
 						portnumber = newport
 	                                serverconf += 'remote ' + newserver + ' ' + portnumber + '\n'
 				elif line_tokens[0] == 'ca' and cacertfile is not None:
-					serverconf += 'ca ' + cacertfile.text + '\n'
+					serverconf += 'ca ' + cacertfile + '\n'
 				elif line_tokens[0] == 'tls-auth' and tlsauthkeyfile is not None:
-					serverconf += 'tls-auth ' + tlsauthkeyfile.text + '\n'
-				### NORDVPN CODE, NEEDS UPDATING
-	                        # else if ($line_tokens[0] === "ca" && $domain === "nordvpn"){
-        	                #         $serverconf .= "ca " . $subdomain . "_" . $domain . "_" . $tld . "_ca.crt " . "\n";
-                	        # }
-                        	# else if ($line_tokens[0] === "tls-auth" && $domain === "nordvpn"){
-	                        #         $serverconf .= "tls-auth " . $subdomain . "_" . $domain . "_" . $tld . "_tls.key " . "\n";
-        	                # }
-				###
+					serverconf += 'tls-auth ' + tlsauthkeyfile + '\n'
                 	        else:
 	                                serverconf += line
 			f.seek(0)
@@ -192,16 +286,14 @@ def get_server_list():
 		return {'error': 'invalidservergroup'}
 	else:
 		countryflags = {}
-		tree = ET.parse('countryflags.xml')
-		countries = tree.findall('./country')
+		countries = countryflags_data.findall('./country')
 		for c in countries:
 			countryname = c.find('name').text
 			flagfile = c.find('flagfile').text
 			countryflags[countryname]=flagfile
 		serverdetails={}
-		tree = ET.parse('vpnservers.xml')
-		basicservers = tree.findall('./basicvpnservers/servername')
-		vpnservers = tree.find('./vpnservers')
+		basicservers = vpnservers_data.findall('./basicvpnservers/servername')
+		vpnservers = vpnservers_data.find('./vpnservers')
 		for s in vpnservers:
 			servername = s.find('servername').text
 			countryname = s.find('countryname').text

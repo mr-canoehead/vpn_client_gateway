@@ -3,26 +3,9 @@
 <html lang="en">
 <link id="documentLink" rel="stylesheet" type="text/css" href="/styles/index.css" />
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script> -->
 <!-- <script type="text/javascript" src="/socket.io/socket.io.js"></script> -->
-<script>
-function getUrlParams( prop ) {
-    var params = {};
-    var search = decodeURIComponent( window.location.href.slice( window.location.href.indexOf( '?' ) + 1 ) );
-    var definitions = search.split( '&' );
-
-    definitions.forEach( function( val, key ) {
-        var parts = val.split( '=', 2 );
-        params[ parts[ 0 ] ] = parts[ 1 ];
-    } );
-
-    return ( prop && prop in params ) ? params[ prop ] : params;
-}
-	params = getUrlParams();
-	if ('debug' in params)
-		if (params['loadcss'] == 'true')
-			alert('Debugging enabled');
-</script>
+<script type="text/javascript" src="/scripts/socket.io.min.js"></script>
 <script type="text/javascript" src="/scripts/main.js" charset="utf-8"></script>
 
 <HEAD>

@@ -1,0 +1,22 @@
+[Unit]
+Description = VPN Client Gateway
+After = network.target
+
+[Service]
+PermissionsStartOnly = true
+PIDFile = /run/vpncgw/vpncgw.pid
+User = www-data
+Group = www-data
+WorkingDirectory = /opt/vpncgw
+ExecStartPre = /bin/mkdir /run/vpncgw
+ExecStartPre = /bin/chown -R www-data:www-data /run/vpncgw
+ExecStart = /usr/bin/env gunicorn vpncgw:application --worker-class eventlet -w 1 -b 0.0.0.0:8000 --pid /run/vpncgw/vpncgw.pid
+# make an ajax request to kick-start the status updater thread
+ExecStartPost = /opt/vpncgw/ajax_request.sh
+ExecReload = /bin/kill -s HUP $MAINPID
+ExecStop = /bin/kill -s TERM $MAINPID
+ExecStopPost = /bin/rm -rf /run/vpncgw
+PrivateTmp = true
+
+[Install]
+WantedBy = multi-user.target

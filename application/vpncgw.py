@@ -257,19 +257,20 @@ def change_server():
 			serverconf = ""
 			for line in configfile:
                         	line_tokens = str.split(line)
-	                        if line_tokens[0] == 'remote':
-        	                        existingport = line_tokens[2]
-	                                if (existingport is not None) and (existingport != '0'):
-	                                        portnumber = existingport
-					else:
-						portnumber = newport
-	                                serverconf += 'remote ' + newserver + ' ' + portnumber + '\n'
-				elif line_tokens[0] == 'ca' and cacertfile is not None:
-					serverconf += 'ca ' + cacertfile + '\n'
-				elif line_tokens[0] == 'tls-auth' and tlsauthkeyfile is not None:
-					serverconf += 'tls-auth ' + tlsauthkeyfile + '\n'
-                	        else:
-	                                serverconf += line
+				if len(line_tokens) > 0:
+		                        if line_tokens[0] == 'remote':
+	        	                        existingport = line_tokens[2]
+		                                if (existingport is not None) and (existingport != '0'):
+		                                        portnumber = existingport
+						else:
+							portnumber = newport
+		                                serverconf += 'remote ' + newserver + ' ' + portnumber + '\n'
+					elif line_tokens[0] == 'ca' and cacertfile is not None:
+						serverconf += 'ca ' + cacertfile + '\n'
+					elif line_tokens[0] == 'tls-auth' and tlsauthkeyfile is not None:
+						serverconf += 'tls-auth ' + tlsauthkeyfile + '\n'
+	                	        else:
+		                                serverconf += line
 			f.seek(0)
 			f.write(serverconf)
 	                f.truncate()

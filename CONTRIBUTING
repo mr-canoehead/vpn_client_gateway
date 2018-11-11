@@ -1,9 +1,11 @@
-Please note that this project is currently frozen. Pull requests created after 8-June-2018 will not be considered for merging*.
+Please avoid surprise pull requests!
+Any changes that affect the interface (management web page), schema (i.e. vpnservers.xml), server application behaviour, or overall functionality should be discussed prior to starting any coding efforts.
+To initiate such a discussion please do one of the following:
+	- comment on an existing open issue
+	- create a new issue if one does not exist that covers the proposed change (if the issue is to address an enhancement, the issue should be labeled with 'enhancement' when you submit it)
+	- email the repository owner
 
-The project is undergoing a significant development effort that includes:
-- rewriting the server functions as a Python Flask application
-- adding near real-time VPN status monitoring to the Management web page
-- implementing Websockets for status update / server change notifications
-- switching web servers from lighttpd to nginx
+Thank you.
 
-* Pull requests to fix Severity 1 issues will be considered. A Severity 1 issue is one that affects critical functionality or critical data, and does not have a workaround. Examples of a Severity 1 issue are: unsuccessful installation, complete failure of a major feature.
+
+

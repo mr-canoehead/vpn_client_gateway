@@ -1,7 +1,7 @@
 <vpnserverinfo>
   <basicvpnservers>
       <servername>se1-ovpn-udp.pointtoserver.com</servername>
-      <servername>usny1-ovpn-udp.pointtoserver.com</servername>
+      <servername>uswdc1-ovpn-udp.pointtoserver.com</servername>
       <servername>ukl1-ovpn-udp.pointtoserver.com</servername>
       <servername>de1-ovpn-udp.pointtoserver.com</servername>
       <servername>ch1-ovpn-udp.pointtoserver.com</servername>

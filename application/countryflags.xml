@@ -20,6 +20,10 @@
                 <flagfile>BS.svg</flagfile>
         </country>
         <country>
+                <name>The Bahamas</name>
+                <flagfile>BS.svg</flagfile>
+        </country>
+        <country>
                 <name>Bahrain</name>
                 <flagfile>BH.svg</flagfile>
         </country>
@@ -133,6 +137,10 @@
         </country>
         <country>
                 <name>Korea, Republic of</name>
+                <flagfile>KR.svg</flagfile>
+        </country>
+        <country>
+                <name>South Korea</name>
                 <flagfile>KR.svg</flagfile>
         </country>
         <country>
@@ -415,5 +423,233 @@
 		<name>Ireland</name>
 		<flagfile>IE.svg</flagfile>
 	</country>
+	<country>
+		<name>United Arab Emirates</name>
+		<flagfile>AE.svg</flagfile>
+	</country>
+	<country>
+		<name>British Virgin Islands</name>
+		<flagfile>VG.svg</flagfile>
+	</country>
+	<country>
+		<name>Haiti</name>
+		<flagfile>HT.svg</flagfile>
+	</country>
+	<country>
+		<name>Bolivia</name>
+		<flagfile>BO.svg</flagfile>
+	</country>
+	<country>
+		<name>Dominica</name>
+		<flagfile>DM.svg</flagfile>
+	</country>
+        <country>
+                <name>Algeria</name>
+                <flagfile>DZ.svg</flagfile>
+        </country>
+        <country>
+                <name>Guyana</name>
+                <flagfile>GY.svg</flagfile>
+        </country>
+        <country>
+                <name>Mauritius</name>
+                <flagfile>MU.svg</flagfile>
+        </country>
+        <country>
+                <name>Jamaica</name>
+                <flagfile>JM.svg</flagfile>
+        </country>
+        <country>
+                <name>Ethiopia</name>
+                <flagfile>ET.svg</flagfile>
+        </country>
+        <country>
+                <name>Trinidad and Tobago</name>
+                <flagfile>TT.svg</flagfile>
+        </country>
+        <country>
+                <name>Laos</name>
+                <flagfile>LA.svg</flagfile>
+        </country>
+        <country>
+                <name>Dominican Republic</name>
+                <flagfile>DO.svg</flagfile>
+        </country>
+        <country>
+                <name>Monaco</name>
+                <flagfile>MC.svg</flagfile>
+        </country>
+        <country>
+                <name>Bermuda</name>
+                <flagfile>BM.svg</flagfile>
+        </country>
+        <country>
+                <name>Tajikistan</name>
+                <flagfile>TJ.svg</flagfile>
+        </country>
+        <country>
+                <name>Uzbekistan</name>
+                <flagfile>UZ.svg</flagfile>
+        </country>
+        <country>
+                <name>Bangladesh</name>
+                <flagfile>BD.svg</flagfile>
+        </country>
+        <country>
+                <name>Afghanistan</name>
+                <flagfile>AF.svg</flagfile>
+        </country>
+        <country>
+                <name>Turks and Caicos Islands</name>
+                <flagfile>TC.svg</flagfile>
+        </country>
+        <country>
+                <name>Madagascar</name>
+                <flagfile>MG.svg</flagfile>
+        </country>
+        <country>
+                <name>Kazakhstan</name>
+                <flagfile>KZ.svg</flagfile>
+        </country>
+        <country>
+                <name>El Salvador</name>
+                <flagfile>SV.svg</flagfile>
+        </country>
+        <country>
+                <name>Cambodia</name>
+                <flagfile>KH.svg</flagfile>
+        </country>
+        <country>
+                <name>Honduras</name>
+                <flagfile>HN.svg</flagfile>
+        </country>
+        <country>
+                <name>Kyrgyzstan</name>
+                <flagfile>KG.svg</flagfile>
+        </country>
+        <country>
+                <name>Senegal</name>
+                <flagfile>SN.svg</flagfile>
+        </country>
+        <country>
+                <name>Pakistan</name>
+                <flagfile>PK.svg</flagfile>
+        </country>
+        <country>
+                <name>Tanzania</name>
+                <flagfile>TZ.svg</flagfile>
+        </country>
+        <country>
+                <name>Liechtenstein</name>
+                <flagfile>LI.svg</flagfile>
+        </country>
+        <country>
+                <name>Armenia</name>
+                <flagfile>AM.svg</flagfile>
+        </country>
+        <country>
+                <name>Cuba</name>
+                <flagfile>CU.svg</flagfile>
+        </country>
+        <country>
+                <name>Macao</name>
+                <flagfile>MO.svg</flagfile>
+        </country>
+        <country>
+                <name>Montserrat</name>
+                <flagfile>MS.svg</flagfile>
+        </country>
+        <country>
+                <name>Tunisia</name>
+                <flagfile>TN.svg</flagfile>
+        </country>
+        <country>
+                <name>Cape Verde</name>
+                <flagfile>CV.svg</flagfile>
+        </country>
+        <country>
+                <name>Sri Lanka</name>
+                <flagfile>LK.svg</flagfile>
+        </country>
+        <country>
+                <name>Suriname</name>
+                <flagfile>SR.svg</flagfile>
+        </country>
+        <country>
+                <name>Niger</name>
+                <flagfile>NE.svg</flagfile>
+        </country>
+        <country>
+                <name>Myanmar</name>
+                <flagfile>MM.svg</flagfile>
+        </country>
+        <country>
+                <name>Seychelles</name>
+                <flagfile>SC.svg</flagfile>
+        </country>
+        <country>
+                <name>Saint Lucia</name>
+                <flagfile>LC.svg</flagfile>
+        </country>
+        <country>
+                <name>Ecuador</name>
+                <flagfile>EC.svg</flagfile>
+        </country>
+        <country>
+                <name>Grenada</name>
+                <flagfile>GD.svg</flagfile>
+        </country>
+        <country>
+                <name>Morocco</name>
+                <flagfile>MA.svg</flagfile>
+        </country>
+        <country>
+                <name>Turkmenistan</name>
+                <flagfile>TM.svg</flagfile>
+        </country>
+        <country>
+                <name>Mauritania</name>
+                <flagfile>MR.svg</flagfile>
+        </country>
+        <country>
+                <name>Paraguay</name>
+                <flagfile>PY.svg</flagfile>
+        </country>
+        <country>
+                <name>Puerto Rico</name>
+                <flagfile>PR.svg</flagfile>
+        </country>
+        <country>
+                <name>Nicaragua</name>
+                <flagfile>NI.svg</flagfile>
+        </country>
+        <country>
+                <name>Angola</name>
+                <flagfile>AO.svg</flagfile>
+        </country>
+        <country>
+                <name>Guatemala</name>
+                <flagfile>GT.svg</flagfile>
+        </country>
+        <country>
+                <name>Brunei Darussalam</name>
+                <flagfile>BN.svg</flagfile>
+        </country>
+        <country>
+                <name>Brunei</name>
+                <flagfile>BN.svg</flagfile>
+        </country>
+        <country>
+                <name>Cayman Islands</name>
+                <flagfile>KY.svg</flagfile>
+        </country>
+        <country>
+                <name>Barbados</name>
+                <flagfile>BB.svg</flagfile>
+        </country>
+        <country>
+                <name>Papua New Guinea</name>
+                <flagfile>PG.svg</flagfile>
+        </country>
 </countryflags>
 

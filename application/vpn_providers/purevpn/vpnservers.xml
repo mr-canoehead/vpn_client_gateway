@@ -1,459 +1,830 @@
 <vpnserverinfo>
-<basicvpnservers>
-	<servername>caq1-ovpn-udp.purevpn.net</servername>
-        <servername>usil1-ovpn-udp.purevpn.net</servername>
-        <servername>vlsa-ukl1-ovpn-udp.purevpn.net</servername>
-        <servername>au1-ovpn-udp.purevpn.net</servername>
-        <servername>vlus-se1-ovpn-udp.purevpn.net</servername>
-        <servername>vleu-fr1-ovpn-udp.purevpn.net</servername>
-        <servername>de1-ovpn-udp.purevpn.net</servername>
-        <servername>ch1-ovpn-udp.purevpn.net</servername>
-        <servername>nl1-ovpn-udp.purevpn.net</servername>
-</basicvpnservers>
-<vpnservers>
+  <basicvpnservers>
+      <servername>se1-ovpn-udp.pointtoserver.com</servername>
+      <servername>usny1-ovpn-udp.pointtoserver.com</servername>
+      <servername>ukl1-ovpn-udp.pointtoserver.com</servername>
+      <servername>de1-ovpn-udp.pointtoserver.com</servername>
+      <servername>ch1-ovpn-udp.pointtoserver.com</servername>
+      <servername>nl1-ovpn-udp.pointtoserver.com</servername>
+      <servername>au-bn-ovpn-udp.pointtoserver.com</servername>
+      <servername>lt1-ovpn-udp.pointtoserver.com</servername>
+      <servername>vleu-dk1-ovpn-udp.pointtoserver.com</servername>
+  </basicvpnservers>
+  <vpnservers>
     <vpnserver>
-        <servername>al1-ovpn-udp.purevpn.net</servername>
-        <countryname>Albania</countryname>
-        <regionname/>
+      <servername>bs1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>The Bahamas</countryname>
+      <regionname>Freeport</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ar1-ovpn-udp.purevpn.net</servername>
-        <countryname>Argentina</countryname>
-        <regionname/>
+      <servername>vlsa-ussf1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>San Francisco</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>aw1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Aruba</countryname>
-        <regionname/>
+      <servername>au-bn-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Brisbane</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>au1-ovpn-udp.purevpn.net</servername>
-        <countryname>Australia</countryname>
-        <regionname/>
+      <servername>usga1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Georgia</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>bs1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Bahamas</countryname>
-        <regionname/>
+      <servername>ae1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United Arab Emirates</countryname>
+      <regionname>Dubai</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>bh1-ovpn-udp.purevpn.net</servername>
-        <countryname>Bahrain</countryname>
-        <regionname/>
+      <servername>ro1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Romania</countryname>
+      <regionname>Bucharest</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>be1-ovpn-udp.purevpn.net</servername>
-        <countryname>Belgium</countryname>
-        <regionname/>
+      <servername>de1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Germany</countryname>
+      <regionname>Hessen</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>bz1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Belize</countryname>
-        <regionname/>
+      <servername>ie1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Ireland</countryname>
+      <regionname>Dublin</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ba1-ovpn-udp.purevpn.net</servername>
-        <countryname>Bosnia and Herzegovina</countryname>
-        <regionname/>
+      <servername>es-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Spain</countryname>
+      <regionname>Barcelona</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>bn1-ovpn-udp.purevpn.net</servername>
-        <countryname>Brunei</countryname>
-        <regionname/>
+      <servername>sk1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Slovakia</countryname>
+      <regionname>Bratislava</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-bg1-ovpn-udp.purevpn.net</servername>
-        <countryname>Bulgaria</countryname>
-        <regionname/>
+      <servername>si1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Slovenia</countryname>
+      <regionname>Ljubljana</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>caq1-ovpn-udp.purevpn.net</servername>
-        <countryname>Canada</countryname>
-        <regionname>Quebec</regionname>
+      <servername>vg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>British Virgin Islands</countryname>
+      <regionname>Road Town</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>cl1-ovpn-udp.purevpn.net</servername>
-        <countryname>Chile</countryname>
-        <regionname/>
+      <servername>vlap-ph1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Philippines</countryname>
+      <regionname>Manila</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>cn1-ovpn-udp.purevpn.net</servername>
-        <countryname>China</countryname>
-        <regionname/>
+      <servername>gh1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Ghana</countryname>
+      <regionname>Kumasi</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>co1-ovpn-udp.purevpn.net</servername>
-        <countryname>Colombia</countryname>
-        <regionname/>
+      <servername>vlap-ukle1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>Leicester</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>cr1-ovpn-udp.purevpn.net</servername>
-        <countryname>Costa Rica</countryname>
-        <regionname/>
+      <servername>vlus-pa-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Panama</countryname>
+      <regionname>Colon</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>hr1-ovpn-udp.purevpn.net</servername>
-        <countryname>Croatia</countryname>
-        <regionname/>
+      <servername>pl1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Poland</countryname>
+      <regionname>Warsaw</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>dk1-ovpn-udp.purevpn.net</servername>
-        <countryname>Denmark</countryname>
-        <regionname/>
+      <servername>hu1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Hungary</countryname>
+      <regionname>Budapest</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-eg1-ovpn-udp.purevpn.net</servername>
-        <countryname>Egypt</countryname>
-        <regionname/>
+      <servername>bz1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Belize</countryname>
+      <regionname>San Ignacio</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ee1-ovpn-udp.purevpn.net</servername>
-        <countryname>Estonia</countryname>
-        <regionname/>
+      <servername>im1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Isle of Man</countryname>
+      <regionname>Onchan</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vleu-fr1-ovpn-udp.purevpn.net</servername>
-        <countryname>France</countryname>
-        <regionname/>
+      <servername>ve1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Venezuela</countryname>
+      <regionname>Caracas</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ge1-ovpn-udp.purevpn.net</servername>
-        <countryname>Georgia</countryname>
-        <regionname/>
+      <servername>usphx1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Phoenix</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>de1-ovpn-udp.purevpn.net</servername>
-        <countryname>Germany</countryname>
-        <regionname/>
+      <servername>vls1360101-udp.pointtoserver.com</servername>
+      <countryname>Haiti</countryname>
+      <regionname>Port-au-Prince</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>gh1-ovpn-udp.purevpn.net</servername>
-        <countryname>Ghana</countryname>
-        <regionname/>
+      <servername>vleu-bo-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Bolivia</countryname>
+      <regionname>Sucre</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>gr1-ovpn-udp.purevpn.net</servername>
-        <countryname>Greece</countryname>
-        <regionname/>
+      <servername>vleu-dm-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Dominica</countryname>
+      <regionname>Roseau</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>hk1-ovpn-udp.purevpn.net</servername>
-        <countryname>Hong Kong</countryname>
-        <regionname/>
+      <servername>kr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>South Korea</countryname>
+      <regionname>Seoul</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>hu1-ovpn-udp.purevpn.net</servername>
-        <countryname>Hungary</countryname>
-        <regionname/>
+      <servername>lt1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Lithuania</countryname>
+      <regionname>Vilnius</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>is1-ovpn-udp.purevpn.net</servername>
-        <countryname>Iceland</countryname>
-        <regionname/>
+      <servername>vlus-dz1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Algeria</countryname>
+      <regionname>Algiers</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>in1-ovpn-udp.purevpn.net</servername>
-        <countryname>India</countryname>
-        <regionname/>
+      <servername>om1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Oman</countryname>
+      <regionname>Salalah</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ie1-ovpn-udp.purevpn.net</servername>
-        <countryname>Ireland</countryname>
-        <regionname/>
+      <servername>vleu-gy-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Guyana</countryname>
+      <regionname>Georgetown</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>im1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Isle of Man</countryname>
-        <regionname/>
+      <servername>vlus-cr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Costa Rica</countryname>
+      <regionname>San Jose</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>it1-ovpn-udp.purevpn.net</servername>
-        <countryname>Italy</countryname>
-        <regionname/>
+      <servername>vleu-usoh1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Ohio</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>jp1-ovpn-udp.purevpn.net</servername>
-        <countryname>Japan</countryname>
-        <regionname/>
+      <servername>az1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Azerbaijan</countryname>
+      <regionname>Baku</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-jo1-ovpn-udp.purevpn.net</servername>
-        <countryname>Jordan</countryname>
-        <regionname/>
+      <servername>bh-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Bahrain</countryname>
+      <regionname>Manama</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ke1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Kenya</countryname>
-        <regionname/>
+      <servername>jp-tk1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Japan</countryname>
+      <regionname>Tokyo</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>kr1-ovpn-udp.purevpn.net</servername>
-        <countryname>Korea</countryname>
-        <regionname/>
+      <servername>uswdc1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Washington</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-kw1-ovpn-udp.purevpn.net</servername>
-        <countryname>Kuwait</countryname>
-        <regionname/>
+      <servername>fr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>France</countryname>
+      <regionname>Paris</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>lv1-ovpn-udp.purevpn.net</servername>
-        <countryname>Latvia</countryname>
-        <regionname/>
+      <servername>ua1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Ukraine</countryname>
+      <regionname>Odessa</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>lb1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Lebanon</countryname>
-        <regionname/>
+      <servername>usfl1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Miami</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>lt1-ovpn-udp.purevpn.net</servername>
-        <countryname>Lithuania</countryname>
-        <regionname/>
+      <servername>mu1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Mauritius</countryname>
+      <regionname>Port Louis</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>lu1-ovpn-udp.purevpn.net</servername>
-        <countryname>Luxembourg</countryname>
-        <regionname/>
+      <servername>jm1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Jamaica</countryname>
+      <regionname>Kingston</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>mt1-ovpn-udp.purevpn.net</servername>
-        <countryname>Malta</countryname>
-        <regionname/>
+      <servername>lu1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Luxembourg</countryname>
+      <regionname>Luxembourg</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>mx1-ovpn-udp.purevpn.net</servername>
-        <countryname>Mexico</countryname>
-        <regionname/>
+      <servername>vlus-jo1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Jordan</countryname>
+      <regionname>Amman</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>md1-ovpn-udp.purevpn.net</servername>
-        <countryname>Moldova</countryname>
-        <regionname/>
+      <servername>vlus-pa1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Panama</countryname>
+      <regionname>Panama City</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>mn1-ovpn-udp.purevpn.net</servername>
-        <countryname>Mongolia</countryname>
-        <regionname/>
+      <servername>et1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Ethiopia</countryname>
+      <regionname>Addis Ababa</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>me1-ovpn-udp.purevpn.net</servername>
-        <countryname>Montenegro</countryname>
-        <regionname/>
+      <servername>vleu-tt-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Trinidad and Tobago</countryname>
+      <regionname>Port of Spain</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>nl1-ovpn-udp.purevpn.net</servername>
-        <countryname>Netherlands</countryname>
-        <regionname/>
+      <servername>vlus-la1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Laos</countryname>
+      <regionname>Vientiane</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>nz1-ovpn-udp.purevpn.net</servername>
-        <countryname>New Zealand</countryname>
-        <regionname/>
+      <servername>vlus-tr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Turkey</countryname>
+      <regionname>Istanbul</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ng1-ovpn-udp.purevpn.net</servername>
-        <countryname>Nigeria</countryname>
-        <regionname/>
+      <servername>vleu-do-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Dominican Republic</countryname>
+      <regionname>Santo Domingo</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>no1-ovpn-udp.purevpn.net</servername>
-        <countryname>Norway</countryname>
-        <regionname/>
+      <servername>is1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Iceland</countryname>
+      <regionname>Reykjavik</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>om1-ovpn-udp.purevpn.net</servername>
-        <countryname>Oman</countryname>
-        <regionname/>
+      <servername>vlbr-cl1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Chile</countryname>
+      <regionname>Santiago</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-pa1-ovpn-udp.purevpn.net</servername>
-        <countryname>Panama</countryname>
-        <regionname/>
+      <servername>mn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Monaco</countryname>
+      <regionname>Monaco</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>pe1-ovpn-udp.purevpn.net</servername>
-        <countryname>Peru</countryname>
-        <regionname/>
+      <servername>ch1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Switzerland</countryname>
+      <regionname>Zurich</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlap-ph1-ovpn-udp.purevpn.net</servername>
-        <countryname>Philippines</countryname>
-        <regionname/>
+      <servername>vleu-bm-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Bermuda</countryname>
+      <regionname>Hamilton</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>pl1-ovpn-udp.purevpn.net</servername>
-        <countryname>Poland</countryname>
-        <regionname/>
+      <servername>vlus-tj-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Tajikistan</countryname>
+      <regionname>Dushanbe</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>qa1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Qatar</countryname>
-        <regionname/>
+      <servername>vleu-dk1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Denmark</countryname>
+      <regionname>Copenhagen</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ro1-ovpn-udp.purevpn.net</servername>
-        <countryname>Romania</countryname>
-        <regionname/>
+      <servername>vlus-uz-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Uzbekistan</countryname>
+      <regionname>Tashkent</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-ru1-ovpn-udp.purevpn.net</servername>
-        <countryname>Russia</countryname>
-        <regionname/>
+      <servername>ukl1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>London</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>sa1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Saudi Arabia</countryname>
+      <servername>vlus-bd1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Bangladesh</countryname>
+      <regionname>Dhaka</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>rs1-ovpn-udp.purevpn.net</servername>
-        <countryname>Serbia</countryname>
-        <regionname/>
+      <servername>usla1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Los Angeles</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>sg1-ovpn-udp.purevpn.ne</servername>
-        <countryname>Singapore</countryname>
-        <regionname/>
+      <servername>vlus-af1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Afghanistan</countryname>
+      <regionname>Kabul</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>sk1-ovpn-udp.purevpn.net</servername>
-        <countryname>Slovakia</countryname>
-        <regionname/>
+      <servername>ke1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Kenya</countryname>
+      <regionname>Mombasa</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>si1-ovpn-udp.purevpn.net</servername>
-        <countryname>Slovenia</countryname>
-        <regionname/>
+      <servername>vlus-mn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Mongolia</countryname>
+      <regionname>Ulaanbaatar</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>es1-ovpn-udp.purevpn.net</servername>
-        <countryname>Spain</countryname>
-        <regionname/>
+      <servername>vleu-tc-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Turks and Caicos Islands</countryname>
+      <regionname>Balfour Town</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-se1-ovpn-udp.purevpn.net</servername>
-        <countryname>Sweden</countryname>
-        <regionname/>
+      <servername>au-pe1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Perth</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ch1-ovpn-udp.purevpn.net</servername>
-        <countryname>Switzerland</countryname>
-        <regionname/>
+      <servername>vlus-mg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Madagascar</countryname>
+      <regionname>Antananarivo</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>sy1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Syria</countryname>
-        <regionname/>
+      <servername>md1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Moldova</countryname>
+      <regionname>Chisinau</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>tw1-ovpn-udp.purevpn.net</servername>
-        <countryname>Taiwan</countryname>
-        <regionname/>
+      <servername>vlus-kz1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Kazakhstan</countryname>
+      <regionname>Almaty</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>th1-ovpn-udp.purevpn.net</servername>
-        <countryname>Thailand</countryname>
-        <regionname/>
+      <servername>vlus-cn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>China</countryname>
+      <regionname>Guangdong</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlus-tr1-ovpn-udp.purevpn.net</servername>
-        <countryname>Turkey</countryname>
-        <regionname/>
+      <servername>vlus-ge1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Georgia</countryname>
+      <regionname>Tbilisi</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ae1-ovpn-udp.purevpn.net</servername>
-        <countryname>UAE</countryname>
-        <regionname/>
+      <servername>ukm1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>Maidenhead</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ukg1-ovpn-udp.purevpn.net</servername>
-        <countryname>United Kingdom</countryname>
-        <regionname>Gosport</regionname>
+      <servername>cn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>China</countryname>
+      <regionname>Beijing</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlbr-ukl1-ovpn-udp.purevpn.net</servername>
-        <countryname>United Kingdom</countryname>
-        <regionname>London - 1</regionname>
+      <servername>usil1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Chicago</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlsa-ukl1-ovpn-udp.purevpn.net</servername>
-        <countryname>United Kingdom</countryname>
-        <regionname>London - 2</regionname>
+      <servername>vleu-in1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>India</countryname>
+      <regionname>New Delhi</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ukm1-ovpn-udp.purevpn.net</servername>
-        <countryname>United Kingdom</countryname>
-        <regionname>Maidenhead</regionname>
+      <servername>vleu-sv-ovpn-udp.pointtoserver.com</servername>
+      <countryname>El Salvador</countryname>
+      <regionname>San Salvador</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ua1-ovpn-udp.purevpn.net</servername>
-        <countryname>Ukraine</countryname>
-        <regionname/>
+      <servername>lv1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Latvia</countryname>
+      <regionname>Riga</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>usfl1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>Florida</regionname>
+      <servername>lu-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Luxembourg</countryname>
+      <regionname>Steinsel</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>usga1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>Georgia</regionname>
+      <servername>vlus-it1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Italy</countryname>
+      <regionname>Milano</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>usil1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>Chicago</regionname>
+      <servername>kh1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Cambodia</countryname>
+      <regionname>Phnom Penh</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>usla1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>Los Angeles</regionname>
+      <servername>vlus-uk-man1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>Manchester</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>usny1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>New York</regionname>
+      <servername>lb1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Lebanon</countryname>
+      <regionname>Tripoli</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>usphx1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>Phoenix</regionname>
+      <servername>vleu-hn-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Honduras</countryname>
+      <regionname>Tegucigalpa</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlsa-ussf1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>San Francisco</regionname>
+      <servername>vlus-kg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Kyrgyzstan</countryname>
+      <regionname>Bishkek</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlbr-usvc1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>Virginia</regionname>
+      <servername>nz-ovpn-udp.pointtoserver.com</servername>
+      <countryname>New Zealand</countryname>
+      <regionname>Auckland</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ussa1-ovpn-udp.purevpn.net</servername>
-        <countryname>United States</countryname>
-        <regionname>Washington</regionname>
+      <servername>qa1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Qatar</countryname>
+      <regionname>Doha</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ve1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Venezuela</countryname>
-        <regionname/>
+      <servername>vlus-sn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Senegal</countryname>
+      <regionname>Dakar</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>vlap-vn1-ovpn-udp.purevpn.net</servername>
-        <countryname>Vietnam</countryname>
-        <regionname/>
+      <servername>vlap-th1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Thailand</countryname>
+      <regionname>Bangkok</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>ym1-ovpn-udp.pointtoserver.com</servername>
-        <countryname>Yemen</countryname>
-        <regionname/>
+      <servername>al1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Albania</countryname>
+      <regionname>Tirane</regionname>
     </vpnserver>
     <vpnserver>
-        <servername>za1-ovpn-udp.purevpn.net</servername>
-        <countryname>Zambia</countryname>
-        <regionname/>
+      <servername>vlus-ar1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Argentina</countryname>
+      <regionname>Buenos Aires</regionname>
     </vpnserver>
-</vpnservers>
+    <vpnserver>
+      <servername>cy1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Cyprus</countryname>
+      <regionname>Nicosia</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>pk1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Pakistan</countryname>
+      <regionname>Islamabad</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ng1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Nigeria</countryname>
+      <regionname>Suleja</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-tz1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Tanzania</countryname>
+      <regionname>Dar Es Salaam</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>li1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Liechtenstein</countryname>
+      <regionname>Vaduz</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>rs1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Serbia</countryname>
+      <regionname>Belgrade</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Bulgaria</countryname>
+      <regionname>Sofia</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-am1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Armenia</countryname>
+      <regionname>Yerevan</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ba1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Bosnia and Herzegovina</countryname>
+      <regionname>Sarajevo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usny1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>New York</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>se1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Sweden</countryname>
+      <regionname>Stockholm</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>cu1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Cuba</countryname>
+      <regionname>Havana</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>br1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Brazil</countryname>
+      <regionname>Sao Paulo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>mo1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Macao</countryname>
+      <regionname>Beyrouth</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-ms-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Montserrat</countryname>
+      <regionname>Plymouth</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usnj1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>New Jersey</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-ru1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Russia</countryname>
+      <regionname>Moscow</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>aw1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Aruba</countryname>
+      <regionname>Oranjestad</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-tn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Tunisia</countryname>
+      <regionname>Tunis</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-cv-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Cape Verde</countryname>
+      <regionname>Praia</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-lk1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Sri Lanka</countryname>
+      <regionname>Colombo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sa1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Saudi Arabia</countryname>
+      <regionname>Jeddah</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-no1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Norway</countryname>
+      <regionname>Oslo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ee1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Estonia</countryname>
+      <regionname>Tallinn</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-sr-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Suriname</countryname>
+      <regionname>Paramaribo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>tw1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Taiwan</countryname>
+      <regionname>Taoyuan</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-ne1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Niger</countryname>
+      <regionname>Niamey</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>de-ao1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Germany</countryname>
+      <regionname>Nuremberg</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-mm1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Myanmar</countryname>
+      <regionname>Rangoon</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sc1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Seychelles</countryname>
+      <regionname>Victoria</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-lc-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Saint Lucia</countryname>
+      <regionname>Castries</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ec1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Ecuador</countryname>
+      <regionname>Quito</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>au1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Melbourne</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-gd-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Grenada</countryname>
+      <regionname>St George's</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>co1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Colombia</countryname>
+      <regionname>Bogota</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-kw1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Kuwait</countryname>
+      <regionname>Kuwait</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sy1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Syria</countryname>
+      <regionname>Aleppo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ma1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Morocco</countryname>
+      <regionname>Rabat</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-tm1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Turkmenistan</countryname>
+      <regionname>Ashgabat</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ym1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Yemen</countryname>
+      <regionname>Aden</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-eg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Egypt</countryname>
+      <regionname>Cairo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-mr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Mauritania</countryname>
+      <regionname>Nouakchott</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-au1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Sydney</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>za1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>South Africa</countryname>
+      <regionname>Benoni</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>in1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>India</countryname>
+      <regionname>Chennai</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-me1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Montenegro</countryname>
+      <regionname>Podgorica</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>pt1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Portugal</countryname>
+      <regionname>Lisbon</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>pe1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Peru</countryname>
+      <regionname>Lima</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Singapore</countryname>
+      <regionname>Singapore</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-py-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Paraguay</countryname>
+      <regionname>Asuncion</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>cato-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Canada</countryname>
+      <regionname>Toronto</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>nl1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Netherlands</countryname>
+      <regionname>Amsterdam</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>pr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Puerto Rico</countryname>
+      <regionname>San Juan</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-ni-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Nicaragua</countryname>
+      <regionname>Managua</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-ao1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Angola</countryname>
+      <regionname>Benguela</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>mt1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Malta</countryname>
+      <regionname>Sliema</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-gt-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Guatemala</countryname>
+      <regionname>Guatemala</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ussa-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Seattle</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ukg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>Gosport</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-hr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Croatia</countryname>
+      <regionname>Zagreb</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-be1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Belgium</countryname>
+      <regionname>Brussels</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>at1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Austria</countryname>
+      <regionname>Vienna</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Brunei Darussalam</countryname>
+      <regionname>Bandar Seri Begawan</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>hk1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Hong Kong</countryname>
+      <regionname>Hong Kong</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-mx1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Mexico</countryname>
+      <regionname>Mexico</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlap-tw1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Taiwan</countryname>
+      <regionname>Taipei</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlap-vn1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Vietnam</countryname>
+      <regionname>Hanoi</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-ky-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Cayman Islands</countryname>
+      <regionname>George Town</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>caq1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Canada</countryname>
+      <regionname>Quebec</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>my-kl1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Malaysia</countryname>
+      <regionname>Kuala Lumpur</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usva-ovpn-udp.pointtoserver.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Virginia</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vleu-bb-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Barbados</countryname>
+      <regionname>Bridgetown</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>gr1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Greece</countryname>
+      <regionname>Thessaloniki</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vlus-pg1-ovpn-udp.pointtoserver.com</servername>
+      <countryname>Papua New Guinea</countryname>
+      <regionname>Port Moresby</regionname>
+    </vpnserver>
+  </vpnservers>
 </vpnserverinfo>

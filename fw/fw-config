@@ -4,6 +4,10 @@
 
 VPN_INTERFACE="tun+"
 
+# OpenVPN ports used by major providers:
+OPENVPN_UDP_PORTS="53,1194,1195,1196,1197,1198,1301,1302"
+OPENVPN_TCP_PORTS="80,110,443,501,502"
+
 # get path for this script
 working_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -235,9 +239,6 @@ fi
 
 printf "Configuring firewall rules...\\n"
 
-# OpenVPN ports used by major providers:
-OPENVPN_UDP_PORTS="53,1194,1195,1196,1197,1198,1301,1302"
-
 # delete all existing rules
 iptables -Z
 iptables --flush
@@ -289,7 +290,12 @@ EOF
 		# add outbound services rules
 		firewall_script+=$'\n'"# allow outbound services:"
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p icmp -m comment --comment \"icmp\" -j ACCEPT"
-		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m multiport --dports \$OPENVPN_UDP_PORTS -m comment --comment \"openvpn\" -j ACCEPT"
+		if [ -n "$OPENVPN_TCP_PORTS" ]; then
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p tcp -m multiport --dports $OPENVPN_TCP_PORTS -m comment --comment \"openvpn tcp\" -j ACCEPT"
+		fi
+		if [ -n "$OPENVPN_UDP_PORTS" ]; then
+		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m multiport --dports $OPENVPN_UDP_PORTS -m comment --comment \"openvpn udp\" -j ACCEPT"
+		fi
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p tcp -m tcp --sport 22 -m comment --comment \"ssh\" -j ACCEPT"
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m udp --dport 123 -m comment --comment \"ntp\" -j ACCEPT"
 		firewall_script+=$'\n'"iptables -A OUTPUT -o ${selected_lan_interfaces[0]} -p udp -m udp --dport 53 -m comment --comment \"dns\" -j ACCEPT"

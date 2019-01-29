@@ -58,6 +58,16 @@ def enable_service(service_name):
         output, err = p.communicate()
         return output
 
+def service_active(service_name):
+        cmd = 'sudo service %s status' % service_name
+        p = subprocess.Popen(cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, err = p.communicate()
+        if ('Active: active' in output) or ('is running' in output) or ('started' in output):
+                result = True
+        else:
+                result = False
+        return result
+
 def reboot():
         cmd = "sudo shutdown -r now"
         p = subprocess.Popen(cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)

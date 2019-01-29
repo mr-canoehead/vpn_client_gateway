@@ -241,9 +241,7 @@ def change_server():
 		        else:
 		                cacertfile = server_details['cacertfile']
 		                tlsauthkeyfile = server_details['tlsauthkeyfile']
-			p = subprocess.Popen(['sudo', 'service', 'openvpn', 'status'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-			result, err = p.communicate()
-			if ('Active: active' in result) or ('is running' in result) or ('started' in result):
+			if util.service_active('openvpn'):
 	                        # echo "Stopping VPN service...\n"
 				syslog.syslog('Stopping VPN service...')
         	                result = util.stop_service('openvpn')

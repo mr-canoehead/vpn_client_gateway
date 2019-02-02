@@ -405,8 +405,24 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 #TracerouteInfoBox {
     width: 800px;
+    height: 400px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#SpeedtestInfoBox {
+    width: 700px;
     height: 400px;
     line-height: 20px;
     position: fixed;
@@ -440,11 +456,23 @@ body {
     text-align:center;
 }
 
+#SpeedtestInfoBoxTitle{
+    text-align:center;
+}
+
 #SyslogInfoBoxTitle{
     text-align:center;
 }
 
 #TracerouteInfoContainer {
+        width: 90%;
+        text-align: left;
+        height: 300px;
+        margin-left: 5%;
+	overflow:auto;
+}
+
+#SpeedtestInfoContainer {
         width: 90%;
         text-align: left;
         height: 300px;
@@ -460,6 +488,11 @@ body {
         margin-left: 5%;
 	margin-bottom:0;
 	overflow:auto;
+}
+
+#SpeedtestInfoBox {
+	font-family:"Courier";
+	line-height:100%;
 }
 
 #SyslogText{

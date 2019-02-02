@@ -99,6 +99,24 @@
         </div>
 </div>
 
+<div id="SpeedtestOverlay" class="screenoverlay">
+        <div id="SpeedtestInfoBox">
+                <div id="SpeedtestInfoBoxTitle">
+                        <H2>Speed test<H2>
+                </div>
+                <div id="SpeedtestInfoContainer" class="showLoadingIcon">
+			<div id="SpeedtestProgress">
+			</div>
+			<div id="SpeedtestResults">
+			</div>
+                </div>
+		<div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <button id="SpeedtestInfoCloseButton" onclick="hide_speedtest();">Close</button>
+                </div>
+        </div>
+</div>
+
 <div id="SyslogOverlay" class="screenoverlay">
         <div id="SyslogInfoBox">
                 <div id="SyslogInfoBoxTitle">
@@ -328,6 +346,8 @@
 			<div id="ToolsMenu" class="buttonmenu">
 			<ul>
 		<li><a href="javascript:void(0);" onclick="show_iplocationinfo();">Get IP address geolocation</a></li>
+		<div class="menubuttonspacer"></div>
+		<li><a href="javascript:void(0);" onclick="show_speedtest();">Speed test</a></li>
 		<div class="menubuttonspacer"></div>
 			<li><a href="javascript:void(0);" onclick="show_traceroute();">Run traceroute</a></li>
 		<div class="menubuttonspacer"></div>

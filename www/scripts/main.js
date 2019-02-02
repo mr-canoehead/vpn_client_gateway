@@ -5,7 +5,22 @@ var socket = io.connect('http://' + document.domain + ':' + location.port);
 	socket.on('connect', function() {
         socket.on('serverchange', (data) => serverChangeNotification(data));
 	socket.on('vpncgwstatus', (data) => statusNotification(data));
+	socket.on('speedtest', (data) => speedtestInfo(data));
 });
+
+function speedtestInfo(data) {
+	populateSpeedtest(data);
+}
+
+function populateTraceroute(data) {
+	tracerouteData = JSON.parse(data);
+	e = document.createElement('pre');
+	e.setAttribute('id','tracerouteData');
+	e.innerHTML = tracerouteData;
+	var tracerouteInfoContainer = document.getElementById("TracerouteInfoContainer");
+	tracerouteInfoContainer.classList.remove("showLoadingIcon");
+	tracerouteInfoContainer.appendChild(e);
+}
 
 function serverChangeNotification(data) {
 	clearStatus();
@@ -39,7 +54,7 @@ function statusUpdateHandler(status_json) {
 	var vpnstate_cookie_val = (getCookie("vpnstate") == 'true');
 	// process status updates sent from server via SocketIO message or AJAX response
 	var status_data = JSON.parse(status_json);
-	console.log(status_data);
+	//console.log(status_data);
 	var status_string = "";
 	var gateway_status_ok = true;
 	var vpn_status_ok = true;
@@ -191,13 +206,22 @@ function show_element(ele) {
 			catch(err) {
 				console.log(err);
 			}
-	else
+	else if (typeof ele === 'string' || ele instanceof String) {
 			try {
 				document.getElementById(ele).style.display = "block";
 			}
 			catch(err) {
 				console.log(err);
 			}
+	}
+	else if (ele instanceof Element){
+		try {
+			ele.style.display = "block";
+		}
+		catch(err) {
+			console.log(err);
+		}
+	}
 }
 
 function hide_element(ele) {
@@ -211,13 +235,22 @@ function hide_element(ele) {
 			}
 
 
-	else
+	else if (typeof ele === 'string' || ele instanceof String) {
 		try {
 			document.getElementById(ele).style.display = "none";
 		}
 		catch(err) {
 			console.log(err);
 		}
+	}
+	else if (ele instanceof Element){
+		try {
+			ele.style.display = "none";
+		}
+		catch(err) {
+			console.log(err);
+		}
+	}
 }
 
 function delete_all_children(ele) {
@@ -270,7 +303,7 @@ function vpncgw_request(request_data, callback_function) {
 					show_element('AJAX5XXMessageOverlay');
 		}
 	}
-	xhr.timeout = 20000;
+	//xhr.timeout = 0;
 	xhr.ontimeout = function (e) {
 	  // XMLHttpRequest timed out. Do something here.
 		alert('AJAX timeout: can\'t connect to server.');
@@ -402,6 +435,94 @@ function show_traceroute() {
 	delete_all_children(tracerouteInfoContainer);
 	vpncgw_request({"request":"traceroute"},populateTraceroute);
 }
+
+
+function populateSpeedtest(data) {
+	console.log(data);
+	speedtestData = JSON.parse(data);
+	keys = Object.keys(speedtestData);
+	var speedtestText = "";
+	var e_progress = document.getElementById("SpeedtestProgress");
+	var e_results = document.getElementById("SpeedtestResults");
+	var e_container = document.getElementById("SpeedtestInfoContainer");
+	if (keys.includes("progress")){
+		switch(speedtestData.progress) {
+			case "getservers":
+				text = "Getting server list...";
+				break;
+			case "download":
+				text = "Testing download speed...";
+				break;
+			case "upload":
+				text = "Testing upload speed...";
+				break;
+			case "results":
+				text = JSON.stringify(speedtestData.results)
+				break;
+			default:
+				text = null;
+		}
+		if (text != null){
+			e_progress.innerHTML += "<br>" + text;
+		}
+	}
+	if (keys.includes("bestServer")){
+		e_progress.innerHTML += "<br>Using best server: " + speedtestData.bestServer.host;
+	}
+	else if (keys.includes("results")){
+		e_container.classList.remove("showLoadingIcon");
+		hide_element(e_progress);
+		e_results.innerHTML = "Speed test results: <br><br>" + speedtestResultString(speedtestData.results);
+		show_element(e_results);
+	}
+}
+
+function speedtestResultString(results) {
+	var download_Mbps = results.download / 1048576;
+	var upload_Mbps = results.upload / 1048576;
+	var ping_ms = results.ping;
+	var resultString = "<pre>Download Mbps: " + download_Mbps.toFixed(2);
+	resultString += "<br>Upload Mbps:   " + upload_Mbps.toFixed(2);
+	resultString += "<br>Ping ms:       " + ping_ms.toFixed(2);
+	resultString += "<br>Host:          " + results.server.host;
+	resultString += "<br>Sponsor:       " + results.server.sponsor;
+	resultString += "<br>Country:       " + results.server.country + "</pre>";
+	return resultString;
+}
+
+function speedtestResponse(data) {
+	console.log(data)
+	stInfo = JSON.parse(data);
+	keys = Object.keys(stInfo);
+	var e_container = document.getElementById("SpeedtestInfoContainer");
+	var e_progress = document.getElementById("SpeedtestProgress");
+	var e_results = document.getElementById("SpeedtestResults");
+	if(keys.includes("response")){
+		if(stInfo.response == 'running'){
+			e_progress.innerHTML = "Starting speed test...";
+		}
+		else if (stInfo.response == 'locked'){
+			hide_element("SpeedtestProgress");
+			e_container.classList.remove("showLoadingIcon");
+			show_element("SpeedtestResults");
+			e_results.innerHTML = "A speed test was run recently, here are the cached results:<br><br>" + speedtestResultString(stInfo.results);
+		}
+	}
+}
+
+function show_speedtest() {
+	show_element("SpeedtestOverlay");
+	var speedtestInfoContainer = document.getElementById("SpeedtestInfoContainer");
+	speedtestInfoContainer.classList.add("showLoadingIcon");
+	show_element("SpeedtestProgress");
+	hide_element("SpeedtestResults");
+	vpncgw_request({"request":"speedtest"},speedtestResponse);
+}
+
+function hide_speedtest(){
+	hide_element("SpeedtestOverlay");
+}
+
 
 function enable_status_updates() {
 	clearInterval(statusInterval);

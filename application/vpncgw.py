@@ -11,6 +11,8 @@ import syslog
 import threading
 import vpncgw_monitor
 import time
+from speedtest import Speedtest
+import pathlib
 
 OPENVPN_CONFIG_FILE = '/etc/openvpn/server.conf'
 APP_PATH = '/opt/vpncgw/'
@@ -22,7 +24,8 @@ VPN_DISABLED_MARKER_FILE = APP_PATH + 'vpn.disabled'
 MONITOR_DISABLED_MARKER_FILE = APP_PATH + 'no.monitor'
 VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
 COUNTRYFLAGSXML_FILE = APP_PATH + 'countryflags.xml'
-
+SPEEDTEST_LOCK_FILE = RUN_PATH + 'speedtest.lock'
+SPEEDTEST_RESULTS_FILE = RUN_PATH + 'speedtest.results'
 
 application = Flask(__name__)
 socketio = SocketIO(application)
@@ -221,6 +224,7 @@ def disable_vpn():
 	socketio.emit('serverchange', None ,broadcast=True)
 
 def change_server():
+	clear_speedtest()
 	syslog.syslog('Changing VPN server...')
 	newserver = request.args.get('servername')
 	newport = request.args.get('serverport')
@@ -357,6 +361,117 @@ def get_syslog():
 	output = subprocess.check_output(['sudo','tail', '-1000', '/var/log/syslog'])
 	return output
 
+def speedtest_worker(sio):
+	# perform a speed test
+	servers = []
+	s = Speedtest()
+	#time.sleep(5)
+        try:
+                sio.emit('speedtest','{ "progress": "getservers" }',broadcast=False)
+        except IOError:
+                pass
+	# get a speedtest server
+	s.get_servers(servers)
+	best_server = s.get_best_server()
+
+	testInfo = {}
+	testInfo['progress'] = 'bestServer'
+	testInfo['bestServer'] = best_server
+
+        try:
+                sio.emit('speedtest',json.dumps(testInfo),broadcast=False)
+        except IOError:
+                pass
+
+
+	#send a progress update to clients
+	#time.sleep(5)
+	try:
+		sio.emit('speedtest','{ "progress": "download" }',broadcast=False)
+	except IOError:
+		pass
+	# test download speed
+	#time.sleep(15)
+	s.download()
+	# send a progress update to clients
+	try:
+		sio.emit('speedtest','{ "progress": "upload" }',broadcast=False)
+	except IOError:
+		pass
+	# test upload speed
+	# time.sleep(15)
+	s.upload()
+	output = s.results.dict()
+	speedtestResults = { }
+	speedtestResults['results'] = output
+	try:
+		sio.emit('speedtest',json.dumps(speedtestResults),broadcast=True)
+	except IOError:
+		pass
+
+	try:
+		# save results to a file
+		outfile = open(SPEEDTEST_RESULTS_FILE, 'w')
+		json.dump(output, outfile)
+	except IOError:
+		syslog.log("Unable to create / write to speed test results file.")
+
+	try:
+		# remove lock file
+		os.unlink(SPEEDTEST_LOCK_FILE)
+	except IOError:
+		syslog.log("Unable to remove speed test lock file")
+
+def clear_speedtest():
+	if os.path.isfile(SPEEDTEST_LOCK_FILE):
+		try:
+			os.unlink(SPEEDTEST_LOCK_FILE)
+		except:
+			syslog.log("Unable to remove speed test lock file.")
+	if os.path.isfile(SPEEDTEST_RESULTS_FILE):
+		try:
+			os.unlink(SPEEDTEST_RESULTS_FILE)
+		except IOError:
+			syslog.log("Unable to remove speed test results file.")
+
+def speedtest():
+	speedtest_locked = False
+	results_exist = os.path.isfile(SPEEDTEST_RESULTS_FILE)
+	if results_exist:
+		file_stat = os.stat(SPEEDTEST_RESULTS_FILE)
+		results_age = time.time() - file_stat.st_mtime
+
+	if os.path.isfile(SPEEDTEST_LOCK_FILE):
+		file_stat = os.stat(SPEEDTEST_LOCK_FILE)
+		lockfile_age = time.time() - file_stat.st_mtime
+		if lockfile_age < 300:
+			speedtest_locked = True
+		else:
+			# stale lock file, ignore it and update file modification time
+			pathlib.Path(SPEEDTEST_LOCK_FILE).touch()
+	elif results_exist and results_age < 300:
+		speedtest_locked = True
+	else:
+		# create lock file
+		pathlib.Path(SPEEDTEST_LOCK_FILE).touch()
+	if speedtest_locked is not True:
+		# spawn worker thread to run test
+                speedtestWorkerThread = threading.Thread(target=speedtest_worker,args = (socketio,))
+                speedtestWorkerThread.start()
+		output = {'response' : 'running' }
+	else:
+		# a test is in progress or has been run very recently
+		output = {'response' : 'locked' }
+		# add cached results if they exist
+		if os.path.isfile(SPEEDTEST_RESULTS_FILE):
+			resultsFile = open(SPEEDTEST_RESULTS_FILE,'r')
+			try:
+				previousResults = json.load(resultsFile)
+			except:
+				previousResults = {}
+			output['results'] = previousResults
+	return output
+
 def ajax_test():
 	return {'response':'Hello from the VPN Client Gateway Flask app!'}
 
@@ -377,6 +492,7 @@ def function_map(request):
 		"reboot" : reboot,
 		"shutdown" : shutdown,
 		"getsyslog" : get_syslog,
+		"speedtest" : speedtest,
 		"ajaxtest" : ajax_test,
 	}
 	# Get the function from switcher dictionary

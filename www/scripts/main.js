@@ -5,13 +5,8 @@ var socket = io.connect('http://' + document.domain + ':' + location.port);
 	socket.on('connect', function() {
         socket.on('serverchange', (data) => serverChangeNotification(data));
 	socket.on('vpncgwstatus', (data) => statusNotification(data));
-	socket.on('speedtest', (data) => speedtestInfo(data));
+	socket.on('speedtest', (data) => populateSpeedtest(data));
 });
-
-function speedtestInfo(data) {
-	console.log(data);
-	populateSpeedtest(data);
-}
 
 function populateTraceroute(data) {
 	tracerouteData = JSON.parse(data);
@@ -438,7 +433,7 @@ function show_traceroute() {
 }
 
 function populateSpeedtest(data) {
-	console.log(data);
+	//console.log(data);
 	speedtestData = JSON.parse(data);
 	keys = Object.keys(speedtestData);
 	var speedtestText = "";
@@ -489,6 +484,7 @@ function speedtestResultsHTML(results) {
 		return bps / Math.pow(2,20);
 	}
 
+	const MS_PER_MINUTE = 60000;
 	const _2e20 = Math.pow(2,20);
 	var resultsList = new Array()
 	resultsList.push({label : 'Download Mbps', value : bps_to_Mbps(results.download).toFixed(2)});
@@ -497,7 +493,17 @@ function speedtestResultsHTML(results) {
 	resultsList.push({label: 'Host', value: results.server.host});
 	resultsList.push({label: 'Sponsor', value: results.server.sponsor});
 	resultsList.push({label: 'Country', value: results.server.country});
-	resultsList.push({label: 'Timestamp', value: results.timestamp});
+	var utc_time = new Date(results.timestamp);
+	var tz_offset_minutes = utc_time.getTimezoneOffset();
+	var local_time = new Date(utc_time - (tz_offset_minutes * MS_PER_MINUTE));
+	var local_timestamp_str =
+		local_time.getFullYear().toString() + '-' +
+		(local_time.getMonth() + 1).toString().padStart(2,'0') + '-' +
+		local_time.getDate().toString().padStart(2,'0') + 'T' +
+		local_time.getHours().toString().padStart(2,'0') + ':' +
+		local_time.getMinutes().toString().padStart(2,'0') + '.' +
+		local_time.getMilliseconds().toString();
+	resultsList.push({label: 'Timestamp', value: local_timestamp_str});
 	var e_resultsTable = document.createElement('div');
 	resultsList.forEach(function (arrayItem) {
 		var e_resultRow = document.createElement('div');
@@ -517,7 +523,7 @@ function speedtestResultsHTML(results) {
 
 function speedtestResponse(data) {
 // callback function for speedtest AJAX request
-	console.log(data)
+	//console.log(data)
 	stInfo = JSON.parse(data);
 	keys = Object.keys(stInfo);
 	var e_container = document.getElementById("SpeedtestInfoContainer");

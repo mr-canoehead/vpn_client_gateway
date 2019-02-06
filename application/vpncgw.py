@@ -26,6 +26,9 @@ VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
 COUNTRYFLAGSXML_FILE = APP_PATH + 'countryflags.xml'
 SPEEDTEST_LOCK_FILE = RUN_PATH + 'speedtest.lock'
 SPEEDTEST_RESULTS_FILE = RUN_PATH + 'speedtest.results'
+SPEEDTEST_GETSERVERS_TIMEOUT = 15
+SPEEDTEST_DOWNLOAD_TIMEOUT = 45
+SPEEDTEST_UPLOAD_TIMEOUT = 45
 
 application = Flask(__name__)
 socketio = SocketIO(application)
@@ -224,6 +227,7 @@ def disable_vpn():
 	socketio.emit('serverchange', None ,broadcast=True)
 
 def change_server():
+	CANCEL_SPEEDTEST = True
 	clear_speedtest()
 	syslog.syslog('Changing VPN server...')
 	newserver = request.args.get('servername')
@@ -281,6 +285,7 @@ def change_server():
 			result = util.start_service('openvpn')
 			return_data = get_current_server()
 	socketio.emit('serverchange', None, broadcast=True)
+	CANCEL_SPEEDTEST = False
 	return return_data
 
 def get_server_list():
@@ -362,59 +367,88 @@ def get_syslog():
 	return output
 
 def speedtest_worker(sio):
-	# perform a speed test
+        def run_thread(t, timeout_seconds):
+                timeout_time = time.time() + timeout_seconds
+                t.start()
+                while t.isAlive() and time.time() < timeout_time:
+                        time.sleep(0.25)
+                if t.isAlive():
+                        timed_out = True
+                else:
+                        timed_out = False
+                return timed_out
+
+	ABORT_SPEEDTEST = False
 	servers = []
 	s = Speedtest()
-	#time.sleep(5)
         try:
                 sio.emit('speedtest','{ "progress": "getservers" }',broadcast=False)
         except IOError:
                 pass
 	# get a speedtest server
-	s.get_servers(servers)
-	best_server = s.get_best_server()
+        t = threading.Thread(target=s.get_servers,args = (servers,))
 
-	testInfo = {}
-	testInfo['progress'] = 'bestServer'
-	testInfo['bestServer'] = best_server
+	thread_timed_out = run_thread(t, SPEEDTEST_GETSERVERS_TIMEOUT)
+	if thread_timed_out:
+		try:
+			sio.emit('speedtest', '{ "error": "Timeout while getting server list."}',broadcast=False)
+			ABORT_SPEEDTEST = True
+		except:
+			pass
 
-        try:
-                sio.emit('speedtest',json.dumps(testInfo),broadcast=False)
-        except IOError:
-                pass
+	if not ABORT_SPEEDTEST:
+		t = threading.Thread(target=s.get_best_server)
+		thread_timed_out = run_thread(t,SPEEDTEST_GETSERVERS_TIMEOUT)
+		if thread_timed_out:
+			try:
+				sio.emit('speedtest', '{"error" : "Timeout while getting best server."}',broadcast=False)
+				ABORT_SPEEDTEST = True
+			except:
+				pass
 
+	if not ABORT_SPEEDTEST:
+		try:
+			sio.emit('speedtest','{ "progress": "download" }',broadcast=False)
+		except IOError:
+			pass
+	        t = threading.Thread(target=s.download)
+		thread_timed_out = run_thread(t,SPEEDTEST_DOWNLOAD_TIMEOUT)
+		if thread_timed_out:
+			try:
+				sio.emit('speedtest', '{"error" : "Timeout while testing download speed."}',broadcast=False)
+				ABORT_SPEEDTEST = True
+			except:
+				pass
 
-	#send a progress update to clients
-	#time.sleep(5)
-	try:
-		sio.emit('speedtest','{ "progress": "download" }',broadcast=False)
-	except IOError:
-		pass
-	# test download speed
-	#time.sleep(15)
-	s.download()
-	# send a progress update to clients
-	try:
-		sio.emit('speedtest','{ "progress": "upload" }',broadcast=False)
-	except IOError:
-		pass
-	# test upload speed
-	# time.sleep(15)
-	s.upload()
-	output = s.results.dict()
-	speedtestResults = { }
-	speedtestResults['results'] = output
-	try:
-		sio.emit('speedtest',json.dumps(speedtestResults),broadcast=True)
-	except IOError:
-		pass
+	if not ABORT_SPEEDTEST:
+		try:
+			sio.emit('speedtest','{ "progress": "upload" }',broadcast=False)
+		except IOError:
+			pass
+	        t = threading.Thread(target=s.upload)
+		thread_timed_out = run_thread(t,SPEEDTEST_UPLOAD_TIMEOUT)
+		if thread_timed_out:
+			try:
+				sio.emit('speedtest', '{"error" : "Timeout while testing upload speed."}',broadcast=False)
+				ABORT_SPEEDTEST = True
+			except:
+				pass
 
-	try:
-		# save results to a file
-		outfile = open(SPEEDTEST_RESULTS_FILE, 'w')
-		json.dump(output, outfile)
-	except IOError:
-		syslog.log("Unable to create / write to speed test results file.")
+	if not ABORT_SPEEDTEST:
+		output = s.results.dict()
+		speedtestResults = { }
+		speedtestResults['results'] = output
+		try:
+			sio.emit('speedtest',json.dumps(speedtestResults),broadcast=True)
+		except IOError:
+			pass
+
+		try:
+			# save results to a file
+			outfile = open(SPEEDTEST_RESULTS_FILE, 'w')
+			json.dump(output, outfile)
+		except IOError:
+			syslog.log("Unable to create / write to speed test results file.")
 
 	try:
 		# remove lock file
@@ -455,7 +489,7 @@ def speedtest():
 		# create lock file
 		pathlib.Path(SPEEDTEST_LOCK_FILE).touch()
 	if speedtest_locked is not True:
-		# spawn worker thread to run test
+		# spawn worker thread to run tests
                 speedtestWorkerThread = threading.Thread(target=speedtest_worker,args = (socketio,))
                 speedtestWorkerThread.start()
 		output = {'response' : 'running' }
@@ -464,12 +498,14 @@ def speedtest():
 		output = {'response' : 'locked' }
 		# add cached results if they exist
 		if os.path.isfile(SPEEDTEST_RESULTS_FILE):
-			resultsFile = open(SPEEDTEST_RESULTS_FILE,'r')
 			try:
+				resultsFile = open(SPEEDTEST_RESULTS_FILE,'r')
 				previousResults = json.load(resultsFile)
 			except:
 				previousResults = {}
-			output['results'] = previousResults
+		else:
+			previousResults = {}
+		output['results'] = previousResults
 	return output
 
 def ajax_test():

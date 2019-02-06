@@ -9,6 +9,7 @@ var socket = io.connect('http://' + document.domain + ':' + location.port);
 });
 
 function speedtestInfo(data) {
+	console.log(data);
 	populateSpeedtest(data);
 }
 
@@ -436,76 +437,105 @@ function show_traceroute() {
 	vpncgw_request({"request":"traceroute"},populateTraceroute);
 }
 
-
 function populateSpeedtest(data) {
 	console.log(data);
 	speedtestData = JSON.parse(data);
 	keys = Object.keys(speedtestData);
 	var speedtestText = "";
+	var e_status = document.getElementById("SpeedtestStatusMessage");
 	var e_progress = document.getElementById("SpeedtestProgress");
 	var e_results = document.getElementById("SpeedtestResults");
 	var e_container = document.getElementById("SpeedtestInfoContainer");
 	if (keys.includes("progress")){
 		switch(speedtestData.progress) {
 			case "getservers":
-				text = "Getting server list...";
+				text = "Getting server list...\n";
 				break;
 			case "download":
-				text = "Testing download speed...";
+				text = "Testing download speed...\n";
 				break;
 			case "upload":
 				text = "Testing upload speed...";
-				break;
-			case "results":
-				text = JSON.stringify(speedtestData.results)
 				break;
 			default:
 				text = null;
 		}
 		if (text != null){
-			e_progress.innerHTML += "<br>" + text;
+			e_progress.innerText += text;
 		}
 	}
 	if (keys.includes("bestServer")){
-		e_progress.innerHTML += "<br>Using best server: " + speedtestData.bestServer.host;
+		// e_progress.innerHTML += "<br>Using best server: " + speedtestData.bestServer.host;
 	}
 	else if (keys.includes("results")){
 		e_container.classList.remove("showLoadingIcon");
+		e_status.innerText = "Speed test results:";
 		hide_element(e_progress);
-		e_results.innerHTML = "Speed test results: <br><br>" + speedtestResultString(speedtestData.results);
+		delete_all_children(e_results);
+		e_results.appendChild(speedtestResultsHTML(speedtestData.results));
 		show_element(e_results);
+	}
+	else if (keys.includes("error")){
+		e_container.classList.remove("showLoadingIcon");
+		e_status.innerText = "Error:";
+		e_progress.innerText = speedtestData.error;
 	}
 }
 
-function speedtestResultString(results) {
-	var download_Mbps = results.download / 1048576;
-	var upload_Mbps = results.upload / 1048576;
-	var ping_ms = results.ping;
-	var resultString = "<pre>Download Mbps: " + download_Mbps.toFixed(2);
-	resultString += "<br>Upload Mbps:   " + upload_Mbps.toFixed(2);
-	resultString += "<br>Ping ms:       " + ping_ms.toFixed(2);
-	resultString += "<br>Host:          " + results.server.host;
-	resultString += "<br>Sponsor:       " + results.server.sponsor;
-	resultString += "<br>Country:       " + results.server.country + "</pre>";
-	return resultString;
+function speedtestResultsHTML(results) {
+// create html elements for speedtest results
+
+	function bps_to_Mbps(bps) {
+		return bps / Math.pow(2,20);
+	}
+
+	const _2e20 = Math.pow(2,20);
+	var resultsList = new Array()
+	resultsList.push({label : 'Download Mbps', value : bps_to_Mbps(results.download).toFixed(2)});
+	resultsList.push({label : 'Upload Mbps', value : bps_to_Mbps(results.upload).toFixed(2)});
+	resultsList.push({label: 'Ping ms', value: (results.ping).toFixed(2)});
+	resultsList.push({label: 'Host', value: results.server.host});
+	resultsList.push({label: 'Sponsor', value: results.server.sponsor});
+	resultsList.push({label: 'Country', value: results.server.country});
+	resultsList.push({label: 'Timestamp', value: results.timestamp});
+	var e_resultsTable = document.createElement('div');
+	resultsList.forEach(function (arrayItem) {
+		var e_resultRow = document.createElement('div');
+		e_resultRow.classList.add("speedtestResultRow");
+		var e_label = document.createElement('div');
+		e_label.classList.add("speedtestLabelColumn");
+		e_label.innerText = arrayItem.label;
+		var e_value = document.createElement('div');
+		e_value.classList.add("speedtestValueColumn");
+		e_value.innerText = arrayItem.value;
+		e_resultRow.appendChild(e_label);
+		e_resultRow.appendChild(e_value);
+		e_resultsTable.appendChild(e_resultRow);
+	});
+	return e_resultsTable;
 }
 
 function speedtestResponse(data) {
+// callback function for speedtest AJAX request
 	console.log(data)
 	stInfo = JSON.parse(data);
 	keys = Object.keys(stInfo);
 	var e_container = document.getElementById("SpeedtestInfoContainer");
+	var e_status = document.getElementById("SpeedtestStatusMessage");
 	var e_progress = document.getElementById("SpeedtestProgress");
 	var e_results = document.getElementById("SpeedtestResults");
 	if(keys.includes("response")){
 		if(stInfo.response == 'running'){
-			e_progress.innerHTML = "Starting speed test...";
+			e_status.innerText = "Performing speed test:";
+			e_progress.innerText = "";
 		}
 		else if (stInfo.response == 'locked'){
+			e_status.innerText = "A speed test is currently running or was run very recently. Here are cached results from the previous test:";
 			hide_element("SpeedtestProgress");
 			e_container.classList.remove("showLoadingIcon");
+			delete_all_children(e_results);
+			e_results.appendChild(speedtestResultsHTML(stInfo.results));
 			show_element("SpeedtestResults");
-			e_results.innerHTML = "A speed test was run recently, here are the cached results:<br><br>" + speedtestResultString(stInfo.results);
 		}
 	}
 }

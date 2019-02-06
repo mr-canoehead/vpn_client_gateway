@@ -422,7 +422,7 @@ body {
 }
 
 #SpeedtestInfoBox {
-    width: 700px;
+    width: 600px;
     height: 400px;
     line-height: 20px;
     position: fixed;
@@ -434,6 +434,47 @@ body {
     line-height: 50%;
     text-align: left;
     z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#SpeedtestStatusMessage{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: "Arial";
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#SpeedtestProgress{
+	padding-left: 10px;
+	font-family: "Arial";
+}
+
+.speedtestLabelColumn {
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+        font-family:"Arial";
+	float: left;
+	width: 150px;
+}
+.speedtestValueColumn {
+	padding-top: 5px;
+	padding-bottom: 5px;
+        font-family:"Arial";
+	float: left;
+}
+
+.speedtestResultRow:nth-child(even) {
+	background: #FFF;
+}
+.speedtestResultRow:nth-child(odd) {
+        background: #E6E6E6;
+}
+
+.speedtestResultRow:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 #SyslogInfoBox {

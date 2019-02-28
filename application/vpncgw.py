@@ -25,6 +25,7 @@ MONITOR_DISABLED_MARKER_FILE = APP_PATH + 'no.monitor'
 VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
 COUNTRYFLAGSXML_FILE = APP_PATH + 'countryflags.xml'
 SPEEDTEST_LOCK_FILE = RUN_PATH + 'speedtest.lock'
+SPEEDTEST_LOCK_FILE_MAX_AGE_SECONDS = 300
 SPEEDTEST_RESULTS_FILE = RUN_PATH + 'speedtest.results'
 SPEEDTEST_GETSERVERS_TIMEOUT = 15
 SPEEDTEST_DOWNLOAD_TIMEOUT = 45
@@ -456,17 +457,6 @@ def speedtest_worker(sio):
 	except IOError:
 		syslog.log("Unable to remove speed test lock file")
 
-def clear_speedtest():
-	if os.path.isfile(SPEEDTEST_LOCK_FILE):
-		try:
-			os.unlink(SPEEDTEST_LOCK_FILE)
-		except:
-			syslog.log("Unable to remove speed test lock file.")
-	if os.path.isfile(SPEEDTEST_RESULTS_FILE):
-		try:
-			os.unlink(SPEEDTEST_RESULTS_FILE)
-		except IOError:
-			syslog.log("Unable to remove speed test results file.")
 
 def speedtest():
 	speedtest_locked = False
@@ -478,12 +468,12 @@ def speedtest():
 	if os.path.isfile(SPEEDTEST_LOCK_FILE):
 		file_stat = os.stat(SPEEDTEST_LOCK_FILE)
 		lockfile_age = time.time() - file_stat.st_mtime
-		if lockfile_age < 300:
+		if lockfile_age < SPEEDTEST_LOCK_FILE_MAX_AGE_SECONDS:
 			speedtest_locked = True
 		else:
 			# stale lock file, ignore it and update file modification time
 			pathlib.Path(SPEEDTEST_LOCK_FILE).touch()
-	elif results_exist and results_age < 300:
+	elif results_exist and results_age < SPEEDTEST_LOCK_FILE_MAX_AGE_SECONDS:
 		speedtest_locked = True
 	else:
 		# create lock file
@@ -507,6 +497,18 @@ def speedtest():
 			previousResults = {}
 		output['results'] = previousResults
 	return output
+
+def clear_speedtest():
+	if os.path.isfile(SPEEDTEST_LOCK_FILE):
+		try:
+			os.unlink(SPEEDTEST_LOCK_FILE)
+		except:
+			syslog.log("Unable to remove speed test lock file.")
+	if os.path.isfile(SPEEDTEST_RESULTS_FILE):
+		try:
+			os.unlink(SPEEDTEST_RESULTS_FILE)
+		except IOError:
+			syslog.log("Unable to remove speed test results file.")
 
 def ajax_test():
 	return {'response':'Hello from the VPN Client Gateway Flask app!'}

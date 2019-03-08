@@ -19,7 +19,6 @@ APP_PATH = '/opt/vpncgw/'
 RUN_PATH = '/run/vpncgw/'
 VPNCGW_STATUS_FILE = RUN_PATH + 'vpncgw_status.json'
 IP_ADDR_GEO_SERVICE_URL = 'http://www.geoplugin.net/json.gp'
-EXTERNAL_IP_ADDR_SERVICE_URL = 'http://bot.whatismyipaddress.com'
 VPN_DISABLED_MARKER_FILE = APP_PATH + 'vpn.disabled'
 MONITOR_DISABLED_MARKER_FILE = APP_PATH + 'no.monitor'
 VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
@@ -343,12 +342,13 @@ def get_vpncgw_status():
 	return return_data
 
 def get_iplocation():
-	webreq = urllib2.urlopen(EXTERNAL_IP_ADDR_SERVICE_URL)
-	ipaddress = webreq.read()
 	opener = urllib2.build_opener()
 	opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
-	webreq = urllib2.urlopen(IP_ADDR_GEO_SERVICE_URL + '?ip=' + ipaddress)
-	geodata = json.loads(webreq.read())
+	try:
+		webreq = urllib2.urlopen(IP_ADDR_GEO_SERVICE_URL)
+		geodata = json.loads(webreq.read())
+	except:
+		geodata = {'error':'Unable to connect to external service.'}
 	return geodata
 
 def traceroute():

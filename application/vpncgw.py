@@ -440,7 +440,7 @@ def speedtest_worker(sio):
 		speedtestResults = { }
 		speedtestResults['results'] = output
 		try:
-			sio.emit('speedtest',json.dumps(speedtestResults),broadcast=True)
+			sio.emit('speedtest',json.dumps(speedtestResults),broadcast=False)
 		except IOError:
 			pass
 
@@ -449,13 +449,13 @@ def speedtest_worker(sio):
 			outfile = open(SPEEDTEST_RESULTS_FILE, 'w')
 			json.dump(output, outfile)
 		except IOError:
-			syslog.log("Unable to create / write to speed test results file.")
+			syslog.syslog("Unable to create / write to speed test results file.")
 
 	try:
 		# remove lock file
 		os.unlink(SPEEDTEST_LOCK_FILE)
 	except IOError:
-		syslog.log("Unable to remove speed test lock file")
+		syslog.syslog("Unable to remove speed test lock file")
 
 
 def speedtest():
@@ -503,12 +503,12 @@ def clear_speedtest():
 		try:
 			os.unlink(SPEEDTEST_LOCK_FILE)
 		except:
-			syslog.log("Unable to remove speed test lock file.")
+			syslog.syslog("Unable to remove speed test lock file.")
 	if os.path.isfile(SPEEDTEST_RESULTS_FILE):
 		try:
 			os.unlink(SPEEDTEST_RESULTS_FILE)
 		except IOError:
-			syslog.log("Unable to remove speed test results file.")
+			syslog.syslog("Unable to remove speed test results file.")
 
 def ajax_test():
 	return {'response':'Hello from the VPN Client Gateway Flask app!'}

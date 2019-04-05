@@ -481,7 +481,7 @@ function speedtestResultsHTML(results) {
 // create html elements for speedtest results
 
 	function bps_to_Mbps(bps) {
-		return bps / Math.pow(2,20);
+		return bps / Math.pow(10,6);
 	}
 
 	const MS_PER_MINUTE = 60000;

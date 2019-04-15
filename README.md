@@ -9,3 +9,4 @@ The [Installation Guide](https://github.com/mr-canoehead/vpn_client_gateway/wiki
 
 Here is a screenshot showing the management web page:
 
+![basic view](https://gist.github.com/mr-canoehead/09fe6f467f0d080862afd8802045e302/raw/05c6fef8a7362753f1aa5c04eddd327b02061c72/vpncgw_management_web_page.png)

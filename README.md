@@ -9,4 +9,3 @@ The [Installation Guide](https://github.com/mr-canoehead/vpn_client_gateway/wiki
 
 Here is a screenshot showing the management web page:
 
-![basic_screenshot](https://cloud.githubusercontent.com/assets/10369989/6698111/0762937e-ccb3-11e4-898e-b9be8fe8ef5e.png)

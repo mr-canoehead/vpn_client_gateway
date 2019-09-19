@@ -2,21 +2,13 @@
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
 <html lang="en">
 <link id="documentLink" rel="stylesheet" type="text/css" href="/styles/index.css" />
-
-<script type="text/javascript" src="/scripts/socket.io.min.js"></script>
+<script type="text/javascript" src="/scripts/socket.io.min.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/scripts/main.js" charset="utf-8"></script>
 
 <HEAD>
 	<TITLE>VPN Client Gateway Management</TITLE>
 	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 </HEAD>
-
-<div id="AJAX5XXMessageOverlay" class="screenoverlay">
-        <div id="AJAXMessage" class="ajaxmessage">
-                <H2>Service unavailable<H2>
-                <P>Attempting to contact server...<P>
-        </div>
-</div>
 
 <div id="VPNChangeMessageOverlay" class="screenoverlay">
         <div id="VPNChangeMessage" class="vpnchangemessage">
@@ -217,8 +209,28 @@
         </div>
 </div>
 
+<div id="ShutdownOverlay" class="screenoverlay">
+        <div id="ShutdownInfoBox">
+                <div id="ShutdownInfoBoxTitle">
+                        <H2>Shutdown VPN Client Gateway<H2>
+                </div>
+                <div id="ShutdownInfoContainer">
+                        <P>Proceed with shutting down the VPN Client Gateway server? All network sessions will be terminated.<P>
+                </div>
+                <div class="ButtonSpacer"></div>
+                <div id="ButtonContainer">
+                        <table id="ShutdownButtonTable">
+                        <tr>
+                                <td><button id="ShutdownCancelButton" onclick="hide_shutdown();">Cancel</button></td>
+                                <td></td>
+                                <td><button id="ShutdownContinueButton" onclick="shutdown();">Continue</button></td>
+                        </tr>
+                        </table>
+                </div>
+        </div>
+</div>
+
 <BODY ID="body" LANG="en-CA" DIR="LTR" onload="page_load();">
-<!-- <button onclick="ajaxtest()">ajax test</button> -->
 <div class="header">
 <H1>VPN Client Gateway Management</H1>
 </div>

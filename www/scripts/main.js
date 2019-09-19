@@ -1,21 +1,42 @@
-var pollStatusInterval;
 var ignoreUpdatesTime;
+var socketioNamespace = '/vpncgw';
+var socket = io(socketioNamespace);
 
-var socket = io.connect('http://' + document.domain + ':' + location.port);
-	socket.on('connect', function() {
-        socket.on('serverchange', (data) => serverChangeNotification(data));
-	socket.on('vpncgwstatus', (data) => statusNotification(data));
-	socket.on('speedtest', (data) => populateSpeedtest(data));
-});
+// Event handlers for server sent data
+socket.on('serverchange', (data) => serverChangeNotification(data));
+socket.on('vpncgwstatus', (data) => statusUpdate(data));
+socket.on('currentserver', (data) => populateCurrentServer(data));
+socket.on('serverlist', (data) => populateServerList(data));
+socket.on('iplocation', (data) => populateIPGeolocation(data));
+socket.on('traceroute', (data) => populateTraceroute(data));
+socket.on('syslog', (data) => populateSyslog(data));
+socket.on('speedtest', (data) => populateSpeedtest(data));
 
 function populateTraceroute(data) {
-	tracerouteData = JSON.parse(data);
-	e = document.createElement('pre');
-	e.setAttribute('id','tracerouteData');
-	e.innerHTML = tracerouteData;
 	var tracerouteInfoContainer = document.getElementById("TracerouteInfoContainer");
+	var tracerouteData = document.getElementById("tracerouteData");
+        e = document.createElement('pre');
+        e.setAttribute('id','tracerouteData');
+	e.innerHTML = data;
+        tracerouteInfoContainer.appendChild(e);
 	tracerouteInfoContainer.classList.remove("showLoadingIcon");
-	tracerouteInfoContainer.appendChild(e);
+}
+
+function show_traceroute() {
+	show_element("TracerouteOverlay");
+	var tracerouteInfoContainer = document.getElementById("TracerouteInfoContainer");
+	tracerouteInfoContainer.classList.add("showLoadingIcon");
+	delete_all_children(tracerouteInfoContainer);
+	socket.emit('gettraceroute');
+}
+
+function populateServerList(data) {
+	if (data['servergroup'] == 'basic'){
+		populateBasicServers(data['serverlist']);
+	}
+	else{
+		populateAdvancedServers(data['serverlist']);
+	}
 }
 
 function serverChangeNotification(data) {
@@ -32,13 +53,7 @@ function setIcon(elementId,iconName) {
 	ele.classList.add(iconName);
 }
 
-function statusNotification(data) {
-	//clearInterval(pollStatusInterval);
-	//pollStatusInterval = setInterval(pollStatusUpdate,10000);
-	statusUpdateHandler(data);
-}
-
-function statusUpdateHandler(status_json) {
+function statusUpdate(status_json) {
 	if (Date.now() <= ignoreUpdatesTime)
 		return;
 	var st = document.getElementsByClassName('StatusTable');
@@ -48,7 +63,7 @@ function statusUpdateHandler(status_json) {
 	document.getElementById('GatewayStatusOverlay').style.opacity='0';
 	var vpnserver_cookie_val = getCookie("vpnserver");
 	var vpnstate_cookie_val = (getCookie("vpnstate") == 'true');
-	// process status updates sent from server via SocketIO message or AJAX response
+	// process status updates sent from server via SocketIO message
 	var status_data = JSON.parse(status_json);
 	//console.log(status_data);
 	var status_string = "";
@@ -130,12 +145,6 @@ function statusUpdateHandler(status_json) {
 	document.getElementById('cpuTempValue').innerText = Math.round(status_data['system']['cpu_temp'],0);
 	show_element('cpuTempValue');
 	show_element('cpuTempUnit');
-}
-
-function pollStatusUpdate(){
-// if a status update hasn't been sent by the server via SocketIO, revert to polling.
-	console.log('No status update SocketIO messages, requesting update via AJAX');
-	vpncgw_request({"request":"getvpncgwstatus"},statusUpdateHandler);
 }
 
 function clearStatus() {
@@ -279,40 +288,11 @@ function show_vpn_change_message(){
 	})
 }
 
-function vpncgw_request(request_data, callback_function) {
-	var params = [];
-	for (var key in request_data) {
-		params.push(key + '=' + encodeURIComponent(request_data[key]));
-	}
-	var url = "vpncgw.ajax?" + params.join('&');
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", url,true);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.onreadystatechange = function() {
-		if (callback_function instanceof Function){
-			if (xhr.readyState === 4 && xhr.status == 200){
-				hide_element('AJAX5XXMessageOverlay');
-				callback_function(xhr.responseText);
-			}
-			else
-				if (xhr.status >= 500)
-					show_element('AJAX5XXMessageOverlay');
-		}
-	}
-	//xhr.timeout = 0;
-	xhr.ontimeout = function (e) {
-	  // XMLHttpRequest timed out. Do something here.
-		alert('AJAX timeout: can\'t connect to server.');
-	};
-	xhr.send(null);
-}
-
 function getStatus(){
-	vpncgw_request({"request":"getvpncgwstatus"},statusUpdateHandler);
+	socket.emit('getvpncgwstatus');
 }
 
-function populateCurrentServer(data) {
-	serverinfo = JSON.parse(data);
+function populateCurrentServer(serverinfo) {
 	try {
 		var vpnserver_cookie_val = getCookie("vpnserver");
 		var vpnstate_cookie_val = (getCookie("vpnstate") == 'true');
@@ -361,15 +341,22 @@ function populateCurrentServer(data) {
 }
 
 function get_current_vpn_server() {
-	vpncgw_request({"request":"getcurrentserver"},populateCurrentServer);
+	socket.emit('getcurrentserver');
+}
+
+function set_current_vpn_server_changing(changing_message) {
+	var currentServerHeading = document.getElementById('CurrentVPNServerHeading');
+	currentServerHeading.innerText = 'Current VPN server: '.concat(changing_message);
+	hide_element('CurrentVPNFlag');
 }
 
 function change_vpn_server(servername,serverport) {
 	setCookie("vpnserver",servername,1);
-	setCookie("vpnstate",serverinfo["enabled"],1);
+	//setCookie("vpnstate",serverinfo["enabled"],1);
 	show_changing_vpn_message();
+	set_current_vpn_server_changing('changing server...');
 	request_data = {"request":"changeserver","servername": servername,"serverport": serverport};
-	vpncgw_request(request_data, null);
+	socket.emit('changeserver',request_data);
 	clearStatus();
 	return false;
 }
@@ -385,7 +372,7 @@ function populateIPGeolocation(data) {
 		tr.appendChild(td);
 		return tr;
 	}
-	var ipgeo_json = JSON.parse(data);
+	var ipgeo_json = data;
 	var tableContainer = document.getElementById("IPInfoBoxTableContainer");
 	var t = document.createElement('TABLE');
 	t.setAttribute('class','ipinfotable');
@@ -407,41 +394,20 @@ function show_iplocationinfo() {
 	document.getElementById("IPInfoBox").classList.add("showLoadingIcon");
 	delete_all_children(tableContainer);
 	show_element("IPInfoOverlay");
-	vpncgw_request({"request":"getiplocation"},populateIPGeolocation);
+	socket.emit('getiplocation');
 }
 
 function hide_iplocationinfo(){
 	hide_element("IPInfoOverlay");
 }
 
-function populateTraceroute(data) {
-	tracerouteData = JSON.parse(data);
-	e = document.createElement('pre');
-	e.setAttribute('id','tracerouteData');
-	e.innerHTML = tracerouteData;
-	var tracerouteInfoContainer = document.getElementById("TracerouteInfoContainer");
-	tracerouteInfoContainer.classList.remove("showLoadingIcon");
-	tracerouteInfoContainer.appendChild(e);
-}
-
-function show_traceroute() {
-	show_element("TracerouteOverlay");
-	var tracerouteInfoContainer = document.getElementById("TracerouteInfoContainer");
-	tracerouteInfoContainer.classList.add("showLoadingIcon");
-	delete_all_children(tracerouteInfoContainer);
-	vpncgw_request({"request":"traceroute"},populateTraceroute);
-}
-
-function populateSpeedtest(data) {
-	//console.log(data);
-	speedtestData = JSON.parse(data);
-	keys = Object.keys(speedtestData);
+function populateSpeedtest(speedtestData) {
 	var speedtestText = "";
 	var e_status = document.getElementById("SpeedtestStatusMessage");
 	var e_progress = document.getElementById("SpeedtestProgress");
 	var e_results = document.getElementById("SpeedtestResults");
 	var e_container = document.getElementById("SpeedtestInfoContainer");
-	if (keys.includes("progress")){
+	if (speedtestData.hasOwnProperty('progress')){
 		switch(speedtestData.progress) {
 			case "getservers":
 				text = "Getting server list...\n";
@@ -459,10 +425,7 @@ function populateSpeedtest(data) {
 			e_progress.innerText += text;
 		}
 	}
-	if (keys.includes("bestServer")){
-		// e_progress.innerHTML += "<br>Using best server: " + speedtestData.bestServer.host;
-	}
-	else if (keys.includes("results")){
+	else if (speedtestData.hasOwnProperty('results')){
 		e_container.classList.remove("showLoadingIcon");
 		e_status.innerText = "Speed test results:";
 		hide_element(e_progress);
@@ -470,7 +433,7 @@ function populateSpeedtest(data) {
 		e_results.appendChild(speedtestResultsHTML(speedtestData.results));
 		show_element(e_results);
 	}
-	else if (keys.includes("error")){
+	else if (speedtestData.hasOwnProperty('error')){
 		e_container.classList.remove("showLoadingIcon");
 		e_status.innerText = "Error:";
 		e_progress.innerText = speedtestData.error;
@@ -485,7 +448,6 @@ function speedtestResultsHTML(results) {
 	}
 
 	const MS_PER_MINUTE = 60000;
-	const _2e20 = Math.pow(2,20);
 	var resultsList = new Array()
 	resultsList.push({label : 'Download Mbps', value : bps_to_Mbps(results.download).toFixed(2)});
 	resultsList.push({label : 'Upload Mbps', value : bps_to_Mbps(results.upload).toFixed(2)});
@@ -493,17 +455,7 @@ function speedtestResultsHTML(results) {
 	resultsList.push({label: 'Host', value: results.server.host});
 	resultsList.push({label: 'Sponsor', value: results.server.sponsor});
 	resultsList.push({label: 'Country', value: results.server.country});
-	var utc_time = new Date(results.timestamp);
-	var tz_offset_minutes = utc_time.getTimezoneOffset();
-	var local_time = new Date(utc_time - (tz_offset_minutes * MS_PER_MINUTE));
-	var local_timestamp_str =
-		local_time.getFullYear().toString() + '-' +
-		(local_time.getMonth() + 1).toString().padStart(2,'0') + '-' +
-		local_time.getDate().toString().padStart(2,'0') + 'T' +
-		local_time.getHours().toString().padStart(2,'0') + ':' +
-		local_time.getMinutes().toString().padStart(2,'0') + '.' +
-		local_time.getMilliseconds().toString();
-	resultsList.push({label: 'Timestamp', value: local_timestamp_str});
+	resultsList.push({label: 'Timestamp', value: results.timestamp});
 	var e_resultsTable = document.createElement('div');
 	resultsList.forEach(function (arrayItem) {
 		var e_resultRow = document.createElement('div');
@@ -521,38 +473,13 @@ function speedtestResultsHTML(results) {
 	return e_resultsTable;
 }
 
-function speedtestResponse(data) {
-// callback function for speedtest AJAX request
-	//console.log(data)
-	stInfo = JSON.parse(data);
-	keys = Object.keys(stInfo);
-	var e_container = document.getElementById("SpeedtestInfoContainer");
-	var e_status = document.getElementById("SpeedtestStatusMessage");
-	var e_progress = document.getElementById("SpeedtestProgress");
-	var e_results = document.getElementById("SpeedtestResults");
-	if(keys.includes("response")){
-		if(stInfo.response == 'running'){
-			e_status.innerText = "Performing speed test:";
-			e_progress.innerText = "";
-		}
-		else if (stInfo.response == 'locked'){
-			e_status.innerText = "A speed test is currently running or was run very recently. Here are cached results from the previous test:";
-			hide_element("SpeedtestProgress");
-			e_container.classList.remove("showLoadingIcon");
-			delete_all_children(e_results);
-			e_results.appendChild(speedtestResultsHTML(stInfo.results));
-			show_element("SpeedtestResults");
-		}
-	}
-}
-
 function show_speedtest() {
 	show_element("SpeedtestOverlay");
 	var speedtestInfoContainer = document.getElementById("SpeedtestInfoContainer");
 	speedtestInfoContainer.classList.add("showLoadingIcon");
 	show_element("SpeedtestProgress");
 	hide_element("SpeedtestResults");
-	vpncgw_request({"request":"speedtest"},speedtestResponse);
+	socket.emit('speedtest');
 }
 
 function hide_speedtest(){
@@ -586,7 +513,7 @@ function hide_shutdown(){
 function shutdown() {
 	hide_element("ShutdownButtonTable");
 	document.getElementById("ShutdownInfoContainer").innerHTML = "<P>Shutting down. Unplug after 60 seconds.<P>";
-	vpncgw_request({"request":"shutdown"});
+	socket.emit('shutdown');
 }
 
 function show_enable_vpn(){
@@ -615,7 +542,7 @@ function hide_reboot(){
 
 function reboot() {
 	hide_element("RebootButtonTable");
-	vpncgw_request({"request":"reboot"});
+	socket.emit('reboot');
 	var counter=90;
 	var id;
 	id = setInterval(function() {
@@ -634,7 +561,8 @@ function reboot() {
 function enable_vpn() {
 	hide_element("EnableVPNOverlay");
 	show_changing_vpn_message();
-	vpncgw_request({"request":"enablevpn"}, populateCurrentServer);
+	set_current_vpn_server_changing('enabling vpn...');
+	socket.emit('enablevpn');
 	sleep(2000).then(() => {
 		show_vpn_change_message();
 	})
@@ -649,7 +577,8 @@ function disable_vpn() {
 	clearStatus();
 	hide_element("DisableVPNOverlay");
 	show_changing_vpn_message();
-	vpncgw_request({"request":"disablevpn"}, null);
+	set_current_vpn_server_changing('disabling vpn...');
+	socket.emit('disablevpn');
 	sleep(2000).then(() => {
 		show_basic();
 		get_current_vpn_server();
@@ -670,7 +599,7 @@ function server_click(s,p) {
 function populateBasicServers(serverlist_json) {
 	var ChooseVPNBasic = document.getElementById("ChooseVPNBasic");
 	delete_all_children(ChooseVPNBasic);
-	var servers = JSON.parse(serverlist_json);
+	var servers = serverlist_json;
 	var numservers = servers.length;
 	var numcolumns = 3;
 	var numrows = Math.ceil(numservers/numcolumns);
@@ -715,7 +644,7 @@ function populateBasicServers(serverlist_json) {
 }
 
 function get_basic_vpn_servers() {
-	vpncgw_request({"request":"getserverlist","servergroup":"basic"},populateBasicServers);
+	socket.emit('getserverlist', {'servergroup':'basic'});
 }
 
 function compare_servers(a,b) {
@@ -729,13 +658,14 @@ function compare_servers(a,b) {
 function populateAdvancedServers(serverlist_json) {
 	var ChooseVPNAdvanced = document.getElementById("ChooseVPNAdvanced");
 	delete_all_children(ChooseVPNAdvanced);
-	var servers = JSON.parse(serverlist_json);
+	var servers = serverlist_json;
 	servers.sort(compare_servers);
 	var numservers = servers.length;
 	var currentserver = 0;
 	lastCountry="";
 	for (row = 1; row < numservers; row++){
 		var server = servers[currentserver];
+		//console.log(server);
 		var country = server["countryname"];
 		var region = server["regionname"];
 		if (region == null)
@@ -763,11 +693,11 @@ function populateAdvancedServers(serverlist_json) {
 }
 
 function get_advanced_vpn_servers() {
-	vpncgw_request({"request":"getserverlist","servergroup":"advanced"},populateAdvancedServers);
+	socket.emit('getserverlist', {'servergroup':'advanced'});
 }
 
 function populateSyslog(data) {
-	syslogData = JSON.parse(data);
+	syslogData = data;
 	var syslogInfoContainer = document.getElementById("SyslogInfoContainer");
 	var e = document.createElement('pre');
 	e.setAttribute('id','syslogData');
@@ -781,7 +711,7 @@ function show_syslog() {
 	delete_all_children(syslogInfoContainer);
 	syslogInfoContainer.classList.add("showLoadingIcon");
 	show_element("SyslogOverlay");
-	vpncgw_request({"request":"getsyslog"},populateSyslog);
+	socket.emit('getsyslog');
 }
 
 function hide_syslog() {
@@ -801,17 +731,6 @@ function show_advanced() {
 	hide_element(["Admin","Tools","ChooseVPNBasic"]);
 }
 
-function ajaxtestcallback(data) {
-	console.log(data);
-}
-
-function ajaxtest() {
-	var params = {'request': 'getcurrentserver'};
-	//console.log(params);
-	vpncgw_request(params, ajaxtestcallback);
-	return false;
-}
-
 function updateVPNChangeTime() {
 	var vpnStatusHeading = document.getElementById("VPNStatusHeading");
 	vpnStatusHeading.innerText = "VPN status: changing vpn...";
@@ -828,6 +747,5 @@ function page_load() {
 	setIcon('openvpnServiceStateIcon','loadingIcon');
 	get_basic_vpn_servers();
 	get_current_vpn_server();
-	//pollStatusInterval = setInterval(pollStatusUpdate,10000);
 
 }

@@ -18,6 +18,34 @@ from threading import Lock
 from flask import Flask
 from flask_socketio import SocketIO, emit
 
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+# different async modes, or leave it set to None for the application to choose
+# the best option based on installed packages.
+
+async_mode = "eventlet"
+
+APP_PATH = '/opt/vpncgw/'
+RUN_PATH = '/run/vpncgw/'
+OPENVPN_CONFIG_FILE = '/etc/openvpn/server.conf'
+VPN_DISABLED_MARKER_FILE = APP_PATH + 'vpn.disabled'
+VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
+COUNTRYFLAGSXML_FILE = APP_PATH + 'countryflags.xml'
+MONITOR_DISABLED_MARKER_FILE = APP_PATH + 'no.monitor'
+SPEEDTEST_LOCK_FILE = RUN_PATH + 'speedtest.lock'
+SPEEDTEST_LOCK_FILE_MAX_AGE_SECONDS = 300
+SPEEDTEST_RESULTS_FILE = RUN_PATH + 'speedtest.results'
+SPEEDTEST_GETSERVERS_TIMEOUT = 15
+SPEEDTEST_DOWNLOAD_TIMEOUT = 45
+SPEEDTEST_UPLOAD_TIMEOUT = 45
+VPNCGW_STATUS_FILE = RUN_PATH + 'vpncgw_status.json'
+IP_ADDR_GEO_SERVICE_URL = 'http://www.geoplugin.net/json.gp'
+
+application = Flask(__name__)
+#app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(application, async_mode=async_mode, async_handlers=True)
+thread = None
+thread_lock = Lock()
+
 def shell_exec(cmd):
         output = subprocess.check_output(cmd.split())
         return output
@@ -33,36 +61,6 @@ def clear_speedtest():
                         os.unlink(SPEEDTEST_RESULTS_FILE)
                 except IOError:
                         syslog.syslog("Unable to remove speed test results file.")
-
-# Set this variable to "threading", "eventlet" or "gevent" to test the
-# different async modes, or leave it set to None for the application to choose
-# the best option based on installed packages.
-
-async_mode = "eventlet"
-
-APP_PATH = '/opt/example/'
-RUN_PATH = '/run/example/'
-OPENVPN_CONFIG_FILE = '/etc/openvpn/server.conf'
-VPN_DISABLED_MARKER_FILE = APP_PATH + 'vpn.disabled'
-VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
-COUNTRYFLAGSXML_FILE = APP_PATH + 'countryflags.xml'
-MONITOR_DISABLED_MARKER_FILE = APP_PATH + 'no.monitor'
-SPEEDTEST_LOCK_FILE = RUN_PATH + 'speedtest.lock'
-SPEEDTEST_LOCK_FILE_MAX_AGE_SECONDS = 300
-SPEEDTEST_RESULTS_FILE = RUN_PATH + 'speedtest.results'
-SPEEDTEST_GETSERVERS_TIMEOUT = 15
-SPEEDTEST_DOWNLOAD_TIMEOUT = 45
-SPEEDTEST_UPLOAD_TIMEOUT = 45
-VPNCGW_STATUS_FILE = RUN_PATH + 'vpncgw_status.json'
-IP_ADDR_GEO_SERVICE_URL = 'http://www.geoplugin.net/json.gp'
-
-
-application = Flask(__name__)
-#app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(application, async_mode=async_mode, async_handlers=True)
-thread = None
-thread_lock = Lock()
-
 
 @socketio.on('speedtest', namespace='/vpncgw')
 def speedtest():
@@ -385,11 +383,9 @@ def get_server_list(request):
 			response = {'servergroup':'advanced','serverlist':serverlist}
                 return response
 
-
-############ NEED TO FIX PORT HANDLING - USE EXISTING PORT IF NONE IS PROVIDED ###########################
-
 def change_server(request):
         CANCEL_SPEEDTEST = True
+	preserve_port = True
         clear_speedtest()
         syslog.syslog('Changing VPN server...')
         try:
@@ -398,8 +394,8 @@ def change_server(request):
 		newserver = None
 	try:
 		newport = request['serverport']
-		if (newport is None):
-			newport = 1198
+		if (newport is not None):
+			preserve_port = False
 	except:
 		newport = None
         if newserver == 'none':
@@ -407,11 +403,11 @@ def change_server(request):
                         disable_vpn()
                         return_data = get_current_server()
         else:
-                if (newserver is None) or (newport is None):
-			syslog.syslog('Error: server and port are required')
+                if (newserver is None):
+			syslog.syslog('Error: server name is required')
 			syslog.syslog('Server: ' + newserver)
 			syslog.syslog('Port: ' + str(newport))
-                        return_data = {'error':'server and port required'}
+                        return_data = {'error':'server name is required'}
                 else:
 
                         # get ca certificate & tls-auth key filename elements for the new server
@@ -440,7 +436,7 @@ def change_server(request):
                                 if len(line_tokens) > 0:
                                         if line_tokens[0] == 'remote':
                                                 existingport = line_tokens[2]
-                                                if (existingport is not None) and (existingport != '0'):
+                                                if (existingport is not None) and (existingport != '0') and (preserve_port == True):
                                                         portnumber = existingport
                                                 else:
                                                         portnumber = newport

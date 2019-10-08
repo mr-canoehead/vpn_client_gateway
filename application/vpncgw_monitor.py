@@ -30,8 +30,8 @@ import syslog
 BUFFER_SIZE = 1024
 MANAGEMENT_IP = "localhost"
 MANAGEMENT_PORT = "7505"
-OPENVPN_CONFIG_PATH = "/etc/openvpn/"
-OPENVPN_CONFIG_FILE = "server.conf"
+OPENVPN_CONFIG_PATH = "/etc/openvpn/client/"
+OPENVPN_CONFIG_FILE = "vpncgw.conf"
 VPN_DISABLED_MARKER_FILE = "vpn.disabled"
 PASSWORD_PROMPT="PASSWORD:"
 PASSWORD_SUCCESS="SUCCESS:"

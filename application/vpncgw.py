@@ -26,7 +26,8 @@ async_mode = "eventlet"
 
 APP_PATH = '/opt/vpncgw/'
 RUN_PATH = '/run/vpncgw/'
-OPENVPN_CONFIG_FILE = '/etc/openvpn/server.conf'
+OPENVPN_CONFIG_FILE = '/etc/openvpn/client/vpncgw.conf'
+OPENVPN_SERVICE_NAME = 'openvpn-client@vpncgw'
 VPN_DISABLED_MARKER_FILE = APP_PATH + 'vpn.disabled'
 VPNSERVERSXML_FILE = APP_PATH + 'vpnservers.xml'
 COUNTRYFLAGSXML_FILE = APP_PATH + 'countryflags.xml'
@@ -281,8 +282,8 @@ def get_server_details(servername):
 def disable_vpn():
         # create disabled marker file
         shell_exec('touch ' + VPN_DISABLED_MARKER_FILE)
-        util.stop_service('openvpn')
-        util.disable_service('openvpn')
+        util.stop_service(OPENVPN_SERVICE_NAME)
+        util.disable_service(OPENVPN_SERVICE_NAME)
         shell_exec('sudo iptables -F FORWARD')
         # add forwarding rule for lan traffic
         shell_exec('sudo iptables -A FORWARD -j forward_rules_lan')
@@ -298,7 +299,7 @@ def enable_vpn(startservice = True):
                 # remove disabled marker file
                 os.unlink(VPN_DISABLED_MARKER_FILE)
                 # set openvpn service to start automatically on boot
-                util.enable_service('openvpn')
+                util.enable_service(OPENVPN_SERVICE_NAME)
                 # remove any existing forwarding rules
                 shell_exec('sudo iptables -F FORWARD')
                 # add rules for forwarding via VPN
@@ -311,7 +312,7 @@ def enable_vpn(startservice = True):
                 if (startservice is not None) and (startservice == False):
                         pass
                 else:
-                        util.start_service('openvpn')
+                        util.start_service(OPENVPN_SERVICE_NAME)
 	        socketio.emit('serverchange', None, broadcast=True,namespace='/vpncgw')
 
 def get_current_server():
@@ -419,16 +420,16 @@ def change_server(request):
                         else:
                                 cacertfile = server_details['cacertfile']
                                 tlsauthkeyfile = server_details['tlsauthkeyfile']
-                        if util.service_active('openvpn'):
+                        if util.service_active(OPENVPN_SERVICE_NAME):
                                 # echo "Stopping VPN service...\n"
                                 syslog.syslog('Stopping VPN service...')
-                                result = util.stop_service('openvpn')
+                                result = util.stop_service(OPENVPN_SERVICE_NAME)
                         else:
                                 syslog.syslog('OpenVPN service is not running...')
                         if os.path.isfile(VPN_DISABLED_MARKER_FILE):
                                 enable_vpn(startservice = False)
-                        # modify /etc/openvpn/server.conf with new server name
-                        f = open('/etc/openvpn/server.conf','r+')
+                        # modify openvpn client config file with new server name
+                        f = open(OPENVPN_CONFIG_FILE,'r+')
                         configfile = f.readlines()
                         serverconf = ""
                         for line in configfile:
@@ -452,7 +453,7 @@ def change_server(request):
                         f.truncate()
                         f.close()
                         # start openvpn service
-                        result = util.start_service('openvpn')
+                        result = util.start_service(OPENVPN_SERVICE_NAME)
                         return_data = get_current_server()
         socketio.emit('serverchange', None, broadcast=True, namespace='/vpncgw')
         CANCEL_SPEEDTEST = False
@@ -463,8 +464,8 @@ def change_server(request):
 def disable_vpn():
         # create disabled marker file
         shell_exec('touch ' + VPN_DISABLED_MARKER_FILE)
-        util.stop_service('openvpn')
-        util.disable_service('openvpn')
+        util.stop_service(OPENVPN_SERVICE_NAME)
+        util.disable_service(OPENVPN_SERVICE_NAME)
         shell_exec('sudo iptables -F FORWARD')
         # add forwarding rule for lan traffic
         shell_exec('sudo iptables -A FORWARD -j forward_rules_lan')
@@ -481,7 +482,7 @@ def enable_vpn(startservice = True):
                 # remove disabled marker file
                 os.unlink(VPN_DISABLED_MARKER_FILE)
                 # set openvpn service to start automatically on boot
-                util.enable_service('openvpn')
+                util.enable_service(OPENVPN_SERVICE_NAME)
                 # remove any existing forwarding rules
                 shell_exec('sudo iptables -F FORWARD')
                 # add rules for forwarding via VPN
@@ -494,7 +495,7 @@ def enable_vpn(startservice = True):
                 if (startservice is not None) and (startservice == False):
                         pass
                 else:
-                        util.start_service('openvpn')
+                        util.start_service(OPENVPN_SERVICE_NAME)
         socketio.emit('serverchange', None, broadcast=True, namespace='/vpncgw')
 #        socketio.emit('currentserver', get_current_server(), broadcast=True, namespace='/vpncgw')
 

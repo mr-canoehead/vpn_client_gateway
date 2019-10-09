@@ -172,7 +172,7 @@ def vpncgw_monitor_main():
 			vpncgw_status_dict['openvpn']['service'] = "disabled"
 		else:
 			vpncgw_status_dict['currentserver']['enabled'] = True
-			args=['service','openvpn','status']
+			args=['service','openvpn-client@vpncgw','status']
 			p = subprocess.Popen(args, stdout=subprocess.PIPE)
 			output, err = p.communicate()
 			if len(output) > 2 and output.splitlines()[2].strip().split()[1].lower() == "active":

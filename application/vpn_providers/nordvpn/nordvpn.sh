@@ -2,12 +2,15 @@
 
 # Variables - NORDVPN Specific
 certificates="http://downloads.nordcdn.com/configs/archives/certificates/servers.zip"
-configuration="https://nordvpn.com/api/files/zip"
+configuration="http://downloads.nordcdn.com/configs/archives/servers/ovpn.zip"
 certdir="/tmp/certs/"
 configdir="/tmp/config/"
 xmlname="vpnservers.xml"
-openvpndir="/etc/openvpn/nordvpn"
+openvpndir="/etc/openvpn/client/nordvpn"
 vpnmgmtdir="/opt/vpncgw"
+
+mkdir -p $openvpndir
+mkdir -p $vpnmgmtdir
 
 if [ -x "$(command -v apt-get)" ]; then
         # Package Installer for required python components below
@@ -81,30 +84,30 @@ def createXML(outfile):
         server = xml.Element("servername")
         root.append(basic)
         us_server = xml.SubElement(basic, "servername")
-        us_server.text = ('us1456.nordvpn.com')
+        us_server.text = ('us3581.nordvpn.com')
         de_server = xml.SubElement(basic, "servername")
-        de_server.text = ('de250.nordvpn.com')
+        de_server.text = ('de524.nordvpn.com')
         fr_server = xml.SubElement(basic, "servername")
-        fr_server.text = ('fr80.nordvpn.com')
-        se_server = xml.SubElement(basic, "servername")
-        se_server.text = ('se103.nordvpn.com')
+        fr_server.text = ('fr271.nordvpn.com')
+        uk_server = xml.SubElement(basic, "servername")
+        uk_server.text = ('uk1194.nordvpn.com')
         in_server = xml.SubElement(basic, "servername")
-        in_server.text = ('in14.nordvpn.com')
+        in_server.text = ('in45.nordvpn.com')
         il_server = xml.SubElement(basic, "servername")
-        il_server.text = ('il8.nordvpn.com')
+        il_server.text = ('il12.nordvpn.com')
         is_server = xml.SubElement(basic, "servername")
-        is_server.text = ('is7.nordvpn.com')
-        lv_server = xml.SubElement(basic, "servername")
-        lv_server.text = ('lv8.nordvpn.com')
+        is_server.text = ('is41.nordvpn.com')
+        it_server = xml.SubElement(basic, "servername")
+        it_server.text = ('it85.nordvpn.com')
         root.append(full)
-        list = [os.path.basename(x) for x in sorted(glob.glob("/tmp/config/*1194*.*"))]
+        list = [os.path.basename(x) for x in sorted(glob.glob("/tmp/config/*udp*.*"))]
         for names in list:
                 info = xml.Element("vpnserver")
                 server = xml.SubElement(info, "servername")
-                server.text = names.replace('.udp1194.ovpn','')
+                server.text = names.replace('.udp.ovpn','')
                 short = names[:2].upper().replace('UK','GB')
                 country = xml.SubElement(info, "countryname")
-                country.text = pycountry.countries.get(alpha2=short).name
+                country.text = pycountry.countries.get(alpha_2=short).name
 		servername_underscored = server.text.replace(".","_")
 		cacertfile = xml.SubElement(info, "cacertfile")
 		cacertfile.text = 'nordvpn/' + servername_underscored + '_ca.crt'
@@ -134,5 +137,8 @@ createMAP ${configdir}
 #Add datestamp checker for vpnserver.xml
 cp ${configdir}/vpnservers.xml ${vpnmgmtdir}/vpnservers.xml
 cp ${certdir}/*.* ${openvpndir}
+# copy configs - not needed (debugging only)
+#mkdir -p ${openvpndir}/config
+#cp ${configdir}/*.* ${openvpndir}/config
 removeTempDir ${configdir}
 removeTempDir ${certdir}

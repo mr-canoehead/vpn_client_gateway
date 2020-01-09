@@ -351,6 +351,7 @@ margin-bottom: 0;
         padding-left: 10px;
         display:none;
         font-size: 12px;
+        overflow: auto;
 }
 
 #ChooseVPNAdvanced p{

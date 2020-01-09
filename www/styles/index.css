@@ -1,824 +1,200 @@
-#CurrentVPNFlagImage {
-	height: 60px;
+
+/* Global CSS Variables */
+
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #4C4C4C;
+    --font-color: black;
+    --bg-color: #D2D2D2;
+    --heading-color: #292922;
+                --font-family: Arial;
 }
 
-#basicServersTable {
-	display: flex;
-	flex-direction: column;
-/*	flex-grow: 100;
-*/
-	box-sizing: border-box;
-	/*border-style: solid;
-        border-width: thin;
-	*/
+[data-theme="dark"] {
+    --primary-color: #4C4C4C;
+    --secondary-color:  #818181;
+    --font-color: white;
+    --bg-color: #4C4C4C;
+    --heading-color: white;
+                --font-family: Arial;
 }
-.basicServersTableRow {
-	display: flex;
-	flex-direction: row;
-	flex-grow: 100;
-	justify-content: space-between;
-	box-sizing: border-box;
-	/*border-style: solid;
-        border-width: thin;
-	*/
-	margin-left:50px;
-	margin-right:50px;
-	margin-bottom: 10px;
-}
-.basicServersTableLastRow {
-	display: flex;
-	flex-direction: row;
-	flex-grow: 100;
-	justify-content: space-between;
-	box-sizing: border-box;
-	/*border-style: solid;
-        border-width: thin;
-	*/
-	margin-left:50px;
-	margin-right:50px;
-}
-.basicServersTableCell {
-	box-sizing: border-box;
-	width: 150px;
-	/*border-style: solid;
-        border-width: thin;
-	*/
-	text-align:center;
-	font-family:Arial;
-	font-size:18px;
-}
-.basicServersFlag {
-	height:60px;
-}
+
+/* ===== Base Styles ===== */
 
 html {
-	height:100%;
-	min-width:500px;
+        height:100%;
+        min-width:500px;
+        font-family: var(--font-family);
+  color: var(--font-color);
 }
+
 body {
-	margin:0;
-	padding:0;
-	height:100%;
-	min-width:500px;
-}   
-.sectionHeading {
-	font-family:Arial;
-	font-weight:bold;
-	font-size: 22px;
-	padding-top: 10px;
-	padding-left: 10px;
-	padding-bottom: 20px;
-}
-.sectionSpacer {
-	height: 5px;
-}
-
-#spacerDiv{
-	float:left;
-	width:5px;
-}
-
-#GatewayStatusSection {
-	min-width: 600px;
-	box-sizing: border-box;
-	background-color: #E6E6E6;
-	padding-bottom:10px;
-	margin-top: 5px;
-}
-#GatewayStatusOverlay {
-	height:100px;
-	margin-left:10px;
-	margin-right:10px;
-	z-index:999;
-	background-image: url('/images/status_icons/loading.gif');
-	background-repeat:  no-repeat;
-	background-position: center;
-	background-color: #E6E6E6;
-	border-radius: 10px;
-	opacity:1;
-}
-
-#GatewayStatusSection H2{
-/*	padding-top:10px;
-	padding-left: 10px;
-*/
-  /*      border-width: thin;
-        border-color: black;
-	border-style: solid;
-*/
-
-}
-
-.StatusTable {
-	height:100px;
-/*        border-width: thin;
-        border-color: black;
-	border-style: solid;
-*/
-	background-color: #E6E6E6;
-	margin-top:-100px;
-	z-index:1;
-	opacity:0;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.blink {
-    animation: blink 1s;
-    animation-iteration-count: infinite;
-}
-
-.warnIcon{
-  height: 20px;
-  background: url('/images/status_icons/warn20.png');
-  background-repeat:no-repeat;
- /* animation: blink 1s;
-  animation-iteration-count:infinite;
-*/
-  text-indent: -9999px;
-}
-
-.okIcon{
-  height: 20px;
-  background: url('/images/status_icons/ok20.png');
-  background-repeat:no-repeat;
-  text-indent: -9999px;
-}
-
-.disabledIcon{
-  height: 20px;
-  background: url('/images/status_icons/disabled20.png');
-  background-repeat:no-repeat;
-  text-indent: -9999px;
-}
-
-.loadingIcon{
-  height: 20px;
-  background: url('/images/status_icons/loading20.gif');
-  background-repeat:no-repeat;
-  text-indent: -9999px;
-}
-
-.clearDiv{
-	clear:both;
-}
-
-.statusCol1{
-	float:left;
-/*	border-style:solid;
-	border-width:thin;
-*/
-	width:24px;
-}
-.statusCol2{
-	float:left;
-/*	border-style:solid;
-	border-width:thin;
-*/
-	width:120px;
-	font-family:"Arial";
-	font-size:18px;
-	margin-left:5px;
-}
-.statusCol3{
-	float:left;
-/*	border-style:solid;
-	border-width:thin;
-*/
-	width:130px;
-	text-align:right;
-	font-family:"Arial";
-	font-size:18px;
-}
-
-.statusCol4{
-	float:left;
-/*	border-style:solid;
-	border-width:thin;
-*/
-	width:130px;
-	font-family:"Arial";
-	font-size:18px;
-	margin-left:40px;
-}
-.statusCol5{
-	float:left;
-/*	border-style:solid;
-	border-width:thin;
-*/
-	width:40px;
-	text-align:right;
-	font-family:"Arial";
-	font-size:18px;
-}
-.statusCol6{
-	float:left;
-/*	border-style:solid;
-	border-width:thin;
-*/
-	width:20px;
-	font-family:"Arial";
-	font-size:18px;
-	display:none;
-}
-
-.StatusTableRow{
-	height:25px;
-	max-height:25px;
-	padding-left:0px;
-/*	border-style:solid;
-	border-width:thin;
-*/
-	margin-left:80px;
-}
-
-.header{
-	background-color: #E6E6E6;
-	min-width:600px;
-	height: 50px;
-	color:black;
-	text-align:center;
-	vertical-align: middle;
-	z-index: 1;
-}
-
-.screenoverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.6);
-    z-index: 10;
-    opacity: 1;
-    transition: opacity 2s linear;
-        display:none;
-}
-
-.opaqueoverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 10;
-    background-color: white;
-    opacity: 1;
-    display:none;
-}
-
-.serverUrl {
-	margin-left: 1em;
-}
-
-#tracerouteData {
-	line-height: normal;
-}
-
-#syslogData {
-	line-height: normal;
-}
-
-#AJAXMessage {
-    width: 400px;
-    height: 150px;
-    line-height: 20px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -200px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    text-align: center;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#VPNChangeMessage {
-    width: 400px;
-    height: 150px;
-    line-height: 20px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -200px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    text-align: center;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#ChangingVPNMessage {
-    width: 400px;
-    height: 150px;
-    line-height: 20px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -200px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    text-align: center;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-
-#IPInfoBox {
-    width: 440px;
-    height: 335px;
-    line-height: 20px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -220px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#IPInfoBoxTitle{
-    text-align:center;
-}
-
-#ButtonContainer {
-        text-align: center;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 40px;
-	width: 100%;
-}
-#IPInfoBoxTableContainer {
-        width: 90%;
-        text-align: left;
-        height: 200px;
-        margin-left: 5%;
-	margin-top:50px;
-}
-
-#IPLocationTable {
-        table-layout: fixed;
-        width: 100%;
-        border-collapse: collapse;
-}
-#IPLocationTable tr {
-}
-#IPLocationTable td{
-        padding-left: 10px;
-        font-family:"Arial";
-        width: 50%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-}
-#IPLocationTable tr:nth-child(even) {
-        background: #E6E6E6
-}
-#IPLocationTable tr:nth-child(odd) {
-        background: #FFF
-}
-
-#ButtonSpacer {
-        height: 20px;
-}
-.ButtonSpacer{
-	height: 20px;
-}
-
-.showLoadingIcon {
-    background-image: url('/images/status_icons/loading.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#TracerouteInfoBox {
-    width: 800px;
-    height: 400px;
-    line-height: 20px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#SpeedtestInfoBox {
-    width: 600px;
-    height: 400px;
-    line-height: 20px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#SpeedtestStatusMessage{
-	padding-top: 10px;
-	padding-bottom: 10px;
-	font-family: "Arial";
-	font-size: 16px;
-	font-weight: bold;
-}
-
-#SpeedtestProgress{
-	padding-left: 10px;
-	font-family: "Arial";
-}
-
-.speedtestLabelColumn {
-	padding-left: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-        font-family:"Arial";
-	float: left;
-	width: 150px;
-}
-.speedtestValueColumn {
-	padding-top: 5px;
-	padding-bottom: 5px;
-        font-family:"Arial";
-	float: left;
-}
-
-.speedtestResultRow:nth-child(even) {
-	background: #FFF;
-}
-.speedtestResultRow:nth-child(odd) {
-        background: #E6E6E6;
-}
-
-.speedtestResultRow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-#SyslogInfoBox {
-    width: 90%;
-    height: 90%;
-    line-height: normal;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-
-#TracerouteInfoBoxTitle{
-    text-align:center;
-}
-
-#SpeedtestInfoBoxTitle{
-    text-align:center;
-}
-
-#SyslogInfoBoxTitle{
-    text-align:center;
-}
-
-#TracerouteInfoContainer {
-        width: 90%;
-        text-align: left;
-        height: 300px;
-        margin-left: 5%;
-	overflow:auto;
-}
-
-#SpeedtestInfoContainer {
-        width: 90%;
-        text-align: left;
-        height: 300px;
-        margin-left: 5%;
-	overflow:auto;
-}
-
-
-#SyslogInfoContainer {
-        width: 90%;
-        text-align: left;
-        height: 85%;
-        margin-left: 5%;
-	margin-bottom:0;
-	overflow:auto;
-}
-
-#SpeedtestInfoBox {
-	font-family:"Courier";
-	line-height:100%;
-}
-
-#SyslogText{
-	font-family:"Courier";
-	line-height:100%;
-}
-
-#TracerouteText{
-	font-family:"Courier";
-	line-height:100%;
-}
-
-#ShutdownInfoBox {
-    width: 400px;
-    height: 250px;
-    line-height: 50px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-
-}
-
-#ShutdownInfoBoxTitle{
-    text-align:center;
-}
-
-#ShutdownInfoContainer {
-        width: 90%;
-	line-height:150%;
-        text-align: left;
-        height: 125px;
-        margin-left: 5%;
-	overflow:auto;
-}
-
-#ShutdownButtonTable {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-	margin-bottom: 20px;
-}
-
-#RebootInfoBox {
-    width: 400px;
-    height: 250px;
-    line-height: 50px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#RebootInfoBoxTitle{
-    text-align:center;
-}
-
-#RebootInfoContainer {
-        width: 90%;
-        line-height:150%;
-        text-align: left;
-        height: 125px;
-        margin-left: 5%;
-        overflow:auto;
-}
-
-#RebootButtonTable {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#DisableVPNInfoBox {
-    width: 400px;
-    height: 250px;
-    line-height: 50px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#DisableVPNInfoBoxTitle{
-    text-align:center;
-}
-
-#DisableVPNInfoContainer {
-        width: 90%;
-        line-height:150%;
-        text-align: left;
-        height: 125px;
-        margin-left: 5%;
-        overflow:auto;
-}
-
-#DisableVPNButtonTable {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-
-#EnableVPNInfoBox {
-    width: 400px;
-    height: 250px;
-    line-height: 50px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    line-height: 50%;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-#EnableVPNInfoBoxTitle{
-    text-align:center;
-}
-
-#EnableVPNInfoContainer {
-        width: 90%;
-        line-height:150%;
-        text-align: left;
-        height: 125px;
-        margin-left: 5%;
-        overflow:auto;
-}
-
-#EnableVPNButtonTable {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#MainContainer{
-	display: flex;
-	flex-direction: row;
-	box-sizing: border-box;
-	/*border-style:solid;
-	border-width:thin;
-	*/
-	height:calc(100% - 110px);
-	width: 100%;
-	/*height:auto;
-	*/
-	overflow:hidden;
-	margin-top:5px;
-}
-
-
-#PageContainer{
-	display: flex;
-	flex-direction: column;
-	flex-grow: 100;
-	overflow: auto;
-	box-sizing: border-box;
-	/*border-style:solid;
-	border-width:thin;
-	*/
-	margin-left: 5px;
-}
-
-#NavigationMenu{
-	box-sizing: border-box;
-	/*border-style:solid;
-	border-width:thin;
-	*/
-	flex-grow:100;
-	min-width:110px;
-	max-width:110px;
-	background-color: #E6E6E6;
-}
-
-#VPNSection {
-	display: flex;
-	flex-direction:column;
-	flex-grow:100;
-	box-sizing: border-box;
-	/* border-style:solid;
-	border-width:thin;
-	*/
-}
-
-.menubuttonspacer {
-	height:20px;
-}
-.menubutton {
-	width: 100%;
-	vertical-align: middle;
-	padding-left: 10px;
-	font-family: "Arial";
-	background-color: #CCCCCC;
-}
-
-.buttonmenu ul {
-margin: 0;
-padding: 0;
-width:100%;
-float:left;
-height: 100%;
-list-style-type: none;
-}
-
-.buttonmenu ul li a {
-text-decoration: none;
-color: white;
-padding: 10.5px 11px;
-margin-left: 5px;
-margin-right: 5px;
-margin-top: 5px;
-background-color: #4C4C4C;
-font-family:"Arial";
-display:block;
-}
-
-.buttonmenu ul li a:visited {
-color: white;
-}
- 
-.buttonmenu ul li a:hover, #NavigationMenu ul li .current {
-color: white;
-border-style:solid;
-border-color:white;
-border-width:2px;
+  margin:0;
+        padding:0;
+  height:100%;
+        min-width:500px;
 }
 
 h1 {
-	position:relative;
-	padding-top:5px;
-	padding-left:5px;
-	margin-top: 0px;
-	vertical-align: middle;
-	font-family: "Arial";
-	z-index:2;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--font-color);
 }
 
-
-
-h2 {
-	font-family: "Arial";
-}
 p {
-	font-family: "Arial";
-	font-size: 20px;
+        font-size: 20px;
 }
-h3 {
-	font-family: "Arial";
+
+footer {
+        margin-top: 5px;
+        position:relative;
+        height:50px;
+        background-color: var(--bg-color);
+        color:black;
+        text-align:center;
+        vertical-align: middle;
+        padding:0px;
+        z-index: 1;
+}
+
+#MainContainer {
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        height:calc(100% - 110px);
+        width: 100%;
+        overflow:hidden;
+        margin-top:5px;
+}
+
+/* ===== Dark Mode Toggle Switch ===== */
+.theme-switch-wrapper {
+  background-color: var(--bg-color);
+  min-width:600px;
+  height: 50px;
+        color: var(--font-color);
+  z-index: 1;
+  display: flex;
+        flex-direction: row;
+  align-items: center;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+  margin-left: 10px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: var(--secondary-color);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.theme-switch-wrapper h2 {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+/* ===== Overlay Messages ===== */
+
+.screenoverlay, .opaqueoverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  opacity: 1;
+  display:none;
+}
+
+
+.screenoverlay {
+    background-color: rgba(0,0,0,0.6);
+    transition: opacity 2s linear;
+}
+
+.opaqueoverlay {
+    background-color: white;
+}
+
+#VPNChangeMessage, #ChangingVPNMessage, #AJAXMessage {
+  width: 400px;
+  height: 150px;
+  line-height: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  text-align: center;
+  z-index: 11; /* 1px higher than the overlay layer */
+
+}
+
+/* ===== Basic Page Styling ===== */
+
+#PageContainer, #VPNSection{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 100;
+        overflow: hidden;
+        box-sizing: border-box;
+}
+
+#PageContainer {
+  margin-left: 5px;
 }
 
 #CurrentVPNSection {
-	box-sizing: border-box;
-	/*border-style: solid;
-        border-width: thin;
-	*/
-	background-color: #E6E6E6;
-	
+        background-color: var(--bg-color);
 }
 
-#CurrentVPNSection h3 {
-	/*padding-left: 50px;
-	*/
+
+#CurrentVPNFlagImage {
+        height: 60px;
 }
 
 #CurrentVPNFlag table{
@@ -845,140 +221,614 @@ margin-top: 0;
 margin-bottom: 0;
 }
 
-#CurrentVPNSection H2{
-	/*padding-top:10px;
-	padding-left: 10px;
-	margin-top:0;
-	*/
+#GatewayStatusSection {
+        min-width: 600px;
+        box-sizing: border-box;
+        background-color: var(--bg-color);
+        padding-bottom:10px;
+        margin-top: 5px;
 }
 
-#VPNDisabledWarningIcon{
-	content:url(/images/status_icons/Warning-icon-hi.png);
-	height: 10px;
+#GatewayStatusOverlay {
+        height:100px;
+        margin-left:10px;
+        margin-right:10px;
+        z-index:999;
+        background-image: url('/images/status_icons/loading.gif');
+        background-repeat:  no-repeat;
+        background-position: center;
+        background-color: var(--bg-color);
+        border-radius: 10px;
+        opacity:1;
 }
 
-#NewVPNSection H2{
-	/*
-	padding-left:10px;
-	padding-top:10px;
-	margin-top:0;
- 	border-style: solid;
-	border-width: 1px;
-	border-color: red;
-	*/
+.StatusTable {
+        height:100px;
+        background-color: var(--bg-color);
+        margin-top:-100px;
+        z-index:1;
+        opacity:0;
+}
+
+.StatusTableRow{
+        height:25px;
+        max-height:25px;
+        padding-left:0px;
+        margin-left:80px;
+}
+
+.statusCol1{
+        float:left;
+        width:24px;
+}
+
+.statusCol2{
+        float:left;
+        width:120px;
+        font-size:18px;
+        margin-left:5px;
+}
+.statusCol3{
+        float:left;
+        width:130px;
+        text-align:right;
+        font-size:18px;
+}
+
+.statusCol4{
+        float:left;
+        width:130px;
+        font-size:18px;
+        margin-left:40px;
+}
+.statusCol5{
+        float:left;
+        width:40px;
+        text-align:right;
+        font-size:18px;
+}
+.statusCol6{
+        float:left;
+        width:20px;
+        font-size:18px;
+        display:none;
 }
 
 #VPNChooser {
-	display: flex;
-	flex-direction: column;
-	flex-grow:100;
-	margin-top: 5px;
-	box-sizing: border-box;
-	/* border-style: solid;
-	border-width: thin;
-	*/
-	padding-bottom:5px;
-	background-color: #E6E6E6;
-
+        display: flex;
+        flex-direction: column;
+        flex-grow:100;
+        margin-top: 5px;
+        box-sizing: border-box;
+        background-color: var(--bg-color);
+        height: 100%;
 }
 
-#VPNChooser h2 {
-	/*padding-left:10px;
-	padding-top:10px;
-	*/
+#ChooseVPNBasic {
+  margin: 0;
 }
 
 #VPNChooser h3 {
-	padding-left: 5px;
+        padding-left: 5px;
 }
 
-#
-
-.ChoicesTable{
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-}
-.ChoicesTable td{
-	vertical-align:top;
-	margin-top: 0;
-	margin-bottom: 0;
-	border-width: 0;
-	height: 100px;
-	padding: 0;
+#basicServersTable {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
 }
 
-.ChoicesTable p{
-	margin-top: 0;
-	margin-bottom: 10;
+.basicServersTableRow, .basicServersTableLastRow {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 100;
+        justify-content: space-between;
+        box-sizing: border-box;
+        margin-left:50px;
+        margin-right:50px;
+        margin-bottom: 10px;
 }
 
-.ChoicesTable a{
-	margin-top: 0;
-	margin-bottom: 0;
+.basicServersTableLastRow {
+
 }
+
+.basicServersTableCell {
+        box-sizing: border-box;
+        width: 150px;
+        text-align:center;
+        font-family:var(--font-family);
+        font-size:18px;
+}
+
+.basicServersFlag {
+        height:60px;
+}
+
+/* ===== Advanced Menu Styling ===== */
 
 #ChooseVPNAdvanced{
-	padding-left: 10px;
-	display:none;
-	font-family: Arial;
-	font-size: 12px;
+        padding-left: 10px;
+        display:none;
+        font-size: 12px;
 }
 
 #ChooseVPNAdvanced p{
-	padding-left: 70px;
+        padding-left: 70px;
 }
 
+/* ===== Navigation Bar Styling ===== */
+
+#NavigationMenu {
+        box-sizing: border-box;
+        flex-grow:100;
+        min-width:110px;
+        max-width:110px;
+        background-color: var(--bg-color);
+}
+
+.menubuttonspacer {
+        height:20px;
+}
+
+.menubutton {
+        width: 100%;
+        vertical-align: middle;
+        padding-left: 10px;
+        background-color: var(--bg-color);
+}
+
+.buttonmenu ul {
+margin: 0;
+padding: 0;
+width:100%;
+float:left;
+height: 100%;
+list-style-type: none;
+}
+
+.buttonmenu ul li a {
+text-decoration: none;
+color: white;
+padding: 10.5px 11px;
+margin-left: 5px;
+margin-right: 5px;
+margin-top: 5px;
+background-color: var(--secondary-color);
+display:block;
+}
+
+.buttonmenu ul li a:visited {
+color: white;
+}
+
+.buttonmenu ul li a:hover, #NavigationMenu ul li .current {
+color: white;
+border-style:solid;
+border-color:white;
+border-width:2px;
+}
+
+/* ===== Tools Menu Styling ===== */
+
 #Tools{
-	display:none;
-	height:100vh;
-	background-color: #E6E6E6;
+        display:none;
+        height:100vh;
+        background-color: var(--bg-color);
 }
 
 #Tools h2{
-	padding-left:10px;
-	padding-top:10px;
-	margin-top:0;
+        padding-left:10px;
+        padding-top:10px;
+        margin-top:0;
 }
-
 
 #ToolsMenu{
-	height: 100%;
-	width:98%;
-	margin-left:1%;
-	padding-top:10px;
+        height: 100%;
+        width:98%;
+        margin-left:1%;
+        padding-top:10px;
 }
 
+/* Get IP Address Geolocation */
+
+#IPInfoBoxTitle{
+    text-align:center;
+}
+
+#IPInfoBox {
+    width: 440px;
+    height: 335px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -220px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#IPInfoBoxTableContainer {
+        width: 90%;
+        text-align: left;
+        height: 200px;
+        margin-left: 5%;
+        margin-top:50px;
+}
+
+
+#IPLocationTable {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+}
+
+#IPLocationTable td{
+        padding-left: 10px;
+        width: 50%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+}
+
+#IPLocationTable tr:nth-child(even) {
+        background: var(--secondary-color);
+}
+
+#IPLocationTable tr:nth-child(odd) {
+        background: var(--bg-color);
+}
+
+#ButtonContainer {
+  text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 40px;
+        width: 100%;
+}
+
+/* Speed test */
+
+#SpeedtestInfoBox {
+    width: 600px;
+    height: 400px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#SpeedtestStatusMessage{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+}
+
+#SpeedtestProgress{
+        padding-left: 10px;
+}
+
+.speedtestLabelColumn {
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        float: left;
+        width: 150px;
+}
+
+.speedtestValueColumn {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        float: left;
+}
+
+.speedtestResultRow:nth-child(even) {
+        background: var(--bg-color);
+}
+
+.speedtestResultRow:nth-child(odd) {
+        background: var(--secondary-color);
+}
+
+.speedtestResultRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#SpeedtestInfoBoxTitle{
+    text-align:center;
+}
+
+#SpeedtestInfoContainer {
+        width: 90%;
+        text-align: left;
+        height: 300px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#SpeedtestInfoBox {
+        font-family:"Courier";
+        line-height:100%;
+}
+
+/* Run traceroute */
+
+#tracerouteData {
+        line-height: normal;
+}
+
+#TracerouteInfoBox {
+    width: 800px;
+    height: 400px;
+    line-height: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#TracerouteInfoBoxTitle{
+    text-align:center;
+}
+
+
+#TracerouteInfoContainer {
+        width: 90%;
+        text-align: left;
+        height: 300px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#TracerouteText{
+        font-family:"Courier";
+        line-height:100%;
+}
+
+#ButtonSpacer {
+        height: 20px;
+}
+
+.ButtonSpacer{
+        height: 20px;
+}
+
+/* View syslog */
+
+#syslogData {
+        line-height: normal;
+}
+
+#SyslogInfoBox {
+    width: 90%;
+    height: 90%;
+    line-height: normal;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#SyslogInfoBoxTitle{
+    text-align:center;
+}
+
+#SyslogInfoContainer {
+        width: 90%;
+        text-align: left;
+        height: 85%;
+        margin-left: 5%;
+        margin-bottom:0;
+        overflow:auto;
+}
+
+#SyslogText{
+        font-family:"Courier";
+        line-height:100%;
+}
+
+/* ===== Admin Menu Styling ===== */
+
 #AdminMenu{
-	height: 100%;
-	width:98%;
-	margin-left:1%;
-	padding-top:10px;
+        height: 100%;
+        width:98%;
+        margin-left:1%;
+        padding-top:10px;
 }
 
 #Admin{
-	display:none;
-	height:100vh;
-	background-color: #E6E6E6;
+        display:none;
+        height:100vh;
+        background-color: var(--bg-color);
 }
 
 #Admin h2{
-	padding-left:10px;
-	padding-top:10px;
-	margin-top:0;
+        padding-left:10px;
+        padding-top:10px;
+        margin-top:0;
+}
+
+/* Disable VPN */
+
+#DisableVPNInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#DisableVPNInfoBoxTitle{
+    text-align:center;
+}
+
+#DisableVPNInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#DisableVPNButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Enable VPN */
+
+#EnableVPNInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#EnableVPNInfoBoxTitle{
+    text-align:center;
+}
+
+#EnableVPNInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#EnableVPNButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Reboot */
+
+#RebootInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+#RebootInfoBoxTitle{
+    text-align:center;
+}
+
+#RebootInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#RebootButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Shutdown */
+
+#ShutdownInfoBox {
+    width: 400px;
+    height: 250px;
+    line-height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -200px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    line-height: 50%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
 
 }
 
-footer{
-	margin-top: 5px;
-	position:relative;
-	height:50px;
-	background-color: #E6E6E6;
-	color:black;
-	text-align:center;
-	vertical-align: middle;
-	padding:0px;
-	z-index: 1;
+#ShutdownInfoBoxTitle{
+    text-align:center;
+}
+
+#ShutdownInfoContainer {
+        width: 90%;
+        line-height:150%;
+        text-align: left;
+        height: 125px;
+        margin-left: 5%;
+        overflow:auto;
+}
+
+#ShutdownButtonTable {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+        margin-bottom: 20px;
+}
+
+/* ===== Status Icons ===== */
+
+#VPNDisabledWarningIcon{
+        content:url(/images/status_icons/Warning-icon-hi.png);
+        height: 10px;
 }
 
 #OpenVPNLogo {
@@ -989,3 +839,104 @@ footer{
         z-index: 99;
 }
 
+.warnIcon{
+  height: 20px;
+  background: url('/images/status_icons/warn20.png');
+  background-repeat:no-repeat;
+  text-indent: -9999px;
+}
+
+.okIcon{
+  height: 20px;
+  background: url('/images/status_icons/ok20.png');
+  background-repeat:no-repeat;
+  text-indent: -9999px;
+}
+
+.disabledIcon{
+  height: 20px;
+  background: url('/images/status_icons/disabled20.png');
+  background-repeat:no-repeat;
+  text-indent: -9999px;
+}
+
+.loadingIcon{
+  height: 20px;
+  background: url('/images/status_icons/loading20.gif');
+  background-repeat:no-repeat;
+  text-indent: -9999px;
+}
+
+.showLoadingIcon {
+    background-image: url('/images/status_icons/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sectionHeading {
+        font-weight:bold;
+        font-size: 22px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 20px;
+}
+
+.sectionSpacer {
+        height: 5px;
+}
+
+#spacerDiv{
+        float:left;
+        width:5px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.blink {
+    animation: blink 1s;
+    animation-iteration-count: infinite;
+}
+
+.clearDiv{
+        clear:both;
+}
+
+.serverUrl {
+        margin-left: 1em;
+        color: #3E82DC;
+}
+
+.ChoicesTable{
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+}
+
+.ChoicesTable td{
+        vertical-align:top;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-width: 0;
+        height: 100px;
+        padding: 0;
+}
+
+.ChoicesTable p{
+        margin-top: 0;
+        margin-bottom: 10;
+}
+
+.ChoicesTable a{
+        margin-top: 0;
+        margin-bottom: 0;
+}

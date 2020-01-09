@@ -1,26 +1,28 @@
-<!doctype html>
-<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+<!DOCTYPE html>
 <html lang="en">
-<link id="documentLink" rel="stylesheet" type="text/css" href="/styles/index.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, shrink-to-fit=no" />
+<link id="documentLink" rel="stylesheet" type="text/css" href="styles/index.css" />
+
 <script type="text/javascript" src="/scripts/socket.io.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="/scripts/main.js" charset="utf-8"></script>
 
 <HEAD>
-	<TITLE>VPN Client Gateway Management</TITLE>
-	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+        <TITLE>VPN Client Gateway Management</TITLE>
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 </HEAD>
 
 <div id="VPNChangeMessageOverlay" class="screenoverlay">
         <div id="VPNChangeMessage" class="vpnchangemessage">
                 <H2>VPN Changed<H2>
-                <P>Remember to restart media apps!<P>
+                <p>Remember to restart media apps!</p>
         </div>
 </div>
 
 <div id="ChangingVPNMessageOverlay" class="screenoverlay">
         <div id="ChangingVPNMessage" class="changingvpnmessage">
                 <H2>Changing VPN<H2>
-                <P>This may take a few moments...<P>
+                <p>This may take a few moments...</p>
         </div>
 </div>
 
@@ -28,48 +30,48 @@
         <div id="IPInfoBox">
                 <div id="IPInfoBoxTitle">
                         <H2>IP Geolocation</H2>
-				<div id=IPInfoBoxTableContainer>
-				<table class="ipinfotable" id="IPLocationTable">
-					<tbody id="IPLocationTableBody">
-						<tr>
-							<td>
-								Country Name
-							</td>
-							<td id="iplocation_countryname">Canada</td>
-						</tr>
-						<tr>
-							<td>
-								Country Code
-							</td>
-							<td id="iplocation_countrycode">CA</td>
-						</tr>
-						<tr>
-							<td>
-								Region Name
-							</td>
-							<td id="iplocation_regionname">Montreal Area</td>
-						</tr>
-						<tr>
-							<td>
-								Region Code
-							</td>
-							<td id="iplocation_regioncode">QC</td>
-						</tr>
-						<tr>
-							<td>
-								City
-							</td>
-							<td id="iplocation_cityname">Montreal</td>
-						</tr>
-						<tr>
-							<td>
-								Public IP
-							</td>
-							<td id="iplocation_publicip">10.1.2.114</td>
- 						</tr>
-					</tbody>
-				</table>
-				</div>
+                                <div id=IPInfoBoxTableContainer>
+                                <table class="ipinfotable" id="IPLocationTable">
+                                        <tbody id="IPLocationTableBody">
+                                                <tr>
+                                                        <td>
+                                                                Country Name
+                                                        </td>
+                                                        <td id="iplocation_countryname">Canada</td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                Country Code
+                                                        </td>
+                                                        <td id="iplocation_countrycode">CA</td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                Region Name
+                                                        </td>
+                                                        <td id="iplocation_regionname">Montreal Area</td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                Region Code
+                                                        </td>
+                                                        <td id="iplocation_regioncode">QC</td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                City
+                                                        </td>
+                                                        <td id="iplocation_cityname">Montreal</td>
+                                                </tr>
+                                                <tr>
+                                                        <td>
+                                                                Public IP
+                                                        </td>
+                                                        <td id="iplocation_publicip">10.1.2.114</td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                                </div>
                 </div>
                 <div id="ButtonContainer">
                         <button id="IPInfoCloseButton" onclick="hide_iplocationinfo();">Close</button>
@@ -84,7 +86,7 @@
                 </div>
                 <div id="TracerouteInfoContainer" class="showLoadingIcon">
                 </div>
-		<div class="ButtonSpacer"></div>
+                <div class="ButtonSpacer"></div>
                 <div id="ButtonContainer">
                         <button id="TracerouteInfoCloseButton" onclick="hide_traceroute();">Close</button>
                 </div>
@@ -97,14 +99,14 @@
                         <H2>Speed test<H2>
                 </div>
                 <div id="SpeedtestInfoContainer" class="showLoadingIcon">
-			<div id="SpeedtestStatusMessage">
-			</div>
-			<div id="SpeedtestProgress">
-			</div>
-			<div id="SpeedtestResults">
-			</div>
+                        <div id="SpeedtestStatusMessage">
+                        </div>
+                        <div id="SpeedtestProgress">
+                        </div>
+                        <div id="SpeedtestResults">
+                        </div>
                 </div>
-		<div class="ButtonSpacer"></div>
+                <div class="ButtonSpacer"></div>
                 <div id="ButtonContainer">
                         <button id="SpeedtestInfoCloseButton" onclick="hide_speedtest();">Close</button>
                 </div>
@@ -131,17 +133,17 @@
                         <H2>Disable VPN<H2>
                 </div>
                 <div id="DisableVPNInfoContainer">
-			<P>Disabling VPN service. Network traffic will be forwarded via your normal ISP internet connection.<P>
+                        <P>Disabling VPN service. Network traffic will be forwarded via your normal ISP internet connection.</P>
                 </div>
-		<div class="ButtonSpacer"></div>
+                <div class="ButtonSpacer"></div>
                 <div id="ButtonContainer">
                         <table id="DisableVPNButtonTable">
-			<tr>
-				<td><button id="DisableVPNCancelButton" onclick="hide_disable_vpn();">Cancel</button></td>
-				<td></td>
-                        	<td><button id="DisableVPNContinueButton" onclick="disable_vpn();">Continue</button></td>
-			</tr>
-			</table>
+                        <tr>
+                                <td><button id="DisableVPNCancelButton" onclick="hide_disable_vpn();">Cancel</button></td>
+                                <td></td>
+                                <td><button id="DisableVPNContinueButton" onclick="disable_vpn();">Continue</button></td>
+                        </tr>
+                        </table>
                 </div>
         </div>
 </div>
@@ -152,17 +154,17 @@
                         <H2>Enable VPN<H2>
                 </div>
                 <div id="EnableVPNInfoContainer">
-			<P>Enabling VPN service. Network traffic will be forwarded via your VPN connection.<P>
+                        <P>Enabling VPN service. Network traffic will be forwarded via your VPN connection.</P>
                 </div>
-		<div class="ButtonSpacer"></div>
+                <div class="ButtonSpacer"></div>
                 <div id="ButtonContainer">
                         <table id="EnableVPNButtonTable">
-			<tr>
-				<td><button id="EnableVPNCancelButton" onclick="hide_enable_vpn();">Cancel</button></td>
-				<td></td>
-                        	<td><button id="EnableVPNContinueButton" onclick="enable_vpn();">Continue</button></td>
-			</tr>
-			</table>
+                        <tr>
+                                <td><button id="EnableVPNCancelButton" onclick="hide_enable_vpn();">Cancel</button></td>
+                                <td></td>
+                                <td><button id="EnableVPNContinueButton" onclick="enable_vpn();">Continue</button></td>
+                        </tr>
+                        </table>
                 </div>
         </div>
 </div>
@@ -173,17 +175,17 @@
                         <H2>Disable VPN<H2>
                 </div>
                 <div id="DisableVPNInfoContainer">
-			<P>Disabling VPN service. Network traffic will be forwarded via your normal ISP internet connection.<P>
+                        <P>Disabling VPN service. Network traffic will be forwarded via your normal ISP internet connection.</P>
                 </div>
-		<div class="ButtonSpacer"></div>
+                <div class="ButtonSpacer"></div>
                 <div id="ButtonContainer">
                         <table id="DisableVPNButtonTable">
-			<tr>
-				<td><button id="DisableVPNCancelButton" onclick="hide_disable_vpn();">Cancel</button></td>
-				<td></td>
-                        	<td><button id="DisableVPNContinueButton" onclick="disable_vpn();">Continue</button></td>
-			</tr>
-			</table>
+                        <tr>
+                                <td><button id="DisableVPNCancelButton" onclick="hide_disable_vpn();">Cancel</button></td>
+                                <td></td>
+                                <td><button id="DisableVPNContinueButton" onclick="disable_vpn();">Continue</button></td>
+                        </tr>
+                        </table>
                 </div>
         </div>
 </div>
@@ -194,7 +196,7 @@
                         <H2>Reboot VPN Client Gateway<H2>
                 </div>
                 <div id="RebootInfoContainer">
-                        <P>Rebooting will take approximately 90 seconds. All sessions will be terminated.<P>
+                        <P>Rebooting will take approximately 90 seconds. All sessions will be terminated.</P>
                 </div>
                 <div class="ButtonSpacer"></div>
                 <div id="ButtonContainer">
@@ -215,7 +217,7 @@
                         <H2>Shutdown VPN Client Gateway<H2>
                 </div>
                 <div id="ShutdownInfoContainer">
-                        <P>Proceed with shutting down the VPN Client Gateway server? All network sessions will be terminated.<P>
+                        <P>Proceed with shutting down the VPN Client Gateway server? All network sessions will be terminated.</P>
                 </div>
                 <div class="ButtonSpacer"></div>
                 <div id="ButtonContainer">
@@ -231,147 +233,155 @@
 </div>
 
 <BODY ID="body" LANG="en-CA" DIR="LTR" onload="page_load();">
-<div class="header">
-<H1>VPN Client Gateway Management</H1>
-</div>
+
+        <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                                        <input type="checkbox" id="checkbox" />
+                                        <div class="slider round"></div>
+                </label>
+                <h2>Dark Mode</h2>
+                <h1>VPN Client Gateway Management</h1>
+                </div>
+
 <div id="MainContainer">
-	<div id="NavigationMenu" class="buttonmenu">
-		<ul>
-		<li><a href="javascript:void(0);" onclick="show_basic();">Basic</a></li>
-		<div class="menubuttonspacer"></div>
-		<li><a href="javascript:void(0);" onclick="show_advanced();">Advanced</a></li>
-		<div class="menubuttonspacer"></div>
-		<li><a href="javascript:void(0);" onclick="show_tools();">Tools</a></li>
-		<div class="menubuttonspacer"></div>
-		<li><a href="javascript:void(0);" onclick="show_admin();">Admin</a></li>
-		</ul>
-	</div>
-	<div id="PageContainer">
-		<div id="VPNSection">
-			<div id="CurrentVPNSection">
-				<div id="CurrentVPNServerHeading" class='sectionHeading'>
-					Current VPN server:
-				</div>
-				<div id="CurrentVPNFlag">
-					<h3>requesting data...</h3>
-				</div>
-			</div>
-			<div id="GatewayStatusSection" class='pageContainerSection'>
-				<div class='sectionHeading'>
-					Gateway status:
-				</div>
-				<div id="GatewayStatusOverlay">
-				</div>
-				<div class="StatusTable">
-					<div class="StatusTableRow">
-						<div id='openvpnServiceStatusIcon' class='statusCol1'>
-							openvpn service status icon
-						</div>
-						<div class="statusCol2">
-							VPN service:
-						</div>
-						<div class="statusCol3">
-							<div id='openvpnServiceStatus'>
-						</div>
-						</div>
-						<div class="statusCol4">
-							CPU load:
-						</div>
-						<div class="statusCol5">
-							<div id='cpuUsageValue' class='SystemStatusValue'>
-							</div>
-						</div>
-						<div id='cpuUsageUnit' class="statusCol6">
-							&#37;
-						</div>
-					</div>
-					<div class="StatusTableRow">
-						<div id='openvpnServiceStateIcon' class='statusCol1'>
-							openvpn service state icon
-						</div>
-						<div class="statusCol2">
-							VPN state:
-						</div>
-						<div class="statusCol3">
-							<div id='openvpnServiceState'>
-							</div>
-						</div>
-						<div class="statusCol4">
-							<div class="StatusTableDescription">
-								Memory usage:
-							</div>
-						</div>
-						<div class="statusCol5">
-							<div id='memoryUsageValue' class='SystemStatusValue'>
-							</div>
-						</div>
-						<div id='memoryUsageUnit' class="statusCol6">
-							&#37;
-						</div>
-					</div>
-					<div class="StatusTableRow">
-						<div id='dnsStatusIcon' class='statusCol1'>
-							dns status icon
-						</div>
-						<div class="statusCol2">
-							DNS queries:
-						</div>
-						<div class="statusCol3">
-							<div id='dnsStatus'>
-							</div>
-						</div>
-						<div class="statusCol4">
-							CPU temp:
-						</div>
-						<div class="statusCol5">
-							<div id='cpuTempValue' class='SystemStatusValue'>
-							</div>
-						</div>
-						<div id='cpuTempUnit' class="statusCol6">
-							&#x00B0;C
-						</div>
-					</div>
-					<div class="StatusTableRow">
-						<div id='internetStatusIcon' class='statusCol1'>
-							internet status icon
-						</div>
-						<div class="statusCol2">
-							Internet:
-						</div>
-						<div class="statusCol3">
-							<div id='internetStatus'>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="VPNChooser" class='pageContainerSection'>
-				<div class='sectionHeading'>
-					Choose new VPN server:
-				</div>
-				<div id="ChooseVPNBasic">
-				<h3>requesting data...</h3>
-				</div>
-				<div id="ChooseVPNAdvanced">
-				</div>
-			</div>
-		</div>
-		<div id="Tools">
-			<div id="ToolsMenu" class="buttonmenu">
-			<ul>
-		<li><a href="javascript:void(0);" onclick="show_iplocationinfo();">Get IP address geolocation</a></li>
-		<div class="menubuttonspacer"></div>
-		<li><a href="javascript:void(0);" onclick="show_speedtest();">Speed test</a></li>
-		<div class="menubuttonspacer"></div>
-			<li><a href="javascript:void(0);" onclick="show_traceroute();">Run traceroute</a></li>
-		<div class="menubuttonspacer"></div>
-			<li><a href="javascript:void(0);" onclick="show_syslog();">View syslog</a></li>
-			</ul>
-			</div>
-		</div>
-		<div id="Admin">
-			<div id="AdminMenu" class="buttonmenu">
-			<ul>
+        <div id="NavigationMenu" class="buttonmenu">
+                <ul>
+                <li><a href="javascript:void(0);" onclick="show_basic();">Basic</a></li>
+                <div class="menubuttonspacer"></div>
+                <li><a href="javascript:void(0);" onclick="show_advanced();">Advanced</a></li>
+                <div class="menubuttonspacer"></div>
+                <li><a href="javascript:void(0);" onclick="show_tools();">Tools</a></li>
+                <div class="menubuttonspacer"></div>
+                <li><a href="javascript:void(0);" onclick="show_admin();">Admin</a></li>
+                </ul>
+        </div>
+
+        <div id="PageContainer">
+                <div id="VPNSection">
+                        <div id="CurrentVPNSection">
+                                <div id="CurrentVPNServerHeading" class='sectionHeading'>
+                                        Current VPN server:
+                                </div>
+                                <div id="CurrentVPNFlag">
+                                        <h3>requesting data...</h3>
+                                </div>
+                        </div>
+                        <div id="GatewayStatusSection" class='pageContainerSection'>
+                                <div class='sectionHeading'>
+                                        Gateway status:
+                                </div>
+                                <div id="GatewayStatusOverlay">
+                                </div>
+                                <div class="StatusTable">
+                                        <div class="StatusTableRow">
+                                                <div id='openvpnServiceStatusIcon' class='statusCol1'>
+                                                        openvpn service status icon
+                                                </div>
+                                                <div class="statusCol2">
+                                                        VPN service:
+                                                </div>
+                                                <div class="statusCol3">
+                                                        <div id='openvpnServiceStatus'>
+                                                </div>
+                                                </div>
+                                                <div class="statusCol4">
+                                                        CPU load:
+                                                </div>
+                                                <div class="statusCol5">
+                                                        <div id='cpuUsageValue' class='SystemStatusValue'>
+                                                        </div>
+                                                </div>
+                                                <div id='cpuUsageUnit' class="statusCol6">
+                                                        &#37;
+                                                </div>
+                                        </div>
+                                        <div class="StatusTableRow">
+                                                <div id='openvpnServiceStateIcon' class='statusCol1'>
+                                                        openvpn service state icon
+                                                </div>
+                                                <div class="statusCol2">
+                                                        VPN state:
+                                                </div>
+                                                <div class="statusCol3">
+                                                        <div id='openvpnServiceState'>
+                                                        </div>
+                                                </div>
+                                                <div class="statusCol4">
+                                                        <div class="StatusTableDescription">
+                                                                Memory usage:
+                                                        </div>
+                                                </div>
+                                                <div class="statusCol5">
+                                                        <div id='memoryUsageValue' class='SystemStatusValue'>
+                                                        </div>
+                                                </div>
+                                                <div id='memoryUsageUnit' class="statusCol6">
+                                                        &#37;
+                                                </div>
+                                        </div>
+                                        <div class="StatusTableRow">
+                                                <div id='dnsStatusIcon' class='statusCol1'>
+                                                        dns status icon
+                                                </div>
+                                                <div class="statusCol2">
+                                                        DNS queries:
+                                                </div>
+                                                <div class="statusCol3">
+                                                        <div id='dnsStatus'>
+                                                        </div>
+                                                </div>
+                                                <div class="statusCol4">
+                                                        CPU temp:
+                                                </div>
+                                                <div class="statusCol5">
+                                                        <div id='cpuTempValue' class='SystemStatusValue'>
+                                                        </div>
+                                                </div>
+                                                <div id='cpuTempUnit' class="statusCol6">
+                                                        &#x00B0;C
+                                                </div>
+                                        </div>
+                                        <div class="StatusTableRow">
+                                                <div id='internetStatusIcon' class='statusCol1'>
+                                                        internet status icon
+                                                </div>
+                                                <div class="statusCol2">
+                                                        Internet:
+                                                </div>
+                                                <div class="statusCol3">
+                                                        <div id='internetStatus'>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div id="VPNChooser" class='pageContainerSection'>
+                                <div class='sectionHeading'>
+                                        Choose new VPN server:
+                                </div>
+                                <div id="ChooseVPNBasic">
+                                <h3>requesting data...</h3>
+                                </div>
+                                <div id="ChooseVPNAdvanced">
+                                </div>
+                        </div>
+                </div>
+                <div id="Tools">
+                        <div id="ToolsMenu" class="buttonmenu">
+                        <ul>
+                <li><a href="javascript:void(0);" onclick="show_iplocationinfo();">Get IP address geolocation</a></li>
+                <div class="menubuttonspacer"></div>
+                <li><a href="javascript:void(0);" onclick="show_speedtest();">Speed test</a></li>
+                <div class="menubuttonspacer"></div>
+                        <li><a href="javascript:void(0);" onclick="show_traceroute();">Run traceroute</a></li>
+                <div class="menubuttonspacer"></div>
+                        <li><a href="javascript:void(0);" onclick="show_syslog();">View syslog</a></li>
+                        </ul>
+                        </div>
+                </div>
+                <div id="Admin">
+                        <div id="AdminMenu" class="buttonmenu">
+                        <ul>
                         <div id="EnableVPNMenuButton">
                                 <li><a href="javascript:void(0);" onclick="return show_enable_vpn();">Enable VPN</a></li>
                                 <div class="menubuttonspacer"></div>
@@ -381,13 +391,13 @@
                                 <div class="menubuttonspacer"></div>
                         </div>
                         <!-- <div class="menubuttonspacer"></div> -->
-			<li><a href="javascript:void(0);" onclick="return show_reboot();">Reboot</a></li>
-			<div class="menubuttonspacer"></div>
-			<li><a href="javascript:void(0);" onclick="return show_shutdown();">Shut down</a></li>
-			</ul>
-			</div>
-		</div>
-	</div>
+                        <li><a href="javascript:void(0);" onclick="return show_reboot();">Reboot</a></li>
+                        <div class="menubuttonspacer"></div>
+                        <li><a href="javascript:void(0);" onclick="return show_shutdown();">Shut down</a></li>
+                        </ul>
+                        </div>
+                </div>
+        </div>
 </div>
 <FOOTER>
 <img id="OpenVPNLogo" class="openvpnlogo" src="images/openvpn_logo_powered_by.png" alt="OpenVPN logo"/>

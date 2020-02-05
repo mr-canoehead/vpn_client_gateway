@@ -7,7 +7,7 @@
     --font-color: black;
     --bg-color: #D2D2D2;
     --heading-color: #292922;
-                --font-family: Arial;
+    --font-family: Arial;
 }
 
 [data-theme="dark"] {
@@ -22,17 +22,16 @@
 /* ===== Base Styles ===== */
 
 html {
-        height:100%;
-        min-width:500px;
-        font-family: var(--font-family);
+  height:100%;
+  font-family: var(--font-family);
   color: var(--font-color);
+  font-size: 16px;
 }
 
 body {
   margin:0;
-        padding:0;
+  padding:0;
   height:100%;
-        min-width:500px;
 }
 
 h1 {
@@ -40,52 +39,43 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   color: var(--font-color);
+  font-size: 18px;
 }
 
 p {
-        font-size: 20px;
+  font-size: 16px;
 }
 
 footer {
-        margin-top: 5px;
-        position:relative;
-        height:50px;
-        background-color: var(--bg-color);
-        color:black;
-        text-align:center;
-        vertical-align: middle;
-        padding:0px;
-        z-index: 1;
-}
-
-#MainContainer {
-        display: flex;
-        flex-direction: row;
-        box-sizing: border-box;
-        height:calc(100% - 110px);
-        width: 100%;
-        overflow:hidden;
-        margin-top:5px;
+  margin-top: 5px;
+  position:relative;
+  height: 10%;
+  background-color: var(--bg-color);
+  color:black;
+  text-align:center;
+  vertical-align: middle;
+  padding:0px;
+  z-index: 1;
 }
 
 /* ===== Dark Mode Toggle Switch ===== */
 .theme-switch-wrapper {
   background-color: var(--bg-color);
-  min-width:600px;
-  height: 50px;
-        color: var(--font-color);
+/*  min-width:600px; */
+  height: 38px;
+  color: var(--font-color);
   z-index: 1;
   display: flex;
-        flex-direction: row;
+  flex-direction: row;
   align-items: center;
 }
 
 .theme-switch {
   display: inline-block;
-  height: 34px;
+  height: 24px;
   position: relative;
-  width: 60px;
-  margin-left: 10px;
+  width: 50px;
+  margin-left: 5px;
 }
 
 .theme-switch input {
@@ -104,14 +94,19 @@ footer {
 }
 
 .slider:before {
-  background-color: #fff;
+  background: #fff;
   bottom: 4px;
   content: "";
-  height: 26px;
+  height: 16px;
   left: 4px;
   position: absolute;
   transition: .4s;
-  width: 26px;
+  width: 16px;
+  background: white url('/images/moon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+
 }
 
 input:checked + .slider {
@@ -120,6 +115,10 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+  background: white url('/images/sun.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
 }
 
 .slider.round {
@@ -130,9 +129,8 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.theme-switch-wrapper h2 {
-  margin-left: 10px;
-  font-size: 18px;
+.theme-switch-wrapper p {
+  display: none;
 }
 
 /* ===== Overlay Messages ===== */
@@ -176,16 +174,12 @@ input:checked + .slider:before {
 
 /* ===== Basic Page Styling ===== */
 
-#PageContainer, #VPNSection{
+#PageContainer, #VPNSection {
         display: flex;
         flex-direction: column;
         flex-grow: 100;
         overflow: hidden;
         box-sizing: border-box;
-}
-
-#PageContainer {
-  margin-left: 5px;
 }
 
 #CurrentVPNSection {
@@ -199,7 +193,6 @@ input:checked + .slider:before {
 
 #CurrentVPNFlag table{
     width: 100%;
-    table-layout: fixed;
     text-align: center;
 }
 
@@ -213,7 +206,7 @@ input:checked + .slider:before {
 
 #CurrentVPNFlag p{
 margin-top: 0;
-margin-bottom: 10;
+
 }
 
 #CurrentVPNFlag a{
@@ -222,17 +215,13 @@ margin-bottom: 0;
 }
 
 #GatewayStatusSection {
-        min-width: 600px;
+        max-height: 21.5%;
         box-sizing: border-box;
         background-color: var(--bg-color);
-        padding-bottom:10px;
         margin-top: 5px;
 }
 
 #GatewayStatusOverlay {
-        height:100px;
-        margin-left:10px;
-        margin-right:10px;
         z-index:999;
         background-image: url('/images/status_icons/loading.gif');
         background-repeat:  no-repeat;
@@ -243,55 +232,24 @@ margin-bottom: 0;
 }
 
 .StatusTable {
-        height:100px;
+	position: relative;
+	top: -15px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 95%;
+	display: table;
         background-color: var(--bg-color);
-        margin-top:-100px;
         z-index:1;
         opacity:0;
+	font-size: 14px;
 }
 
-.StatusTableRow{
-        height:25px;
-        max-height:25px;
-        padding-left:0px;
-        margin-left:80px;
+.StatusTable tbody td:nth-child(1) {
+	width: 8%;
 }
 
-.statusCol1{
-        float:left;
-        width:24px;
-}
-
-.statusCol2{
-        float:left;
-        width:120px;
-        font-size:18px;
-        margin-left:5px;
-}
-.statusCol3{
-        float:left;
-        width:130px;
-        text-align:right;
-        font-size:18px;
-}
-
-.statusCol4{
-        float:left;
-        width:130px;
-        font-size:18px;
-        margin-left:40px;
-}
-.statusCol5{
-        float:left;
-        width:40px;
-        text-align:right;
-        font-size:18px;
-}
-.statusCol6{
-        float:left;
-        width:20px;
-        font-size:18px;
-        display:none;
+.StatusTable tbody td:nth-child(5) {
+	text-align: right;
 }
 
 #VPNChooser {
@@ -299,6 +257,7 @@ margin-bottom: 0;
         flex-direction: column;
         flex-grow:100;
         margin-top: 5px;
+	      margin-bottom: 5px;
         box-sizing: border-box;
         background-color: var(--bg-color);
         height: 100%;
@@ -316,6 +275,7 @@ margin-bottom: 0;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
+	      background-color: var(--bg-color);
 }
 
 .basicServersTableRow, .basicServersTableLastRow {
@@ -324,25 +284,20 @@ margin-bottom: 0;
         flex-grow: 100;
         justify-content: space-between;
         box-sizing: border-box;
-        margin-left:50px;
-        margin-right:50px;
+        margin-left:30px;
+        margin-right:30px;
         margin-bottom: 10px;
-}
-
-.basicServersTableLastRow {
-
 }
 
 .basicServersTableCell {
         box-sizing: border-box;
-        width: 150px;
+        width: 250px;
         text-align:center;
         font-family:var(--font-family);
-        font-size:18px;
 }
 
 .basicServersFlag {
-        height:60px;
+        height: 40px;
 }
 
 /* ===== Advanced Menu Styling ===== */
@@ -363,27 +318,26 @@ margin-bottom: 0;
 #NavigationMenu {
         box-sizing: border-box;
         flex-grow:100;
-        min-width:110px;
-        max-width:110px;
+        max-height: 10%;
         background-color: var(--bg-color);
-}
-
-.menubuttonspacer {
-        height:20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
 }
 
 .menubutton {
         width: 100%;
-        vertical-align: middle;
-        padding-left: 10px;
         background-color: var(--bg-color);
 }
 
 .buttonmenu ul {
-margin: 0;
-padding: 0;
+margin: 2px;
+padding: 2px;
+display: flex;
+justify-content: center;
 width:100%;
-float:left;
 height: 100%;
 list-style-type: none;
 }
@@ -408,13 +362,14 @@ color: white;
 border-style:solid;
 border-color:white;
 border-width:2px;
+
 }
 
 /* ===== Tools Menu Styling ===== */
 
 #Tools{
         display:none;
-        height:100vh;
+        height:80vh;
         background-color: var(--bg-color);
 }
 
@@ -425,10 +380,13 @@ border-width:2px;
 }
 
 #ToolsMenu{
-        height: 100%;
         width:98%;
-        margin-left:1%;
         padding-top:10px;
+}
+
+#ToolsMenu ul {
+	display: block;
+
 }
 
 /* Get IP Address Geolocation */
@@ -438,14 +396,11 @@ border-width:2px;
 }
 
 #IPInfoBox {
-    width: 440px;
+    width: 90%;
     height: 335px;
-    line-height: 20px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -220px;
+    top: 25%;
+    left: 5%;
     background-color: var(--bg-color);
     border-radius: 5px;
     line-height: 50%;
@@ -495,7 +450,7 @@ border-width:2px;
 /* Speed test */
 
 #SpeedtestInfoBox {
-    width: 600px;
+    width: 90%;
     height: 400px;
     line-height: 20px;
     position: fixed;
@@ -572,7 +527,7 @@ border-width:2px;
 }
 
 #TracerouteInfoBox {
-    width: 800px;
+    width: 90%;
     height: 400px;
     line-height: 20px;
     position: fixed;
@@ -654,15 +609,18 @@ border-width:2px;
 /* ===== Admin Menu Styling ===== */
 
 #AdminMenu{
-        height: 100%;
+        height: 80vh;
         width:98%;
-        margin-left:1%;
         padding-top:10px;
+}
+
+#AdminMenu ul {
+	display: block;
 }
 
 #Admin{
         display:none;
-        height:100vh;
+        height:80vh;
         background-color: var(--bg-color);
 }
 
@@ -675,14 +633,11 @@ border-width:2px;
 /* Disable VPN */
 
 #DisableVPNInfoBox {
-    width: 400px;
+    width: 90%;
     height: 250px;
-    line-height: 50px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
+    top: 25%;
+    left: 5%;
     background-color: var(--bg-color);
     border-radius: 5px;
     line-height: 50%;
@@ -704,7 +659,7 @@ border-width:2px;
 }
 
 #DisableVPNButtonTable {
-    width: 100%;
+    width: 90%;
     table-layout: fixed;
     text-align: center;
     margin-bottom: 20px;
@@ -713,14 +668,11 @@ border-width:2px;
 /* Enable VPN */
 
 #EnableVPNInfoBox {
-    width: 400px;
+    width: 90%;
     height: 250px;
-    line-height: 50px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
+    top: 25%;
+    left: 5%;
     background-color: var(--bg-color);
     border-radius: 5px;
     line-height: 50%;
@@ -742,7 +694,7 @@ border-width:2px;
 }
 
 #EnableVPNButtonTable {
-    width: 100%;
+    width: 90%;
     table-layout: fixed;
     text-align: center;
     margin-bottom: 20px;
@@ -751,14 +703,11 @@ border-width:2px;
 /* Reboot */
 
 #RebootInfoBox {
-    width: 400px;
+    width: 90%;
     height: 250px;
-    line-height: 50px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
+    top: 25%;
+    left: 5%;
     background-color: var(--bg-color);
     border-radius: 5px;
     line-height: 50%;
@@ -780,7 +729,7 @@ border-width:2px;
 }
 
 #RebootButtonTable {
-    width: 100%;
+    width: 90%;
     table-layout: fixed;
     text-align: center;
     margin-bottom: 20px;
@@ -789,17 +738,13 @@ border-width:2px;
 /* Shutdown */
 
 #ShutdownInfoBox {
-    width: 400px;
+    width: 90%;
     height: 250px;
-    line-height: 50px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -125px;
-    margin-left: -200px;
+    top: 25%;
+    left: 5%;
     background-color: var(--bg-color);
     border-radius: 5px;
-    line-height: 50%;
     text-align: left;
     z-index: 11; /* 1px higher than the overlay layer */
 
@@ -819,7 +764,7 @@ border-width:2px;
 }
 
 #ShutdownButtonTable {
-    width: 100%;
+    width: 90%;
     table-layout: fixed;
     text-align: center;
         margin-bottom: 20px;
@@ -829,43 +774,41 @@ border-width:2px;
 
 #VPNDisabledWarningIcon{
         content:url(/images/status_icons/Warning-icon-hi.png);
-        height: 10px;
 }
 
 #OpenVPNLogo {
         position:relative;
         float: right;
-        width: 181px;
-        height: 47px;
+	      width: 35%;
         z-index: 99;
 }
 
 .warnIcon{
-  height: 20px;
   background: url('/images/status_icons/warn20.png');
   background-repeat:no-repeat;
-  text-indent: -9999px;
+  background-position: center;
+  background-size: 80%;
 }
 
 .okIcon{
-  height: 20px;
   background: url('/images/status_icons/ok20.png');
   background-repeat:no-repeat;
-  text-indent: -9999px;
+  background-position: center;
+  background-size: 80%;
 }
 
 .disabledIcon{
-  height: 20px;
   background: url('/images/status_icons/disabled20.png');
   background-repeat:no-repeat;
-  text-indent: -9999px;
+  background-position: center;
+  background-size: 80%;
 }
 
 .loadingIcon{
-  height: 20px;
   background: url('/images/status_icons/loading20.gif');
   background-repeat:no-repeat;
-  text-indent: -9999px;
+  background-position: center;
+  background-size: 80%;
 }
 
 .showLoadingIcon {
@@ -874,12 +817,16 @@ border-width:2px;
     background-position: center;
 }
 
+#GatewayStatusSection .sectionHeading {
+    padding-bottom: 20px;
+}
+
+
 .sectionHeading {
         font-weight:bold;
-        font-size: 22px;
         padding-top: 10px;
         padding-left: 10px;
-        padding-bottom: 20px;
+        padding-bottom: 5px;
 }
 
 .sectionSpacer {
@@ -934,10 +881,191 @@ border-width:2px;
 
 .ChoicesTable p{
         margin-top: 0;
-        margin-bottom: 10;
 }
 
 .ChoicesTable a{
         margin-top: 0;
         margin-bottom: 0;
+}
+
+/* landscape mode adjustments */
+@media screen and (orientation: landscape) {
+
+  #TracerouteInfoBox, #IPInfoBox, #SpeedtestInfoBox {
+    height: 90%;
+  }
+
+  #IPInfoBox {
+    top: 5%;
+  }
+
+  #syslogData {
+    font-size: 10px;
+  }
+
+  #OpenVPNLogo {
+    width: 25%;
+  }
+}
+
+/* Tablet Size */
+@media screen and (min-width: 600px) {
+
+/* Move Nav Bar back to the left */
+  #MainContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    box-sizing: border-box;
+    height:calc(100% - 110px);
+    width: 100%;
+    overflow:hidden;
+    margin-top:5px;
+  }
+
+  #NavigationMenu {
+    min-width: 110px;
+    height: 100vh;
+    max-height: max-content;
+    margin-right: 5px;
+    margin-top: 0;
+    flex-grow: unset;
+
+  }
+
+  .buttonmenu ul {
+    width: 110px;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
+
+  #OpenVPNLogo {
+    margin-top: 5px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+/* Auto Scroll Adjustments */
+  #PageContainer {
+    overflow: auto;
+    height: 100vh;
+  }
+
+  #ChooseVPNAdvanced {
+    overflow: auto;
+    max-height: 40%;
+  }
+
+  #Tools, #Admin {
+    height: 100vh;
+  }
+
+  #ToolsMenu ul, #AdminMenu ul {
+    width: 100%;
+    text-align: center;
+  }
+
+  #syslogData {
+    font-size: 16px;
+  }
+}
+
+/* Larger Tablets */
+@media screen and (min-width : 768px) {
+  html {
+    font-size: 18px;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .theme-switch-wrapper p {
+    margin-left: 5px;
+    font-weight: bold;
+    display: block;
+  }
+
+  .StatusTable {
+    font-size: 16px;
+  }
+
+  .StatusTable tbody td:nth-child(3) {
+        padding-right: 90px;
+  }
+
+  .warnIcon, .disabledIcon, .okIcon, .loadingIcon {
+    background-size: 60%;
+  }
+
+  #CurrentVPNFlagImage {
+    height: 100px;
+  }
+
+  .basicServersFlag {
+    height: 60px;
+  }
+
+  .basicServersTableRow {
+     margin-top: 5px;
+     margin-bottom: 30px;
+  }
+
+  .basicServersTableLastRow {
+    margin-bottom: 5px;
+  }
+
+  #ChooseVPNAdvanced {
+    max-height: 50%;
+    font-size: 14px;
+  }
+
+  footer {
+    height: 7%;
+  }
+
+  #OpenVPNLogo {
+    width: 30%;
+  }
+}
+
+/* Mid to large size screens */
+@media screen and (min-width : 75em) {
+  html {
+    font-size: 20px;
+  }
+
+  p, .StatusTable {
+    font-size: 18px;
+  }
+  .StatusTable tbody td:nth-child(3) {
+    padding-right: 180px;
+  }
+
+  #NavigationMenu {
+    min-width: 150px;
+  }
+
+  .buttonmenu ul {
+    width: 150px;
+  }
+
+  #ChooseVPNAdvanced {
+    max-height: 45%;
+  }
+
+  #OpenVPNLogo {
+    width: 10%;
+  }
+
+  .warnIcon, .disabledIcon, .okIcon, .loadingIcon {
+    background-size: 50%;
+  }
 }

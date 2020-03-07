@@ -61,6 +61,8 @@ function statusUpdate(status_json) {
 			st[i].style.opacity='1';
 		}
 	document.getElementById('GatewayStatusOverlay').style.opacity='0';
+	// reset height after loading is finished
+  document.getElementById('GatewayStatusOverlay').style.height='unset';
 	var vpnserver_cookie_val = getCookie("vpnserver");
 	var vpnstate_cookie_val = (getCookie("vpnstate") == 'true');
 	// process status updates sent from server via SocketIO message
@@ -169,6 +171,8 @@ function clearStatus() {
 			st[i].style.opacity='0';
 		}
 	document.getElementById('GatewayStatusOverlay').style.opacity='1';
+	// put height back so you can see loading gif
+  document.getElementById('GatewayStatusOverlay').style.height='100px';
 }
 
 // force browser to load stylesheet (instead of using cached version),
@@ -721,12 +725,16 @@ function hide_syslog() {
 function show_basic() {
 	get_current_vpn_server();
 	get_basic_vpn_servers();
+	// don't show scrollbar for basic servers
+  document.getElementById("VPNSection").style.overflow = "initial";
 	show_element(["VPNSection","ChooseVPNBasic"]);
 	hide_element(["Admin","Tools","ChooseVPNAdvanced"]);
 }
 
 function show_advanced() {
 	get_advanced_vpn_servers();
+	// show scrollbar for only advanced servers screen
+	document.getElementById("VPNSection").style.overflow = "auto";
 	show_element(["VPNSection","ChooseVPNAdvanced"]);
 	hide_element(["Admin","Tools","ChooseVPNBasic"]);
 }

@@ -22,16 +22,16 @@
 /* ===== Base Styles ===== */
 
 html {
-  height:100%;
+  min-height: 100vh;
   font-family: var(--font-family);
   color: var(--font-color);
   font-size: 16px;
 }
 
 body {
-  margin:0;
-  padding:0;
-  height:100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 h1 {
@@ -47,15 +47,12 @@ p {
 }
 
 footer {
-  margin-top: 5px;
-  position:relative;
-  height: 10%;
+  position: static;
+  height: 38px;
   background-color: var(--bg-color);
-  color:black;
-  text-align:center;
-  vertical-align: middle;
-  padding:0px;
-  z-index: 1;
+  clear: both;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 /* ===== Dark Mode Toggle Switch ===== */
@@ -174,6 +171,10 @@ input:checked + .slider:before {
 
 /* ===== Basic Page Styling ===== */
 
+#MainContainer {
+        overflow: hidden;
+}
+
 #PageContainer, #VPNSection {
         display: flex;
         flex-direction: column;
@@ -206,7 +207,6 @@ input:checked + .slider:before {
 
 #CurrentVPNFlag p{
 margin-top: 0;
-
 }
 
 #CurrentVPNFlag a{
@@ -222,13 +222,14 @@ margin-bottom: 0;
 }
 
 #GatewayStatusOverlay {
-        z-index:999;
+        height: 100px;
+        z-index: 999;
         background-image: url('/images/status_icons/loading.gif');
         background-repeat:  no-repeat;
         background-position: center;
         background-color: var(--bg-color);
         border-radius: 10px;
-        opacity:1;
+        opacity: 1;
 }
 
 .StatusTable {
@@ -260,7 +261,6 @@ margin-bottom: 0;
 	      margin-bottom: 5px;
         box-sizing: border-box;
         background-color: var(--bg-color);
-        height: 100%;
 }
 
 #ChooseVPNBasic {
@@ -306,7 +306,7 @@ margin-bottom: 0;
         padding-left: 10px;
         display:none;
         font-size: 12px;
-        overflow: auto;
+        padding-bottom: 10px;
 }
 
 #ChooseVPNAdvanced p{
@@ -371,6 +371,7 @@ border-width:2px;
         display:none;
         height:80vh;
         background-color: var(--bg-color);
+        margin-bottom: 5px;
 }
 
 #Tools h2{
@@ -622,6 +623,7 @@ border-width:2px;
         display:none;
         height:80vh;
         background-color: var(--bg-color);
+        margin-bottom: 5px;
 }
 
 #Admin h2{
@@ -779,7 +781,8 @@ border-width:2px;
 #OpenVPNLogo {
         position:relative;
         float: right;
-	      width: 35%;
+	      width: 181px;
+        height: auto;
         z-index: 99;
 }
 
@@ -903,8 +906,17 @@ border-width:2px;
     font-size: 10px;
   }
 
-  #OpenVPNLogo {
-    width: 25%;
+  #MainContainer {
+    overflow: auto;
+    height: unset;
+  }
+
+  #VPNSection {
+    overflow: auto;
+  }
+
+  #GatewayStatusSection {
+    max-height: initial;
   }
 }
 
@@ -917,10 +929,10 @@ border-width:2px;
     flex-direction: row;
     align-items: flex-start;
     box-sizing: border-box;
-    height:calc(100% - 110px);
+    height: calc(100% - 76px); /* offset for header and footer */
     width: 100%;
-    overflow:hidden;
-    margin-top:5px;
+    overflow: hidden;
+    margin-top: 5px;
   }
 
   #NavigationMenu {
@@ -939,31 +951,45 @@ border-width:2px;
     justify-content: start;
   }
 
-  footer {
-    flex-shrink: 0;
-  }
-
-  #OpenVPNLogo {
-    margin-top: 5px;
-  }
-
   h1 {
     font-size: 22px;
   }
 
+  footer {
+    margin-top: 5px;
+  }
+
+  .basicServersFlag {
+	    height: 60px;
+	  }
+
+	  .basicServersTableRow {
+	    margin-top: 5px;
+	    margin-bottom: 30px;
+	  }
+
+	  .basicServersTableLastRow {
+	    margin-bottom: 5px;
+	  }
+
+	  #VPNChooser {
+	    height: 100vh;
+	    margin-bottom: 0;
+	  }
+
 /* Auto Scroll Adjustments */
   #PageContainer {
-    overflow: auto;
+    overflow: hidden;
     height: 100vh;
   }
 
   #ChooseVPNAdvanced {
-    overflow: auto;
-    max-height: 40%;
+    background-color: var(--bg-color);
   }
 
   #Tools, #Admin {
     height: 100vh;
+    margin-bottom: 0;
   }
 
   #ToolsMenu ul, #AdminMenu ul {
@@ -980,7 +1006,6 @@ border-width:2px;
 @media screen and (min-width : 768px) {
   html {
     font-size: 18px;
-    overflow: hidden;
   }
 
   h1 {
@@ -1005,34 +1030,8 @@ border-width:2px;
     background-size: 60%;
   }
 
-  #CurrentVPNFlagImage {
-    height: 100px;
-  }
-
-  .basicServersFlag {
-    height: 60px;
-  }
-
-  .basicServersTableRow {
-     margin-top: 5px;
-     margin-bottom: 30px;
-  }
-
-  .basicServersTableLastRow {
-    margin-bottom: 5px;
-  }
-
   #ChooseVPNAdvanced {
     max-height: 50%;
-    font-size: 14px;
-  }
-
-  footer {
-    height: 7%;
-  }
-
-  #OpenVPNLogo {
-    width: 30%;
   }
 }
 
@@ -1057,15 +1056,15 @@ border-width:2px;
     width: 150px;
   }
 
-  #ChooseVPNAdvanced {
-    max-height: 45%;
-  }
-
-  #OpenVPNLogo {
-    width: 10%;
-  }
-
   .warnIcon, .disabledIcon, .okIcon, .loadingIcon {
     background-size: 50%;
+  }
+
+  #CurrentVPNFlagImage {
+  height: 100px;
+  }
+
+.basicServersFlag {
+  height: 80px;
   }
 }

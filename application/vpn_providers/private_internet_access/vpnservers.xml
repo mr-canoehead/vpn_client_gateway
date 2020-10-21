@@ -1,276 +1,495 @@
 <vpnserverinfo>
   <basicvpnservers>
-	<servername>ca-montreal.privateinternetaccess.com</servername>
-        <servername>us-west.privateinternetaccess.com</servername>
-        <servername>uk-london.privateinternetaccess.com</servername>
-        <servername>au-melbourne.privateinternetaccess.com</servername>
-        <servername>sweden.privateinternetaccess.com</servername>
-        <servername>nl.privateinternetaccess.com</servername>
-        <servername>france.privateinternetaccess.com</servername>
-        <servername>de-frankfurt.privateinternetaccess.com</servername>
-        <servername>swiss.privateinternetaccess.com</servername>
+	<servername>ca-montreal.privacy.network</servername>
+        <servername>us-siliconvalley.privacy.network</servername>
+        <servername>uk-london.privacy.network</servername>
+        <servername>aus-melbourne.privacy.network</servername>
+        <servername>sweden.privacy.network</servername>
+        <servername>nl-amsterdam.privacy.network</servername>
+        <servername>france.privacy.network</servername>
+        <servername>de-frankfurt.privacy.network</servername>
+        <servername>swiss.privacy.network</servername>
   </basicvpnservers>
   <vpnservers>
     <vpnserver>
-      <servername>us-lasvegas.privateinternetaccess.com</servername>
+      <servername>us-lasvegas.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Las Vegas NV</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-florida.privateinternetaccess.com</servername>
+      <servername>us-florida.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Miami FL</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>no.privateinternetaccess.com</servername>
+      <servername>no.privacy.network</servername>
       <countryname>Norway</countryname>
       <regionname>Oslo</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>italy.privateinternetaccess.com</servername>
+      <servername>italy.privacy.network</servername>
       <countryname>Italy</countryname>
       <regionname>Milan</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-newyorkcity.privateinternetaccess.com</servername>
+      <servername>us-newyorkcity.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>New York</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>au-melbourne.privateinternetaccess.com</servername>
+      <servername>aus-melbourne.privacy.network</servername>
       <countryname>Australia</countryname>
       <regionname>Melbourne VIC</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>uk-southampton.privateinternetaccess.com</servername>
+      <servername>uk-southampton.privacy.network</servername>
       <countryname>United Kingdom</countryname>
       <regionname>Southampton</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>spain.privateinternetaccess.com</servername>
+      <servername>spain.privacy.network</servername>
       <countryname>Spain</countryname>
       <regionname>Madrid</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-chicago.privateinternetaccess.com</servername>
+      <servername>us-chicago.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Chicago IL</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-seattle.privateinternetaccess.com</servername>
+      <servername>us-seattle.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Seattle WA</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>ca-montreal.privateinternetaccess.com</servername>
+      <servername>ca-montreal.privacy.network</servername>
       <countryname>Canada</countryname>
       <regionname>Montreal</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>mexico.privateinternetaccess.com</servername>
+      <servername>mexico.privacy.network</servername>
       <countryname>Mexico</countryname>
       <regionname>Mexico City</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>au-sydney.privateinternetaccess.com</servername>
+      <servername>au-sydney.privacy.network</servername>
       <countryname>Australia</countryname>
       <regionname>Sydney NSW</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>de-frankfurt.privateinternetaccess.com</servername>
+      <servername>de-frankfurt.privacy.network</servername>
       <countryname>Germany</countryname>
       <regionname>Frankfurt</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-denver.privateinternetaccess.com</servername>
+      <servername>us-denver.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Denver CO</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>sweden.privateinternetaccess.com</servername>
+      <servername>sweden.privacy.network</servername>
       <countryname>Sweden</countryname>
       <regionname>Stockholm</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>swiss.privateinternetaccess.com</servername>
+      <servername>swiss.privacy.network</servername>
       <countryname>Switzerland</countryname>
       <regionname>Zurich</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>de-berlin.privateinternetaccess.com</servername>
+      <servername>de-berlin.privacy.network</servername>
       <countryname>Germany</countryname>
       <regionname>Berlin</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-california.privateinternetaccess.com</servername>
+      <servername>us-california.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>California CA</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-houston.privateinternetaccess.com</servername>
+      <servername>us-houston.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Houston TX</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>hk.privateinternetaccess.com</servername>
+      <servername>hk.privacy.network</servername>
       <countryname>Hong Kong</countryname>
       <regionname></regionname>
     </vpnserver>
     <vpnserver>
-      <servername>czech.privateinternetaccess.com</servername>
+      <servername>czech.privacy.network</servername>
       <countryname>Czech Republic</countryname>
       <regionname></regionname>
     </vpnserver>
     <vpnserver>
-      <servername>au-perth.privateinternetaccess.com</servername>
+      <servername>aus-perth.privacy.network</servername>
       <countryname>Australia</countryname>
       <regionname>Perth WA</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-atlanta.privateinternetaccess.com</servername>
+      <servername>us-atlanta.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Atlanta GA</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>poland.privateinternetaccess.com</servername>
+      <servername>poland.privacy.network</servername>
       <countryname>Poland</countryname>
       <regionname>Warsaw</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-east.privateinternetaccess.com</servername>
+      <servername>us-newjersey.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>New Jersey</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>uk-manchester.privateinternetaccess.com</servername>
+      <servername>uk-manchester.privacy.network</servername>
       <countryname>United Kingdom</countryname>
       <regionname>Manchester</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>ireland.privateinternetaccess.com</servername>
+      <servername>ireland.privacy.network</servername>
       <countryname>Ireland</countryname>
       <regionname>Dublin</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>ca-vancouver.privateinternetaccess.com</servername>
+      <servername>ca-vancouver.privacy.network</servername>
       <countryname>Canada</countryname>
       <regionname>Vancouver</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-texas.privateinternetaccess.com</servername>
+      <servername>us-texas.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Plano TX</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>japan.privateinternetaccess.com</servername>
+      <servername>japan.privacy.network</servername>
       <countryname>Japan</countryname>
       <regionname>Tokyo</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-west.privateinternetaccess.com</servername>
+      <servername>us3.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Phoenix AZ</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>uk-london.privateinternetaccess.com</servername>
+      <servername>uk-london.privacy.network</servername>
       <countryname>United Kingdom</countryname>
       <regionname>London</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>in.privateinternetaccess.com</servername>
+      <servername>in.privacy.network</servername>
       <countryname>India</countryname>
       <regionname>New Delhi</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>hungary.privateinternetaccess.com</servername>
+      <servername>hungary.privacy.network</servername>
       <countryname>Hungary</countryname>
       <regionname>Budapest</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-siliconvalley.privateinternetaccess.com</servername>
+      <servername>us-siliconvalley.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Silicon Valley CA</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>za.privateinternetaccess.com</servername>
+      <servername>za.privacy.network</servername>
       <countryname>South Africa</countryname>
       <regionname></regionname>
     </vpnserver>
     <vpnserver>
-      <servername>denmark.privateinternetaccess.com</servername>
+      <servername>denmark.privacy.network</servername>
       <countryname>Denmark</countryname>
       <regionname>Copenhagen</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>belgium.privateinternetaccess.com</servername>
+      <servername>brussels.privacy.network</servername>
       <countryname>Belgium</countryname>
       <regionname>Brussels</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>ro.privateinternetaccess.com</servername>
+      <servername>ro.privacy.network</servername>
       <countryname>Romania</countryname>
       <regionname>Bucharest</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>sg.privateinternetaccess.com</servername>
+      <servername>sg.privacy.network</servername>
       <countryname>Singapore</countryname>
       <regionname></regionname>
     </vpnserver>
     <vpnserver>
-      <servername>ca-toronto.privateinternetaccess.com</servername>
+      <servername>ca-toronto.privacy.network</servername>
       <countryname>Canada</countryname>
       <regionname>Toronto</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>us-washingtondc.privateinternetaccess.com</servername>
+      <servername>ca-ontario.privacy.network</servername>
+      <countryname>Canada</countryname>
+      <regionname>Ontario</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>us-washingtondc.privacy.network</servername>
       <countryname>United States</countryname>
       <regionname>Washington DC</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>fi.privateinternetaccess.com</servername>
+      <servername>fi.privacy.network</servername>
       <countryname>Finland</countryname>
       <regionname>Helsinki</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>israel.privateinternetaccess.com</servername>
+      <servername>israel.privacy.network</servername>
       <countryname>Israel</countryname>
       <regionname>Tel Aviv</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>lu.privateinternetaccess.com</servername>
+      <servername>lu.privacy.network</servername>
       <countryname>Luxembourg</countryname>
       <regionname></regionname>
     </vpnserver>
     <vpnserver>
-      <servername>brazil.privateinternetaccess.com</servername>
+      <servername>br.privacy.network</servername>
       <countryname>Brazil</countryname>
       <regionname>Sau Paulo</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>nz.privateinternetaccess.com</servername>
+      <servername>nz.privacy.network</servername>
       <countryname>New Zealand</countryname>
       <regionname>Auckland</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>nl.privateinternetaccess.com</servername>
+      <servername>nl-amsterdam.privacy.network</servername>
       <countryname>Netherlands</countryname>
-      <regionname>Rotterdam</regionname>
+      <regionname>Amsterdam</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>austria.privateinternetaccess.com</servername>
+      <servername>austria.privacy.network</servername>
       <countryname>Austria</countryname>
       <regionname>Vienna</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>france.privateinternetaccess.com</servername>
+      <servername>france.privacy.network</servername>
       <countryname>France</countryname>
       <regionname>Paris</regionname>
     </vpnserver>
     <vpnserver>
-      <servername>ae.privateinternetaccess.com</servername>
+      <servername>ae.privacy.network</servername>
       <countryname>United Arab Emirates</countryname>
       <regionname>Dubai</regionname>
     </vpnserver>
+    <vpnserver>
+      <servername>ad.privacy.network</servername>
+      <countryname>Andorra</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>yerevan.privacy.network</servername>
+      <countryname>Armenia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>cyprus.privacy.network</servername>
+      <countryname>Cyprus</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>dz.privacy.network</servername>
+      <countryname>Algeria</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>georgia.privacy.network</servername>
+      <countryname>Georgia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>greenland.privacy.network</servername>
+      <countryname>Greenland</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>man.privacy.network</servername>
+      <countryname>Isle of Man</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>dz.privacy.network</servername>
+      <countryname>Algeria</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>kazakhstan.privacy.network</servername>
+      <countryname>Kazakhstan</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>liechtenstein.privacy.network</servername>
+      <countryname>Liechtenstein</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>srilanka.privacy.network</servername>
+      <countryname>Sri Lanka</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>morocco.privacy.network</servername>
+      <countryname>Morocco</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>monaco.privacy.network</servername>
+      <countryname>Monaco</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>montenegro.privacy.network</servername>
+      <countryname>Montenegro</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>malta.privacy.network</servername>
+      <countryname>Malta</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>panama.privacy.network</servername>
+      <countryname>Panama</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>qatar.privacy.network</servername>
+      <countryname>Qatar</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>saudiarabia.privacy.network</servername>
+      <countryname>Saudi Arabia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>venezuela.privacy.network</servername>
+      <countryname>Venezuela</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bahamas.privacy.network</servername>
+      <countryname>Bahamas</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>pt.privacy.network</servername>
+      <countryname>Portugal</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>egypt.privacy.network</servername>
+      <countryname>Egypt</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>is.privacy.network</servername>
+      <countryname>Iceland</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>cambodia.privacy.network</servername>
+      <countryname>Cambodia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>philippines.privacy.network</servername>
+      <countryname>Philippines</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sk.privacy.network</servername>
+      <countryname>Slovakia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>tr.privacy.network</servername>
+      <countryname>Turkey</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>taiwan.privacy.network</servername>
+      <countryname>Taiwan</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ua.privacy.network</servername>
+      <countryname>Ukraine</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vietnam.privacy.network</servername>
+      <countryname>Viet Nam</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sofia.privacy.network</servername>
+      <countryname>Bulgaria</countryname>
+      <regionname>Sofia</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ba.privacy.network</servername>
+      <countryname>Bosnia and Herzegovina</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>gr.privacy.network</servername>
+      <countryname>Greece</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>lt.privacy.network</servername>
+      <countryname>Lithuania</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ar.privacy.network</servername>
+      <countryname>Argentina</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>nigeria.privacy.network</servername>
+      <countryname>Nigeria</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>al.privacy.network</servername>
+      <countryname>Albania</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>china.privacy.network</servername>
+      <countryname>China</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ee.privacy.network</servername>
+      <countryname>Estonia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>lv.privacy.network</servername>
+      <countryname>Latvia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>md.privacy.network</servername>
+      <countryname>Moldova</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>mk.privacy.network</servername>
+      <countryname>North Macedonia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>rs.privacy.network</servername>
+      <countryname>Serbia</countryname>
+      <regionname></regionname>
+    </vpnserver>
   </vpnservers>
 </vpnserverinfo>
-

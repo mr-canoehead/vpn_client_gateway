@@ -20,7 +20,7 @@ SERVERS_VPN_CONNECTED=(10.0.0.243)
 ### DNS servers to use when VPN is not connected
 
 #Cloudflare
-SERVERS_VPN_DISCONNECTED=(1.1.1.1 2.2.2.2)
+SERVERS_VPN_DISCONNECTED=(1.1.1.1 1.0.0.1)
 
 #Google
 #SERVERS_VPN_DISCONNECTED=(8.8.8.8 8.8.4.4)

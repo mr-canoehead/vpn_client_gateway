@@ -21,19 +21,19 @@ def host_os_type():
         return host_os_type
 
 def stop_service(service_name):
-	cmd = 'sudo service %s stop' % service_name
+	cmd = 'sudo systemctl stop %s' % service_name
         p = subprocess.Popen(cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, err = p.communicate()
         return output
 
 def start_service(service_name):
-	cmd = 'sudo service %s start' % service_name
+	cmd = 'sudo systemctl start %s' % service_name
         p = subprocess.Popen(cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, err = p.communicate()
         return output
 
 def restart_service(service_name):
-	cmd = 'sudo service %s restart' % service_name
+	cmd = 'sudo systemctl restart %s' % service_name
         p = subprocess.Popen(cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, err = p.communicate()
         return output
@@ -43,7 +43,7 @@ def disable_service(service_name):
 	if os_type == 'alpine':
 		disable_service_cmd = 'sudo rc-update del %s' % service_name
 	else:
-		disable_service_cmd = 'sudo update-rc.d %s disable' % service_name
+		disable_service_cmd = 'sudo systemctl disable %s' % service_name
         p = subprocess.Popen(disable_service_cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, err = p.communicate()
         return output
@@ -53,13 +53,13 @@ def enable_service(service_name):
         if os_type == 'alpine':
         	enable_service_cmd = 'sudo rc-update add %s' % service_name
         else:
-                enable_service_cmd = 'sudo update-rc.d %s enable' % service_name
+                enable_service_cmd = 'sudo systemctl enable %s' % service_name
         p = subprocess.Popen(enable_service_cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, err = p.communicate()
         return output
 
 def service_active(service_name):
-        cmd = 'sudo service %s status' % service_name
+        cmd = 'sudo systemctl status  %s' % service_name
         p = subprocess.Popen(cmd,shell=True,executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, err = p.communicate()
         if ('Active: active' in output) or ('is running' in output) or ('started' in output):

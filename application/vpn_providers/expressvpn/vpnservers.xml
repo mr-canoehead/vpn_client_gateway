@@ -1,0 +1,695 @@
+<vpnserverinfo>
+  <basicvpnservers>
+        <servername>canada-montreal-ca-version-2.expressnetw.com</servername>
+        <servername>usa-sanfrancisco-ca-version-2.expressnetw.com</servername>
+        <servername>uk-london-ca-version-2.expressnetw.com</servername>
+        <servername>australia-melbourne-ca-version-2.expressnetw.com</servername>
+        <servername>sweden-ca-version-2.expressnetw.com</servername>
+        <servername>netherlands-amsterdam-ca-version-2.expressnetw.com</servername>
+        <servername>france-paris-1-ca-version-2.expressnetw.com</servername>
+        <servername>germany-frankfurt-1-ca-version-2.expressnetw.com</servername>
+        <servername>switzerland-ca-version-2.expressnetw.com</servername>
+  </basicvpnservers>
+  <vpnservers>
+    <vpnserver>
+      <servername>albania-ca-version-2.expressnetw.com</servername>
+      <countryname>Albania</countryname>
+      <regionname>Tirana</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>algeria-ca-version-2.expressnetw.com</servername>
+      <countryname>Algeria</countryname>
+      <regionname>Algiers</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>andorra-ca-version-2.expressnetw.com</servername>
+      <countryname>Andorra</countryname>
+      <regionname>Santa Coloma</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>argentina-ca-version-2.expressnetw.com</servername>
+      <countryname>Argentina</countryname>
+      <regionname>Buenos Aires</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>armenia-ca-version-2.expressnetw.com</servername>
+      <countryname>Armenia</countryname>
+      <regionname>Yerevan</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>australia-brisbane-ca-version-2.expressnetw.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Brisbane</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>australia-melbourne-ca-version-2.expressnetw.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Melbourne</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>australia-perth-ca-version-2.expressnetw.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Perth</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>australia-sydney-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Sydney #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>australia-sydney-ca-version-2.expressnetw.com</servername>
+      <countryname>Australia</countryname>
+      <regionname>Sydney</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>austria-ca-version-2.expressnetw.com</servername>
+      <countryname>Austria</countryname>
+      <regionname>Vienna</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>azerbaijan-ca-version-2.expressnetw.com</servername>
+      <countryname>Azerbaijan</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bahamas-ca-version-2.expressnetw.com</servername>
+      <countryname>Bahamas</countryname>
+      <regionname>Nassau</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bangladesh-ca-version-2.expressnetw.com</servername>
+      <countryname>Bangladesh</countryname>
+      <regionname>Dhaka</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>belarus-ca-version-2.expressnetw.com</servername>
+      <countryname>Belarus</countryname>
+      <regionname>Minsk</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>belgium-ca-version-2.expressnetw.com</servername>
+      <countryname>Belgium</countryname>
+      <regionname>Brussels</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bhutan-ca-version-2.expressnetw.com</servername>
+      <countryname>Bhutan</countryname>
+      <regionname>Thimphu</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bosniaandherzegovina-ca-version-2.expressnetw.com</servername>
+      <countryname>Bosnia and Herzegovina</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>brazil-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Brazil</countryname>
+      <regionname>Sao Paulo #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>brazil-ca-version-2.expressnetw.com</servername>
+      <countryname>Brazil</countryname>
+      <regionname>Sao Paulo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>brunei-ca-version-2.expressnetw.com</servername>
+      <countryname>Brunei</countryname>
+      <regionname>Bandar Seri Begawan</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>bulgaria-ca-version-2.expressnetw.com</servername>
+      <countryname>Bulgaria</countryname>
+      <regionname>Sofia</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>cambodia-ca-version-2.expressnetw.com</servername>
+      <countryname>Cambodia</countryname>
+      <regionname>Phnom Penh</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>canada-montreal-ca-version-2.expressnetw.com</servername>
+      <countryname>Canada</countryname>
+      <regionname>Montreal</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>canada-toronto-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Canada</countryname>
+      <regionname>Toronto #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>canada-toronto-ca-version-2.expressnetw.com</servername>
+      <countryname>Canada</countryname>
+      <regionname>Toronto</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>canada-vancouver-ca-version-2.expressnetw.com</servername>
+      <countryname>Canada</countryname>
+      <regionname>Vancouver</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>chile-ca-version-2.expressnetw.com</servername>
+      <countryname>Chile</countryname>
+      <regionname>Santiago</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>colombia-ca-version-2.expressnetw.com</servername>
+      <countryname>Colombia</countryname>
+      <regionname>Bogata</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>costarica-ca-version-2.expressnetw.com</servername>
+      <countryname>Costa Rica</countryname>
+      <regionname>San Jose</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>croatia-ca-version-2.expressnetw.com</servername>
+      <countryname>Croatia</countryname>
+      <regionname>Zagreb</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>cyprus-ca-version-2.expressnetw.com</servername>
+      <countryname>Cyprus</countryname>
+      <regionname>Strovolos</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>czechrepublic-ca-version-2.expressnetw.com</servername>
+      <countryname>Czech Republic</countryname>
+      <regionname>Prague</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>denmark-ca-version-2.expressnetw.com</servername>
+      <countryname>Denmark</countryname>
+      <regionname>Copenhagen</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ecuador-ca-version-2.expressnetw.com</servername>
+      <countryname>Ecuador</countryname>
+      <regionname>Quito</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>egypt-ca-version-2.expressnetw.com</servername>
+      <countryname>Egypt</countryname>
+      <regionname>Cairo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>estonia-ca-version-2.expressnetw.com</servername>
+      <countryname>Estonia</countryname>
+      <regionname>Tallinn</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>finland-ca-version-2.expressnetw.com</servername>
+      <countryname>Finland</countryname>
+      <regionname>Helsinki</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>france-paris-1-ca-version-2.expressnetw.com</servername>
+      <countryname>France</countryname>
+      <regionname>Paris #1</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>france-paris-2-ca-version-2.expressnetw.com</servername>
+      <countryname>France</countryname>
+      <regionname>Paris #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>france-strasbourg-ca-version-2.expressnetw.com</servername>
+      <countryname>France</countryname>
+      <regionname>Strasbourg</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>georgia-ca-version-2.expressnetw.com</servername>
+      <countryname>Georgia</countryname>
+      <regionname>Tbilisi</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>germany-frankfurt-1-ca-version-2.expressnetw.com</servername>
+      <countryname>Germany</countryname>
+      <regionname>Frankfurt #1</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>germany-frankfurt-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Germany</countryname>
+      <regionname>Frankfurt #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>germany-darmstadt-ca-version-2.expressnetw.com</servername>
+      <countryname>Germany</countryname>
+      <regionname>Frankfurt #3</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>germany-nuremberg-ca-version-2.expressnetw.com</servername>
+      <countryname>Germany</countryname>
+      <regionname>Nuremberg</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>greece-ca-version-2.expressnetw.com</servername>
+      <countryname>Greece</countryname>
+      <regionname>Athens</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>guatemala-ca-version-2.expressnetw.com</servername>
+      <countryname>Guatemala</countryname>
+      <regionname>Mixco</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>hongkong-1-ca-version-2.expressnetw.com</servername>
+      <countryname>Hong Kong</countryname>
+      <regionname>Hong Kong #1</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>hongkong-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Hong Kong</countryname>
+      <regionname>Hong Kong #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>hongkong4-ca-version-2.expressnetw.com</servername>
+      <countryname>Hong Kong</countryname>
+      <regionname>Hong Kong #4</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>hungary-ca-version-2.expressnetw.com</servername>
+      <countryname>Hungary</countryname>
+      <regionname>Budapest</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>iceland-ca-version-2.expressnetw.com</servername>
+      <countryname>Iceland</countryname>
+      <regionname>Keflavik</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>india-chennai-ca-version-2.expressnetw.com</servername>
+      <countryname>India</countryname>
+      <regionname>Chennai</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>indonesia-ca-version-2.expressnetw.com</servername>
+      <countryname>Indonesia</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ireland-ca-version-2.expressnetw.com</servername>
+      <countryname>Ireland</countryname>
+      <regionname>Dublin</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>isleofman-ca-version-2.expressnetw.com</servername>
+      <countryname>Isle of Man</countryname>
+      <regionname>Douglas</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>israel-ca-version-2.expressnetw.com</servername>
+      <countryname>Israel</countryname>
+      <regionname>Tel Aviv</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>italy-cosenza-ca-version-2.expressnetw.com</servername>
+      <countryname>Italy</countryname>
+      <regionname>Cosenza</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>italy-milan-ca-version-2.expressnetw.com</servername>
+      <countryname>Italy</countryname>
+      <regionname>Milan</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>japan-tokyo-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Japan</countryname>
+      <regionname>Tokyo #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>japan-tokyo-ca-version-2.expressnetw.com</servername>
+      <countryname>Japan</countryname>
+      <regionname>Tokyo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>jersey-ca-version-2.expressnetw.com</servername>
+      <countryname>Jersey</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>kenya-ca-version-2.expressnetw.com</servername>
+      <countryname>Kenya</countryname>
+      <regionname>Nairobi</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>laos-ca-version-2.expressnetw.com</servername>
+      <countryname>Laos</countryname>
+      <regionname>Vientiane</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>latvia-ca-version-2.expressnetw.com</servername>
+      <countryname>Latvia</countryname>
+      <regionname>Riga</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>liechtenstein-ca-version-2.expressnetw.com</servername>
+      <countryname>Liechtenstein</countryname>
+      <regionname>Vaduz</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>lithuania-ca-version-2.expressnetw.com</servername>
+      <countryname>Lithuania</countryname>
+      <regionname>Vilnius</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>luxembourg-ca-version-2.expressnetw.com</servername>
+      <countryname>Luxembourg</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>macau-ca-version-2.expressnetw.com</servername>
+      <countryname>Macau</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>malaysia-ca-version-2.expressnetw.com</servername>
+      <countryname>Malaysia</countryname>
+      <regionname>Kuala Lumpur</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>malta-ca-version-2.expressnetw.com</servername>
+      <countryname>Malta</countryname>
+      <regionname>Valletta</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>mexico-ca-version-2.expressnetw.com</servername>
+      <countryname>Mexico</countryname>
+      <regionname>Mexico City</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>moldova-ca-version-2.expressnetw.com</servername>
+      <countryname>Moldova</countryname>
+      <regionname>Chisinau</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>monaco-ca-version-2.expressnetw.com</servername>
+      <countryname>Monaco</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>mongolia-ca-version-2.expressnetw.com</servername>
+      <countryname>Mongolia</countryname>
+      <regionname>Ulan Bator</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>montenegro-ca-version-2.expressnetw.com</servername>
+      <countryname>Montenegro</countryname>
+      <regionname>Podgorica</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>myanmar-ca-version-2.expressnetw.com</servername>
+      <countryname>Myanmar</countryname>
+      <regionname>Yangon</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>nepal-ca-version-2.expressnetw.com</servername>
+      <countryname>Nepal</countryname>
+      <regionname>Kathmandu</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>netherlands-amsterdam-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Netherlands</countryname>
+      <regionname>Amsterdam #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>netherlands-amsterdam-ca-version-2.expressnetw.com</servername>
+      <countryname>Netherlands</countryname>
+      <regionname>Amsterdam</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>netherlands-rotterdam-ca-version-2.expressnetw.com</servername>
+      <countryname>Netherlands</countryname>
+      <regionname>Rotterdam</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>netherlands-thehague-ca-version-2.expressnetw.com</servername>
+      <countryname>Netherlands</countryname>
+      <regionname>The Hague</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>newzealand-ca-version-2.expressnetw.com</servername>
+      <countryname>New Zealand</countryname>
+      <regionname>Auckland</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>macedonia-ca-version-2.expressnetw.com</servername>
+      <countryname>North Macedonia</countryname>
+      <regionname>Skopje</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>norway-ca-version-2.expressnetw.com</servername>
+      <countryname>Norway</countryname>
+      <regionname>Oslo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>pakistan-ca-version-2.expressnetw.com</servername>
+      <countryname>Pakistan</countryname>
+      <regionname>Islamabad</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>panama-ca-version-2.expressnetw.com</servername>
+      <countryname>Panama</countryname>
+      <regionname>Panama City</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>peru-ca-version-2.expressnetw.com</servername>
+      <countryname>Peru</countryname>
+      <regionname>Lima</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ph-via-sing-ca-version-2.expressnetw.com</servername>
+      <countryname>Philippines</countryname>
+      <regionname>Manila</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>poland-ca-version-2.expressnetw.com</servername>
+      <countryname>Poland</countryname>
+      <regionname>Warsaw</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>portugal-ca-version-2.expressnetw.com</servername>
+      <countryname>Portugal</countryname>
+      <regionname>Lisbon</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>romania-ca-version-2.expressnetw.com</servername>
+      <countryname>Romania</countryname>
+      <regionname>Bucharest</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>serbia-ca-version-2.expressnetw.com</servername>
+      <countryname>Serbia</countryname>
+      <regionname>Belgrade</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>singapore-cbd-ca-version-2.expressnetw.com</servername>
+      <countryname>Singapore</countryname>
+      <regionname>CBD</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>singapore-jurong-ca-version-2.expressnetw.com</servername>
+      <countryname>Singapore</countryname>
+      <regionname>Jurong</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>singapore-marinabay-ca-version-2.expressnetw.com</servername>
+      <countryname>Singapore</countryname>
+      <regionname>Marinabay</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>slovakia-ca-version-2.expressnetw.com</servername>
+      <countryname>Slovakia</countryname>
+      <regionname>Bratislava</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>slovenia-ca-version-2.expressnetw.com</servername>
+      <countryname>Slovenia</countryname>
+      <regionname>Ljubljana</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>southafrica-ca-version-2.expressnetw.com</servername>
+      <countryname>South Africa</countryname>
+      <regionname>Cape Town</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>spain-ca-version-2.expressnetw.com</servername>
+      <countryname>Spain</countryname>
+      <regionname>Madrid</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>srilanka-ca-version-2.expressnetw.com</servername>
+      <countryname>Sri Lanka</countryname>
+      <regionname>Colombo</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sweden2-ca-version-2.expressnetw.com</servername>
+      <countryname>Sweden</countryname>
+      <regionname>Stockholm #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>sweden-ca-version-2.expressnetw.com</servername>
+      <countryname>Sweden</countryname>
+      <regionname>Stockholm</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>switzerland-2-ca-version-2.expressnetw.com</servername>
+      <countryname>Switzerland</countryname>
+      <regionname>Bern</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>switzerland-ca-version-2.expressnetw.com</servername>
+      <countryname>Switzerland</countryname>
+      <regionname>Zurich</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>thailand-ca-version-2.expressnetw.com</servername>
+      <countryname>Thailand</countryname>
+      <regionname>Bangkok</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>turkey-ca-version-2.expressnetw.com</servername>
+      <countryname>Turkey</countryname>
+      <regionname>Bursa</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>uk-1-docklands-ca-version-2.expressnetw.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>Docklands</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>uk-east-london-ca-version-2.expressnetw.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>East London</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>uk-london-ca-version-2.expressnetw.com</servername>
+      <countryname>United Kingdom</countryname>
+      <regionname>London</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>ukraine-ca-version-2.expressnetw.com</servername>
+      <countryname>Ukraine</countryname>
+      <regionname>Kyiv</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-chicago-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Chicago</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-dallas-2-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Dallas #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-dallas-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Dallas</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-denver-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Denver</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-losangeles-1-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Los Angeles #1</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-losangeles-2-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Los Angeles #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-losangeles-3-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Los Angeles #3</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-losangeles5-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Los Angeles #5</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-losangeles-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Los Angeles</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-miami-2-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Miami #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-miami-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Miami</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-newjersey-1-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>New Jersey #1</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-newjersey2-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>New Jersey #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-newjersey-3-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>New Jersey #3</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>us-new-york-2-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>New York #2</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-newyork-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>New York</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-saltlakecity-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Salt Lake City</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-sanfrancisco-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>San Francisco</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-seattle-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Seattle</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-tampa-1-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Tampa #1</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>usa-washingtondc-ca-version-2.expressnetw.com</servername>
+      <countryname>United States</countryname>
+      <regionname>Washington DC</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>uzbekistan-ca-version-2.expressnetw.com</servername>
+      <countryname>Uzbekistan</countryname>
+      <regionname></regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>venezuela-ca-version-2.expressnetw.com</servername>
+      <countryname>Venezuela</countryname>
+      <regionname>Caracas</regionname>
+    </vpnserver>
+    <vpnserver>
+      <servername>vietnam-ca-version-2.expressnetw.com</servername>
+      <countryname>Vietnam</countryname>
+      <regionname></regionname>
+    </vpnserver>
+  </vpnservers>
+</vpnserverinfo>

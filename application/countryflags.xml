@@ -40,12 +40,20 @@
                 <flagfile>BH.svg</flagfile>
         </country>
         <country>
+                <name>Belarus</name>
+                <flagfile>BY.svg</flagfile>
+        </country>
+        <country>
                 <name>Belgium</name>
                 <flagfile>BE.svg</flagfile>
         </country>
         <country>
                 <name>Belize</name>
                 <flagfile>BZ.svg</flagfile>
+        </country>
+        <country>
+                <name>Bhutan</name>
+                <flagfile>BT.svg</flagfile>
         </country>
         <country>
                 <name>Bosnia and Herzegovina</name>
@@ -140,6 +148,10 @@
                 <flagfile>IM.svg</flagfile>
         </country>
         <country>
+                <name>Jersey</name>
+                <flagfile>JE.svg</flagfile>
+        </country>
+        <country>
                 <name>Jordan</name>
                 <flagfile>JO.svg</flagfile>
         </country>
@@ -158,6 +170,14 @@
         <country>
                 <name>Korea, Republic of</name>
                 <flagfile>KR.svg</flagfile>
+        </country>
+        <country>
+                <name>Macau</name>
+                <flagfile>MO.svg</flagfile>
+        </country>
+        <country>
+                <name>Nepal</name>
+                <flagfile>NE.svg</flagfile>
         </country>
         <country>
                 <name>South Korea</name>

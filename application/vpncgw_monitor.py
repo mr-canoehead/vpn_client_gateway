@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Monitors the openvpn service, writes status information to a JSON file. This script
 # interacts with the openvpn management interface, the management interface must be
@@ -43,7 +43,7 @@ PRINTSTATUS = False
 
 # signal handler for ctr+break
 def signal_handler(signal, frame):
-        sys.exit(0)
+	sys.exit(0)
 signal.signal(signal.SIGINT, signal_handler)
 
 def get_cpu_temp():
@@ -52,8 +52,8 @@ def get_cpu_temp():
 		args=['cat','/sys/class/thermal/thermal_zone0/temp']
 		try:
 			p = subprocess.Popen(args, stdout=subprocess.PIPE)
-			output, err = p.communicate()
-			cpu_temp = round(float(output)/1000.0,1)
+			stdout, stderr = p.communicate()
+			cpu_temp = round(float(stdout.decode('utf-8'))/1000.0,1)
 		except IOError as err:
 			cpu_temp = 0
 	else:
@@ -73,10 +73,10 @@ def check_dns():
 # tests if DNS queries are working
 	args=['dig','+short','+timeout=1','+tries=2','-4','www.example.com']
 	p = subprocess.Popen(args, stdout=subprocess.PIPE)
-	output, err = p.communicate()
+	stdout, stderr = p.communicate()
 	regex = '^[^;].*'
 	m = re.compile(regex)
-	matches = m.findall(output)
+	matches = m.findall(stdout.decode('utf-8'))
 	if matches:
 		return True
 	else:
@@ -129,7 +129,7 @@ def openvpn_stats_dict(status_string):
 def openvpn_state_dict(state_string):
 # parses an openvpn 'state' response string, returns the values as a dictionary
 	state_dict = {}
-	state_values=state_string.split(",")
+	state_values=state_string.decode('utf-8').split(",")
 	if len(state_values) > 0:
 		state_dict['udt'] = str(state_values[0])
 	else: state_dict['udt'] = "0"
@@ -172,9 +172,10 @@ def vpncgw_monitor_main():
 			vpncgw_status_dict['openvpn']['service'] = "disabled"
 		else:
 			vpncgw_status_dict['currentserver']['enabled'] = True
-			args=['service','openvpn-client@vpncgw','status']
+			args=['systemctl','status', 'openvpn-client@vpncgw']
 			p = subprocess.Popen(args, stdout=subprocess.PIPE)
-			output, err = p.communicate()
+			stdout, stderr = p.communicate()
+			output = stdout.decode('utf-8')
 			if len(output) > 2 and output.splitlines()[2].strip().split()[1].lower() == "active":
 				vpncgw_status_dict['openvpn']['service'] = "active"
 			else:
@@ -230,7 +231,7 @@ def vpncgw_monitor_main():
 					error = "mgt_if_sock_connect"
 				if not error:
 					try: 
-						data = s.recv(BUFFER_SIZE)
+						data = s.recv(BUFFER_SIZE).decode('utf-8')
 					except IOError as e:
 						error = "mgt_if_sock_read"
 					if PASSWORD_PROMPT in data:
@@ -257,7 +258,7 @@ def vpncgw_monitor_main():
 							pass
 						# get openvpn state
 						try:
-							s.send("state\n")
+							s.send("state\n".encode('utf-8'))
 						except IOError as e:
 							error = "mgt_if_sock_write"
 						time.sleep(0.25)
@@ -273,12 +274,12 @@ def vpncgw_monitor_main():
 					if not error:
 						# get openvpn statistics
 						try:
-							s.send("status\n")
+							s.send("status\n".encode('utf-8'))
 						except IOError as e:
 							error = "mgt_if_sock_write"
 						time.sleep(0.25)
 						try:
-							status_string=s.recv(BUFFER_SIZE)
+							status_string=s.recv(BUFFER_SIZE).decode('utf-8')
 						except IOError as e:
 							error = "mgt_if_sock_read"
 						if not error:
@@ -287,8 +288,8 @@ def vpncgw_monitor_main():
 					try:
 						# try to close management interface session nicely
 						# must send both 'quit' and 'exit' (the command varies depending on openvpn state)
-						s.send("quit\n")
-						s.send("exit\n")
+						s.send("quit\n".encode('utf-8'))
+						s.send("exit\n".encode('utf-8'))
 					except IOError as e:
 						pass
 			s.close()
@@ -324,5 +325,6 @@ def vpncgw_monitor_main():
 
 if __name__ == '__main__':
         vpncgw_monitor_main()
+
 
 

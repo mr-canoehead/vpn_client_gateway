@@ -17,6 +17,9 @@ SERVERS_VPN_CONNECTED=(10.0.0.243)
 #PIA DNS+MACE
 #SERVERS_VPN_CONNECTED=(10.0.0.244)
 
+#Surfshark
+#SERVERS_VPN_CONNECTED=(162.252.172.57 149.154.159.92)
+
 ### DNS servers to use when VPN is not connected
 
 #Cloudflare

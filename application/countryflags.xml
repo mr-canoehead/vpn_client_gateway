@@ -172,6 +172,10 @@
                 <flagfile>KR.svg</flagfile>
         </country>
         <country>
+                <name>Libya</name>
+                <flagfile>LB.svg</flagfile>
+        </country>
+        <country>
                 <name>Macau</name>
                 <flagfile>MO.svg</flagfile>
         </country>

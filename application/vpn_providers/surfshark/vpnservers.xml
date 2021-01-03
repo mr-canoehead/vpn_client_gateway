@@ -1,0 +1,560 @@
+<vpnserverinfo>
+  <basicvpnservers>
+		<servername>ca-mon.prod.surfshark.com</servername>
+		<servername>us-lax.prod.surfshark.com</servername>
+		<servername>uk-lon.prod.surfshark.com</servername>
+		<servername>au-mel.prod.surfshark.com</servername>
+		<servername>se-sto.prod.surfshark.com</servername>
+		<servername>nl-ams.prod.surfshark.com</servername>
+		<servername>fr-par.prod.surfshark.com</servername>
+		<servername>de-ber.prod.surfshark.com</servername>
+		<servername>ch-zur.prod.surfshark.com</servername>
+  </basicvpnservers>
+  <vpnservers>
+	<vpnserver>
+		<servername>al-tia.prod.surfshark.com</servername>
+		<countryname>Albania</countryname>
+		<regionname>Tirana</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ar-bua.prod.surfshark.com</servername>
+		<countryname>Argentina</countryname>
+		<regionname>Buenos Aires</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>au-bne.prod.surfshark.com</servername>
+		<countryname>Australia</countryname>
+		<regionname>Brisbane QLD</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>au-syd.prod.surfshark.com</servername>
+		<countryname>Australia</countryname>
+		<regionname>Sydney NSW</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>au-mel.prod.surfshark.com</servername>
+		<countryname>Australia</countryname>
+		<regionname>Melbourne VIC</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>au-adl.prod.surfshark.com</servername>
+		<countryname>Australia</countryname>
+		<regionname>Adelaide SA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>au-per.prod.surfshark.com</servername>
+		<countryname>Australia</countryname>
+		<regionname>Perth WA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>at-vie.prod.surfshark.com</servername>
+		<countryname>Austria</countryname>
+		<regionname>Vienna</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>be-bru.prod.surfshark.com</servername>
+		<countryname>Belgium</countryname>
+		<regionname>Brussels</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ba-sjj.prod.surfshark.com</servername>
+		<countryname>Bosnia and Herzegovina</countryname>
+		<regionname> Sarajevo</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>br-sau.prod.surfshark.com</servername>
+		<countryname>Brazil</countryname>
+		<regionname>Sao Paulo</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>bg-sof.prod.surfshark.com</servername>
+		<countryname>Bulgaria</countryname>
+		<regionname>Sofia</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca-van.prod.surfshark.com</servername>
+		<countryname>Canada</countryname>
+		<regionname>Vancouver BC</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca-tor.prod.surfshark.com</servername>
+		<countryname>Canada</countryname>
+		<regionname>Toronto ON</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ca-mon.prod.surfshark.com</servername>
+		<countryname>Canada</countryname>
+		<regionname>Montreal QC</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>cl-san.prod.surfshark.com</servername>
+		<countryname>Chile</countryname>
+		<regionname>Santiago</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>co-bog.prod.surfshark.com</servername>
+		<countryname>Colombia</countryname>
+		<regionname>Bogota</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>cr-sjn.prod.surfshark.com</servername>
+		<countryname>Costa Rica</countryname>
+		<regionname>San Jose</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>hr-zag.prod.surfshark.com</servername>
+		<countryname>Croatia</countryname>
+		<regionname>Zagreb</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>cy-nic.prod.surfshark.com</servername>
+		<countryname>Cyprus</countryname>
+		<regionname>Nicosia</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>cz-prg.prod.surfshark.com</servername>
+		<countryname>Czech Republic</countryname>
+		<regionname>Prague</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>dk-cph.prod.surfshark.com</servername>
+		<countryname>Denmark</countryname>
+		<regionname>Copenhagen</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ee-tll.prod.surfshark.com</servername>
+		<countryname>Estonia</countryname>
+		<regionname>Tallinn</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>fi-hel.prod.surfshark.com</servername>
+		<countryname>Finland</countryname>
+		<regionname>Helsinki</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>fr-par.prod.surfshark.com</servername>
+		<countryname>France</countryname>
+		<regionname>Paris</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>fr-bod.prod.surfshark.com</servername>
+		<countryname>France</countryname>
+		<regionname>Bordeaux</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>fr-mrs.prod.surfshark.com</servername>
+		<countryname>France</countryname>
+		<regionname>Marseille</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>de-fra.prod.surfshark.com</servername>
+		<countryname>Germany</countryname>
+		<regionname>Frankfurt am Main</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>de-ber.prod.surfshark.com</servername>
+		<countryname>Germany</countryname>
+		<regionname>Berlin</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>de-nue.prod.surfshark.com</servername>
+		<countryname>Germany</countryname>
+		<regionname>Nuremberg</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>de-muc.prod.surfshark.com</servername>
+		<countryname>Germany</countryname>
+		<regionname>Munich</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>gr-ath.prod.surfshark.com</servername>
+		<countryname>Greece</countryname>
+		<regionname>Athens</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>hk-hkg.prod.surfshark.com</servername>
+		<countryname>Hong Kong</countryname>
+		<regionname>Hong Kong</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>hu-bud.prod.surfshark.com</servername>
+		<countryname>Hungary</countryname>
+		<regionname>Budapest</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>is-rkv.prod.surfshark.com</servername>
+		<countryname>Iceland</countryname>
+		<regionname>Reykjavik</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>in-mum.prod.surfshark.com</servername>
+		<countryname>India</countryname>
+		<regionname>Mumbai</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>in-idr.prod.surfshark.com</servername>
+		<countryname>India</countryname>
+		<regionname>Indore</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>in-chn.prod.surfshark.com</servername>
+		<countryname>India</countryname>
+		<regionname>Chennai</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>id-jak.prod.surfshark.com</servername>
+		<countryname>Indonesia</countryname>
+		<regionname>Jakarta</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ie-dub.prod.surfshark.com</servername>
+		<countryname>Ireland</countryname>
+		<regionname>Dublin</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>il-tlv.prod.surfshark.com</servername>
+		<countryname>Israel</countryname>
+		<regionname>Tel Aviv</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>it-mil.prod.surfshark.com</servername>
+		<countryname>Italy</countryname>
+		<regionname>Milan</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>it-rom.prod.surfshark.com</servername>
+		<countryname>Italy</countryname>
+		<regionname>Rome</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>jp-tok.prod.surfshark.com</servername>
+		<countryname>Japan</countryname>
+		<regionname>Tokyo</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>kz-ura.prod.surfshark.com</servername>
+		<countryname>Kazakhstan</countryname>
+		<regionname>Oral</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>lv-rig.prod.surfshark.com</servername>
+		<countryname>Latvia</countryname>
+		<regionname>Riga</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ly-tip.prod.surfshark.com</servername>
+		<countryname>Libya</countryname>
+		<regionname>Tripoli</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>lu-ste.prod.surfshark.com</servername>
+		<countryname>Luxembourg</countryname>
+		<regionname>Luxembourg</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>my-kul.prod.surfshark.com</servername>
+		<countryname>Malaysia</countryname>
+		<regionname>Kuala Lumpur</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mx-mex.prod.surfshark.com</servername>
+		<countryname>Mexico</countryname>
+		<regionname>Mexico City</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>md-chi.prod.surfshark.com</servername>
+		<countryname>Moldova</countryname>
+		<regionname>Chisinau</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nl-ams.prod.surfshark.com</servername>
+		<countryname>Netherlands</countryname>
+		<regionname>Amsterdam</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>nz-akl.prod.surfshark.com</servername>
+		<countryname>New Zealand</countryname>
+		<regionname>Auckland</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ng-lag.prod.surfshark.com</servername>
+		<countryname>Nigeria</countryname>
+		<regionname>Lagos</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>mk-skp.prod.surfshark.com</servername>
+		<countryname>North Macedonia</countryname>
+		<regionname>Skopje</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>no-osl.prod.surfshark.com</servername>
+		<countryname>Norway</countryname>
+		<regionname>Oslo</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>py-asu.prod.surfshark.com</servername>
+		<countryname>Paraguay</countryname>
+		<regionname>Asuncion</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ph-mnl.prod.surfshark.com</servername>
+		<countryname>Philippines</countryname>
+		<regionname>Manila</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>pl-gdn.prod.surfshark.com</servername>
+		<countryname>Poland</countryname>
+		<regionname>Gdansk</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>pl-waw.prod.surfshark.com</servername>
+		<countryname>Poland</countryname>
+		<regionname>Warsaw</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>pt-opo.prod.surfshark.com</servername>
+		<countryname>Portugal</countryname>
+		<regionname>Porto</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>pt-lis.prod.surfshark.com</servername>
+		<countryname>Portugal</countryname>
+		<regionname>Lisbon</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>pt-lou.prod.surfshark.com</servername>
+		<countryname>Portugal</countryname>
+		<regionname>Loule</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ro-buc.prod.surfshark.com</servername>
+		<countryname>Romania</countryname>
+		<regionname>Bucharest</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ru-spt.prod.surfshark.com</servername>
+		<countryname>Russia</countryname>
+		<regionname>St. Petersburg</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ru-mos.prod.surfshark.com</servername>
+		<countryname>Russia</countryname>
+		<regionname>Moscow</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>rs-beg.prod.surfshark.com</servername>
+		<countryname>Serbia</countryname>
+		<regionname>Belgrade</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sg-sng.prod.surfshark.com</servername>
+		<countryname>Singapore</countryname>
+		<regionname>Singapore</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>sk-bts.prod.surfshark.com</servername>
+		<countryname>Slovakia</countryname>
+		<regionname>Bratislava</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>si-lju.prod.surfshark.com</servername>
+		<countryname>Slovenia</countryname>
+		<regionname>Ljubljana</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>za-jnb.prod.surfshark.com</servername>
+		<countryname>South Africa</countryname>
+		<regionname>Johannesburg</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>kr-seo.prod.surfshark.com</servername>
+		<countryname>South Korea</countryname>
+		<regionname>Seoul</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>es-mad.prod.surfshark.com</servername>
+		<countryname>Spain</countryname>
+		<regionname>Madrid</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>es-bcn.prod.surfshark.com</servername>
+		<countryname>Spain</countryname>
+		<regionname>Barcelona</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>es-vlc.prod.surfshark.com</servername>
+		<countryname>Spain</countryname>
+		<regionname>Valencia</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>se-sto.prod.surfshark.com</servername>
+		<countryname>Sweden</countryname>
+		<regionname>Stockholm</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ch-zur.prod.surfshark.com</servername>
+		<countryname>Switzerland</countryname>
+		<regionname>Zurich</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>tw-tai.prod.surfshark.com</servername>
+		<countryname>Taiwan</countryname>
+		<regionname>Taichung City</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>tr-ist.prod.surfshark.com</servername>
+		<countryname>Turkey</countryname>
+		<regionname>Istanbul</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ua-iev.prod.surfshark.com</servername>
+		<countryname>Ukraine</countryname>
+		<regionname>Kyiv</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>ae-dub.prod.surfshark.com</servername>
+		<countryname>United Arab Emirates</countryname>
+		<regionname>Dubai</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk-gla.prod.surfshark.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname>Glasgow</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk-lon.prod.surfshark.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname>London</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>uk-man.prod.surfshark.com</servername>
+		<countryname>United Kingdom</countryname>
+		<regionname>Manchester</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-lax.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Los Angeles CA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-las.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Las Vegas NV</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-phx.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Phoenix AZ</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-sfo.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>San Francisco CA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-slc.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Salt Lake City UT</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-den.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Denver CO</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-bdn.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Bend OR</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-sea.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Seattle WA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-dal.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Dallas TX</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-hou.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Houston TX</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-kan.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Kansas City MO</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-stl.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>St. Louis MO</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-chi.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Chicago IL</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-atl.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Atlanta GA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-dtw.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Detroit MI</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-tpa.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Tampa FL</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-orl.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Orlando FL</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-mia.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Miami FL</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-buf.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Buffalo NY</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-clt.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Charlotte NC</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-mnz.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Manassas VA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-ltm.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Latham NY</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-nyc.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>New York City NY</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>us-bos.prod.surfshark.com</servername>
+		<countryname>United States</countryname>
+		<regionname>Boston MA</regionname>
+	</vpnserver>
+	<vpnserver>
+		<servername>vn-hcm.prod.surfshark.com</servername>
+		<countryname>Vietnam</countryname>
+		<regionname>Ho Chi Minh City</regionname>
+	</vpnserver>
+  </vpnservers>
+</vpnserverinfo>

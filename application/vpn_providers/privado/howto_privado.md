@@ -9,7 +9,7 @@ unzip ovpn_configs.zip -d /home/pi/openvpn
 extract `ca.crt` file
 ```
 sudo chmod +x /home/pi/vpn_client_gateway/application/scripts/extract_ifile.sh
-/home/pi/vpn_client_gateway/application/scripts/extract_ifile --tag=ca --input=/home/pi/openvpn/ams-005.ovpn --output=/home/pi/openvpn/ca.crt
+/home/pi/vpn_client_gateway/application/scripts/extract_ifile --tag=ca --input=/home/pi/openvpn/fra-002.ovpn --output=/home/pi/openvpn/ca.crt
 sudo cp /home/pi/openvpn/ca.crt /etc/openvpn/client/ca.crt
 ```
 

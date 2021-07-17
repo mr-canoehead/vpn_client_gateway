@@ -8,10 +8,16 @@
     <servername>cdg-003.vpn.privado.io</servername>
     <servername>waw-002.vpn.privado.io</servername>
     <servername>nrt-003.vpn.privado.io</servername>
+    <servername>tsa-005.vpn.privado.io</servername>
 </basicvpnservers>
 <vpnservers>
   <vpnserver>
     <servername>eze-001.vpn.privado.io</servername>
+    <countryname>Argentina</countryname>
+    <regionname>Buenos Aires</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>eze-002.vpn.privado.io</servername>
     <countryname>Argentina</countryname>
     <regionname>Buenos Aires</regionname>
   </vpnserver>
@@ -129,6 +135,11 @@
     <servername>yyz-003.vpn.privado.io</servername>
     <countryname>Canada</countryname>
     <regionname>Toronto</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>zrh-001.vpn.privado.io</servername>
+    <countryname>Switzerland</countryname>
+    <regionname>Zurich</regionname>
   </vpnserver>
   <vpnserver>
     <servername>zrh-002.vpn.privado.io</servername>
@@ -296,6 +307,111 @@
     <regionname>London</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>lhr-005.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-006.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-007.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-008.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-009.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-010.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-011.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-012.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-013.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-014.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-015.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-016.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-017.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-018.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-019.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-020.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-021.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-022.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-023.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-024.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>lhr-025.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>London</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>man-001.vpn.privado.io</servername>
     <countryname>United Kingdom</countryname>
     <regionname>Manchester</regionname>
@@ -312,6 +428,21 @@
   </vpnserver>
   <vpnserver>
     <servername>man-004.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>Manchester</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>man-006.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>Manchester</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>man-007.vpn.privado.io</servername>
+    <countryname>United Kingdom</countryname>
+    <regionname>Manchester</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>man-008.vpn.privado.io</servername>
     <countryname>United Kingdom</countryname>
     <regionname>Manchester</regionname>
   </vpnserver>
@@ -366,6 +497,51 @@
     <regionname>Budapest</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>cgk-001.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-002.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-003.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-004.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-005.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-006.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-007.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-008.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>cgk-009.vpn.privado.io</servername>
+    <countryname>Indonesia</countryname>
+    <regionname>Jakarta</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>dub-001.vpn.privado.io</servername>
     <countryname>Ireland</countryname>
     <regionname>Dublin</regionname>
@@ -404,16 +580,6 @@
     <servername>bom-002.vpn.privado.io</servername>
     <countryname>India</countryname>
     <regionname>Mumbai</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>rkv-001.vpn.privado.io</servername>
-    <countryname>Iceland</countryname>
-    <regionname>Reykjavik</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>rkv-002.vpn.privado.io</servername>
-    <countryname>Iceland</countryname>
-    <regionname>Reykjavik</regionname>
   </vpnserver>
   <vpnserver>
     <servername>mxp-001.vpn.privado.io</servername>
@@ -474,16 +640,6 @@
     <servername>rix-002.vpn.privado.io</servername>
     <countryname>Latvia</countryname>
     <regionname>Riga</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>mex-001.vpn.privado.io</servername>
-    <countryname>Mexico</countryname>
-    <regionname>Mexico City</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>mex-002.vpn.privado.io</servername>
-    <countryname>Mexico</countryname>
-    <regionname>Mexico City</regionname>
   </vpnserver>
   <vpnserver>
     <servername>mex-003.vpn.privado.io</servername>
@@ -589,6 +745,46 @@
     <servername>kul-013.vpn.privado.io</servername>
     <countryname>Malaysia</countryname>
     <regionname>Kuala Lumpur</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-001.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-002.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-003.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-004.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-005.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-006.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-007.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ams-008.vpn.privado.io</servername>
+    <countryname>Netherlands</countryname>
+    <regionname>Amsterdam</regionname>
   </vpnserver>
   <vpnserver>
     <servername>ams-009.vpn.privado.io</servername>
@@ -816,131 +1012,6 @@
     <regionname>Warsaw</regionname>
   </vpnserver>
   <vpnserver>
-    <servername>waw-033.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-034.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-035.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-036.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-037.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-038.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-039.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-040.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-041.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-042.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-043.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-044.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-045.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-046.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-047.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-048.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-049.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-051.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-052.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-053.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-054.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-055.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-056.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-057.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
-    <servername>waw-058.vpn.privado.io</servername>
-    <countryname>Poland</countryname>
-    <regionname>Warsaw</regionname>
-  </vpnserver>
-  <vpnserver>
     <servername>lis-001.vpn.privado.io</servername>
     <countryname>Portugal</countryname>
     <regionname>Lisbon</regionname>
@@ -1041,6 +1112,71 @@
     <regionname>Istanbul</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>tsa-001.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-002.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-003.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-005.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-006.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-007.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-008.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-009.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-010.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-011.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-012.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-013.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>tsa-014.vpn.privado.io</servername>
+    <countryname>Taiwan</countryname>
+    <regionname>Taipei</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>iev-001.vpn.privado.io</servername>
     <countryname>Ukraine</countryname>
     <regionname>Kiev</regionname>
@@ -1049,6 +1185,11 @@
     <servername>iev-002.vpn.privado.io</servername>
     <countryname>Ukraine</countryname>
     <regionname>Kiev</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>dca-001.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Washington</regionname>
   </vpnserver>
   <vpnserver>
     <servername>dca-002.vpn.privado.io</servername>
@@ -1116,6 +1257,76 @@
     <regionname>Washington</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>den-001.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-002.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-003.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-004.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-005.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-006.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-007.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-008.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-009.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-010.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-011.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-012.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-013.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>den-014.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Denver</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>dfw-001.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Dallas</regionname>
@@ -1127,6 +1338,11 @@
   </vpnserver>
   <vpnserver>
     <servername>dfw-003.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Dallas</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>dfw-004.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Dallas</regionname>
   </vpnserver>
@@ -1276,12 +1492,22 @@
     <regionname>Dallas</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>jfk-001.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>New York</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>jfk-002.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>New York</regionname>
   </vpnserver>
   <vpnserver>
     <servername>jfk-003.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>New York</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>jfk-004.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>New York</regionname>
   </vpnserver>
@@ -1322,6 +1548,11 @@
   </vpnserver>
   <vpnserver>
     <servername>jfk-012.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>New York</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>jfk-013.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>New York</regionname>
   </vpnserver>
@@ -1411,7 +1642,17 @@
     <regionname>New York</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>jfk-031.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>New York</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>jfk-032.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>New York</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>jfk-033.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>New York</regionname>
   </vpnserver>
@@ -1471,6 +1712,11 @@
     <regionname>Los Angeles</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>lax-009.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Los Angeles</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>lax-010.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Los Angeles</regionname>
@@ -1506,11 +1752,6 @@
     <regionname>Miami</regionname>
   </vpnserver>
   <vpnserver>
-    <servername>ord-001.vpn.privado.io</servername>
-    <countryname>United States</countryname>
-    <regionname>Chicago</regionname>
-  </vpnserver>
-  <vpnserver>
     <servername>ord-003.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Chicago</regionname>
@@ -1541,12 +1782,27 @@
     <regionname>Chicago</regionname>
   </vpnserver>
   <vpnserver>
+    <servername>ord-009.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Chicago</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ord-010.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Chicago</regionname>
+  </vpnserver>
+  <vpnserver>
     <servername>ord-011.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Chicago</regionname>
   </vpnserver>
   <vpnserver>
     <servername>ord-012.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Chicago</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ord-013.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Chicago</regionname>
   </vpnserver>
@@ -1592,6 +1848,11 @@
   </vpnserver>
   <vpnserver>
     <servername>ord-022.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Chicago</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ord-023.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Chicago</regionname>
   </vpnserver>
@@ -1782,6 +2043,11 @@
   </vpnserver>
   <vpnserver>
     <servername>ord-061.vpn.privado.io</servername>
+    <countryname>United States</countryname>
+    <regionname>Chicago</regionname>
+  </vpnserver>
+  <vpnserver>
+    <servername>ord-062.vpn.privado.io</servername>
     <countryname>United States</countryname>
     <regionname>Chicago</regionname>
   </vpnserver>

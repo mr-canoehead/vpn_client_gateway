@@ -61,6 +61,8 @@ function statusUpdate(status_json) {
 			st[i].style.opacity='1';
 		}
 	document.getElementById('GatewayStatusOverlay').style.opacity='0';
+	// reset height after loading is finished
+  document.getElementById('GatewayStatusOverlay').style.height='unset';
 	var vpnserver_cookie_val = getCookie("vpnserver");
 	var vpnstate_cookie_val = (getCookie("vpnstate") == 'true');
 	// process status updates sent from server via SocketIO message
@@ -118,7 +120,7 @@ function statusUpdate(status_json) {
 		internet_status_ok = false;
 	}
 	else {
-		setIcon('dnsStatusIcon','okIcon');
+	        setIcon('dnsStatusIcon','okIcon');
 		document.getElementById('dnsStatus').innerText = 'ok';
 	}
 
@@ -135,16 +137,16 @@ function statusUpdate(status_json) {
 	}
 
 	document.getElementById('memoryUsageValue').innerText = Math.round(status_data['system']['mem_usage'],0);
-	show_element('memoryUsageValue');
-	show_element('memoryUsageUnit');
+	//show_element('memoryUsageValue');
+	//show_element('memoryUsageUnit');
 
 	document.getElementById('cpuUsageValue').innerText = Math.round(status_data['system']['cpu_load'],0);
-	show_element('cpuUsageValue');
-	show_element('cpuUsageUnit');
+	//show_element('cpuUsageValue');
+	//show_element('cpuUsageUnit');
 
 	document.getElementById('cpuTempValue').innerText = Math.round(status_data['system']['cpu_temp'],0);
-	show_element('cpuTempValue');
-	show_element('cpuTempUnit');
+	//show_element('cpuTempValue');
+	//show_element('cpuTempUnit');
 }
 
 function clearStatus() {
@@ -161,14 +163,16 @@ function clearStatus() {
 	document.getElementById('dnsStatus').innerText = '';
 	document.getElementById('openvpnServiceState').innerText = '';
 	document.getElementById('openvpnServiceStatus').innerText = '';
-	hide_element('cpuUsageUnit');
-	hide_element('cpuTempUnit');
-	hide_element('memoryUsageUnit');
+	//hide_element('cpuUsageUnit');
+	//hide_element('cpuTempUnit');
+	//hide_element('memoryUsageUnit');
 	var st = document.getElementsByClassName('StatusTable');
 		for (i = 0; i < st.length; i++) {
 			st[i].style.opacity='0';
 		}
 	document.getElementById('GatewayStatusOverlay').style.opacity='1';
+	// put height back so you can see loading gif
+  document.getElementById('GatewayStatusOverlay').style.height='100px';
 }
 
 // force browser to load stylesheet (instead of using cached version),
@@ -322,8 +326,8 @@ function populateCurrentServer(serverinfo) {
 			td.appendChild(img);
 			td.appendChild(location);
 			tr.appendChild(td);
-			tr.appendChild(document.createElement("td"));
-			tr.appendChild(document.createElement("td"));
+			//tr.appendChild(document.createElement("td"));
+			//tr.appendChild(document.createElement("td"));
 			tb.appendChild(tr);
 			currentVPNFlagTable.appendChild(tb);
 			currentVPNFlag.appendChild(currentVPNFlagTable);
@@ -721,12 +725,16 @@ function hide_syslog() {
 function show_basic() {
 	get_current_vpn_server();
 	get_basic_vpn_servers();
+	// don't show scrollbar for basic servers
+  document.getElementById("VPNSection").style.overflow = "initial";
 	show_element(["VPNSection","ChooseVPNBasic"]);
-	hide_element(["Admin","Tools","ChooseVPNAdvanced"]);  
+	hide_element(["Admin","Tools","ChooseVPNAdvanced"]);
 }
 
 function show_advanced() {
 	get_advanced_vpn_servers();
+	// show scrollbar for only advanced servers screen
+	document.getElementById("VPNSection").style.overflow = "auto";
 	show_element(["VPNSection","ChooseVPNAdvanced"]);
 	hide_element(["Admin","Tools","ChooseVPNBasic"]);
 }
@@ -749,3 +757,32 @@ function page_load() {
 	get_current_vpn_server();
 
 }
+
+// Dark Mode
+const currentTheme = localStorage.getItem('theme');
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('.theme-switch input[type="checkbox"]');
+
+  if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+
+      if (currentTheme === 'dark') {
+          checkbox.checked = true;
+      }
+  }
+
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      // do this
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      //console.log('Checked');
+    } else {
+      // do that
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+});
